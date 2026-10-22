@@ -18,7 +18,7 @@ const EXPERIENCE = [
 ];
 
 const PROJECT_LINKS = [
-  { label: "艾飛樂品牌網站", href: "https://kitty840219-web.github.io/claude-/", note: "品牌、內容與互動功能整合" },
+  { label: "艾飛樂品牌網站", href: "https://kitty840219-web.github.io/aifeiler-official/", note: "品牌、內容與互動功能整合" },
   { label: "Instagram 語錄創作", href: "https://www.instagram.com/aibi_0219/", note: "社群內容與插畫語錄" },
   { label: "YouTube 影音作品", href: "https://www.youtube.com/@aibi_0219", note: "動畫、剪輯與企劃作品" },
   { label: "AI 互動遊戲", href: "https://service-20260706-434892229881.asia-east1.run.app/", note: "AI 協作開發與互動設計" },

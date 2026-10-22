@@ -1,5 +1,5 @@
 const isGithubPages = process.env.GITHUB_PAGES === "true";
-const basePath = isGithubPages ? "/claude-" : "";
+const basePath = isGithubPages ? "/aifeiler-official" : "";
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
