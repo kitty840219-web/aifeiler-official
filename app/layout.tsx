@@ -38,6 +38,9 @@ const maShanZheng = Ma_Shan_Zheng({
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE.url),
+  verification: {
+    google: "HIlZvTSxdy_jgOn7TJSAinN1u6BSojHTQw92r3y2K4s",
+  },
   title: "艾飛樂數位文創個人工作室｜插畫・品牌視覺・客製周邊",
   description:
     "艾飛樂數位文創個人工作室提供插畫語錄、LINE 貼圖、社群視覺、品牌合作與客製周邊設計；由 Ivy 創作，歡迎透過官方 LINE 洽談合作。",
