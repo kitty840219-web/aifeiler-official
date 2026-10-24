@@ -5,7 +5,7 @@ import { applyTheme, getStoredTheme, type Theme } from "@/lib/theme";
 import { playTwinkleSound } from "@/lib/sound";
 
 export default function ThemeToggle() {
-  const [theme, setTheme] = useState<Theme>("dark");
+  const [theme, setTheme] = useState<Theme>("light");
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {

@@ -10,6 +10,9 @@ import { asset } from "@/lib/basePath";
 
 export default function ArticleList({ articles }: { articles: Article[] }) {
   const [selected, setSelected] = useState<Article | null>(null);
+  const [category, setCategory] = useState("全部文章");
+  const categories = ["全部文章", ...Array.from(new Set(articles.map((article) => article.tag)))];
+  const displayedArticles = category === "全部文章" ? articles : articles.filter((article) => article.tag === category);
 
   useEffect(() => {
     if (!selected) return;
@@ -22,31 +25,56 @@ export default function ArticleList({ articles }: { articles: Article[] }) {
 
   return (
     <>
-      <div className="mx-auto max-w-3xl space-y-4 px-4 sm:px-6">
-        {articles.map((a) => (
+      <div className="mx-auto max-w-6xl px-4 sm:px-6">
+        <div className="mb-9 flex flex-wrap justify-center gap-3">
+          {categories.map((item) => (
+            <button
+              key={item}
+              type="button"
+              onClick={() => setCategory(item)}
+              className={`rounded-full border px-5 py-2.5 text-sm font-bold tracking-wide transition sm:px-7 sm:text-base ${
+                category === item
+                  ? "border-paper-dark bg-paper-dark text-night-dark shadow-soft"
+                  : "border-paper/35 bg-white/10 text-paper hover:border-paper/70 hover:bg-white/20"
+              }`}
+            >
+              {item}
+            </button>
+          ))}
+        </div>
+
+        <div className="grid gap-7 md:grid-cols-2">
+        {displayedArticles.map((a) => (
           <button
             key={a.id}
             type="button"
             onClick={() => setSelected(a)}
-            className="bg-grain group relative flex min-h-40 w-full items-center gap-4 rounded-2xl bg-gradient-to-br from-night-light to-night p-6 text-left shadow-card transition hover:-translate-y-1"
+            className="group overflow-hidden rounded-[2rem] border border-gold/20 bg-white/85 text-left text-paper shadow-card transition hover:-translate-y-1 hover:shadow-soft"
           >
-            <div className="bg-stars pointer-events-none absolute inset-0 rounded-2xl opacity-40" />
-            <div className="relative z-10 min-w-0 flex-1">
-              <div className="flex items-center justify-between gap-3">
-                <TagChip tone="gold">{a.tag}</TagChip>
-                <span className="text-xs text-paper/55">{a.date}</span>
-              </div>
-              <h3 className="mt-3 font-serif text-lg font-bold leading-snug text-paper sm:text-xl">{a.title}</h3>
-              <p className="mt-2 text-sm leading-relaxed text-paper/70">{a.excerpt}</p>
-              <p className="mt-4 text-xs font-semibold text-gold-light sm:text-sm">閱讀全文 →</p>
+            <div className="relative aspect-[16/10] overflow-hidden bg-night-light/25">
+              {(a.heroImage || a.image) ? (
+                <Image
+                  src={asset(a.heroImage || a.image || "")}
+                  alt={`${a.title}主題插畫`}
+                  fill
+                  className={a.heroImage ? "object-cover transition duration-500 group-hover:scale-105" : "object-contain p-6 transition duration-500 group-hover:scale-105"}
+                  sizes="(min-width: 768px) 50vw, 100vw"
+                />
+              ) : null}
+              <span className="absolute left-5 top-5 rounded-full bg-night-dark/85 px-3 py-1.5 text-xs font-bold text-paper">{a.tag}</span>
             </div>
-            {a.image && (
-              <div className="relative z-10 h-32 w-28 shrink-0 sm:h-40 sm:w-32">
-                <Image src={asset(a.image)} alt="" fill className="object-contain" sizes="128px" />
+            <div className="p-6 sm:p-7">
+              <div className="flex items-center justify-between gap-3 text-xs text-night-light/65">
+                <span>艾飛樂創作分享</span>
+                <time>{a.date}</time>
               </div>
-            )}
+              <h3 className="mt-3 font-serif text-xl font-bold leading-snug text-paper sm:text-2xl">{a.title}</h3>
+              <p className="mt-3 line-clamp-3 text-sm leading-relaxed text-paper/70 sm:text-base">{a.excerpt}</p>
+              <p className="mt-5 text-sm font-bold text-gold-dark">閱讀全文 →</p>
+            </div>
           </button>
         ))}
+        </div>
       </div>
 
       {selected && (

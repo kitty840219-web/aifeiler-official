@@ -4,7 +4,6 @@ import SectionHeading from "@/components/SectionHeading";
 import Star from "@/components/Star";
 import StatBadge from "@/components/StatBadge";
 import SocialIcon from "@/components/SocialIcon";
-import AboutJourney from "@/components/AboutJourney";
 import ShortsCarousel from "@/components/ShortsCarousel";
 import PortfolioMiniReader from "@/components/PortfolioMiniReader";
 import AifeilerBookMiniReader from "@/components/AifeilerBookMiniReader";
@@ -20,8 +19,6 @@ export const metadata: Metadata = {
 export default function AboutPage() {
   return (
     <div>
-      <AboutJourney />
-
       <div className="border-t border-paper/10" />
 
       <section className="relative overflow-hidden bg-night-dark">

@@ -4,9 +4,9 @@ export type Theme = "dark" | "light";
 
 export function getStoredTheme(): Theme {
   try {
-    return window.localStorage.getItem(THEME_KEY) === "light" ? "light" : "dark";
+    return window.localStorage.getItem(THEME_KEY) === "dark" ? "dark" : "light";
   } catch {
-    return "dark";
+    return "light";
   }
 }
 
@@ -25,4 +25,4 @@ export function applyTheme(theme: Theme) {
 
 export const THEME_INIT_SCRIPT = `(function(){try{var t=localStorage.getItem(${JSON.stringify(
   THEME_KEY
-)});if(t==="light")document.documentElement.setAttribute("data-theme","light");}catch(e){}})();`;
+)});if(t!=="dark")document.documentElement.setAttribute("data-theme","light");}catch(e){document.documentElement.setAttribute("data-theme","light");}})();`;
