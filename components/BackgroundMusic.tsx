@@ -11,7 +11,8 @@ const PLAYLIST_IDS = [
   "8N9fq_Rw3CE",
   "XfL0qZiWDJQ",
 ];
-const VOLUME_KEY = "aifeiler.music.volume";
+const DEFAULT_VOLUME = 8;
+const VOLUME_KEY = "aifeiler.music.volume.v2";
 
 type YTPlayer = {
   playVideo: () => void;
@@ -48,7 +49,7 @@ function BackgroundMusicInner() {
   const searchParams = useSearchParams();
   const embedded = searchParams.get("embed") === "1";
   const [playing, setPlaying] = useState(false);
-  const [volume, setVolume] = useState(50);
+  const [volume, setVolume] = useState(DEFAULT_VOLUME);
   const [showVolume, setShowVolume] = useState(false);
   const [showPlaylist, setShowPlaylist] = useState(false);
   const [showMv, setShowMv] = useState(false);
@@ -57,7 +58,7 @@ function BackgroundMusicInner() {
   const playerRef = useRef<YTPlayer | null>(null);
   const mountRef = useRef<HTMLDivElement>(null);
   const startedRef = useRef(false);
-  const volumeRef = useRef(50);
+  const volumeRef = useRef(DEFAULT_VOLUME);
 
   useEffect(() => {
     if (embedded) return;

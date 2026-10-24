@@ -4,7 +4,6 @@ import Image from "next/image";
 import { useState } from "react";
 import { asset } from "@/lib/basePath";
 import { BOOK_TOTAL_PAGES as TOTAL, bookImage } from "@/lib/data/book";
-import { playPageTurnSound } from "@/lib/sound";
 
 export default function AifeilerBookMiniReader() {
   const [page, setPage] = useState(1);
@@ -14,7 +13,6 @@ export default function AifeilerBookMiniReader() {
   function goTo(next: number) {
     const clamped = Math.min(TOTAL, Math.max(1, next));
     if (clamped === page) return;
-    playPageTurnSound();
     setPage(clamped);
   }
 

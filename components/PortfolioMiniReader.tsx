@@ -4,7 +4,6 @@ import Image from "next/image";
 import { useState } from "react";
 import { asset } from "@/lib/basePath";
 import { portfolioImage } from "@/lib/data/portfolio";
-import { playPageTurnSound } from "@/lib/sound";
 
 const TOTAL_PAGES = 41;
 
@@ -14,7 +13,6 @@ export default function PortfolioMiniReader() {
   function goTo(next: number) {
     const clamped = Math.min(TOTAL_PAGES, Math.max(1, next));
     if (clamped === page) return;
-    playPageTurnSound();
     setPage(clamped);
   }
 
