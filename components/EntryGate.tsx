@@ -1,116 +1,126 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Image from "next/image";
+import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { SITE } from "@/lib/data/site";
+import { LINKS, SITE } from "@/lib/data/site";
 import { asset } from "@/lib/basePath";
 
-type Phase = "gate" | "open";
+const slides = [
+  { src: "/images/home-slide-01.png", alt: "小艾在雨後車站迎接晨光" },
+  { src: "/images/home-slide-02.png", alt: "小艾沿著海岸公路欣賞夕陽" },
+  { src: "/images/home-slide-03.png", alt: "小艾漫步在抽象紙藝花園" },
+  { src: "/images/home-slide-04.png", alt: "小艾探索童話棋盤花園" },
+  { src: "/images/home-slide-05.png", alt: "小艾走過手作拼貼的山間小徑" },
+  { src: "/images/home-slide-06.png", alt: "小艾在暖陽圖書館閱讀" },
+  { src: "/images/home-slide-07.png", alt: "小艾在海岸花田眺望遠方" },
+];
+
+function InstagramIcon() {
+  return (
+    <svg viewBox="0 0 24 24" aria-hidden="true" className="h-7 w-7 fill-none stroke-current stroke-[1.9]">
+      <rect x="3.2" y="3.2" width="17.6" height="17.6" rx="5" />
+      <circle cx="12" cy="12" r="4.1" />
+      <circle cx="17.55" cy="6.65" r="1" className="fill-current stroke-none" />
+    </svg>
+  );
+}
 
 export default function EntryGate() {
   const pathname = usePathname();
-  const [phase, setPhase] = useState<Phase>("gate");
-  const [closing, setClosing] = useState(false);
-  const [sparkle, setSparkle] = useState(false);
+  const [activeSlide, setActiveSlide] = useState(0);
 
-  function poke() {
-    setSparkle(true);
-    window.setTimeout(() => setSparkle(false), 900);
-  }
+  useEffect(() => {
+    if (pathname !== "/") return;
+    const timer = window.setInterval(() => {
+      setActiveSlide((current) => (current + 1) % slides.length);
+    }, 6200);
+    return () => window.clearInterval(timer);
+  }, [pathname]);
 
-  const isHome = pathname === "/";
-
-  function enter() {
-    setClosing(true);
-    window.setTimeout(() => setPhase("open"), 500);
-  }
-
-  if (!isHome || phase === "open") return null;
+  if (pathname !== "/") return null;
 
   return (
-    <div
-      className={`fixed inset-0 z-50 flex items-center justify-center overflow-hidden bg-night-dark px-4 py-4 transition-opacity duration-500 ${
-        closing ? "pointer-events-none opacity-0" : "opacity-100"
-      }`}
-    >
-      <Image
-        src={asset("/images/entry-gate-background.webp")}
-        alt=""
-        fill
-        priority
-        aria-hidden
-        sizes="100vw"
-        className="pointer-events-none object-cover object-center"
-      />
-      <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-night-dark/85 via-night-dark/35 to-night-dark/60" />
-      <div className="bg-stars pointer-events-none absolute inset-0 opacity-25" />
+    <section className="fixed inset-0 z-50 overflow-hidden bg-[#18152f] text-white">
+      {slides.map((slide, index) => (
+        <Image
+          key={slide.src}
+          src={asset(slide.src)}
+          alt={slide.alt}
+          fill
+          priority={index === 0}
+          sizes="100vw"
+          className={`object-cover object-center transition-opacity duration-[1600ms] ${
+            index === activeSlide ? "opacity-100" : "opacity-0"
+          }`}
+        />
+      ))}
+      <div className="absolute inset-0 bg-[#17142e]/25" aria-hidden />
+      <div className="absolute inset-y-0 left-1/2 w-[min(81vw,24rem)] -translate-x-1/2 border-x border-white/25 bg-[#27213b]/45 shadow-[0_0_48px_rgba(12,9,27,0.28)] backdrop-blur-[2px]" aria-hidden />
 
-      <div
-        className={`text-shadow-soft relative h-[calc(100svh-2rem)] max-h-[900px] w-full max-w-sm text-center transition-transform duration-500 ${
-          closing ? "scale-95" : "scale-100"
-        }`}
-      >
-        <div className="pointer-events-none absolute inset-x-0 bottom-[2%] h-[42%] rounded-[2rem] border border-gold/40" />
+      <div className="relative mx-auto flex min-h-[100svh] w-[min(81vw,24rem)] flex-col items-center justify-center px-6 text-center sm:px-9">
+        <p className="text-xs font-bold tracking-[0.42em] text-[#f2d49f]">{SITE.brandEn.toUpperCase()}</p>
+        <h1 className="mt-4 font-serif text-4xl font-black tracking-[0.16em] text-[#fffaf0] drop-shadow-[0_3px_14px_rgba(21,16,36,0.75)] sm:text-5xl">艾飛樂</h1>
+        <p className="mt-3 text-sm font-medium tracking-[0.24em] text-white/85">數位文創個人工作室</p>
+        <div className="my-7 h-px w-12 bg-[#f1d299]" />
+        <p className="font-serif text-lg font-semibold leading-loose text-[#fffaf0] drop-shadow-[0_2px_10px_rgba(21,16,36,0.8)]">
+          {SITE.tagline}
+          <br />
+          {SITE.taglineSub}
+        </p>
 
-        <div className="absolute inset-x-5 top-[56%] bottom-[4%] z-10 flex flex-col justify-between text-center sm:inset-x-8">
-          <div>
-            <p
-              className="animate-fade-in text-xs font-semibold tracking-[0.35em] text-gold-light"
-              style={{ animationDelay: "0.1s" }}
-            >
-              {SITE.brandEn.toUpperCase()}
-            </p>
-            <h1
-              className="animate-fade-in mt-2 font-serif text-3xl font-bold text-paper sm:text-4xl"
-              style={{ animationDelay: "0.35s" }}
-            >
-              {SITE.brand}
-            </h1>
-            <p
-              className="animate-fade-in mt-3 text-base leading-relaxed text-paper/75"
-              style={{ animationDelay: "0.6s" }}
-            >
-              {SITE.tagline}🌟
-              <br />
-              {SITE.taglineSub}
-            </p>
-          </div>
+        <Link
+          href="/about"
+          className="mt-9 inline-flex min-w-52 items-center justify-center rounded-full bg-[#5d554e]/95 px-7 py-4 text-base font-bold tracking-[0.2em] text-white shadow-[0_8px_20px_rgba(12,9,27,0.32)] transition hover:-translate-y-0.5 hover:bg-[#756a60]"
+        >
+          瞭解更多
+        </Link>
 
-          <div className="animate-fade-in relative" style={{ animationDelay: "0.9s" }}>
+        <nav aria-label="艾飛樂社群連結" className="mt-7 flex items-center gap-4">
+          <a
+            href="https://www.facebook.com/profile.php?id=100093979488257"
+            target="_blank"
+            rel="noreferrer"
+            aria-label="前往艾飛樂 Facebook"
+            className="grid h-12 w-12 place-items-center rounded-full bg-white/85 font-sans text-[1.75rem] font-black leading-none text-[#655c57] shadow-[0_4px_14px_rgba(12,9,27,0.25)] transition hover:-translate-y-1 hover:bg-white"
+          >
+            f
+          </a>
+          <a
+            href={LINKS.lineOA}
+            target="_blank"
+            rel="noreferrer"
+            aria-label="加入艾飛樂官方 LINE"
+            className="grid h-12 w-12 place-items-center rounded-full bg-white/85 font-sans text-[0.62rem] font-black tracking-tight text-[#655c57] shadow-[0_4px_14px_rgba(12,9,27,0.25)] transition hover:-translate-y-1 hover:bg-white"
+          >
+            LINE
+          </a>
+          <a
+            href={LINKS.instagramQuotes}
+            target="_blank"
+            rel="noreferrer"
+            aria-label="前往艾飛樂 Instagram"
+            className="grid h-12 w-12 place-items-center rounded-full bg-white/85 text-[#655c57] shadow-[0_4px_14px_rgba(12,9,27,0.25)] transition hover:-translate-y-1 hover:bg-white"
+          >
+            <InstagramIcon />
+          </a>
+        </nav>
+
+        <div className="absolute bottom-9 flex gap-2" aria-label="背景輪播進度">
+          {slides.map((slide, index) => (
             <button
               type="button"
-              onClick={poke}
-              aria-label="逗逗小艾"
-              className="animate-float-slow absolute -bottom-1 -left-5 z-20 h-32 w-24 sm:-left-7 sm:h-36 sm:w-28"
-            >
-              {sparkle && (
-                <>
-                  <span className="animate-sparkle-pop pointer-events-none absolute -top-2 left-1 text-lg" style={{ animationDelay: "0s" }}>✨</span>
-                  <span className="animate-sparkle-pop pointer-events-none absolute -top-4 left-10 text-sm" style={{ animationDelay: "0.1s" }}>⭐</span>
-                  <span className="animate-sparkle-pop pointer-events-none absolute -top-1 left-16 text-base" style={{ animationDelay: "0.2s" }}>✨</span>
-                </>
-              )}
-              <Image
-                src={asset("/images/entry-xiaoai-cutout.webp")}
-                alt="小艾揮手邀請旅人開始探索，點擊可以逗逗她"
-                fill
-                priority
-                className="pointer-events-none object-contain object-bottom"
-                sizes="144px"
-              />
-            </button>
-            <button
-              type="button"
-              onClick={enter}
-              className="relative z-10 inline-flex w-full items-center justify-center gap-2 rounded-full bg-gold px-5 py-3.5 text-sm font-semibold text-night-dark shadow-soft transition hover:bg-gold-light"
-            >
-              開始探索艾飛樂的世界 →
-            </button>
-            <p className="mt-4 text-[11px] text-paper/55">點擊進入，開始這段插畫語錄旅程</p>
-          </div>
+              key={slide.src}
+              onClick={() => setActiveSlide(index)}
+              aria-label={`顯示第 ${index + 1} 張首頁背景`}
+              className={`h-1.5 rounded-full transition-all ${
+                index === activeSlide ? "w-8 bg-[#f3d69e]" : "w-1.5 bg-white/55 hover:bg-white"
+              }`}
+            />
+          ))}
         </div>
       </div>
-    </div>
+    </section>
   );
 }
