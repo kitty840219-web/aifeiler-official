@@ -8,13 +8,13 @@ import { LINKS, SITE } from "@/lib/data/site";
 import { asset } from "@/lib/basePath";
 
 const slides = [
-  { src: "/images/home-slide-01.png", alt: "小艾在雨後車站迎接晨光" },
-  { src: "/images/home-slide-02.png", alt: "小艾沿著海岸公路欣賞夕陽" },
-  { src: "/images/home-slide-03.png", alt: "小艾漫步在抽象紙藝花園" },
-  { src: "/images/home-slide-04.png", alt: "小艾探索童話棋盤花園" },
-  { src: "/images/home-slide-05.png", alt: "小艾走過手作拼貼的山間小徑" },
-  { src: "/images/home-slide-06.png", alt: "小艾在暖陽圖書館閱讀" },
-  { src: "/images/home-slide-07.png", alt: "小艾在海岸花田眺望遠方" },
+  { src: "/images/home-slide-01.webp", alt: "小艾在雨後車站迎接晨光" },
+  { src: "/images/home-slide-02.webp", alt: "小艾沿著海岸公路欣賞夕陽" },
+  { src: "/images/home-slide-03.webp", alt: "小艾漫步在抽象紙藝花園" },
+  { src: "/images/home-slide-04.webp", alt: "小艾探索童話棋盤花園" },
+  { src: "/images/home-slide-05.webp", alt: "小艾走過手作拼貼的山間小徑" },
+  { src: "/images/home-slide-06.webp", alt: "小艾在暖陽圖書館閱讀" },
+  { src: "/images/home-slide-07.webp", alt: "小艾在海岸花田眺望遠方" },
 ];
 
 function InstagramIcon() {
@@ -30,6 +30,7 @@ function InstagramIcon() {
 export default function EntryGate() {
   const pathname = usePathname();
   const [activeSlide, setActiveSlide] = useState(0);
+  const nextSlide = (activeSlide + 1) % slides.length;
 
   useEffect(() => {
     if (pathname !== "/") return;
@@ -42,20 +43,29 @@ export default function EntryGate() {
   if (pathname !== "/") return null;
 
   return (
-    <section className="fixed inset-0 z-50 overflow-hidden bg-[#18152f] text-white">
-      {slides.map((slide, index) => (
-        <Image
-          key={slide.src}
-          src={asset(slide.src)}
-          alt={slide.alt}
-          fill
-          priority={index === 0}
-          sizes="100vw"
-          className={`object-cover object-center transition-opacity duration-[1600ms] ${
-            index === activeSlide ? "opacity-100" : "opacity-0"
-          }`}
-        />
-      ))}
+    <section
+      className="fixed inset-0 z-50 overflow-hidden bg-[#5d554e] text-white"
+      style={{ backgroundImage: `url(${asset("/images/home-slide-01-placeholder.webp")})`, backgroundPosition: "center", backgroundSize: "cover" }}
+    >
+      {slides.map((slide, index) => {
+        // Only keep the current and next background in memory. Loading every
+        // full-screen image at once made mobile visitors wait on a 17 MB burst.
+        if (index !== activeSlide && index !== nextSlide) return null;
+        return (
+          <Image
+            key={slide.src}
+            src={asset(slide.src)}
+            alt={slide.alt}
+            fill
+            priority={index === 0}
+            loading={index === 0 ? undefined : "lazy"}
+            sizes="100vw"
+            className={`object-cover object-center transition-opacity duration-700 ${
+              index === activeSlide ? "opacity-100" : "opacity-0"
+            }`}
+          />
+        );
+      })}
       <div className="absolute inset-0 bg-[#17142e]/25" aria-hidden />
       <div className="absolute inset-y-0 left-1/2 w-[min(81vw,24rem)] -translate-x-1/2 border-x border-white/25 bg-[#27213b]/45 shadow-[0_0_48px_rgba(12,9,27,0.28)] backdrop-blur-[2px]" aria-hidden />
 
