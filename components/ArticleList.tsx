@@ -70,13 +70,13 @@ export default function ArticleList({ articles }: { articles: Article[] }) {
               <span className="article-case-tag absolute left-5 top-5 rounded-full px-3 py-1.5 text-xs font-bold">{a.tag}</span>
             </div>
             <div className="article-case-info relative z-10 mx-5 -mt-10 px-6 pb-8 pt-6">
-              <div className="flex items-center justify-between gap-3 text-xs text-[#514d70]">
-                <span>艾飛樂創作分享</span>
+              <div className="article-case-meta flex items-center justify-between gap-3 text-xs text-[#514d70]">
+                <span className="article-case-author">艾飛樂創作分享</span>
                 <time>{a.date}</time>
               </div>
-              <h3 className="mt-3 font-serif text-xl font-bold leading-snug text-[#2b2a5c]">{a.title}</h3>
-              <p className="mt-3 line-clamp-3 text-sm leading-relaxed text-[#403d61]">{a.excerpt}</p>
-              <p className="mt-5 text-sm font-bold text-gold-dark">閱讀全文 →</p>
+              <h3 className="article-case-title mt-3 font-serif text-xl font-bold leading-snug text-[#2b2a5c]">{a.title}</h3>
+              <p className="article-case-excerpt mt-3 line-clamp-3 text-sm leading-relaxed text-[#403d61]">{a.excerpt}</p>
+              <p className="article-case-read-more mt-5 text-sm font-bold text-gold-dark">閱讀全文 →</p>
             </div>
           </button>
         ))}

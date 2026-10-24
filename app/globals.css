@@ -124,7 +124,7 @@ html[data-view-mode="desktop"] .floating-music {
   color: rgb(var(--color-night-dark));
 }
 
-@media (max-width: 759px) {
+@media (max-width: 1023px) {
   .article-case-grid {
     gap: 1.75rem;
   }
@@ -138,9 +138,30 @@ html[data-view-mode="desktop"] .floating-music {
     margin-inline: 1rem;
     padding: 1.25rem 1.25rem 1.5rem;
   }
+
+  .article-case-meta {
+    justify-content: flex-start;
+  }
+
+  .article-case-author,
+  .article-case-excerpt {
+    display: none;
+  }
+
+  .article-case-title {
+    display: -webkit-box;
+    margin-top: 0.65rem;
+    overflow: hidden;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 1;
+  }
+
+  .article-case-read-more {
+    margin-top: 0.85rem;
+  }
 }
 
-@media (min-width: 760px) {
+@media (min-width: 1024px) {
   .article-case-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 3rem 3.5rem;
