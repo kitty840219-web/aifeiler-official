@@ -34,17 +34,6 @@ export default function StoryPage() {
           <div className="relative mb-5 h-40 w-40 shrink-0 overflow-hidden rounded-full border-4 border-gold/40 bg-paper shadow-soft sm:h-48 sm:w-48">
             <Image src={asset("/images/profile.webp")} alt="艾飛樂創作者 Ivy" fill className="object-cover" sizes="192px" priority />
           </div>
-          <div>
-            <p className="text-xs font-semibold tracking-widest text-gold-light">
-              STORYTELLER · 說故事的人
-            </p>
-            <h2 className="mt-1 font-serif text-xl font-bold text-paper sm:text-2xl">
-              {SITE.founder}｜用插畫說故事的人
-            </h2>
-            <p className="mt-2 text-sm leading-relaxed text-paper/70">
-              {SITE.brandFull}創作者。相信每一句心事，都值得被畫成一顆星星。
-            </p>
-          </div>
         </div>
       </section>
 
