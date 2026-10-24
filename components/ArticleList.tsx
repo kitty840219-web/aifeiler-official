@@ -11,7 +11,11 @@ import { asset } from "@/lib/basePath";
 export default function ArticleList({ articles }: { articles: Article[] }) {
   const [selected, setSelected] = useState<Article | null>(null);
   const [category, setCategory] = useState("全部文章");
-  const categories = ["全部文章", "最新語錄", ...Array.from(new Set(articles.map((article) => article.tag)))];
+  const categories = [
+    "全部文章",
+    "最新語錄",
+    ...Array.from(new Set(articles.map((article) => article.tag))).filter((tag) => tag !== "最新語錄"),
+  ];
   const displayedArticles = category === "全部文章" ? articles : articles.filter((article) => article.tag === category);
 
   useEffect(() => {

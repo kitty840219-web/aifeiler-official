@@ -12,6 +12,22 @@ export type Article = {
 
 export const ARTICLES: Article[] = [
   {
+    id: "quote-failure-first-step",
+    title: "失敗，是比成功更可貴的經歷",
+    date: "2026-10-01",
+    tag: "最新語錄",
+    image: "/images/articles/quote-failure-first-step.png",
+    heroImage: "/images/articles/quote-failure-first-step.png",
+    excerpt: "不用畏懼一時的失敗，它會是成功路上的最佳養分，更紀錄下我們跨出第一步的勇氣。",
+    body: [
+      "凡走過必留痕跡。曾經努力過的身影也是如此。",
+      "我們都不喜歡失敗的滋味，但不可否認，或許我們從這樣寶貴的經驗當中會學習到更多。",
+      "不用畏懼一時的失敗，它會是成功路上的最佳養分，更紀錄下我們跨出第一步的勇氣。",
+      "#自我成長 #金句語錄 #語錄分享 #勇敢跨出第一步 #失敗為成功之母",
+    ],
+    link: { href: "https://www.facebook.com/share/p/1J3o5PN7Ng/", label: "前往 Facebook 原貼文 →" },
+  },
+  {
     id: "ivy-digital-portfolio",
     title: "從企劃到成品：李宛容 Ivy 的數位創作作品集",
     date: "2026-09-11",
