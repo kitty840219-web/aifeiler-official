@@ -11,7 +11,7 @@ import { asset } from "@/lib/basePath";
 export default function ArticleList({ articles }: { articles: Article[] }) {
   const [selected, setSelected] = useState<Article | null>(null);
   const [category, setCategory] = useState("全部文章");
-  const categories = ["全部文章", ...Array.from(new Set(articles.map((article) => article.tag)))];
+  const categories = ["全部文章", "最新語錄", ...Array.from(new Set(articles.map((article) => article.tag)))];
   const displayedArticles = category === "全部文章" ? articles : articles.filter((article) => article.tag === category);
 
   useEffect(() => {
@@ -75,6 +75,12 @@ export default function ArticleList({ articles }: { articles: Article[] }) {
           </button>
         ))}
         </div>
+        {displayedArticles.length === 0 && (
+          <div className="rounded-[2rem] border border-gold/20 bg-white/65 px-6 py-14 text-center text-paper shadow-card">
+            <p className="font-serif text-2xl font-bold">最新語錄即將更新</p>
+            <p className="mt-3 text-sm text-paper/65">下一篇想留下的話，正在慢慢寫成圖與故事。</p>
+          </div>
+        )}
       </div>
 
       {selected && (
