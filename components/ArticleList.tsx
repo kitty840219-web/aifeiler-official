@@ -49,7 +49,7 @@ export default function ArticleList({ articles }: { articles: Article[] }) {
         </div>
 
         <div className="article-case-grid">
-        {displayedArticles.map((a) => (
+        {displayedArticles.map((a, index) => (
           <button
             key={a.id}
             type="button"
@@ -64,17 +64,18 @@ export default function ArticleList({ articles }: { articles: Article[] }) {
                   fill
                   className="object-contain transition duration-500"
                   sizes="(min-width: 768px) 50vw, 100vw"
+                  priority={index < 2}
                 />
               ) : null}
               <span className="article-case-tag absolute left-5 top-5 rounded-full px-3 py-1.5 text-xs font-bold">{a.tag}</span>
             </div>
             <div className="article-case-info relative z-10 mx-5 -mt-10 px-6 pb-8 pt-6">
-              <div className="flex items-center justify-between gap-3 text-xs text-night-dark/70">
+              <div className="flex items-center justify-between gap-3 text-xs text-[#514d70]">
                 <span>艾飛樂創作分享</span>
                 <time>{a.date}</time>
               </div>
-              <h3 className="mt-3 font-serif text-xl font-bold leading-snug text-night-dark">{a.title}</h3>
-              <p className="mt-3 line-clamp-3 text-sm leading-relaxed text-night-dark/80">{a.excerpt}</p>
+              <h3 className="mt-3 font-serif text-xl font-bold leading-snug text-[#2b2a5c]">{a.title}</h3>
+              <p className="mt-3 line-clamp-3 text-sm leading-relaxed text-[#403d61]">{a.excerpt}</p>
               <p className="mt-5 text-sm font-bold text-gold-dark">閱讀全文 →</p>
             </div>
           </button>
@@ -102,19 +103,19 @@ export default function ArticleList({ articles }: { articles: Article[] }) {
             >
               ✕
             </button>
-            <div className="flex h-full w-full flex-col overflow-y-auto rounded-[1.5rem] border border-gold/30 bg-paper p-6 text-night-dark shadow-soft [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
+            <div className="flex h-full w-full flex-col overflow-y-auto rounded-[1.5rem] border border-gold/30 bg-white p-6 text-[#2b2a5c] shadow-soft [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
               <div className="mb-3 flex items-center gap-2">
                 <Star className="h-3 w-3 text-gold-light" />
                 <TagChip tone="gold">{selected.tag}</TagChip>
-                <span className="text-xs text-night-dark/70">{selected.date}</span>
+                <span className="text-xs text-[#514d70]">{selected.date}</span>
               </div>
-              <h2 className="font-serif text-xl font-bold text-night-dark">{selected.title}</h2>
+              <h2 className="font-serif text-xl font-bold text-[#2b2a5c]">{selected.title}</h2>
               {selected.heroImage && (
                 <div className="relative mt-4 aspect-square w-full shrink-0 overflow-hidden rounded-2xl border border-gold/20 bg-white">
                   <Image src={asset(selected.heroImage)} alt={`${selected.title}主題插畫`} fill className="object-contain" sizes="398px" />
                 </div>
               )}
-              <div className="mt-4 space-y-4 text-sm leading-7 text-night-dark/90">
+              <div className="mt-4 space-y-4 text-sm leading-7 text-[#403d61]">
                 {selected.body.map((p, i) => (
                   <p key={i}>{p}</p>
                 ))}
