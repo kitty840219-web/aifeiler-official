@@ -25,7 +25,7 @@ export default function ArticleList({ articles }: { articles: Article[] }) {
 
   return (
     <>
-      <div className="mx-auto max-w-6xl px-4 sm:px-6">
+      <div className="mx-auto max-w-[92rem] px-4">
         <div className="mb-9 flex flex-wrap justify-center gap-3">
           {categories.map((item) => (
             <button
@@ -43,15 +43,15 @@ export default function ArticleList({ articles }: { articles: Article[] }) {
           ))}
         </div>
 
-        <div className="grid gap-x-8 gap-y-10 md:grid-cols-2 xl:grid-cols-3">
+        <div className="article-case-grid">
         {displayedArticles.map((a) => (
           <button
             key={a.id}
             type="button"
             onClick={() => setSelected(a)}
-            className="group overflow-hidden rounded-[2rem] border border-gold/20 bg-white/85 text-left text-paper shadow-card transition hover:-translate-y-1 hover:shadow-soft"
+            className="article-case-card group text-left transition hover:-translate-y-1"
           >
-            <div className="relative aspect-[4/3] overflow-hidden bg-night-light/25">
+            <div className="article-case-image relative overflow-hidden bg-night-light/25">
               {(a.heroImage || a.image) ? (
                 <Image
                   src={asset(a.heroImage || a.image || "")}
@@ -61,15 +61,15 @@ export default function ArticleList({ articles }: { articles: Article[] }) {
                   sizes="(min-width: 768px) 50vw, 100vw"
                 />
               ) : null}
-              <span className="absolute left-5 top-5 rounded-full bg-night-dark/85 px-3 py-1.5 text-xs font-bold text-paper">{a.tag}</span>
+              <span className="article-case-tag absolute left-5 top-5 rounded-full px-3 py-1.5 text-xs font-bold">{a.tag}</span>
             </div>
-            <div className="relative z-10 mx-4 -mt-8 rounded-t-[1.45rem] bg-white px-5 pb-6 pt-5 sm:mx-6 sm:px-6 sm:pb-7">
+            <div className="article-case-info relative z-10 mx-5 -mt-10 px-6 pb-8 pt-6">
               <div className="flex items-center justify-between gap-3 text-xs text-night-light/65">
                 <span>艾飛樂創作分享</span>
                 <time>{a.date}</time>
               </div>
-              <h3 className="mt-3 font-serif text-xl font-bold leading-snug text-paper sm:text-2xl">{a.title}</h3>
-              <p className="mt-3 line-clamp-3 text-sm leading-relaxed text-paper/70 sm:text-base">{a.excerpt}</p>
+              <h3 className="mt-3 font-serif text-xl font-bold leading-snug text-paper">{a.title}</h3>
+              <p className="mt-3 line-clamp-3 text-sm leading-relaxed text-paper/70">{a.excerpt}</p>
               <p className="mt-5 text-sm font-bold text-gold-dark">閱讀全文 →</p>
             </div>
           </button>

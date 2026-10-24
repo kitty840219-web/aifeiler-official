@@ -92,6 +92,56 @@ html[data-view-mode="desktop"] .floating-music {
   right: 1.25rem;
 }
 
+/* Latest articles deliberately keep a spacious case-study grid even though
+   the rest of the portfolio uses an app-like fixed mobile composition. */
+.article-case-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 2.5rem;
+}
+
+.article-case-card {
+  overflow: hidden;
+  border: 1px solid rgb(var(--color-gold) / 0.22);
+  border-radius: 2rem;
+  background: rgb(var(--color-night) / 0.48);
+  box-shadow: 0 12px 30px -18px rgba(43, 42, 92, 0.34);
+}
+
+.article-case-image {
+  aspect-ratio: 4 / 3;
+}
+
+.article-case-tag {
+  background: rgb(var(--color-night-dark) / 0.9);
+  color: rgb(var(--color-paper));
+}
+
+.article-case-info {
+  min-height: 15.5rem;
+  border-radius: 1.45rem 1.45rem 0 0;
+  background: #fff;
+}
+
+@media (min-width: 760px) {
+  .article-case-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 3rem 3.5rem;
+  }
+
+  .article-case-info {
+    min-height: 17rem;
+    margin-inline: 2.2rem;
+    padding: 1.8rem 2rem 2.2rem;
+  }
+}
+
+@media (min-width: 2200px) {
+  .article-case-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
 /* Mobile type scale bump: the stock Tailwind sizes read too small on a
    phone screen, so every text-size utility used inside <main> steps up
    a notch, plus a touch of extra weight on unstyled body copy. Stays
