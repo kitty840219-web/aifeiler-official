@@ -16,7 +16,8 @@ export default function ArticleList({ articles }: { articles: Article[] }) {
     "最新語錄",
     ...Array.from(new Set(articles.map((article) => article.tag))).filter((tag) => tag !== "最新語錄"),
   ];
-  const displayedArticles = category === "全部文章" ? articles : articles.filter((article) => article.tag === category);
+  const newestFirst = [...articles].sort((a, b) => b.date.localeCompare(a.date));
+  const displayedArticles = category === "全部文章" ? newestFirst : newestFirst.filter((article) => article.tag === category);
 
   useEffect(() => {
     if (!selected) return;
