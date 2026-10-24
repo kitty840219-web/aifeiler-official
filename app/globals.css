@@ -109,7 +109,7 @@ html[data-view-mode="desktop"] .floating-music {
 }
 
 .article-case-image {
-  aspect-ratio: 4 / 3;
+  aspect-ratio: 1 / 1;
 }
 
 .article-case-tag {
@@ -121,6 +121,23 @@ html[data-view-mode="desktop"] .floating-music {
   min-height: 15.5rem;
   border-radius: 1.45rem 1.45rem 0 0;
   background: #fff;
+  color: rgb(var(--color-night-dark));
+}
+
+@media (max-width: 759px) {
+  .article-case-grid {
+    gap: 1.75rem;
+  }
+
+  .article-case-card {
+    border-radius: 1.5rem;
+  }
+
+  .article-case-info {
+    min-height: 0;
+    margin-inline: 1rem;
+    padding: 1.25rem 1.25rem 1.5rem;
+  }
 }
 
 @media (min-width: 760px) {
