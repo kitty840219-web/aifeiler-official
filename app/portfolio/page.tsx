@@ -28,15 +28,15 @@ const PROJECT_LINKS = [
 
 export default function PortfolioPage() {
   return (
-    <div className="w-full overflow-hidden bg-night-dark">
-      <section className="bg-stars relative px-5 pb-4 pt-14 sm:px-8 sm:pb-6 sm:pt-20">
+    <div className="w-full overflow-hidden bg-[#fffaf2] text-[#2b2a5c]">
+      <section className="relative bg-[#fffaf2] px-5 pb-4 pt-14 sm:px-8 sm:pb-6 sm:pt-20">
         <div className="mx-auto max-w-6xl text-center">
           <div>
-            <p className="text-sm font-bold tracking-[0.35em] text-gold-light">IVY LEE · PORTFOLIO</p>
-            <h1 className="mt-5 text-center font-serif text-4xl font-bold leading-tight text-paper sm:text-6xl">數位內容與視覺設計<br />作品集</h1>
-            <p className="mx-auto mt-6 max-w-2xl text-lg leading-9 text-paper/75 sm:text-xl">把企劃、文字、影像與設計整合成完整的品牌體驗，持續探索 AI、互動媒體與商業視覺的更多可能。</p>
+            <p className="text-sm font-bold tracking-[0.35em] text-[#94601d]">IVY LEE · PORTFOLIO</p>
+            <h1 className="mt-5 text-center font-serif text-4xl font-bold leading-tight text-[#2b2a5c] sm:text-6xl">數位內容與視覺設計<br />作品集</h1>
+            <p className="mx-auto mt-6 max-w-2xl text-lg leading-9 text-[#514d70] sm:text-xl">把企劃、文字、影像與設計整合成完整的品牌體驗，持續探索 AI、互動媒體與商業視覺的更多可能。</p>
             <div className="mt-7 flex flex-wrap justify-center gap-2">
-              {SKILLS.map((skill) => <span key={skill} className="rounded-full border border-gold/35 bg-gold/10 px-3 py-2 text-sm font-medium text-gold-light">{skill}</span>)}
+              {SKILLS.map((skill) => <span key={skill} className="rounded-full border border-[#c7a66c] bg-[#fffaf2] px-3 py-2 text-sm font-medium text-[#94601d]">{skill}</span>)}
             </div>
           </div>
         </div>
@@ -75,15 +75,15 @@ export default function PortfolioPage() {
         </div>
       </section>
 
-      <section className="bg-night px-5 py-14 sm:px-8 sm:py-20">
+      <section className="bg-[#fffaf2] px-5 py-14 sm:px-8 sm:py-20">
         <div className="mx-auto max-w-6xl">
-          <p className="text-sm font-bold tracking-[0.3em] text-gold-light">SELECTED LINKS</p>
-          <h2 className="mt-3 font-serif text-3xl font-bold text-paper sm:text-4xl">代表作品連結</h2>
+          <p className="text-sm font-bold tracking-[0.3em] text-[#94601d]">SELECTED LINKS</p>
+          <h2 className="mt-3 font-serif text-3xl font-bold text-[#2b2a5c] sm:text-4xl">代表作品連結</h2>
           <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
             {PROJECT_LINKS.map((link) => (
-              <a key={link.label} href={link.href} target="_blank" rel="noreferrer" className="group rounded-2xl border border-gold/20 bg-night-light/70 p-5 transition hover:-translate-y-1 hover:border-gold/40 hover:bg-night-light">
-                <div className="flex items-center justify-between gap-3"><h3 className="text-lg font-bold text-paper">{link.label}</h3><span className="text-xl text-gold-light transition group-hover:translate-x-1">↗</span></div>
-                <p className="mt-2 text-base leading-7 text-paper/65">{link.note}</p>
+              <a key={link.label} href={link.href} target="_blank" rel="noreferrer" className="group rounded-2xl border border-[#dec99e] bg-white p-5 transition hover:-translate-y-1 hover:border-[#b98a3e] hover:bg-[#fffaf2]">
+                <div className="flex items-center justify-between gap-3"><h3 className="text-lg font-bold text-[#2b2a5c]">{link.label}</h3><span className="text-xl text-[#94601d] transition group-hover:translate-x-1">↗</span></div>
+                <p className="mt-2 text-base leading-7 text-[#514d70]">{link.note}</p>
               </a>
             ))}
           </div>
