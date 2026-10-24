@@ -124,50 +124,58 @@ html[data-view-mode="desktop"] .floating-music {
   color: rgb(var(--color-night-dark));
 }
 
+/* The site has a built-in device switcher. Use its state rather than the
+   browser window width, because the mobile canvas can be previewed inside a
+   wide desktop browser. */
+html[data-view-mode="mobile"] .article-case-grid {
+  gap: 1.75rem;
+}
+
+html[data-view-mode="mobile"] .article-case-card {
+  border-radius: 1.5rem;
+}
+
+html[data-view-mode="mobile"] .article-case-info {
+  min-height: 0;
+  margin-inline: 1rem;
+  padding: 1.25rem 1.25rem 1.5rem;
+}
+
+html[data-view-mode="mobile"] .article-case-meta {
+  justify-content: flex-start;
+}
+
+html[data-view-mode="mobile"] .article-case-author,
+html[data-view-mode="mobile"] .article-case-excerpt {
+  display: none;
+}
+
+html[data-view-mode="mobile"] .article-case-title {
+  display: -webkit-box;
+  margin-top: 0.65rem;
+  overflow: hidden;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
+}
+
+html[data-view-mode="mobile"] .article-case-read-more {
+  margin-top: 0.85rem;
+}
+
 @media (max-width: 1023px) {
   .article-case-grid {
     gap: 1.75rem;
   }
 
-  .article-case-card {
-    border-radius: 1.5rem;
-  }
-
-  .article-case-info {
-    min-height: 0;
-    margin-inline: 1rem;
-    padding: 1.25rem 1.25rem 1.5rem;
-  }
-
-  .article-case-meta {
-    justify-content: flex-start;
-  }
-
-  .article-case-author,
-  .article-case-excerpt {
-    display: none;
-  }
-
-  .article-case-title {
-    display: -webkit-box;
-    margin-top: 0.65rem;
-    overflow: hidden;
-    -webkit-box-orient: vertical;
-    -webkit-line-clamp: 1;
-  }
-
-  .article-case-read-more {
-    margin-top: 0.85rem;
-  }
 }
 
 @media (min-width: 1024px) {
-  .article-case-grid {
+  html[data-view-mode="desktop"] .article-case-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 3rem 3.5rem;
   }
 
-  .article-case-info {
+  html[data-view-mode="desktop"] .article-case-info {
     min-height: 17rem;
     margin-inline: 2.2rem;
     padding: 1.8rem 2rem 2.2rem;
