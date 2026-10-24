@@ -1,0 +1,8 @@
+:HL["/aifeiler-official/_next/static/chunks/422k5tj9ov3c2.css","style"]
+:HL["/aifeiler-official/_next/static/chunks/237qekwt4vjc9.css","style"]
+:HL["/aifeiler-official/_next/static/chunks/3ecpbbpw3jw2r.css","style"]
+:HL["/aifeiler-official/_next/static/chunks/42wi56_4lwms9.css","style"]
+:HL["/aifeiler-official/_next/static/media/a62dbdd646e89cfa-s.p.2kxoktkbtnje5.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/aifeiler-official/_next/static/media/b7f3a346e7dd7646-s.p.008ltwfzupux4.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/aifeiler-official/_next/static/media/fb4edce8a3cbfef3-s.p.3aqr1xxws37ij.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+0:{"tree":{"name":"","param":null,"prefetchHints":4112,"slots":{"children":{"name":"(tarot)","param":null,"prefetchHints":4160,"slots":{"children":{"name":"tarot","param":null,"prefetchHints":4192,"slots":{"children":{"name":"__PAGE__","param":null,"prefetchHints":4256,"slots":null}}}}}}},"staleTime":300,"buildId":"IbgmnFU8cKu8__DVT5PHL"}
