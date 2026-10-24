@@ -1,10 +1,8 @@
 import type { Metadata } from "next";
-import Image from "next/image";
 import Star from "@/components/Star";
 import StoryReader from "@/components/StoryReader";
 import { SITE } from "@/lib/data/site";
 import { CHAPTERS } from "@/lib/data/story";
-import { asset } from "@/lib/basePath";
 
 export const metadata: Metadata = {
   title: `艾飛樂的故事 ｜ ${SITE.brand}`,
@@ -30,10 +28,7 @@ export default function StoryPage() {
       {/* character card */}
       <section className="relative overflow-hidden bg-night-dark px-4 pb-6 pt-6 text-center sm:px-6">
         <div className="bg-stars pointer-events-none absolute inset-0 opacity-30" />
-        <div className="relative mx-auto flex max-w-3xl flex-col items-center gap-6">
-          <div className="relative h-56 w-56 shrink-0 overflow-hidden rounded-full border-4 border-gold/40 shadow-soft">
-            <Image src={asset("/images/profile.webp")} alt="艾飛樂創作者 Ivy" fill className="object-cover" sizes="224px" />
-          </div>
+        <div className="relative mx-auto flex max-w-3xl flex-col items-center">
           <div>
             <p className="text-xs font-semibold tracking-widest text-gold-light">
               STORYTELLER · 說故事的人

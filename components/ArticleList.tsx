@@ -43,7 +43,7 @@ export default function ArticleList({ articles }: { articles: Article[] }) {
           ))}
         </div>
 
-        <div className="grid gap-7 md:grid-cols-2">
+        <div className="grid gap-x-8 gap-y-10 md:grid-cols-2 xl:grid-cols-3">
         {displayedArticles.map((a) => (
           <button
             key={a.id}
@@ -51,7 +51,7 @@ export default function ArticleList({ articles }: { articles: Article[] }) {
             onClick={() => setSelected(a)}
             className="group overflow-hidden rounded-[2rem] border border-gold/20 bg-white/85 text-left text-paper shadow-card transition hover:-translate-y-1 hover:shadow-soft"
           >
-            <div className="relative aspect-[16/10] overflow-hidden bg-night-light/25">
+            <div className="relative aspect-[4/3] overflow-hidden bg-night-light/25">
               {(a.heroImage || a.image) ? (
                 <Image
                   src={asset(a.heroImage || a.image || "")}
@@ -63,7 +63,7 @@ export default function ArticleList({ articles }: { articles: Article[] }) {
               ) : null}
               <span className="absolute left-5 top-5 rounded-full bg-night-dark/85 px-3 py-1.5 text-xs font-bold text-paper">{a.tag}</span>
             </div>
-            <div className="p-6 sm:p-7">
+            <div className="relative z-10 mx-4 -mt-8 rounded-t-[1.45rem] bg-white px-5 pb-6 pt-5 sm:mx-6 sm:px-6 sm:pb-7">
               <div className="flex items-center justify-between gap-3 text-xs text-night-light/65">
                 <span>艾飛樂創作分享</span>
                 <time>{a.date}</time>
