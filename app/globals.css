@@ -2,12 +2,417 @@
 @tailwind components;
 @tailwind utilities;
 
-html,
-body {
-  height: 100%;
+:root {
+  --color-night-dark: 24 21 66;
+  --color-night: 43 42 92;
+  --color-night-light: 63 58 120;
+  --color-paper: 250 246 238;
+  --color-paper-dark: 242 233 216;
+  --color-gold: 214 169 79;
+  --color-gold-light: 236 206 143;
+  --color-gold-dark: 169 124 46;
+  --color-lavender: 168 156 214;
+  --color-lavender-light: 207 198 234;
+  --color-lavender-dark: 126 113 171;
+  --color-sage: 107 122 86;
+  --color-cocoa: 138 95 60;
+  --color-blush: 240 182 163;
+}
+
+[data-theme="light"] {
+  --color-night-dark: 253 249 240;
+  --color-night: 246 238 221;
+  --color-night-light: 236 224 198;
+  --color-paper: 58 53 100;
+  --color-paper-dark: 44 40 80;
+  --color-gold: 169 124 46;
+  --color-gold-light: 138 96 32;
+  --color-gold-dark: 122 88 28;
+  --color-lavender: 126 113 171;
+  --color-lavender-light: 148 133 196;
+  --color-lavender-dark: 94 84 134;
+  --color-sage: 79 92 63;
+  --color-cocoa: 122 84 53;
+  --color-blush: 196 108 87;
+}
+
+html {
+  scroll-behavior: smooth;
+  background: rgb(var(--color-night-dark));
 }
 
 body {
-  background-color: #f7f8fb;
-  color: #14171f;
+  background-color: rgb(var(--color-night-dark));
+  color: rgb(var(--color-paper));
+}
+
+.site-shell {
+  transition: max-width 0.3s ease, box-shadow 0.3s ease;
+}
+
+html[data-view-mode="mobile"] .site-shell {
+  max-width: 430px;
+}
+
+html[data-view-mode="desktop"] .site-shell {
+  max-width: none;
+  box-shadow: none;
+}
+
+html[data-view-mode="mobile"] .site-bottom-nav {
+  max-width: 430px;
+}
+
+html[data-view-mode="desktop"] .site-bottom-nav {
+  max-width: none;
+}
+
+html[data-view-mode="desktop"] .site-bottom-nav > div {
+  max-width: 72rem;
+  padding-inline: 2rem;
+}
+
+html[data-view-mode="desktop"] .site-bottom-nav a {
+  gap: 0.4rem;
+  padding-block: 0.8rem;
+  font-size: 1rem;
+}
+
+html[data-view-mode="desktop"] .site-bottom-nav a > span:first-child {
+  width: 3.6rem;
+  height: 3.6rem;
+}
+
+html[data-view-mode="desktop"] .site-bottom-nav a > span:first-child > span:first-child {
+  width: 3.15rem;
+  height: 3.15rem;
+}
+
+html[data-view-mode="desktop"] .floating-music {
+  right: 1.25rem;
+}
+
+/* Latest articles deliberately keep a spacious case-study grid even though
+   the rest of the portfolio uses an app-like fixed mobile composition. */
+.article-case-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 2.5rem;
+}
+
+.article-case-card {
+  overflow: hidden;
+  border: 1px solid rgb(var(--color-gold) / 0.22);
+  border-radius: 2rem;
+  background: rgb(var(--color-night) / 0.48);
+  box-shadow: 0 12px 30px -18px rgba(43, 42, 92, 0.34);
+}
+
+.article-case-image {
+  aspect-ratio: 1 / 1;
+}
+
+.article-case-tag {
+  background: rgb(var(--color-night-dark) / 0.9);
+  color: rgb(var(--color-paper));
+}
+
+.article-case-info {
+  min-height: 15.5rem;
+  border-radius: 1.45rem 1.45rem 0 0;
+  background: #fff;
+  color: rgb(var(--color-night-dark));
+}
+
+/* The site has a built-in device switcher. Use its state rather than the
+   browser window width, because the mobile canvas can be previewed inside a
+   wide desktop browser. */
+html[data-view-mode="mobile"] .article-case-grid {
+  gap: 1.75rem;
+}
+
+html[data-view-mode="mobile"] .article-case-card {
+  border-radius: 1.5rem;
+}
+
+html[data-view-mode="mobile"] .article-case-info {
+  min-height: 0;
+  margin-inline: 1rem;
+  padding: 1.25rem 1.25rem 1.5rem;
+}
+
+html[data-view-mode="mobile"] .article-case-meta {
+  justify-content: flex-start;
+}
+
+html[data-view-mode="mobile"] .article-case-author,
+html[data-view-mode="mobile"] .article-case-excerpt {
+  display: none;
+}
+
+html[data-view-mode="mobile"] .article-case-title {
+  display: -webkit-box;
+  margin-top: 0.65rem;
+  overflow: hidden;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
+}
+
+html[data-view-mode="mobile"] .article-case-read-more {
+  margin-top: 0.85rem;
+}
+
+@media (max-width: 1023px) {
+  .article-case-grid {
+    gap: 1.75rem;
+  }
+
+}
+
+@media (min-width: 1024px) {
+  html[data-view-mode="desktop"] .article-case-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 3rem 3.5rem;
+  }
+
+  html[data-view-mode="desktop"] .article-case-info {
+    min-height: 17rem;
+    margin-inline: 2.2rem;
+    padding: 1.8rem 2rem 2.2rem;
+  }
+}
+
+@media (min-width: 2200px) {
+  .article-case-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+/* Mobile type scale bump: the stock Tailwind sizes read too small on a
+   phone screen, so every text-size utility used inside <main> steps up
+   a notch, plus a touch of extra weight on unstyled body copy. Stays
+   below the desktop scale further down so desktop still reads larger. */
+main .text-\[8px\] { font-size: 0.625rem; }
+main .text-\[9px\] { font-size: 0.6875rem; }
+main .text-\[10px\] { font-size: 0.75rem; }
+main .text-\[11px\] { font-size: 0.8125rem; }
+main .text-xs { font-size: 0.875rem; }
+main .text-sm { font-size: 1rem; }
+main .text-base { font-size: 1.125rem; }
+main .text-lg { font-size: 1.25rem; }
+main .text-xl { font-size: 1.375rem; }
+main .text-2xl { font-size: 1.75rem; }
+main .text-3xl { font-size: 2.25rem; }
+main .text-4xl { font-size: 2.75rem; }
+main .text-5xl { font-size: 3.5rem; }
+main .text-6xl { font-size: 4.25rem; }
+main .leading-relaxed { line-height: 1.7; }
+main .leading-6 { line-height: 1.6rem; }
+main .leading-7 { line-height: 1.85rem; }
+main { font-weight: 500; }
+
+@media (min-width: 768px) {
+  /* Desktop typography scale: every text-size utility used inside <main>
+     steps up one notch so headings/body copy read consistently larger on
+     desktop without needing per-page overrides. Mirrors the mobile scale
+     1:1 by category (eyebrow/content/subtitle/title) so every page ends up
+     with the same desktop sizing for the same role. */
+  html[data-view-mode="desktop"] main .text-\[10px\] { font-size: 0.8125rem; }
+  html[data-view-mode="desktop"] main .text-\[11px\] { font-size: 0.875rem; }
+  html[data-view-mode="desktop"] main .text-xs { font-size: 1rem; }
+  html[data-view-mode="desktop"] main .text-sm { font-size: 1.15rem; }
+  html[data-view-mode="desktop"] main .text-base { font-size: 1.3rem; }
+  html[data-view-mode="desktop"] main .text-lg { font-size: 1.5rem; }
+  html[data-view-mode="desktop"] main .text-xl { font-size: 1.75rem; }
+  html[data-view-mode="desktop"] main .text-2xl { font-size: 2.1rem; }
+  html[data-view-mode="desktop"] main .text-3xl { font-size: 2.9rem; }
+  html[data-view-mode="desktop"] main .text-4xl { font-size: 3.4rem; }
+  html[data-view-mode="desktop"] main .text-5xl { font-size: 4rem; }
+  html[data-view-mode="desktop"] main .text-6xl { font-size: 4.75rem; }
+  html[data-view-mode="desktop"] main .leading-relaxed { line-height: 1.85; }
+  html[data-view-mode="desktop"] main .leading-6 { line-height: 2rem; }
+  html[data-view-mode="desktop"] main .leading-7 { line-height: 2.15rem; }
+}
+
+[data-theme="light"] .night-only-decor {
+  display: none;
+}
+
+/* Some reading-tool UIs (tarot, etc.) use a fixed amber-on-dark palette that
+   isn't part of the theme token system, so they stay dark regardless of the
+   site-wide light/dark toggle to keep their text readable. */
+.theme-invariant-dark {
+  --color-night-dark: 24 21 66;
+  --color-night: 43 42 92;
+  --color-night-light: 63 58 120;
+  --color-paper: 250 246 238;
+  --color-paper-dark: 242 233 216;
+  --color-gold: 214 169 79;
+  --color-gold-light: 236 206 143;
+  --color-gold-dark: 169 124 46;
+  --color-lavender: 168 156 214;
+  --color-lavender-light: 207 198 234;
+  --color-lavender-dark: 126 113 171;
+  --color-sage: 107 122 86;
+  --color-cocoa: 138 95 60;
+  --color-blush: 240 182 163;
+  background: rgb(var(--color-night-dark));
+  color: rgb(var(--color-paper));
+}
+
+[data-theme="light"] .bg-stars {
+  background-image: none;
+}
+
+.floating-music {
+  right: max(1rem, calc((100vw - 430px) / 2 + 1rem));
+}
+
+::selection {
+  background-color: #d6a94f;
+  color: #181542;
+}
+
+/* soft paper grain */
+.bg-grain {
+  position: relative;
+}
+.bg-grain::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.5;
+  mix-blend-mode: multiply;
+  background-image: radial-gradient(rgba(34, 33, 63, 0.05) 1px, transparent 1px);
+  background-size: 3px 3px;
+}
+
+/* scattered stars for dark sections */
+.bg-stars {
+  background-image:
+    radial-gradient(1.5px 1.5px at 10% 20%, rgba(255,255,255,0.85), transparent),
+    radial-gradient(1px 1px at 25% 60%, rgba(255,255,255,0.6), transparent),
+    radial-gradient(2px 2px at 40% 15%, rgba(255,255,255,0.9), transparent),
+    radial-gradient(1px 1px at 55% 75%, rgba(255,255,255,0.5), transparent),
+    radial-gradient(1.5px 1.5px at 70% 35%, rgba(255,255,255,0.8), transparent),
+    radial-gradient(1px 1px at 85% 55%, rgba(255,255,255,0.6), transparent),
+    radial-gradient(2px 2px at 92% 20%, rgba(255,255,255,0.9), transparent),
+    radial-gradient(1px 1px at 15% 85%, rgba(255,255,255,0.5), transparent),
+    radial-gradient(1.5px 1.5px at 65% 90%, rgba(255,255,255,0.7), transparent),
+    radial-gradient(1px 1px at 35% 40%, rgba(255,255,255,0.5), transparent);
+  background-repeat: no-repeat;
+}
+
+.text-shadow-soft {
+  text-shadow: 0 2px 12px rgba(24, 21, 66, 0.35);
+}
+
+.mask-fade-b {
+  -webkit-mask-image: linear-gradient(to bottom, black 70%, transparent 100%);
+  mask-image: linear-gradient(to bottom, black 70%, transparent 100%);
+}
+
+@keyframes twinkle {
+  0%, 100% { opacity: 0.2; transform: scale(0.75); }
+  50% { opacity: 1; transform: scale(1.3); }
+}
+.animate-twinkle {
+  animation: twinkle 2.2s ease-in-out infinite;
+}
+
+@keyframes float-slow {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-12px); }
+}
+.animate-float-slow {
+  animation: float-slow 6s ease-in-out infinite;
+}
+
+@keyframes page-in {
+  from { opacity: 0; transform: translateY(14px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.animate-page-in {
+  animation: page-in 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes dialogue-in {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.animate-fade-in {
+  animation: dialogue-in 0.38s ease-out both;
+}
+
+@keyframes sparkle-pop {
+  0% { opacity: 0; transform: translateY(4px) scale(0.6); }
+  30% { opacity: 1; transform: translateY(-6px) scale(1); }
+  100% { opacity: 0; transform: translateY(-22px) scale(0.8); }
+}
+.animate-sparkle-pop {
+  animation: sparkle-pop 0.9s ease-out both;
+}
+
+@keyframes glow-pulse {
+  0%, 100% {
+    filter: drop-shadow(0 0 6px rgba(214, 169, 79, 0.35)) drop-shadow(0 0 0px rgba(214, 169, 79, 0));
+  }
+  50% {
+    filter: drop-shadow(0 0 24px rgba(214, 169, 79, 0.9)) drop-shadow(0 0 10px rgba(236, 206, 143, 0.6));
+  }
+}
+.animate-glow-pulse {
+  animation: glow-pulse 2.6s ease-in-out infinite;
+}
+
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+.animate-marquee {
+  animation: marquee 16s linear infinite;
+}
+
+/* Three angle variants so trails feel like they fan out from a shared
+   radiant point rather than all falling in one identical direction. */
+@keyframes meteor-fall-25 {
+  0% { opacity: 0; transform: rotate(25deg) translate(0, 0); }
+  10% { opacity: 1; }
+  55% { opacity: 1; }
+  70%, 100% { opacity: 0; transform: rotate(25deg) translate(58px, 27px); }
+}
+@keyframes meteor-fall-35 {
+  0% { opacity: 0; transform: rotate(35deg) translate(0, 0); }
+  10% { opacity: 1; }
+  55% { opacity: 1; }
+  70%, 100% { opacity: 0; transform: rotate(35deg) translate(50px, 35px); }
+}
+@keyframes meteor-fall-48 {
+  0% { opacity: 0; transform: rotate(48deg) translate(0, 0); }
+  10% { opacity: 1; }
+  55% { opacity: 1; }
+  70%, 100% { opacity: 0; transform: rotate(48deg) translate(40px, 44px); }
+}
+.animate-meteor-25, .animate-meteor-35, .animate-meteor-48 {
+  animation-timing-function: ease-in;
+  animation-iteration-count: infinite;
+}
+.animate-meteor-25 { animation-name: meteor-fall-25; }
+.animate-meteor-35 { animation-name: meteor-fall-35; }
+.animate-meteor-48 { animation-name: meteor-fall-48; }
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-page-in,
+  .animate-fade-in,
+  .animate-float-slow,
+  .animate-twinkle,
+  .animate-sparkle-pop,
+  .animate-glow-pulse,
+  .animate-marquee,
+  .animate-meteor-25,
+  .animate-meteor-35,
+  .animate-meteor-48 {
+    animation: none;
+  }
 }
