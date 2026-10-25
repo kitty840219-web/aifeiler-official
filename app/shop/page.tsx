@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import Star from "@/components/Star";
+import SectionHeading from "@/components/SectionHeading";
 import { LINKS, SITE } from "@/lib/data/site";
 import { asset } from "@/lib/basePath";
 import VisualLayoutEditor from "@/components/VisualLayoutEditor";
@@ -85,6 +86,32 @@ export default function ShopPage() {
               </span>
             </div>
           </a>
+        </div>
+      </section>
+
+      <section id="collaboration" className="relative overflow-hidden bg-night-dark px-4 py-16 sm:px-6 sm:py-20">
+        <div className="bg-stars pointer-events-none absolute inset-0 opacity-40" />
+        <div className="relative mx-auto max-w-5xl">
+          <SectionHeading eyebrow="CONTACT" title="洽談合作" desc="插畫委託、品牌合作與客製周邊，歡迎與我聯繫" center />
+          <div className="mt-10 grid gap-4 sm:grid-cols-2">
+            {[
+              ["專業品質", "插畫、剪輯、設計皆手工把關，提升品牌形象", "/images/contact-quality-cutout.webp"],
+              ["快速交件", "一般件 5–10 個工作天", "/images/contact-fast-delivery-cutout.webp"],
+              ["溝通到位", "確認用途、風格與細節後再開始製作", "/images/contact-communication-cutout.webp"],
+              ["價格透明", "依需求提供清楚報價，安心規劃預算", "/images/contact-transparent-price-cutout.webp"],
+            ].map(([title, desc, art]) => (
+              <div key={title} className="rounded-[1.75rem] bg-night-light/25 p-6 text-center shadow-card sm:p-8">
+                <div className="relative mx-auto h-20 w-20 sm:h-24 sm:w-24">
+                  <Image src={asset(art)} alt="" fill className="object-contain" sizes="96px" />
+                </div>
+                <h2 className="mt-3 font-serif text-xl font-bold text-paper">{title}</h2>
+                <p className="mt-2 text-sm leading-7 text-paper/70">{desc}</p>
+              </div>
+            ))}
+          </div>
+          <div className="mt-9 flex justify-center">
+            <Link href="/contact" className="rounded-full bg-gold px-7 py-3 text-sm font-bold text-night-dark transition hover:bg-gold-light">前往聯絡我們 →</Link>
+          </div>
         </div>
       </section>
     </div>

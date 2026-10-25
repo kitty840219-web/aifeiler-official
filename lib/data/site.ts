@@ -40,7 +40,8 @@ export const NAV = [
   { href: "/pricing", label: "服務報價" },
   { href: "/line-guide", label: "如何使用LINE" },
   { href: "/accounting", label: "會計小幫手" },
-  { href: "/contact", label: "洽談合作" },
+  { href: "/shop#collaboration", label: "洽談合作" },
+  { href: "/contact", label: "聯絡我們" },
 ];
 
 export const SERVICES = [
