@@ -7,11 +7,152 @@ export type Article = {
   body: string[];
   image?: string;
   heroImage?: string;
-  galleryImages?: Array<{ src: string; alt: string; aspect?: "portrait" | "landscape" }>;
+  galleryImages?: Array<{ src: string; alt: string; aspect?: "portrait" | "landscape" | "square" }>;
   link?: { href: string; label: string };
 };
 
 export const ARTICLES: Article[] = [
+  {
+    id: "phone-cases-2026",
+    title: "AF480 預購款｜艾飛樂療癒插畫手機殼新上市",
+    date: "2026-06-30",
+    tag: "服務資訊",
+    image: "/images/articles/phone-cases-2026.jpg",
+    heroImage: "/images/articles/phone-cases-2026.jpg",
+    excerpt: "把一句溫柔的話、一幅療癒插畫，放進每天都會拿在手上的日常裡。",
+    body: [
+      "艾飛樂手機殼新上市 2026。這次推出 9 款療癒插畫手機殼：星夜、森林、月光、花束、玫瑰與留白幾何，每一款都有不同的情緒與陪伴感。",
+      "高透 TPU 軟殼保留手機原本質感，搭配四角氣囊防摔設計，柔軟好握、輕薄不厚重；溫柔耐看的插畫，也很適合送禮、自用與日常穿搭。",
+      "系列款式包含：星夜微光、森語微光、月光薰語、暖杏自愛、留白幾何、玫瑰信箋、森林漫步、春日花束與彎月夢境。願你在平凡日常裡，也能好好喜歡自己、慢慢前進、看見小小光亮。",
+    ],
+    link: { href: "https://s.shopee.tw/4fuEeAdGXE", label: "前往蝦皮選購 →" },
+  },
+  {
+    id: "love-stickers-launch",
+    title: "新貼圖心動上市｜相愛相殺日常",
+    date: "2026-06-29",
+    tag: "服務資訊",
+    image: "/images/articles/love-stickers-launch.jpg",
+    heroImage: "/images/articles/love-stickers-launch.jpg",
+    excerpt: "新人物「小艾男友」正式現身，將戀愛萬用語與可愛日常小劇場通通收進貼圖裡。",
+    body: [
+      "好久不見，謝謝你們一直都在！這陣子悄悄設計了好多新圖，最棒的是，新人物「小艾男友」這次終於要正式現身、大展身手啦！",
+      "除了大家最愛的戀愛萬用語，這次也融入滿滿讓人感同身受的生活與小劇場：怕冷、想放假、撒嬌、貼貼，還有各種日常心情。",
+      "保證這次回歸，依舊好用、依舊可愛、依舊貼近你的生活。",
+    ],
+    link: { href: "https://www.facebook.com/share/p/1JXQmdkvpc/", label: "前往 Facebook 原貼文 →" },
+  },
+  {
+    id: "graphic-design-service",
+    title: "不想做廣告圖文方案？我幫你完成",
+    date: "2026-06-26",
+    tag: "服務資訊",
+    image: "/images/articles/graphic-service-1.jpg",
+    heroImage: "/images/articles/graphic-service-1.jpg",
+    galleryImages: [
+      { src: "/images/articles/graphic-service-2.jpg", alt: "圖文外包服務適用情境", aspect: "square" },
+      { src: "/images/articles/graphic-service-3.jpg", alt: "IG 輪播圖多頁式包組方案", aspect: "square" },
+      { src: "/images/articles/graphic-service-4.jpg", alt: "單月多篇式包月方案", aspect: "square" },
+      { src: "/images/articles/graphic-service-5.jpg", alt: "圖文設計合作流程", aspect: "square" },
+    ],
+    excerpt: "社群圖文、IG 輪播、活動 DM、品牌視覺與廣告素材，交給專業完成。",
+    body: [
+      "每次到了發文或跑活動的檔期，還要寫文案、找素材、修圖嗎？把寶貴的時間留給更重要的品牌決策，圖文設計就交給艾飛樂。",
+      "可承接社群圖文、IG 多頁輪播、活動 DM、品牌視覺與廣告素材，提供單次合作、包組或包月等彈性方案，並依預算與實際需求客製報價。",
+      "從需求討論、素材提供、文案整理到設計製作與完稿交付，一次協助完成；讓內容不只好看，也具有吸引人的商業價值。",
+    ],
+    link: { href: "https://www.facebook.com/share/p/1F2h5Jgccb/", label: "前往 Facebook 原貼文 →" },
+  },
+  {
+    id: "ai-video-earlybird",
+    title: "艾飛樂 AI 宣傳影片｜新品早鳥體驗",
+    date: "2026-06-22",
+    tag: "服務資訊",
+    image: "/images/articles/ai-video-earlybird.jpg",
+    heroImage: "/images/articles/ai-video-earlybird.jpg",
+    excerpt: "不用露臉、不用拍攝、不用自己剪片，產品也能擁有高質感 AI 宣傳影片。",
+    body: [
+      "不用露臉、不用拍攝、也不用自己剪片，你的產品也可以擁有一支高質感 AI 宣傳影片。適合品牌宣傳、產品介紹、活動曝光與社群廣告素材。",
+      "新品早鳥體驗提供 3 支廣告套餐組：30 秒影片 NT$5,500、1 分鐘影片 NT$8,800，平均一支不到 NT$3,000；也提供單支影片方案。",
+      "合作流程從下單、討論影片內容、提供素材、圖片確認與腳本確認開始，再進入影片製作。早鳥活動至 7/31 23:59 截止。",
+    ],
+    link: { href: "https://www.facebook.com/share/p/19egHNoK3Y/", label: "前往 Facebook 原貼文 →" },
+  },
+  {
+    id: "tarot-referral-campaign",
+    title: "塔羅好友推薦活動｜成功介紹回饋二選一",
+    date: "2026-06-22",
+    tag: "服務資訊",
+    image: "/images/articles/tarot-referral.jpg",
+    heroImage: "/images/articles/tarot-referral.jpg",
+    excerpt: "朋友成功報名塔羅占卜套餐後，介紹人可選免費套餐占卜一次或介紹獎金 300 元。",
+    body: [
+      "只要朋友成功報名塔羅占卜套餐，請朋友在預約時提供您的姓名作為介紹人；也可以私訊提供朋友姓名協助確認。",
+      "確認朋友完成報名與付款後，即可領取介紹回饋二選一：免費套餐占卜體驗一次，或介紹獎金 300 元。",
+      "活動期間為即日起至 6/30；歡迎透過官方 LINE @153yhemn 預約諮詢。",
+    ],
+    link: { href: "https://www.facebook.com/share/p/1Ewf2zKb1L/", label: "前往 Facebook 原貼文 →" },
+  },
+  {
+    id: "line-account-service",
+    title: "LINE 官方帳號 2.0｜服務報價與客製規劃",
+    date: "2026-06-01",
+    tag: "服務資訊",
+    image: "/images/articles/line-service-1.jpg",
+    heroImage: "/images/articles/line-service-1.jpg",
+    galleryImages: [
+      { src: "/images/articles/line-service-2.jpg", alt: "LINE 官方帳號一次性建置方案", aspect: "square" },
+      { src: "/images/articles/line-service-3.jpg", alt: "LINE 官方帳號單項加購與月租代操方案", aspect: "square" },
+      { src: "/images/articles/line-service-4.jpg", alt: "LINE 官方帳號服務說明", aspect: "square" },
+    ],
+    excerpt: "從歡迎訊息到圖文選單，打造視覺一致、有質感也有溫度的 LINE 經營系統。",
+    body: [
+      "艾飛樂數位文創不只是幫你建置工具，更是品牌成長路上的數位夥伴。從最初的歡迎訊息到精緻的圖文選單，都以視覺色系一致化為核心，打造有質感、有溫度的 LINE 經營系統。",
+      "服務可依需求規劃基礎建置、進階行銷或客製化全能規劃，也能加購多頁選單、自動回覆、系統指令、外部網站連結與優惠活動設定。",
+      "無論是剛起步的微型創業，或準備大展身手的電商夥伴，都有彈性客製方案可選。官方 LINE：@153yhemn。",
+    ],
+    link: { href: "https://www.facebook.com/share/p/1GzAxgbv7W/", label: "前往 Facebook 原貼文 →" },
+  },
+  {
+    id: "line-tarot-guide",
+    title: "官方 LINE 領取教學｜大眾占卜與心理測驗",
+    date: "2026-05-29",
+    tag: "工具上線",
+    image: "/images/articles/line-guide-1.jpg",
+    heroImage: "/images/articles/line-guide-1.jpg",
+    galleryImages: [
+      { src: "/images/articles/line-guide-2.jpg", alt: "官方 LINE 尋找大眾占卜主題教學", aspect: "square" },
+      { src: "/images/articles/line-guide-3.jpg", alt: "官方 LINE 輸入關鍵字教學", aspect: "square" },
+      { src: "/images/articles/line-guide-4.jpg", alt: "官方 LINE 查看自動回覆內容教學", aspect: "square" },
+    ],
+    excerpt: "加入官方 LINE 後，依照關鍵字與圖文選單，就能領取大眾占卜與心理測驗內容。",
+    body: [
+      "加入艾飛樂官方 LINE @153yhemn 後，先點選聊天進入對話室；往下滑動訊息即可找到大眾占卜 New 或最新心理測驗貼文。",
+      "也可以開啟下方圖文選單，直接找到大眾占卜分類與其他主題內容。閱讀貼文題目與對應關鍵字後，將選好的關鍵字完整輸入聊天室並送出。",
+      "系統會自動回覆專屬內容，點開圖片或訊息即可閱讀完整解答。若沒有收到回覆，請先確認是否已加入好友，以及關鍵字是否輸入正確。",
+    ],
+    link: { href: "https://www.facebook.com/share/p/1KR38gfSUr/", label: "前往 Facebook 原貼文 →" },
+  },
+  {
+    id: "brand-song-course",
+    title: "公司／個人主題曲設計體驗課",
+    date: "2026-03-05",
+    tag: "服務資訊",
+    image: "/images/articles/brand-song-course-1.jpg",
+    heroImage: "/images/articles/brand-song-course-1.jpg",
+    galleryImages: [
+      { src: "/images/articles/brand-song-course-2.jpg", alt: "主題曲設計課程應用用途", aspect: "square" },
+      { src: "/images/articles/brand-song-course-3.jpg", alt: "主題曲設計課程四大特色", aspect: "square" },
+      { src: "/images/articles/brand-song-course-4.jpg", alt: "主題曲設計體驗課資訊", aspect: "square" },
+    ],
+    excerpt: "從歌詞到旋律，零基礎也能完成專屬的公司、品牌或個人主題曲。",
+    body: [
+      "每個品牌都有故事，而你的故事值得被唱出來。跟著艾飛樂，從製作歌詞開始，慢慢走進旋律、節奏與情感的世界。",
+      "即使沒有音樂基礎，也能親手創作專屬品牌旋律；它可以是公司主題曲、週年慶活動曲或宣傳影片配樂，讓更多人聽見你的品牌。",
+      "課程採預約制，預計 2 至 2.5 小時，可透過 Zoom 或其他 app 線上進行。作曲體驗費用為 1,500 元／人，也可加購動畫 MV 製作含剪輯。",
+    ],
+    link: { href: "https://lin.ee/mgmbdpc", label: "加入官方 LINE 報名 →" },
+  },
   {
     id: "claude-teacher-prep-tool",
     title: "Claude AI：教師備課與文件製作的新神器",

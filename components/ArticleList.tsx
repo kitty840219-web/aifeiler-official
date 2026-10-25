@@ -121,7 +121,7 @@ export default function ArticleList({ articles }: { articles: Article[] }) {
                 <div
                   key={image.src}
                   className={`relative mt-4 w-full shrink-0 overflow-hidden rounded-2xl border border-gold/20 bg-white ${
-                    image.aspect === "portrait" ? "aspect-[3/4]" : "aspect-[3/2]"
+                    image.aspect === "portrait" ? "aspect-[3/4]" : image.aspect === "square" ? "aspect-square" : "aspect-[3/2]"
                   }`}
                 >
                   <Image src={asset(image.src)} alt={image.alt} fill className="object-contain" sizes="398px" />
