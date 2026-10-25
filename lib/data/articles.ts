@@ -7,10 +7,51 @@ export type Article = {
   body: string[];
   image?: string;
   heroImage?: string;
+  galleryImages?: Array<{ src: string; alt: string; aspect?: "portrait" | "landscape" }>;
   link?: { href: string; label: string };
 };
 
 export const ARTICLES: Article[] = [
+  {
+    id: "claude-teacher-prep-tool",
+    title: "Claude AI：教師備課與文件製作的新神器",
+    date: "2026-07-31",
+    tag: "工具上線",
+    image: "/images/articles/claude-teacher-tool-1.jpg",
+    heroImage: "/images/articles/claude-teacher-tool-1.jpg",
+    galleryImages: [
+      { src: "/images/articles/claude-teacher-tool-2.jpg", alt: "Claude 製作 PowerPoint、Excel 與 Word 文件示意", aspect: "portrait" },
+    ],
+    excerpt: "從備課簡報到 Word、Excel 與 PDF，讓 AI 成為教師與工作者更省時的文件小幫手。",
+    body: [
+      "覺得生在 AI 時代很幸運。雖然有人說 AI 會取代人，但我反而覺得它幫了我很多忙，也在過程中教會我許多事情。",
+      "尤其是做專案簡報這一塊，Claude 能協助把想法整理成大綱、轉成可編輯的 PowerPoint，讓備課與提案少了很多重複作業的時間。",
+      "不只是簡報，Word 文件、Excel 表格分析與 PDF 輸出也能透過自然語言指令一起處理。從無中生有、教材轉化到舊檔翻新，都能依照需要選擇合適的做法。",
+      "AI 不是取代老師或創作者，而是把時間還給真正重要的思考、教學與交流。",
+    ],
+    link: { href: "https://www.facebook.com/share/p/14q9mDN2W2Q/", label: "前往 Facebook 原貼文 →" },
+  },
+  {
+    id: "ai-web-design-service-launch",
+    title: "AI 浪潮來襲！艾飛樂網站設計服務正式上線",
+    date: "2026-07-31",
+    tag: "服務資訊",
+    image: "/images/articles/web-design-service-1.jpg",
+    heroImage: "/images/articles/web-design-service-1.jpg",
+    galleryImages: [
+      { src: "/images/articles/web-design-service-2.jpg", alt: "銀河檔案館網站首頁設計示意", aspect: "landscape" },
+      { src: "/images/articles/web-design-service-3.jpg", alt: "銀河檔案館案件選擇介面示意", aspect: "landscape" },
+      { src: "/images/articles/web-design-service-4.jpg", alt: "銀河檔案館互動案件頁面示意", aspect: "landscape" },
+    ],
+    excerpt: "將 AI Agent 智慧輔助融入網站設計流程，打造兼具質感、故事感與高效體驗的數位門面。",
+    body: [
+      "擁抱 AI 趨勢，艾飛樂也跟上潮流了！我們將 AI Agent 智慧輔助融入網站設計流程，精準提升開發效率，打造兼具質感、故事感與高效體驗的數位門面。",
+      "現在正式開放「企業網頁設計」接案。無論是品牌形象官網、產品銷售一頁式，或是客製化 Web 介面，都能依品牌需求規劃，幫企業建立更有吸引力的數位門面。",
+      "從視覺設計、內容結構到互動體驗，會先理解品牌想說的故事，再將它做成好看、好用，也方便後續維護的網站。",
+      "想了解更多或預約諮詢，歡迎加入官方 LINE 洽詢。LINE ID：@153yhemn。",
+    ],
+    link: { href: "https://lin.ee/9wCw26N", label: "加入官方 LINE 諮詢 →" },
+  },
   {
     id: "quote-failure-first-step",
     title: "失敗，是比成功更可貴的經歷",

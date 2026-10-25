@@ -11,10 +11,12 @@ import { asset } from "@/lib/basePath";
 export default function ArticleList({ articles }: { articles: Article[] }) {
   const [selected, setSelected] = useState<Article | null>(null);
   const [category, setCategory] = useState("全部文章");
+  const preferredCategories = ["最新語錄", "電子書", "工具上線", "服務資訊"];
+  const articleTags = Array.from(new Set(articles.map((article) => article.tag)));
   const categories = [
     "全部文章",
-    "最新語錄",
-    ...Array.from(new Set(articles.map((article) => article.tag))).filter((tag) => tag !== "最新語錄"),
+    ...preferredCategories.filter((tag) => articleTags.includes(tag)),
+    ...articleTags.filter((tag) => !preferredCategories.includes(tag)),
   ];
   const newestFirst = [...articles].sort((a, b) => b.date.localeCompare(a.date));
   const displayedArticles = category === "全部文章" ? newestFirst : newestFirst.filter((article) => article.tag === category);
@@ -115,6 +117,16 @@ export default function ArticleList({ articles }: { articles: Article[] }) {
                   <Image src={asset(selected.heroImage)} alt={`${selected.title}主題插畫`} fill className="object-contain" sizes="398px" />
                 </div>
               )}
+              {selected.galleryImages?.map((image) => (
+                <div
+                  key={image.src}
+                  className={`relative mt-4 w-full shrink-0 overflow-hidden rounded-2xl border border-gold/20 bg-white ${
+                    image.aspect === "portrait" ? "aspect-[3/4]" : "aspect-[3/2]"
+                  }`}
+                >
+                  <Image src={asset(image.src)} alt={image.alt} fill className="object-contain" sizes="398px" />
+                </div>
+              ))}
               <div className="mt-4 space-y-4 text-sm leading-7 text-[#403d61]">
                 {selected.body.map((p, i) => (
                   <p key={i}>{p}</p>
