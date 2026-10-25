@@ -1,5 +1,5 @@
 {
-  "name": "esim-phone-network",
+  "name": "aifeiler-portfolio",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -9,14 +9,13 @@
     "lint": "eslint ."
   },
   "dependencies": {
+    "html2canvas": "^1.4.1",
     "next": "^16.3.3",
-    "qrcode": "^1.5.4",
     "react": "^19.1.0",
     "react-dom": "^19.1.0"
   },
   "devDependencies": {
     "@types/node": "^20.14.0",
-    "@types/qrcode": "^1.5.5",
     "@types/react": "^19.1.0",
     "@types/react-dom": "^19.1.0",
     "autoprefixer": "^10.4.20",
