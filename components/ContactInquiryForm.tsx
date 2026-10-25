@@ -104,7 +104,7 @@ export default function ContactInquiryForm() {
         <textarea name="details" rows={5} placeholder="例如：影片長度、想要的設計風格、貼圖張數、參考連結或其他想法" className="resize-y rounded-xl border border-paper/20 bg-night-dark/45 px-4 py-3 text-paper outline-none placeholder:text-paper/40 focus:border-gold" />
       </label>
 
-      <p aria-live="polite" className="mt-5 text-sm leading-relaxed text-gold-light">{message || "送出後將開啟官方 LINE，表單內容會自動帶入訊息欄。"}</p>
+      <p aria-live="polite" className="mt-5 text-sm leading-relaxed text-gold-light">{message || "手機版會直接開啟官方 LINE 並帶入內容；電腦版會複製訊息，方便貼到 LINE 傳送。"}</p>
       <button type="submit" className="mt-5 w-full rounded-full bg-gold px-6 py-4 text-base font-bold text-night-dark transition hover:bg-gold-light active:scale-[0.99]">
         送出需求 →
       </button>

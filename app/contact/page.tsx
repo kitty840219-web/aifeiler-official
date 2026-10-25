@@ -42,7 +42,7 @@ export default function ContactPage() {
       <section className="mx-auto max-w-6xl px-4 py-14 sm:px-6 sm:py-20">
         <div className="grid gap-10 lg:grid-cols-[0.85fr_1.15fr] lg:items-start">
           <div>
-            <SectionHeading eyebrow="AIFEILER STUDIO" title="聯絡資訊" desc="填寫表單後，系統會帶你前往官方 LINE，讓我們更快收到並回覆你的需求。" />
+            <SectionHeading eyebrow="AIFEILER STUDIO" title="聯絡資訊" desc="手機填寫後會開啟官方 LINE；電腦版則會整理並複製訊息，讓你貼上傳送給我們。" />
             <div className="mt-7 grid gap-3">
               {BUSINESS_DETAILS.map((detail) => {
                 const content = <><span className="block text-xs font-semibold tracking-[0.16em] text-gold-light">{detail.label}</span><span className="mt-2 block whitespace-pre-line text-sm leading-7 text-paper/85">{detail.value}</span></>;
