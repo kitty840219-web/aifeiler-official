@@ -11,7 +11,7 @@ import { asset } from "@/lib/basePath";
 export default function ArticleList({ articles }: { articles: Article[] }) {
   const [selected, setSelected] = useState<Article | null>(null);
   const [category, setCategory] = useState("全部文章");
-  const preferredCategories = ["最新語錄", "電子書", "工具上線", "服務資訊"];
+  const preferredCategories = ["最新語錄", "工具小幫手", "服務資訊"];
   const articleTags = Array.from(new Set(articles.map((article) => article.tag)));
   const categories = [
     "全部文章",

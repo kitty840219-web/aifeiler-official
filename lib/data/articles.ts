@@ -215,7 +215,7 @@ export const ARTICLES: Article[] = [
     id: "line-tarot-guide",
     title: "官方 LINE 領取教學｜大眾占卜與心理測驗",
     date: "2026-05-29",
-    tag: "工具上線",
+    tag: "工具小幫手",
     image: "/images/articles/line-guide-1.jpg",
     heroImage: "/images/articles/line-guide-1.jpg",
     galleryImages: [
@@ -255,7 +255,7 @@ export const ARTICLES: Article[] = [
     id: "claude-teacher-prep-tool",
     title: "Claude AI：教師備課與文件製作的新神器",
     date: "2026-07-31",
-    tag: "工具上線",
+    tag: "工具小幫手",
     image: "/images/articles/claude-teacher-tool-1.jpg",
     heroImage: "/images/articles/claude-teacher-tool-1.jpg",
     galleryImages: [
@@ -592,9 +592,9 @@ export const ARTICLES: Article[] = [
   },
   {
     id: "ivy-digital-portfolio",
-    title: "從企劃到成品：李宛容 Ivy 的數位創作作品集",
+    title: "Ivy 的數位創作作品集 電子書",
     date: "2026-09-11",
-    tag: "電子書",
+    tag: "工具小幫手",
     image: "/images/articles/ivy-digital-portfolio-cutout.webp",
     heroImage: "/images/articles/ivy-digital-portfolio-dm.webp",
     excerpt: "把 11 年以上的工作經歷、AI 應用、社群經營、影音與視覺設計，整理成一冊可以線上翻閱的電子作品集。",
@@ -610,7 +610,7 @@ export const ARTICLES: Article[] = [
     id: "accounting-helper-launch",
     title: "艾飛樂會計小幫手上線了！",
     date: "2026-09-09",
-    tag: "工具上線",
+    tag: "工具小幫手",
     image: "/images/articles/accounting-helper-cutout.webp",
     heroImage: "/images/articles/accounting-helper-dm.webp",
     excerpt: "把接案、周邊、占卜服務的記帳難題，變成點兩下就能算完的小事。",
@@ -625,7 +625,7 @@ export const ARTICLES: Article[] = [
   },
   {
     id: "service-rate-card-launch",
-    title: "插畫剪輯設計，2026 服務報價公開了",
+    title: "影片剪輯與平面設計，2026 服務報價",
     date: "2026-09-10",
     tag: "服務資訊",
     image: "/images/articles/service-rate-card.jpg",
@@ -641,7 +641,7 @@ export const ARTICLES: Article[] = [
   },
   {
     id: "tarot-service-menu-launch",
-    title: "塔羅占卜服務項目更新了，單次到 VIP 包月都有",
+    title: "塔羅占卜服務項目更新了",
     date: "2026-09-10",
     tag: "服務資訊",
     image: "/images/articles/tarot-service-pricing.jpg",
@@ -656,7 +656,7 @@ export const ARTICLES: Article[] = [
   },
   {
     id: "tarot-testimonials-update",
-    title: "31 則真實客戶回饋，是我們前進的動力",
+    title: "塔羅占卜客戶回饋心得分享",
     date: "2026-09-10",
     tag: "服務資訊",
     image: "/images/articles/tarot-testimonials-feedback.jpg",
