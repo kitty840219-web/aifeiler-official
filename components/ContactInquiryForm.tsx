@@ -24,6 +24,7 @@ function CheckOption({ id, label, name }: { id: string; label: string; name: str
 
 export default function ContactInquiryForm() {
   const [message, setMessage] = useState("");
+  const [desktopMessage, setDesktopMessage] = useState("");
 
   function submitInquiry(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
@@ -47,8 +48,18 @@ export default function ContactInquiryForm() {
       `需求說明：${form.get("details") || "未提供"}`,
     ].join("\n");
 
-    setMessage("正在開啟官方 LINE，請確認訊息內容後按下傳送。 ");
-    window.location.assign(`https://line.me/R/oaMessage/%40153yhemn/?${encodeURIComponent(lineMessage)}`);
+    const lineUrl = `https://line.me/R/oaMessage/%40153yhemn/?${encodeURIComponent(lineMessage)}`;
+    const isMobile = /Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
+
+    if (isMobile) {
+      setMessage("正在開啟官方 LINE，請確認訊息內容後按下傳送。 ");
+      window.location.assign(lineUrl);
+      return;
+    }
+
+    void navigator.clipboard?.writeText(lineMessage);
+    setDesktopMessage(lineMessage);
+    setMessage("內容已複製。請用手機開啟官方 LINE，貼上並傳送給 @153yhemn。 ");
   }
 
   return (
@@ -95,8 +106,15 @@ export default function ContactInquiryForm() {
 
       <p aria-live="polite" className="mt-5 text-sm leading-relaxed text-gold-light">{message || "送出後將開啟官方 LINE，表單內容會自動帶入訊息欄。"}</p>
       <button type="submit" className="mt-5 w-full rounded-full bg-gold px-6 py-4 text-base font-bold text-night-dark transition hover:bg-gold-light active:scale-[0.99]">
-        送出並開啟官方 LINE →
+        送出需求 →
       </button>
+      {desktopMessage && (
+        <div className="mt-5 rounded-2xl border border-gold/30 bg-night-dark/45 p-4 text-left">
+          <p className="text-sm font-bold text-paper">電腦版 LINE 提醒</p>
+          <p className="mt-2 text-sm leading-7 text-paper/75">你的需求內容已複製到剪貼簿。請在手機開啟 LINE，傳送給官方帳號 <span className="font-semibold text-gold-light">@153yhemn</span>；手機版送出時會自動開啟對話並帶入內容。</p>
+          <textarea readOnly value={desktopMessage} aria-label="已整理的聯絡需求內容" rows={6} className="mt-3 w-full resize-y rounded-xl border border-paper/15 bg-night-dark/60 p-3 text-xs leading-6 text-paper/75 outline-none" />
+        </div>
+      )}
     </form>
   );
 }
