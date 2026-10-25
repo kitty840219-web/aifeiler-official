@@ -348,8 +348,8 @@ export const ARTICLES: Article[] = [
     title: "插畫剪輯設計，2026 服務報價公開了",
     date: "2026-09-10",
     tag: "服務資訊",
-    image: "/images/articles/service-rate-card-cutout.webp",
-    heroImage: "/images/articles/service-rate-card-dm.webp",
+    image: "/images/articles/service-rate-card.jpg",
+    heroImage: "/images/articles/service-rate-card.jpg",
     excerpt: "接案價格到底怎麼算？這次把插畫、剪輯、設計的報價全部攤開來給你看，還能線上試算。",
     body: [
       "常常有人私訊問我：「畫一張語錄圖卡大概多少錢？」「剪一支影片要抓多久？」每次都要重新報價、來回溝通，說真的蠻花時間的，你我都是。",
@@ -364,7 +364,7 @@ export const ARTICLES: Article[] = [
     title: "塔羅占卜服務項目更新了，單次到 VIP 包月都有",
     date: "2026-09-10",
     tag: "服務資訊",
-    image: "/images/articles/tarot-service-menu-cutout.webp",
+    image: "/images/articles/tarot-service-pricing.jpg",
     excerpt: "一次占卜、5 個問題，指引方向、看見答案；單次服務跟 VIP 包月方案這次一次整理給你看。",
     body: [
       "很多人第一次找我占卜，都會問：「我只是想問一個問題，也可以嗎？」「如果想常常來問，有沒有比較划算的方案？」這次把大家常問的整理成一頁服務項目，單次到長期都有對應的選擇。",
@@ -379,7 +379,7 @@ export const ARTICLES: Article[] = [
     title: "31 則真實客戶回饋，是我們前進的動力",
     date: "2026-09-10",
     tag: "服務資訊",
-    image: "/images/articles/tarot-testimonials-cutout.webp",
+    image: "/images/articles/tarot-testimonials-feedback.jpg",
     excerpt: "每一則留言都認真看過，也整理成一頁分享給還在猶豫的你，看看其他人怎麼說。",
     body: [
       "占卜這件事很私人，很多人第一次來之前，都會猶豫：「這真的準嗎？」「花這筆錢值得嗎？」比起我自己說再多，不如讓真的來過的人告訴你。",
