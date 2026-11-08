@@ -13,6 +13,43 @@ export type Article = {
 
 export const ARTICLES: Article[] = [
 {
+  "id": "abby-siye-character-introduction",
+  "title": "只穿睡衣的艾比｜艾比與思野角色介紹",
+  "date": "2026-05-21",
+  "tag": "最新短片",
+  "image": "/images/articles/abby-character-profile.webp",
+  "galleryImages": [
+    {
+      "src": "/images/articles/abby-character-profile.webp",
+      "alt": "艾比 Abby 角色設定與日常穿搭介紹",
+      "aspect": "portrait"
+    },
+    {
+      "src": "/images/articles/siye-character-profile.webp",
+      "alt": "思野 SIYE 男主角角色設定介紹",
+      "aspect": "portrait"
+    }
+  ],
+  "excerpt": "艾飛樂新人物 IP 設計：只穿睡衣的艾比。認識 AI 真人短劇女主角艾比 Abby，以及男主角思野 SIYE。",
+  "body": [
+    "艾飛樂新人物 IP 設計｜艾比「只穿睡衣的艾比」。AI 真人短劇人物角色介紹。",
+    "【女主角｜艾比 Abby】",
+    "生日：1995/02/19；星座：雙魚座；職業：塔羅占卜師。",
+    "性格：溫柔、細膩、直覺力強、善解人意。專長：塔羅占卜、能量療癒、心靈諮詢。",
+    "喜歡：咖啡、香氛、旅行、貓咪、書籍。討厭：虛偽、負能量、被催促。",
+    "口頭禪：「宇宙會給你最好的安排。」最喜歡的人：思野 SIYE。",
+    "【男主角｜思野 SIYE】",
+    "出生日期：1987/07/17；身高：180 cm；星座：巨蟹座；職業：賽車手／自營工作室老闆。",
+    "性格：外冷內熱、理性克制、嘴硬心軟。代表色：深灰色。",
+    "喜歡：老車、黑咖啡、音樂、安靜。討厭：被誤會、情緒勒索、吵架。",
+    "最怕的事：把艾比弄哭。"
+  ],
+  "link": {
+    "href": "https://www.instagram.com/imabby_0219?psln=OTdra3N2eDg2Y3hj&utm_source=qr",
+    "label": "前往艾比 Abby 的 Instagram →"
+  }
+},
+{
   "id": "quote-redefining-adulthood",
   "title": "我們一直誤解成為真正大人的定義。",
   "date": "2026-11-08",
