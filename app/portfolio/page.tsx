@@ -28,15 +28,15 @@ const PROJECT_LINKS = [
 
 export default function PortfolioPage() {
   return (
-    <div className="w-full overflow-hidden bg-[#fffaf2] text-[#2b2a5c]">
-      <section className="relative bg-[#fffaf2] px-5 pb-4 pt-14 sm:px-8 sm:pb-6 sm:pt-20">
+    <div className="w-full overflow-hidden bg-[#fdf9f0] text-[#2b2a5c]">
+      <section className="relative bg-[#fdf9f0] px-5 pb-4 pt-14 sm:px-8 sm:pb-6 sm:pt-20">
         <div className="mx-auto max-w-6xl text-center">
           <div>
             <p className="text-sm font-bold tracking-[0.35em] text-[#94601d]">IVY LEE · PORTFOLIO</p>
             <h1 className="mt-5 text-center font-serif text-4xl font-bold leading-tight text-[#2b2a5c] sm:text-6xl">數位內容與視覺設計<br />作品集</h1>
             <p className="mx-auto mt-6 max-w-2xl text-lg leading-9 text-[#514d70] sm:text-xl">把企劃、文字、影像與設計整合成完整的品牌體驗，持續探索 AI、互動媒體與商業視覺的更多可能。</p>
             <div className="mt-7 flex flex-wrap justify-center gap-2">
-              {SKILLS.map((skill) => <span key={skill} className="rounded-full border border-[#c7a66c] bg-[#fffaf2] px-3 py-2 text-sm font-medium text-[#94601d]">{skill}</span>)}
+              {SKILLS.map((skill) => <span key={skill} className="rounded-full border border-[#c7a66c] bg-[#fdf9f0] px-3 py-2 text-sm font-medium text-[#94601d]">{skill}</span>)}
             </div>
           </div>
         </div>
@@ -46,27 +46,27 @@ export default function PortfolioPage() {
 
       <AifeilerBookReader />
 
-      <section className="bg-paper px-5 py-14 text-ink sm:px-8 sm:py-20">
+      <section className="bg-[#fdf9f0] px-5 py-14 text-[#2b2a5c] sm:px-8 sm:py-20">
         <div className="mx-auto max-w-6xl">
           <div className="grid gap-10 lg:grid-cols-[0.72fr_1.28fr]">
             <div>
-              <p className="text-sm font-bold tracking-[0.3em] text-gold-dark">ABOUT IVY</p>
+              <p className="text-sm font-bold tracking-[0.3em] text-[#94601d]">ABOUT IVY</p>
               <h2 className="mt-3 font-serif text-3xl font-bold sm:text-5xl">跨領域的內容創作者</h2>
-              <p className="mt-5 text-base leading-8 text-ink/75 sm:text-lg">擁有國際貿易與數位文創的跨領域背景，以及超過 11 年的行政、專案與內容製作經驗。擅長靈活運用 AI 工具，把企劃轉化成網站、影像、簡報與平面設計成品。</p>
+              <p className="mt-5 text-base leading-8 text-[#514d70] sm:text-lg">擁有國際貿易與數位文創的跨領域背景，以及超過 11 年的行政、專案與內容製作經驗。擅長靈活運用 AI 工具，把企劃轉化成網站、影像、簡報與平面設計成品。</p>
               <div className="mt-7 space-y-4 rounded-2xl bg-[#f3eadc] p-5">
-                <div><p className="text-sm font-bold text-gold-dark">學歷</p><p className="mt-1 font-semibold">醒吾科技大學｜國際貿易系</p><p className="text-sm text-ink/60">國立中興大學｜數位人文與文創產業進修</p></div>
-                <div><p className="text-sm font-bold text-gold-dark">專業工具</p><p className="mt-1 text-sm leading-7 text-ink/70">ChatGPT、Gemini、Claude、Codex、Midjourney、Photoshop、Illustrator、Premiere、WordPress</p></div>
-                <div><p className="text-sm font-bold text-gold-dark">進修方向</p><p className="mt-1 text-sm text-ink/70">iPAS AI 應用規劃師與生成式 AI 應用</p></div>
+                <div><p className="text-sm font-bold text-[#94601d]">學歷</p><p className="mt-1 font-semibold">醒吾科技大學｜國際貿易系</p><p className="text-sm text-[#514d70]">國立中興大學｜數位人文與文創產業進修</p></div>
+                <div><p className="text-sm font-bold text-[#94601d]">專業工具</p><p className="mt-1 text-sm leading-7 text-[#514d70]">ChatGPT、Gemini、Claude、Codex、Midjourney、Photoshop、Illustrator、Premiere、WordPress</p></div>
+                <div><p className="text-sm font-bold text-[#94601d]">進修方向</p><p className="mt-1 text-sm text-[#514d70]">iPAS AI 應用規劃師與生成式 AI 應用</p></div>
               </div>
             </div>
             <div>
-              <p className="text-sm font-bold tracking-[0.3em] text-gold-dark">EXPERIENCE</p>
+              <p className="text-sm font-bold tracking-[0.3em] text-[#94601d]">EXPERIENCE</p>
               <h2 className="mt-3 font-serif text-3xl font-bold sm:text-4xl">工作經歷</h2>
               <div className="mt-7 space-y-4">
                 {EXPERIENCE.map((item) => (
-                  <div key={`${item.period}-${item.role}`} className="grid gap-2 rounded-2xl border border-ink/10 p-5 sm:grid-cols-[100px_1fr]">
-                    <p className="font-serif text-lg font-bold text-gold-dark">{item.period}</p>
-                    <div><h3 className="text-lg font-bold">{item.role}</h3><p className="mt-1 text-base leading-7 text-ink/65">{item.detail}</p></div>
+                  <div key={`${item.period}-${item.role}`} className="grid gap-2 rounded-2xl border border-[#dec99e] p-5 sm:grid-cols-[100px_1fr]">
+                    <p className="font-serif text-lg font-bold text-[#94601d]">{item.period}</p>
+                    <div><h3 className="text-lg font-bold">{item.role}</h3><p className="mt-1 text-base leading-7 text-[#514d70]">{item.detail}</p></div>
                   </div>
                 ))}
               </div>
@@ -75,13 +75,13 @@ export default function PortfolioPage() {
         </div>
       </section>
 
-      <section className="bg-[#fffaf2] px-5 py-14 sm:px-8 sm:py-20">
+      <section className="bg-[#fdf9f0] px-5 py-14 sm:px-8 sm:py-20">
         <div className="mx-auto max-w-6xl">
           <p className="text-sm font-bold tracking-[0.3em] text-[#94601d]">SELECTED LINKS</p>
           <h2 className="mt-3 font-serif text-3xl font-bold text-[#2b2a5c] sm:text-4xl">代表作品連結</h2>
           <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
             {PROJECT_LINKS.map((link) => (
-              <a key={link.label} href={link.href} target="_blank" rel="noreferrer" className="group rounded-2xl border border-[#dec99e] bg-white p-5 transition hover:-translate-y-1 hover:border-[#b98a3e] hover:bg-[#fffaf2]">
+              <a key={link.label} href={link.href} target="_blank" rel="noreferrer" className="group rounded-2xl border border-[#dec99e] bg-white p-5 transition hover:-translate-y-1 hover:border-[#b98a3e] hover:bg-[#fdf9f0]">
                 <div className="flex items-center justify-between gap-3"><h3 className="text-lg font-bold text-[#2b2a5c]">{link.label}</h3><span className="text-xl text-[#94601d] transition group-hover:translate-x-1">↗</span></div>
                 <p className="mt-2 text-base leading-7 text-[#514d70]">{link.note}</p>
               </a>
