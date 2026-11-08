@@ -14,6 +14,22 @@ export type Article = {
 
 export const ARTICLES: Article[] = [
 {
+  "id": "short-personal-tarot-booking",
+  "title": "艾飛樂塔羅個人占卜",
+  "date": "2026-06-21",
+  "tag": "最新短片",
+  "youtubeId": "4Tpn8unoJIk",
+  "excerpt": "艾飛樂塔羅個人占卜，立即預約 Line @153yhemn。",
+  "body": [
+    "艾飛樂塔羅個人占卜\n立即預約Line @153yhemn",
+    "#艾飛樂 #廣告片 #塔羅 #預約占卜"
+  ],
+  "link": {
+    "href": "https://youtube.com/shorts/4Tpn8unoJIk?si=kJqWR_X9XfEBomNS",
+    "label": "前往 YouTube 觀看短片 →"
+  }
+},
+{
   "id": "short-xiaoai-understands-your-mood",
   "title": "心情會變，小艾都懂。",
   "date": "2026-05-29",
