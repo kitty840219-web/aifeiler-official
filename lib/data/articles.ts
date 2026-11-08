@@ -14,6 +14,23 @@ export type Article = {
 
 export const ARTICLES: Article[] = [
 {
+  "id": "mv-i-miss-you",
+  "title": "動畫 MV｜我很想你",
+  "date": "2026-03-02",
+  "tag": "最新MV",
+  "youtubeId": "vBNxKI8N85Q",
+  "excerpt": "這首歌寫給那個很想念，卻選擇沉默的人。如果你也曾經把愛藏進安靜裡，這首歌是送給你的。",
+  "body": [
+    "最新動畫MV作品—《我很想你》",
+    "有些想念，不是不夠勇敢，而是太在乎。我們都曾經站在對話框前，打了一句「你最近好嗎？」卻在按下送出前，把字一個一個刪掉。不是不想靠近，是害怕一句關心，換來更遠的距離。這首歌寫給那個很想念，卻選擇沉默的人。如果你也曾經把愛藏進安靜裡，那麼這首歌「我很想你」，是送給你的。",
+    "祝大家今晚有個美夢，晚安😴😘"
+  ],
+  "link": {
+    "href": "https://youtube.com/shorts/vBNxKI8N85Q?si=pQqbsvWTsS54J6cP",
+    "label": "前往 YouTube 觀看 MV →"
+  }
+},
+{
   "id": "mv-journey-to-kindness",
   "title": "MV｜在旅途裡學會溫柔與悲憫",
   "date": "2025-12-03",
