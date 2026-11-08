@@ -13,6 +13,24 @@ export type Article = {
 
 export const ARTICLES: Article[] = [
 {
+  "id": "quote-redefining-adulthood",
+  "title": "我們一直誤解成為真正大人的定義。",
+  "date": "2026-11-08",
+  "tag": "最新語錄",
+  "image": "/images/articles/quote-redefining-adulthood.webp",
+  "heroImage": "/images/articles/quote-redefining-adulthood.webp",
+  "excerpt": "我們一直都在幫別人的花園澆水，卻任憑自己的荒野長滿雜草。",
+  "body": [
+    "我們常以為，長大就是學會把自己削成適合各種模樣的木塞，去填補別人生涯裡的空缺。為了撐起別人的期待，我們把眼裡原本的光，折疊成漆黑夜裡默默點燃的蠟燭，一滴滴耗盡自己的燭淚。",
+    "我們忙著走在一條條由他人鋪好的軌道上，卻忘了腳下那雙鞋，其實早已磨破了雙腳。我們習慣了為了換取平穩，而主動鬆開那些能讓靈魂起飛的風箏。",
+    "直到被現實的濃霧困住，才猛然驚醒，原來我們一直都在幫別人的花園澆水，卻任憑自己的荒野長滿雜草。"
+  ],
+  "link": {
+    "href": "https://www.facebook.com/share/p/1Ca7EZvss7/?mibextid=wwXIfr",
+    "label": "前往 Facebook 原貼文 →"
+  }
+},
+{
   "id": "quote-clear-eyes-calm-heart",
   "title": "眼明是一種天賦，但心靜才是修養。",
   "date": "2026-11-07",
