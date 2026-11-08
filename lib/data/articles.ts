@@ -14,6 +14,22 @@ export type Article = {
 
 export const ARTICLES: Article[] = [
 {
+  "id": "mv-old-home-new-life",
+  "title": "原創動畫 MV｜舊屋換新的靈感",
+  "date": "2026-03-10",
+  "tag": "最新MV",
+  "youtubeId": "oJJOO3oDEho",
+  "excerpt": "新歌來囉❤️ 這次這首歌靈感來自於舊屋換新～☺️",
+  "body": [
+    "新歌來囉❤️\n這次這首歌靈感來自於舊屋換新～☺️",
+    "#艾飛樂 #動畫 #mv #原創 #室內裝潢 #老屋翻新"
+  ],
+  "link": {
+    "href": "https://youtube.com/shorts/oJJOO3oDEho?si=1-xlmqmILEHYYwJy",
+    "label": "前往 YouTube 觀看 MV →"
+  }
+},
+{
   "id": "mv-i-miss-you",
   "title": "動畫 MV｜我很想你",
   "date": "2026-03-02",
