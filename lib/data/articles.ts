@@ -15,7 +15,7 @@ export type Article = {
 export const ARTICLES: Article[] = [
 {
   "id": "mv-old-home-new-life",
-  "title": "原創動畫 MV｜舊屋換新的靈感",
+  "title": "舊屋換新的靈感",
   "date": "2026-03-10",
   "tag": "最新MV",
   "youtubeId": "oJJOO3oDEho",
@@ -31,7 +31,7 @@ export const ARTICLES: Article[] = [
 },
 {
   "id": "mv-i-miss-you",
-  "title": "動畫 MV｜我很想你",
+  "title": "我很想你",
   "date": "2026-03-02",
   "tag": "最新MV",
   "youtubeId": "vBNxKI8N85Q",
@@ -48,7 +48,7 @@ export const ARTICLES: Article[] = [
 },
 {
   "id": "mv-journey-to-kindness",
-  "title": "MV｜在旅途裡學會溫柔與悲憫",
+  "title": "在旅途裡學會溫柔與悲憫",
   "date": "2025-12-03",
   "tag": "最新MV",
   "youtubeId": "8N9fq_Rw3CE",
@@ -65,7 +65,7 @@ export const ARTICLES: Article[] = [
 },
 {
   "id": "mv-only-stay-for-you",
-  "title": "動畫 MV｜只想為你停留",
+  "title": "只想為你停留",
   "date": "2026-02-14",
   "tag": "最新MV",
   "youtubeId": "2MH3zN3VCn4",
@@ -80,7 +80,7 @@ export const ARTICLES: Article[] = [
 },
 {
   "id": "mv-for-those-who-smile",
-  "title": "MV｜寫給那些總是笑著的人",
+  "title": "寫給那些總是笑著的人",
   "date": "2025-10-27",
   "tag": "最新MV",
   "youtubeId": "EusdaHgNLt0",
@@ -96,7 +96,7 @@ export const ARTICLES: Article[] = [
 },
 {
   "id": "mv-light-in-darkness",
-  "title": "動畫 MV｜獻給每一個正在努力的你",
+  "title": "獻給每一個正在努力的你",
   "date": "2025-10-26",
   "tag": "最新MV",
   "youtubeId": "XfL0qZiWDJQ",
