@@ -14,6 +14,84 @@ export type Article = {
 
 export const ARTICLES: Article[] = [
 {
+  "id": "short-pink-dinosaur-at-work",
+  "date": "2026-06-22",
+  "title": "當公司門口出現一隻全身濕透的粉色恐龍…..",
+  "tag": "最新短片",
+  "youtubeId": "X2LcFcb97O4",
+  "excerpt": "當公司門口出現一隻全身濕透的粉色恐龍…..",
+  "body": [
+    "#職場新鮮人",
+    "當公司門口出現一隻全身濕透的粉色恐龍…..",
+    "#真實改編 #戀愛腦 #短劇 #艾飛樂"
+  ],
+  "link": {
+    "href": "https://youtube.com/shorts/X2LcFcb97O4?si=Mud8Cx4e7pKkrpS3",
+    "label": "前往 YouTube 觀看短片 →"
+  }
+},
+{
+  "id": "short-you-are-a-rabbit",
+  "date": "2026-06-23",
+  "title": "管妳屬什麼，我說妳屬兔子就是屬兔子…",
+  "tag": "最新短片",
+  "youtubeId": "ONNtQSExMFo",
+  "excerpt": "管妳屬什麼，我說妳屬兔子就是屬兔子…",
+  "body": [
+    "管妳屬什麼，我說妳屬兔子就是屬兔子…",
+    "#職場新鮮人 #真實改編 #戀愛腦 #短劇"
+  ],
+  "link": {
+    "href": "https://youtube.com/shorts/ONNtQSExMFo?si=vjpx1KpI7Dh-FxwL",
+    "label": "前往 YouTube 觀看短片 →"
+  }
+},
+{
+  "id": "short-who-would-you-save",
+  "date": "2026-06-24",
+  "title": "當女友問：我跟你媽同時掉到水裡先救誰",
+  "tag": "最新短片",
+  "youtubeId": "1hFpZvN0NT0",
+  "excerpt": "當女友問：我跟你媽同時掉到水裡先救誰",
+  "body": [
+    "當女友問：我跟你媽同時掉到水裡先救誰"
+  ],
+  "link": {
+    "href": "https://youtube.com/shorts/1hFpZvN0NT0?si=OWt3_CyiRd5QJrY0",
+    "label": "前往 YouTube 觀看短片 →"
+  }
+},
+{
+  "id": "short-dont-ask-partner-to-change",
+  "date": "2026-06-30",
+  "title": "千萬別叫另一半為你改變…",
+  "tag": "最新短片",
+  "youtubeId": "h6KQl1rclN4",
+  "excerpt": "千萬別叫另一半為你改變…",
+  "body": [
+    "千萬別叫另一半為你改變…"
+  ],
+  "link": {
+    "href": "https://youtube.com/shorts/h6KQl1rclN4?si=mg8e89696sHCsDtU",
+    "label": "前往 YouTube 觀看短片 →"
+  }
+},
+{
+  "id": "short-i-think-he-likes-me",
+  "date": "2026-07-01",
+  "title": "我懷疑他喜歡我，但我沒有證據…",
+  "tag": "最新短片",
+  "youtubeId": "iYy-q9ywHaA",
+  "excerpt": "我懷疑他喜歡我，但我沒有證據…",
+  "body": [
+    "我懷疑他喜歡我，但我沒有證據…"
+  ],
+  "link": {
+    "href": "https://youtube.com/shorts/iYy-q9ywHaA?si=Z1CpBr7KJ7Gn1GHI",
+    "label": "前往 YouTube 觀看短片 →"
+  }
+},
+{
   "id": "short-personal-tarot-booking",
   "title": "艾飛樂塔羅個人占卜",
   "date": "2026-06-21",
