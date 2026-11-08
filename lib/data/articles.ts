@@ -7,11 +7,29 @@ export type Article = {
   body: string[];
   image?: string;
   heroImage?: string;
+  youtubeId?: string;
   galleryImages?: Array<{ src: string; alt: string; aspect?: "portrait" | "landscape" | "square" }>;
   link?: { href: string; label: string };
 };
 
 export const ARTICLES: Article[] = [
+{
+  "id": "short-rational-hurt",
+  "title": "用最理性的姿態，做著最傷人的事。",
+  "date": "2026-05-21",
+  "tag": "最新短片",
+  "youtubeId": "MQGQpmFsZGI",
+  "excerpt": "有些人最厲害的，不是多愛你，而是用最理性的姿態，做著最傷人的事。",
+  "body": [
+    "有些人最厲害的，不是多愛你\n而是用最理性的姿態，做著最傷人的事。",
+    "@dreamstar_illustration @aibi_0219 @aifeiler_taros @sleepabby.0219",
+    "#愛情 #inmyfeelings #拍出電影感 #情緒短片 #人間清醒"
+  ],
+  "link": {
+    "href": "https://youtube.com/shorts/MQGQpmFsZGI?si=9ZSC-cgmYrtTpeiw",
+    "label": "前往 YouTube 觀看短片 →"
+  }
+},
 {
   "id": "abby-siye-character-introduction",
   "title": "只穿睡衣的艾比｜艾比與思野角色介紹",

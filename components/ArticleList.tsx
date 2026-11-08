@@ -59,7 +59,13 @@ export default function ArticleList({ articles }: { articles: Article[] }) {
             className="article-case-card group text-left transition hover:-translate-y-1"
           >
             <div className="article-case-image relative overflow-hidden bg-paper">
-              {(a.heroImage || a.image) ? (
+              {a.youtubeId ? (
+                <>
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img src={`https://i.ytimg.com/vi/${a.youtubeId}/hqdefault.jpg`} alt={`${a.title}影片封面`} loading="lazy" className="absolute inset-0 h-full w-full object-cover" />
+                  <span aria-hidden="true" className="absolute inset-0 grid place-items-center"><span className="grid h-12 w-12 place-items-center rounded-full bg-white/90 text-xl text-[#2b2a5c] shadow">▶</span></span>
+                </>
+              ) : (a.heroImage || a.image) ? (
                 <Image
                   src={asset(a.heroImage || a.image || "")}
                   alt={`${a.title}主題插畫`}
@@ -78,7 +84,7 @@ export default function ArticleList({ articles }: { articles: Article[] }) {
               </div>
               <h3 className="article-case-title mt-3 font-serif text-xl font-bold leading-snug text-[#2b2a5c]">{a.title}</h3>
               <p className="article-case-excerpt mt-3 line-clamp-3 text-sm leading-relaxed text-[#403d61]">{a.excerpt}</p>
-              <p className="article-case-read-more mt-5 text-sm font-bold text-gold-dark">閱讀全文 →</p>
+              <p className="article-case-read-more mt-5 text-sm font-bold text-gold-dark">{a.youtubeId ? "觀看短片 →" : "閱讀全文 →"}</p>
             </div>
           </button>
         ))}
@@ -112,6 +118,17 @@ export default function ArticleList({ articles }: { articles: Article[] }) {
                 <span className="text-xs text-[#514d70]">{selected.date}</span>
               </div>
               <h2 className="font-serif text-xl font-bold text-[#2b2a5c]">{selected.title}</h2>
+              {selected.youtubeId && (
+                <div className="relative mx-auto mt-4 aspect-[9/16] w-full max-w-[320px] shrink-0 overflow-hidden rounded-2xl bg-black">
+                  <iframe
+                    title={selected.title}
+                    src={`https://www.youtube.com/embed/${selected.youtubeId}?playsinline=1`}
+                    className="absolute inset-0 h-full w-full border-0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    allowFullScreen
+                  />
+                </div>
+              )}
               {selected.heroImage && (
                 <div className="relative mt-4 aspect-square w-full shrink-0 overflow-hidden rounded-2xl border border-gold/20 bg-white">
                   <Image src={asset(selected.heroImage)} alt={`${selected.title}主題插畫`} fill className="object-contain" sizes="398px" />
@@ -127,7 +144,7 @@ export default function ArticleList({ articles }: { articles: Article[] }) {
                   <Image src={asset(image.src)} alt={image.alt} fill className="object-contain" sizes="398px" />
                 </div>
               ))}
-              <div className="mt-4 space-y-4 text-sm leading-7 text-[#403d61]">
+              <div className="mt-4 space-y-4 whitespace-pre-line break-words text-sm leading-7 text-[#403d61]">
                 {selected.body.map((p, i) => (
                   <p key={i}>{p}</p>
                 ))}
