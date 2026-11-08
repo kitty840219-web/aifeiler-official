@@ -3,17 +3,7 @@
 import Image from "next/image";
 import { useEffect, useState } from "react";
 import { asset } from "@/lib/basePath";
-import { BOOK_PAGES, BOOK_TOTAL_PAGES as TOTAL, bookImage } from "@/lib/data/book";
-
-const BOOKMARKS = [
-  { sourcePage: 1, label: "封面" }, { sourcePage: 10, label: "目錄" }, { sourcePage: 13, label: "序言" },
-  { sourcePage: 20, label: "生命故事" }, { sourcePage: 60, label: "愛與關係" },
-  { sourcePage: 94, label: "成長與放下" }, { sourcePage: 132, label: "找回自己" }, { sourcePage: 151, label: "作者與封底" },
-];
-
-function displayPageFor(sourcePage: number) {
-  return BOOK_PAGES.findIndex((page) => page >= sourcePage) + 1;
-}
+import { BOOK_TOTAL_PAGES as TOTAL, bookImage } from "@/lib/data/book";
 
 export default function AifeilerBookReader() {
   const [page, setPage] = useState(1);
@@ -67,10 +57,6 @@ export default function AifeilerBookReader() {
           <p className="text-sm font-bold tracking-[0.3em] text-[#9b7132]">BOOK PROJECT · 2025</p>
           <h2 className="mt-3 font-serif text-3xl font-bold sm:text-5xl">《遺落在風中的信》</h2>
           <p className="mx-auto mt-4 max-w-2xl text-base leading-8 text-[#31294e]/70 sm:text-lg">由李宛容 Ivy 創作的療癒圖文書。電腦版以左右跨頁呈現，手機版則維持單頁閱讀，完整保留封面、正文、作者介紹與封底。</p>
-        </div>
-
-        <div className="mt-7 flex flex-wrap justify-center gap-2">
-          {BOOKMARKS.map((mark) => <button key={mark.sourcePage} type="button" onClick={() => goTo(displayPageFor(mark.sourcePage))} className="rounded-full border border-[#9b7132]/40 bg-white/40 px-3 py-2 text-sm font-bold hover:bg-white/80">{mark.label}</button>)}
         </div>
 
         <div className="mx-auto mt-7 max-w-3xl overflow-hidden rounded-[1.75rem] border border-[#9b7132]/35 bg-[#17143d] shadow-2xl">

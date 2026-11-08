@@ -7,8 +7,6 @@ export const metadata: Metadata = {
   description: "李宛容 Ivy 的個人作品集，收錄品牌經營、社群內容、影音製作、AI IP、平面設計、電商視覺、AR／VR 與 3D 建模作品。",
 };
 
-const SKILLS = ["社群內容企劃", "平面與電商設計", "影音剪輯與動畫", "AI IP 人物企劃", "AR／VR 互動", "3D 建模"];
-
 const EXPERIENCE = [
   { period: "2026", role: "數位行銷企劃專案", detail: "數位學習網站與互動遊戲設計、AI 動畫製作、分鏡剪輯、專案預算與教學簡報。" },
   { period: "2025", role: "影片剪輯師／行銷企劃", detail: "負責剪輯、分鏡、拍攝、素材蒐集、簡報製作與專案企劃。" },
@@ -35,9 +33,6 @@ export default function PortfolioPage() {
             <p className="text-sm font-bold tracking-[0.35em] text-[#94601d]">IVY LEE · PORTFOLIO</p>
             <h1 className="mt-5 text-center font-serif text-4xl font-bold leading-tight text-[#2b2a5c] sm:text-6xl">作品集</h1>
             <p className="mx-auto mt-6 max-w-2xl text-lg leading-9 text-[#514d70] sm:text-xl">把企劃、文字、影像與設計整合成完整的品牌體驗，持續探索 AI、互動媒體與商業視覺的更多可能。</p>
-            <div className="mt-7 flex flex-wrap justify-center gap-2">
-              {SKILLS.map((skill) => <span key={skill} className="rounded-full border border-[#c7a66c] bg-[#fdf9f0] px-3 py-2 text-sm font-medium text-[#94601d]">{skill}</span>)}
-            </div>
           </div>
         </div>
       </section>
