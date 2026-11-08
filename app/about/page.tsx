@@ -2,13 +2,10 @@ import Image from "next/image";
 import type { Metadata } from "next";
 import SectionHeading from "@/components/SectionHeading";
 import Star from "@/components/Star";
-import StatBadge from "@/components/StatBadge";
-import SocialIcon from "@/components/SocialIcon";
 import ShortsCarousel from "@/components/ShortsCarousel";
 import PortfolioMiniReader from "@/components/PortfolioMiniReader";
 import AifeilerBookMiniReader from "@/components/AifeilerBookMiniReader";
-import { SERVICES, SITE, TIMELINE } from "@/lib/data/site";
-import { QUOTES } from "@/lib/data/quotes";
+import { SITE, TIMELINE } from "@/lib/data/site";
 import { asset } from "@/lib/basePath";
 
 export const metadata: Metadata = {
@@ -23,8 +20,8 @@ export default function AboutPage() {
 
       <section className="relative overflow-hidden bg-night-dark">
         <div className="bg-stars relative px-5 py-10 text-center">
-          <div className="animate-float-slow absolute right-2 top-0 h-32 w-32 sm:right-6 sm:h-40 sm:w-40">
-            <Image src={asset("/images/about-story-xiaoai-cutout.webp")} alt="小艾揮手打招呼" fill className="object-contain drop-shadow-[0_0_18px_rgba(244,216,146,0.3)]" sizes="160px" />
+          <div className="relative mx-auto mb-4 h-20 w-20">
+            <Image src={asset("/images/about-story-xiaoai-cutout.webp")} alt="小艾揮手打招呼" fill className="object-contain drop-shadow-[0_0_18px_rgba(244,216,146,0.3)]" sizes="80px" />
           </div>
           <div className="mb-3 flex items-center justify-center gap-2">
             <Star className="h-3 w-3 text-gold-light" />
@@ -33,22 +30,6 @@ export default function AboutPage() {
           </div>
           <h2 className="font-serif text-3xl font-bold text-paper sm:text-4xl">關於艾飛樂</h2>
           <p className="mt-2 text-sm text-paper/80 sm:text-base">{SITE.brandFull}</p>
-          <div className="mt-5 flex flex-wrap items-center justify-center gap-2">
-            <StatBadge icon={<Star className="h-3.5 w-3.5" />} label={`${SITE.established} 年成立`} />
-            <StatBadge
-              icon={<SocialIcon type="shop" className="h-3.5 w-3.5" />}
-              label={`${SERVICES.length} 大服務項目`}
-            />
-            <StatBadge
-              icon={
-                <svg viewBox="0 0 24 24" fill="none" className="h-3.5 w-3.5" aria-hidden>
-                  <path d="M4 5.5c2-1 5-1 8 0v13c-3-1-6-1-8 0v-13z" stroke="currentColor" strokeWidth="1.6" strokeLinejoin="round" />
-                  <path d="M20 5.5c-2-1-5-1-8 0v13c3-1 6-1 8 0v-13z" stroke="currentColor" strokeWidth="1.6" strokeLinejoin="round" />
-                </svg>
-              }
-              label={`${QUOTES.length}+ 篇語錄作品`}
-            />
-          </div>
         </div>
 
         {/* Timeline */}
