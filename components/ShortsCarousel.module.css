@@ -1,0 +1,22 @@
+
+.carousel{width:100%;min-width:0;margin:auto;max-width:360px}
+.track{display:flex;width:100%;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;overscroll-behavior-x:contain;scroll-behavior:smooth}
+.track::-webkit-scrollbar{display:none}
+.slide{flex:0 0 100%;width:100%;min-width:0;scroll-snap-align:center;scroll-snap-stop:always}
+.video{position:relative;aspect-ratio:9/16;max-height:65svh;margin:auto;overflow:hidden;border-radius:14px;background:#17143d}
+.poster{display:block;position:absolute;inset:0;width:100%;height:100%;padding:0;border:0;cursor:pointer;background:#17143d;color:white;text-align:left}
+.poster img{display:block;width:100%;height:100%;object-fit:cover}
+.poster::after{content:"";position:absolute;inset:45% 0 0;background:linear-gradient(transparent,rgba(14,12,32,.8));pointer-events:none}
+.play{position:absolute;z-index:1;top:50%;left:50%;transform:translate(-50%,-50%);display:grid;place-items:center;width:48px;height:48px;padding-left:3px;border:1px solid #ffffff88;border-radius:50%;background:#ffffffdd;color:#31294e;font-size:18px;box-shadow:0 3px 15px #0003}
+.caption{position:absolute;z-index:1;bottom:18px;left:14px;right:14px;font-size:13px;font-weight:600;line-height:1.6}
+.video iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.controls{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-top:14px;color:rgb(var(--color-paper));font-size:14px;font-weight:700}
+.controls button{width:44px;height:44px;border:1px solid rgb(var(--color-gold)/.35);border-radius:50%;background:rgb(var(--color-night-dark)/.5);font-size:20px}
+.controls button:hover{background:rgb(var(--color-gold)/.2)}
+.total{opacity:.45;font-weight:400;margin-left:4px}
+.dots{display:flex;justify-content:center;gap:4px;margin-top:8px}
+.dots button{position:relative;width:24px;height:24px;border:0;background:transparent}
+.dots button::after{content:"";position:absolute;width:6px;height:6px;left:9px;top:9px;border-radius:50%;background:rgb(var(--color-paper)/.2)}
+.dots button[aria-current]::after{background:rgb(var(--color-gold))}
+.hint{text-align:center;font-size:11px;line-height:1.6;opacity:.6;margin:4px 0 0}
+@media(prefers-reduced-motion:reduce){.track{scroll-behavior:auto}}
