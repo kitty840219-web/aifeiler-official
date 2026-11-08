@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import SocialIcon from "@/components/SocialIcon";
 import { usePathname } from "next/navigation";
 import { LINKS, SITE } from "@/lib/data/site";
 import { asset } from "@/lib/basePath";
@@ -87,7 +88,7 @@ export default function EntryGate() {
           瞭解更多
         </Link>
 
-        <nav aria-label="艾飛樂社群連結" className="mt-7 flex items-center gap-4">
+        <nav aria-label="艾飛樂社群連結" className="mt-7 flex items-center gap-3 sm:gap-4">
           <a
             href="https://www.facebook.com/profile.php?id=100093979488257"
             target="_blank"
@@ -114,6 +115,15 @@ export default function EntryGate() {
             className="grid h-12 w-12 place-items-center rounded-full bg-white/85 text-[#655c57] shadow-[0_4px_14px_rgba(12,9,27,0.25)] transition hover:-translate-y-1 hover:bg-white"
           >
             <InstagramIcon />
+          </a>
+          <a
+            href="https://youtube.com/@aibi_0219?si=cSxh5-MVScyvL9Th"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="前往艾飛樂 YouTube"
+            className="grid h-12 w-12 shrink-0 place-items-center rounded-full bg-white/85 text-[#655c57] shadow-[0_4px_14px_rgba(12,9,27,0.25)] transition hover:-translate-y-1 hover:bg-white"
+          >
+            <SocialIcon type="youtube" className="h-7 w-7" />
           </a>
         </nav>
 
