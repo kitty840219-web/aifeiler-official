@@ -14,6 +14,22 @@ export type Article = {
 
 export const ARTICLES: Article[] = [
 {
+  "id": "short-turning-into-mango",
+  "title": "你也會吃到自己變芒果嗎？",
+  "date": "2026-05-22",
+  "tag": "最新短片",
+  "youtubeId": "sNfKcrndYnw",
+  "excerpt": "你也會吃到自己變芒果嗎？",
+  "body": [
+    "你也會吃到自己變芒果嗎？",
+    "#inmyfeelings #拍出电影感 #情绪短片 #人间清醒"
+  ],
+  "link": {
+    "href": "https://youtube.com/shorts/sNfKcrndYnw?si=TtI3wrOmKbrcqCf4",
+    "label": "前往 YouTube 觀看短片 →"
+  }
+},
+{
   "id": "short-rational-hurt",
   "title": "用最理性的姿態，做著最傷人的事。",
   "date": "2026-05-21",
