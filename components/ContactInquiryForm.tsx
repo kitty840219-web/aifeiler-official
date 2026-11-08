@@ -1,9 +1,9 @@
 "use client";
 
 import { FormEvent, useState } from "react";
+import styles from "@/app/contact/contact.module.css";
 
 const contactTimes = ["工作日 09:00–12:00", "工作日 12:00–18:00", "假日 09:00–12:00", "假日 12:00–18:00"];
-
 const serviceTypes = [
   "塔羅個人占卜（單題 NT$400／套餐 NT$1,000）",
   "影片剪輯（請填寫影片秒數與風格參考）",
@@ -14,12 +14,10 @@ const serviceTypes = [
 ];
 
 function CheckOption({ id, label, name }: { id: string; label: string; name: string }) {
-  return (
-    <label htmlFor={id} className="flex cursor-pointer items-start gap-3 rounded-xl border border-gold/20 bg-night-light/15 px-4 py-3 text-sm leading-relaxed text-paper/90 transition hover:border-gold/55 hover:bg-night-light/30">
-      <input id={id} name={name} type="checkbox" value={label} className="mt-1 h-4 w-4 accent-gold" />
-      <span>{label}</span>
-    </label>
-  );
+  return <label htmlFor={id} className={styles.option}>
+    <input id={id} name={name} type="checkbox" value={label} />
+    <span>{label}</span>
+  </label>;
 }
 
 export default function ContactInquiryForm() {
@@ -63,58 +61,45 @@ export default function ContactInquiryForm() {
   }
 
   return (
-    <form onSubmit={submitInquiry} className="rounded-[2rem] border border-gold/25 bg-night-light/20 p-5 shadow-card sm:p-8">
-      <div className="grid gap-5 sm:grid-cols-2">
-        <label className="grid gap-2 text-sm font-semibold text-paper">
-          電子信箱 <span className="text-gold-light">*</span>
-          <input required name="email" type="email" placeholder="請輸入您的電子信箱" className="rounded-xl border border-paper/20 bg-night-dark/45 px-4 py-3 text-paper outline-none placeholder:text-paper/40 focus:border-gold" />
-        </label>
-        <label className="grid gap-2 text-sm font-semibold text-paper">
-          姓名 <span className="text-gold-light">*</span>
-          <input required name="name" placeholder="請輸入您的姓名" className="rounded-xl border border-paper/20 bg-night-dark/45 px-4 py-3 text-paper outline-none placeholder:text-paper/40 focus:border-gold" />
-        </label>
-        <label className="grid gap-2 text-sm font-semibold text-paper">
-          LINE ID
-          <input name="lineId" placeholder="請輸入您的 LINE ID" className="rounded-xl border border-paper/20 bg-night-dark/45 px-4 py-3 text-paper outline-none placeholder:text-paper/40 focus:border-gold" />
-        </label>
-        <label className="grid gap-2 text-sm font-semibold text-paper">
-          聯絡電話 <span className="text-gold-light">*</span>
-          <input required name="phone" type="tel" placeholder="請輸入您的聯絡電話" className="rounded-xl border border-paper/20 bg-night-dark/45 px-4 py-3 text-paper outline-none placeholder:text-paper/40 focus:border-gold" />
-        </label>
-      </div>
-
-      <fieldset className="mt-8">
-        <legend className="text-base font-bold text-paper">方便聯絡時間 <span className="text-gold-light">*</span></legend>
-        <p className="mt-1 text-sm text-paper/65">可複選</p>
-        <div className="mt-3 grid gap-3 sm:grid-cols-2">
+    <form onSubmit={submitInquiry} className={styles.form}>
+      <fieldset>
+        <legend><span>01</span> 關於你</legend>
+        <p className={styles.hint}>標示 * 為必填，讓我們知道如何聯絡你。</p>
+        <div className={styles.fields}>
+          <label>姓名 <span>*</span><input required name="name" autoComplete="name" placeholder="你的名字" /></label>
+          <label>電子信箱 <span>*</span><input required name="email" type="email" autoComplete="email" placeholder="hello@example.com" /></label>
+          <label>聯絡電話 <span>*</span><input required name="phone" type="tel" autoComplete="tel" placeholder="方便聯絡的電話" /></label>
+          <label>LINE ID <small>選填</small><input name="lineId" placeholder="你的 LINE ID" /></label>
+        </div>
+      </fieldset>
+      <fieldset>
+        <legend><span>02</span> 方便聯絡的時間</legend>
+        <p className={styles.hint}>可複選；假日時段將另行確認安排。</p>
+        <div className={styles.options}>
           {contactTimes.map((item, index) => <CheckOption key={item} id={`time-${index}`} name="contactTime" label={item} />)}
         </div>
       </fieldset>
-
-      <fieldset className="mt-8">
-        <legend className="text-base font-bold text-paper">需求類型 <span className="text-gold-light">*</span></legend>
-        <p className="mt-1 text-sm text-paper/65">可複選</p>
-        <div className="mt-3 grid gap-3">
+      <fieldset>
+        <legend><span>03</span> 想一起完成什麼？</legend>
+        <p className={styles.hint}>選擇需要的服務，可複選。</p>
+        <div className={styles.options}>
           {serviceTypes.map((item, index) => <CheckOption key={item} id={`service-${index}`} name="serviceType" label={item} />)}
         </div>
+        <label className={styles.description}>再多說一點 <small>選填</small>
+          <textarea name="details" rows={5} placeholder="聊聊你的想法、喜歡的風格、預計完成時間，或貼上參考連結…" />
+        </label>
       </fieldset>
-
-      <label className="mt-8 grid gap-2 text-sm font-semibold text-paper">
-        需求說明
-        <textarea name="details" rows={5} placeholder="例如：影片長度、想要的設計風格、貼圖張數、參考連結或其他想法" className="resize-y rounded-xl border border-paper/20 bg-night-dark/45 px-4 py-3 text-paper outline-none placeholder:text-paper/40 focus:border-gold" />
-      </label>
-
-      <p aria-live="polite" className="mt-5 text-sm leading-relaxed text-gold-light">{message || "手機版會直接開啟官方 LINE 並帶入內容；電腦版會複製訊息，方便貼到 LINE 傳送。"}</p>
-      <button type="submit" className="mt-5 w-full rounded-full bg-gold px-6 py-4 text-base font-bold text-night-dark transition hover:bg-gold-light active:scale-[0.99]">
-        送出需求 →
-      </button>
-      {desktopMessage && (
-        <div className="mt-5 rounded-2xl border border-gold/30 bg-night-dark/45 p-4 text-left">
-          <p className="text-sm font-bold text-paper">電腦版 LINE 提醒</p>
-          <p className="mt-2 text-sm leading-7 text-paper/75">你的需求內容已複製到剪貼簿。請在手機開啟 LINE，傳送給官方帳號 <span className="font-semibold text-gold-light">@153yhemn</span>；手機版送出時會自動開啟對話並帶入內容。</p>
-          <textarea readOnly value={desktopMessage} aria-label="已整理的聯絡需求內容" rows={6} className="mt-3 w-full resize-y rounded-xl border border-paper/15 bg-night-dark/60 p-3 text-xs leading-6 text-paper/75 outline-none" />
-        </div>
-      )}
+      <div className={styles.send}>
+        <p aria-live="polite">{message || "手機會開啟 LINE 並帶入內容；電腦會整理訊息，請複製後貼到 LINE 傳送。"}</p>
+        <button type="submit">整理需求，前往 LINE <span aria-hidden>↗</span></button>
+        <small>開啟 LINE 後，請確認內容並按下傳送。</small>
+      </div>
+      {desktopMessage && <div className={styles.preview}>
+        <h3>你的需求已整理好</h3>
+        <p>請複製下方內容，貼到官方 LINE @153yhemn 並傳送。</p>
+        <textarea readOnly value={desktopMessage} aria-label="已整理的聯絡需求內容" rows={8} />
+        <a href="https://line.me/R/ti/p/@153yhemn" target="_blank" rel="noopener noreferrer">開啟官方 LINE ↗</a>
+      </div>}
     </form>
   );
 }
