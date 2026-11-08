@@ -81,7 +81,7 @@ export default function EntryGate() {
         </p>
 
         <Link
-          href="/about"
+          href="/works"
           className="mt-9 inline-flex min-w-52 items-center justify-center rounded-full bg-[#5d554e]/95 px-7 py-4 text-base font-bold tracking-[0.2em] text-white shadow-[0_8px_20px_rgba(12,9,27,0.32)] transition hover:-translate-y-0.5 hover:bg-[#756a60]"
         >
           瞭解更多
