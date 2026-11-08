@@ -47,7 +47,7 @@ export default function ContactPage() {
           </div>
           <iframe
             title="艾飛樂數位文創個人工作室 Google 地圖"
-            src="https://maps.google.com/maps?cid=11364658897775536074&amp;q=%E8%89%BE%E9%A3%9B%E6%A8%82%E6%95%B8%E4%BD%8D%E6%96%87%E5%89%B5%E5%80%8B%E4%BA%BA%E5%B7%A5%E4%BD%9C%E5%AE%A4&amp;output=embed&amp;hl=zh-TW"
+            src={LINKS.googleMapsEmbed}
             width="600"
             height="320"
             loading="lazy"
@@ -56,8 +56,8 @@ export default function ContactPage() {
             className={styles.mapFrame}
           />
           <div className={styles.mapActions}>
-            <a href="https://maps.app.goo.gl/tKGDRbtRxcvTBvpU9?g_st=ic" target="_blank" rel="noopener noreferrer">在 Google 地圖開啟 ↗</a>
-            <a href="https://www.google.com/maps?cid=11364658897775536074&amp;hl=zh-TW#lrd=0x46a13d161d9f83f7:0x9db7610e1364a7ca,1" target="_blank" rel="noopener noreferrer">查看 Google 評價 ↗</a>
+            <a href={LINKS.googleMaps} target="_blank" rel="noopener noreferrer">在 Google 地圖開啟 ↗</a>
+            <a href={LINKS.googleReviews} target="_blank" rel="noopener noreferrer">查看 Google 評價 ↗</a>
           </div>
         </div>
       </section>

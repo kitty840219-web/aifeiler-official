@@ -13,6 +13,10 @@ export const SITE = {
     "艾飛樂數位文創個人工作室，由 Ivy 於 2022 年成立。用插畫與文字記錄生活裡的溫柔片刻，把每一句共鳴都畫成一顆星星，陪讀者度過黑夜、走向下一段日子。",
 };
 
+const GOOGLE_BUSINESS_CID = "11364658897775536074";
+const GOOGLE_BUSINESS_FTID = "0x46a13d161d9f83f7:0x9db7610e1364a7ca";
+const GOOGLE_BUSINESS_NAME = encodeURIComponent(SITE.businessName);
+
 export const LINKS = {
   instagramQuotes: "https://www.instagram.com/aibi_0219/",
   instagramIllustration: "https://www.instagram.com/dreamstar_illustration/",
@@ -24,7 +28,9 @@ export const LINKS = {
   portaly: "https://portaly.cc/aibi_0219",
   kusdom: "https://kusdom.com/aibi_0219",
   pro360: "https://www.pro360.com.tw/service/288626",
-  googleReviews: "https://maps.app.goo.gl/HjjBmdTg4mrfU4FYA?g_st=ic",
+  googleMaps: "https://maps.app.goo.gl/tKGDRbtRxcvTBvpU9?g_st=ic",
+  googleMapsEmbed: `https://maps.google.com/maps?cid=${GOOGLE_BUSINESS_CID}&q=${GOOGLE_BUSINESS_NAME}&output=embed&hl=zh-TW`,
+  googleReviews: `https://www.google.com/maps?cid=${GOOGLE_BUSINESS_CID}&hl=zh-TW#lrd=${GOOGLE_BUSINESS_FTID},1`,
   email: "kitty840219@gmail.com",
 };
 

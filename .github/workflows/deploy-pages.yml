@@ -3,15 +3,17 @@ name: Deploy to GitHub Pages
 on:
   push:
     branches:
-      - claude/illustration-portfolio-website-uvlcuq
       - claude/esim-phone-network-idg4ui
   workflow_dispatch:
+  pull_request:
+    branches:
+      - claude/esim-phone-network-idg4ui
 
 permissions:
   contents: write
 
 concurrency:
-  group: pages
+  group: pages-${{ github.event.pull_request.number || github.ref }}
   cancel-in-progress: true
 
 jobs:
@@ -24,10 +26,12 @@ jobs:
           node-version: 20
           cache: npm
       - run: npm ci
+      - run: npm run lint
       - run: npm run build
         env:
           GITHUB_PAGES: "true"
       - name: Publish out/ to gh-pages branch
+        if: github.event_name != 'pull_request' && github.ref == 'refs/heads/claude/esim-phone-network-idg4ui'
         run: |
           cd out
           touch .nojekyll
