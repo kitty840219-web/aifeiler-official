@@ -12,6 +12,24 @@ export type Article = {
 };
 
 export const ARTICLES: Article[] = [
+{
+  "id": "quote-nothing-to-lose",
+  "title": "走過烈火的人，從不跟灰燼妥協。",
+  "date": "2026-10-26",
+  "tag": "最新語錄",
+  "image": "/images/articles/quote-nothing-to-lose.webp",
+  "heroImage": "/images/articles/quote-nothing-to-lose.webp",
+  "excerpt": "人生最解脫的瞬間，不是得到了一切，而是發現自己再也沒有什麼可以失去。",
+  "body": [
+    "人生最解脫的瞬間，不是得到了一切，\n而是發現自己再也沒有什麼可以失去。",
+    "當妳獨自走過無人的深淵，一步一步把破碎的自己拼湊起來，妳就不再是等待救贖的弱者，而是自己王國的女王。",
+    "前方是懸崖還是平原，都不再重要。因為從地獄爬起來的人，沒有什麼會怕的事，只有想，與不想。"
+  ],
+  "link": {
+    "href": "https://www.facebook.com/share/p/19vHeRPpiB/?mibextid=wwXIfr",
+    "label": "前往 Facebook 原貼文 →"
+  }
+},
   {
     id: "line-brand-collaboration-2025",
     title: "LINE 品牌合作邀約｜一份驚喜的肯定",
