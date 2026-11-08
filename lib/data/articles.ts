@@ -81,7 +81,7 @@ export const ARTICLES: Article[] = [
 {
   "id": "mv-for-those-who-smile",
   "title": "MV｜寫給那些總是笑著的人",
-  "date": "2026-10-27",
+  "date": "2025-10-27",
   "tag": "最新MV",
   "youtubeId": "EusdaHgNLt0",
   "excerpt": "謝謝自己沒有變成別人想要的樣子，而是，繼續走在成為自己的路上。",
@@ -97,7 +97,7 @@ export const ARTICLES: Article[] = [
 {
   "id": "mv-light-in-darkness",
   "title": "動畫 MV｜獻給每一個正在努力的你",
-  "date": "2026-10-26",
+  "date": "2025-10-26",
   "tag": "最新MV",
   "youtubeId": "XfL0qZiWDJQ",
   "excerpt": "希望這支作品，能成為你黑夜裡的一點微光。",
