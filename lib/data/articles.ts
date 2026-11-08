@@ -14,6 +14,24 @@ export type Article = {
 
 export const ARTICLES: Article[] = [
 {
+  "id": "short-novel-transmigration-ep1-part1",
+  "title": "第一集（上集）｜看言情小說看到穿越？！",
+  "date": "2026-05-24",
+  "tag": "最新短片",
+  "youtubeId": "-UFlzjJ8Mf8",
+  "excerpt": "天啊！看言情小說看到穿越？還穿成注定被虐的悲慘女主？！😭",
+  "body": [
+    "第一集（上集）影片簡介",
+    "天啊！看言情小說看到穿越？還穿成注定被虐的悲慘女主？！😭",
+    "我是艾比，今年31歲，表面上是個溫柔的塔羅占卜師，私底下其實是個重度言情小說迷。昨天晚上我一如往常躺在床上吐槽毒舌霸總男主「思野」，結果看著看著睡著，醒來居然躺在冰冷的賽車道上？！迎面而來的是時速180的賽車，還有小說裡那個眼神冷到結冰、嘴巴淬毒的霸總思野……等等！我的貓呢？我的香氛蠟燭呢？宇宙是不是給我開了一個太致命的玩笑？！",
+    "#短劇 #穿書 #霸道總裁 #虐戀 #反差萌"
+  ],
+  "link": {
+    "href": "https://youtube.com/shorts/-UFlzjJ8Mf8?si=PVDD3KmVoIwfKdU1",
+    "label": "前往 YouTube 觀看短片 →"
+  }
+},
+{
   "id": "short-happy-together",
   "title": "兩個人在一起的時候是快樂的…",
   "date": "2026-05-23",
