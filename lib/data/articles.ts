@@ -14,6 +14,38 @@ export type Article = {
 
 export const ARTICLES: Article[] = [
 {
+  "id": "mv-journey-to-kindness",
+  "title": "MV｜在旅途裡學會溫柔與悲憫",
+  "date": "2025-12-03",
+  "tag": "最新MV",
+  "youtubeId": "8N9fq_Rw3CE",
+  "excerpt": "當你願意停下腳步、看懂別人的辛苦，原來每個人都在用自己的方式，好好活著。",
+  "body": [
+    "新作品來囉，這首歌的靈感，來自一趟本來只是一場家族旅遊的旅程。在小鎮的早晨，看見阿媽把最甜的水果留給素未謀面的人；在車窗外，梯田像一種安靜的祈願收成好不好，決定一家人能不能安心過年。那些平常不會注意到的小瞬間，在異鄉卻變得格外清晰。",
+    "旅行的路上，我們走過不同的風景，也遇見各式各樣的人。有人努力工作、有人靜靜生活、有人笑、有人沉默。",
+    "世界並沒有變容易，但當你願意停下腳步、看懂別人的辛苦，原來每個人都在用自己的方式，好好活著。而你，也會在旅途裡學會溫柔，學會悲憫，帶著一顆更新的心，回到自己的生活。"
+  ],
+  "link": {
+    "href": "https://youtube.com/shorts/8N9fq_Rw3CE?si=aVcisy844qGRBZdO",
+    "label": "前往 YouTube 觀看 MV →"
+  }
+},
+{
+  "id": "mv-only-stay-for-you",
+  "title": "動畫 MV｜只想為你停留",
+  "date": "2026-02-14",
+  "tag": "最新MV",
+  "youtubeId": "2MH3zN3VCn4",
+  "excerpt": "趕在情人節結束前完成的新動畫 MV〈只想為你停留〉，祝大家情人節快樂❤️",
+  "body": [
+    "新動畫MV來囉～「只想為你停留」，這首歌原本想趕在2/14情人節這天完成，原以為會來不急產出，沒想到超幸運的是我竟然趕在24點前完成啦，再15分鐘就過了2/14😂祝大家情人節快樂❤️希望大家會喜歡這首歌～😘"
+  ],
+  "link": {
+    "href": "https://youtube.com/shorts/2MH3zN3VCn4?si=CCaBwa-s7ERnB_gG",
+    "label": "前往 YouTube 觀看 MV →"
+  }
+},
+{
   "id": "mv-for-those-who-smile",
   "title": "MV｜寫給那些總是笑著的人",
   "date": "2026-10-27",
