@@ -11,7 +11,7 @@ import { asset } from "@/lib/basePath";
 export default function ArticleList({ articles }: { articles: Article[] }) {
   const [selected, setSelected] = useState<Article | null>(null);
   const [category, setCategory] = useState("最新語錄");
-  const preferredCategories = ["最新語錄", "最新短片", "工具小幫手", "服務資訊"];
+  const preferredCategories = ["最新語錄", "最新短片", "最新MV", "工具小幫手", "服務資訊"];
   const articleTags = Array.from(new Set(articles.map((article) => article.tag)));
   const categories = [
     "全部文章",
@@ -84,7 +84,7 @@ export default function ArticleList({ articles }: { articles: Article[] }) {
               </div>
               <h3 className="article-case-title mt-3 font-serif text-xl font-bold leading-snug text-[#2b2a5c]">{a.title}</h3>
               <p className="article-case-excerpt mt-3 line-clamp-3 text-sm leading-relaxed text-[#403d61]">{a.excerpt}</p>
-              <p className="article-case-read-more mt-5 text-sm font-bold text-gold-dark">{a.youtubeId ? "觀看短片 →" : "閱讀全文 →"}</p>
+              <p className="article-case-read-more mt-5 text-sm font-bold text-gold-dark">{a.youtubeId ? (a.tag === "最新MV" ? "觀看 MV →" : "觀看短片 →") : "閱讀全文 →"}</p>
             </div>
           </button>
         ))}

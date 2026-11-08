@@ -14,6 +14,25 @@ export type Article = {
 
 export const ARTICLES: Article[] = [
 {
+  "id": "mv-light-in-darkness",
+  "title": "動畫 MV｜獻給每一個正在努力的你",
+  "date": "2026-10-26",
+  "tag": "最新MV",
+  "youtubeId": "XfL0qZiWDJQ",
+  "excerpt": "希望這支作品，能成為你黑夜裡的一點微光。",
+  "body": [
+    "這首歌，\n是在經歷一些挫折與低潮後寫出來的。",
+    "那段時間，我對自己的創作充滿懷疑。\n覺得努力沒有人看見、剪出的影片被批評、好像怎麼做都不夠好。但也就在那些夜裡，我開始一點一滴地，把感受寫進旋律裡。",
+    "我把這首歌做成了一支動畫 MV。從最初的靈感、歌詞創作、分鏡設計，到一格一格的插畫轉為動畫、剪輯與文字設計，全都是我親手完成的。",
+    "這首歌，獻給每一個正在努力的你。\n也許你也曾懷疑過自己的存在價值，也曾被否定過熱愛的東西。但請不要忘記，你走到現在，是多麼不容易。",
+    "希望這支作品，能成為你黑夜裡的一點微光。"
+  ],
+  "link": {
+    "href": "https://youtube.com/shorts/XfL0qZiWDJQ?si=kHfwml0_ili_QLjE",
+    "label": "前往 YouTube 觀看 MV →"
+  }
+},
+{
   "id": "short-pink-dinosaur-at-work",
   "date": "2026-06-22",
   "title": "當公司門口出現一隻全身濕透的粉色恐龍…..",
