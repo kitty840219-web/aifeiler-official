@@ -14,6 +14,25 @@ export type Article = {
 
 export const ARTICLES: Article[] = [
 {
+  "id": "short-novel-transmigration-ep1-part2",
+  "title": "第一集（下集）｜穿越就拿到破產警告？！",
+  "date": "2026-05-25",
+  "tag": "最新短片",
+  "youtubeId": "I4qX2gU-Tgw",
+  "excerpt": "「想死滾遠點，別髒了我的輪胎！」穿越就拿到破產警告？！😱",
+  "body": [
+    "第一集（下集）影片簡介",
+    "「想死滾遠點，別髒了我的輪胎！」穿越就拿到破產警告？！😱",
+    "（前情提要：我是艾比，因為看小說睡著，醒來居然穿越進故事裡了！）",
+    "近距離面對暴躁總裁思野的致命壓迫感，他捏著我的下巴叫我滾，還威脅要讓我父親的公司陪葬！可是……這男人明明一邊說著最狠的話，眼神卻在看到我擦傷時偷偷放輕了力道？典型嘴硬心軟的「深灰色」大野狼，遇上穿著粉紅恐龍睡衣的溫柔占卜師。為了活命，看來我得發揮真本事，用塔羅牌好好「馴服」這隻野生霸總了！",
+    "#短劇推薦\n#傲嬌總裁\n#穿書逆襲\n#極限拉扯\n#雙魚座"
+  ],
+  "link": {
+    "href": "https://youtube.com/shorts/I4qX2gU-Tgw?si=Yo5lJxVAaezqNtAH",
+    "label": "前往 YouTube 觀看短片 →"
+  }
+},
+{
   "id": "short-novel-transmigration-ep1-part1",
   "title": "第一集（上集）｜看言情小說看到穿越？！",
   "date": "2026-05-24",
