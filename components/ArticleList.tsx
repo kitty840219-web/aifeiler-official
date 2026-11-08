@@ -11,11 +11,11 @@ import { asset } from "@/lib/basePath";
 export default function ArticleList({ articles }: { articles: Article[] }) {
   const [selected, setSelected] = useState<Article | null>(null);
   const [category, setCategory] = useState("最新語錄");
-  const preferredCategories = ["最新語錄", "工具小幫手", "服務資訊"];
+  const preferredCategories = ["最新語錄", "最新影片", "工具小幫手", "服務資訊"];
   const articleTags = Array.from(new Set(articles.map((article) => article.tag)));
   const categories = [
     "全部文章",
-    ...preferredCategories.filter((tag) => articleTags.includes(tag)),
+    ...preferredCategories.filter((tag) => tag === "最新影片" || articleTags.includes(tag)),
     ...articleTags.filter((tag) => !preferredCategories.includes(tag)),
   ];
   const newestFirst = [...articles].sort((a, b) => b.date.localeCompare(a.date));
@@ -85,8 +85,8 @@ export default function ArticleList({ articles }: { articles: Article[] }) {
         </div>
         {displayedArticles.length === 0 && (
           <div className="rounded-[2rem] border border-gold/20 bg-white/65 px-6 py-14 text-center text-paper shadow-card">
-            <p className="font-serif text-2xl font-bold">最新語錄即將更新</p>
-            <p className="mt-3 text-sm text-paper/65">下一篇想留下的話，正在慢慢寫成圖與故事。</p>
+            <p className="font-serif text-2xl font-bold">{category === "最新影片" ? "最新影片即將更新" : `${category}即將更新`}</p>
+            <p className="mt-3 text-sm text-paper/65">{category === "最新影片" ? "新的影音創作將在這裡與你見面。" : "下一篇想留下的話，正在慢慢寫成圖與故事。"}</p>
           </div>
         )}
       </div>
