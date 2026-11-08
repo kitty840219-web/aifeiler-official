@@ -5,6 +5,7 @@ import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import BottomNav from "@/components/BottomNav";
+import FloatingSocialLinks from "@/components/FloatingSocialLinks";
 import MainWrapper from "@/components/MainWrapper";
 import PageTransition from "@/components/PageTransition";
 import EntryGate from "@/components/EntryGate";
@@ -103,6 +104,7 @@ export default function RootLayout({
         </MainWrapper>
         <Footer />
         <BottomNav />
+        <FloatingSocialLinks />
       </body>
     </html>
   );
