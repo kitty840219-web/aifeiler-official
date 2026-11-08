@@ -14,6 +14,22 @@ export type Article = {
 
 export const ARTICLES: Article[] = [
 {
+  "id": "short-happy-together",
+  "title": "兩個人在一起的時候是快樂的…",
+  "date": "2026-05-23",
+  "tag": "最新短片",
+  "youtubeId": "HLP3BaIZNUM",
+  "excerpt": "兩個人在一起的時候是快樂的…",
+  "body": [
+    "兩個人在一起的時候是快樂的…",
+    "#愛情 #inmyfeelings #拍出电影感 #情绪短片 #人间清醒"
+  ],
+  "link": {
+    "href": "https://youtube.com/shorts/HLP3BaIZNUM?si=A0frG0RarfFML1Iu",
+    "label": "前往 YouTube 觀看短片 →"
+  }
+},
+{
   "id": "short-turning-into-mango",
   "title": "你也會吃到自己變芒果嗎？",
   "date": "2026-05-22",
