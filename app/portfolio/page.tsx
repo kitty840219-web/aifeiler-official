@@ -33,7 +33,7 @@ export default function PortfolioPage() {
         <div className="mx-auto max-w-6xl text-center">
           <div>
             <p className="text-sm font-bold tracking-[0.35em] text-[#94601d]">IVY LEE · PORTFOLIO</p>
-            <h1 className="mt-5 text-center font-serif text-4xl font-bold leading-tight text-[#2b2a5c] sm:text-6xl">數位內容與視覺設計<br />作品集</h1>
+            <h1 className="mt-5 text-center font-serif text-4xl font-bold leading-tight text-[#2b2a5c] sm:text-6xl">作品集</h1>
             <p className="mx-auto mt-6 max-w-2xl text-lg leading-9 text-[#514d70] sm:text-xl">把企劃、文字、影像與設計整合成完整的品牌體驗，持續探索 AI、互動媒體與商業視覺的更多可能。</p>
             <div className="mt-7 flex flex-wrap justify-center gap-2">
               {SKILLS.map((skill) => <span key={skill} className="rounded-full border border-[#c7a66c] bg-[#fdf9f0] px-3 py-2 text-sm font-medium text-[#94601d]">{skill}</span>)}
