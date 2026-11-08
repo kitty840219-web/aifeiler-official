@@ -14,6 +14,22 @@ export type Article = {
 
 export const ARTICLES: Article[] = [
 {
+  "id": "mv-for-those-who-smile",
+  "title": "MV｜寫給那些總是笑著的人",
+  "date": "2026-10-27",
+  "tag": "最新MV",
+  "youtubeId": "EusdaHgNLt0",
+  "excerpt": "謝謝自己沒有變成別人想要的樣子，而是，繼續走在成為自己的路上。",
+  "body": [
+    "最近看到于朦朧的新聞\n覺得這世界有好多的黑暗面\n那個水的深度深到有點害怕\n是我們所未知的另一個世界",
+    "這首歌，\n寫給那些總是笑著的人。\n謝謝自己沒有變成別人想要的樣子，\n而是，繼續走在成為自己的路上。"
+  ],
+  "link": {
+    "href": "https://youtube.com/shorts/EusdaHgNLt0?si=M4qgpO-e0XfUNdlc",
+    "label": "前往 YouTube 觀看 MV →"
+  }
+},
+{
   "id": "mv-light-in-darkness",
   "title": "動畫 MV｜獻給每一個正在努力的你",
   "date": "2026-10-26",
