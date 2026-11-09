@@ -8,9 +8,11 @@ import type { Chapter } from "@/lib/data/story";
 export default function StoryReader({
   chapters,
   finish,
+  finishHref,
 }: {
   chapters: Chapter[];
   finish?: { label: string; onClick: () => void };
+  finishHref?: string;
 }) {
   const router = useRouter();
   const [index, setIndex] = useState(0);
@@ -18,7 +20,7 @@ export default function StoryReader({
   const chapter = chapters[index];
   const num = String(index + 1).padStart(2, "0");
   const isLast = index === total - 1;
-  const finishLabel = finish?.label ?? "故事讀完了，看看最新文章 →";
+  const finishLabel = finish?.label ?? (finishHref ? "故事讀完了，認識作者 ↓" : "故事讀完了，看看最新文章 →");
 
   const advance = () => {
     if (!isLast) {
@@ -26,7 +28,7 @@ export default function StoryReader({
     } else if (finish) {
       finish.onClick();
     } else {
-      router.push("/works");
+      router.push(finishHref ?? "/works");
     }
   };
 

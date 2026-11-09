@@ -5,7 +5,7 @@ export const dynamic = "force-static";
 const baseUrl = "https://kitty840219-web.github.io/aifeiler-official";
 const paths = [
   "",
-  "/about",
+  "/story",
   "/portfolio",
   "/works",
   "/shop",

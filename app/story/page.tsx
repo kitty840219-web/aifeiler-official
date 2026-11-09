@@ -2,13 +2,14 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Star from "@/components/Star";
 import StoryReader from "@/components/StoryReader";
+import AboutAuthorSection from "@/components/AboutAuthorSection";
 import { SITE } from "@/lib/data/site";
 import { CHAPTERS } from "@/lib/data/story";
 import { asset } from "@/lib/basePath";
 
 export const metadata: Metadata = {
-  title: `艾飛樂的故事 ｜ ${SITE.brand}`,
-  description: "從一個人的塗塗畫畫，到艾飛樂語錄——一段用插畫與文字寫成的品牌故事。",
+  title: `品牌故事與關於作者 ｜ ${SITE.brand}`,
+  description: "從一個人的塗塗畫畫，到艾飛樂語錄——閱讀品牌故事，認識作者 Ivy 與她的創作歷程。",
 };
 
 export default function StoryPage() {
@@ -41,10 +42,11 @@ export default function StoryPage() {
       <section className="relative overflow-hidden bg-night-dark pb-16 pt-2">
         <div className="bg-stars pointer-events-none absolute inset-0 opacity-30" />
         <div className="relative">
-          <StoryReader chapters={CHAPTERS} />
+          <StoryReader chapters={CHAPTERS} finishHref="/story#about-author" />
         </div>
       </section>
 
+      <AboutAuthorSection />
     </div>
   );
 }
