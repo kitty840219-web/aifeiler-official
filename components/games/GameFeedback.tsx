@@ -1,11 +1,11 @@
 "use client";
 import Link from "next/link";
-import {useEffect,useRef,useState,useSyncExternalStore} from "react";
+import {useEffect,useRef,useState,useSyncExternalStore,type ReactNode} from "react";
 import {FEEDBACK_EVENT,REPLAY_EVENT,gameNotice,playGameSound,setSoundEnabled,soundEnabled,subscribeSound,unlockGameAudio,type GameNotice} from "@/lib/games/feedback";
 import GameMascot from "./GameMascot";
 import GameScenery from "./GameScenery";
 import styles from "./GameFeedback.module.css";
-export default function GameFeedback({game}:{game:string}){
+export default function GameFeedback({game,mascot}:{game:string;mascot?:ReactNode}){
  const sound=useSyncExternalStore(subscribeSound,soundEnabled,()=>true);
  const[toast,setToast]=useState<(GameNotice&{id:number})|null>(null),[result,setResult]=useState<GameNotice|null>(null);
  const serial=useRef(0),dialog=useRef<HTMLDialogElement>(null);
@@ -19,7 +19,7 @@ export default function GameFeedback({game}:{game:string}){
   <div className={styles.soundRow}><button type="button" aria-pressed={sound} className={styles.soundButton} onClick={()=>{setSoundEnabled(!sound);if(!sound)gameNotice(game,"info","音效已開啟");}}>{sound?"♪ 音效開啟":"♪ 音效關閉"}</button><span>正確、失誤與成績都有提示</span></div>
   {toast&&<div key={toast.id} className={`${styles.toast} ${styles[toast.kind]}`} role="status" aria-live={toast.kind==="error"?"assertive":"polite"}><b aria-hidden="true">{toast.kind==="error"?"×":toast.kind==="miss"?"！":toast.kind==="info"?"•":"✓"}</b><div><strong>{toast.message}</strong>{toast.points!==undefined&&<span>{toast.points>0?"+":""}{toast.points} 分</span>}</div></div>}
   <dialog ref={dialog} tabIndex={-1} className={styles.dialog} aria-label="本局遊戲成績" onClose={()=>setResult(null)}>
-   {result&&<><GameScenery game={result.outcome==="over"?game:"victory"} className={styles.resultArt}><GameMascot game={game} size={132} /></GameScenery><div className={styles.resultBody}><p className={styles.label}>{result.outcome==="over"?"本局結束":result.outcome==="draw"?"本局平手":"挑戰完成"}</p><h2>{result.message}</h2><div className={styles.stats}>{stats.map(s=><div key={s.label}><span>{s.label}</span><strong>{s.value}</strong></div>)}</div><div className={styles.actions}>{result.canRestart!==false&&<button type="button" onClick={replay}>再玩一次</button>}<button type="button" className={styles.secondary} onClick={close}>{result.canRestart===false?"回到遊戲":"查看遊戲畫面"}</button><Link href="/games">選其他遊戲 →</Link></div></div></>}
+   {result&&<><GameScenery game={result.outcome==="over"?game:"victory"} className={styles.resultArt}>{mascot||<GameMascot game={game} size={132} />}</GameScenery><div className={styles.resultBody}><p className={styles.label}>{result.outcome==="over"?"本局結束":result.outcome==="draw"?"本局平手":"挑戰完成"}</p><h2>{result.message}</h2><div className={styles.stats}>{stats.map(s=><div key={s.label}><span>{s.label}</span><strong>{s.value}</strong></div>)}</div><div className={styles.actions}>{result.canRestart!==false&&<button type="button" onClick={replay}>再玩一次</button>}<button type="button" className={styles.secondary} onClick={close}>{result.canRestart===false?"回到遊戲":"查看遊戲畫面"}</button><Link href="/games">選其他遊戲 →</Link></div></div></>}
   </dialog>
  </>;
 }
