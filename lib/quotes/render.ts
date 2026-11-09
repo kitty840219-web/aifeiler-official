@@ -37,6 +37,7 @@ export async function renderCard(canvas:HTMLCanvasElement,q:Quote,date:string,fo
  const groupHeight=zhHeight+between+enHeight,midpoint=phone?820:397.5*scale;
  const top=midpoint-groupHeight/2;
  ctx.shadowColor="#fffaf0";ctx.shadowBlur=phone?6:5*scale;
+ ctx.shadowBlur=0;ctx.fillStyle="#735273";ctx.font=`600 ${phone?30:28*scale}px ${font}`;ctx.textAlign="left";ctx.fillText(q.category==="work"?"工作篇｜職場與成長":"愛情篇｜感情與療癒",phone?115:center-465*scale,phone?595:225*scale);ctx.textAlign="center";ctx.shadowBlur=phone?6:5*scale;
  ctx.fillStyle="#342943";ctx.font=`600 ${zhSize}px ${font}`;
  zh.forEach((line,i)=>ctx.fillText(line,center,top+zhSize/2+i*zhGap));
  ctx.fillStyle="#51415e";ctx.font=`400 ${enSize}px Georgia,serif`;
