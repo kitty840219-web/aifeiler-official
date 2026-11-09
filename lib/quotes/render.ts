@@ -3,9 +3,9 @@ import type {Quote} from "./samples";
 export type CardFormat="card"|"phone"|"desktop";
 const images=new Map<string,Promise<HTMLImageElement>>();
 function image(src:string):Promise<HTMLImageElement>{
- const cached=images.get(src);if(cached)return cached;
+ const cached=images.get(src);if(cached){images.delete(src);images.set(src,cached);return cached;}
  const pending=new Promise<HTMLImageElement>((resolve,reject)=>{const img=new Image();img.decoding="async";img.onload=()=>resolve(img);img.onerror=()=>{images.delete(src);reject(new Error("背景圖片暫時無法載入，請稍後重試。"));};img.src=asset(src);});
- images.set(src,pending);return pending;
+ images.set(src,pending);while(images.size>6){const oldest=images.keys().next().value;if(oldest!==undefined)images.delete(oldest);}return pending;
 }
 function lines(ctx:CanvasRenderingContext2D,text:string,width:number,english=false){
  const words=english?text.split(" "):Array.from(text);const result:string[]=[];let line="";
