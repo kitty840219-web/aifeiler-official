@@ -18,6 +18,13 @@ const paths = [
   "/games/stars",
   "/games/garden",
   "/games/snake",
+  "/games/mines",
+  "/games/tic-tac-toe",
+  "/games/tiles",
+  "/games/half-moon",
+  "/games/pani-puri",
+  "/games/ocean-memory",
+  "/games/solitaire",
 ];
 
 export default function sitemap(): MetadataRoute.Sitemap {
