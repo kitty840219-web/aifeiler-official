@@ -5,6 +5,8 @@ import ArcadeFrame, { useRecord } from "./ArcadeFrame";
 import styles from "./Arcade.module.css";
 import Image from "next/image";
 import { directionTo } from "@/lib/games/touch";
+import {gameNotice,gameResult} from "@/lib/games/feedback";
+import {useGameRestart} from "../useGameRestart";
 import { asset } from "@/lib/basePath";
 const XIAOAI = "/images/games/xiaoai-apple-v2.png";
 
@@ -32,6 +34,7 @@ export default function SnakeGame() {
     queued.current = d;
   }
   function start() { const next = { ...initial, body: initial.body.map(p => ({ ...p })) }; live.current = next; queued.current = null; setState(next); mode("playing"); }
+  useGameRestart("snake",start);
   useEffect(() => {
     const key = (e: KeyboardEvent) => { if (directions[e.key] && phaseRef.current === "playing") { e.preventDefault(); const d = directions[e.key]; const current = live.current.direction; if (!queued.current && !(d.x === -current.x && d.y === -current.y)) queued.current = d; } };
     const blur = () => { if (phaseRef.current === "playing") { phaseRef.current = "paused"; setPhase("paused"); } };
@@ -48,15 +51,16 @@ export default function SnakeGame() {
       const eat = head.x === s.food.x && head.y === s.food.y;
       const collisionBody = eat ? s.body : s.body.slice(0, -1);
       if (head.x < 0 || head.x >= N || head.y < 0 || head.y >= N || collisionBody.some(p => p.x === head.x && p.y === head.y)) {
-        phaseRef.current = "over"; setPhase("over"); saveRef.current(s.score); return;
+        phaseRef.current = "over"; setPhase("over"); saveRef.current(s.score); gameResult("snake",{outcome:"over",message:head.x<0||head.x>=N||head.y<0||head.y>=N?"碰到邊界了，下次再挑戰！":"碰到自己的小徑了！",score:s.score}); return;
       }
       const body = [head, ...s.body]; if (!eat) body.pop();
       let food = s.food;
       if (eat) {
+        gameNotice("snake","success","吃到蘋果了！",5);
         const free: Point[] = [];
         for (let y = 0; y < N; y++) for (let x = 0; x < N; x++) if (!body.some(p => p.x === x && p.y === y)) free.push({ x, y });
         if (free.length) food = free[Math.floor(Math.random() * free.length)];
-        else { phaseRef.current = "won"; setPhase("won"); saveRef.current(s.score + 5); }
+        else { phaseRef.current = "won"; setPhase("won"); saveRef.current(s.score + 5); gameResult("snake",{outcome:"win",message:"整座小島都收集完成了！",score:s.score+5}); }
       }
       const next = { body, food, direction: d, score: s.score + (eat ? 5 : 0) }; live.current = next; setState(next);
     }, speed);
