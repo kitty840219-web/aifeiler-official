@@ -74,3 +74,5 @@ html[data-view-mode="desktop"] .letterHeading,html[data-view-mode="desktop"] .fo
 .letterHeading{text-align:center}
 
 .lineContact{width:100%;margin:0 auto 28px;text-align:center}
+
+.send button{justify-content:center;text-align:center}

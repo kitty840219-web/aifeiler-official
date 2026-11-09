@@ -91,7 +91,7 @@ export default function ContactInquiryForm() {
       </fieldset>
       <div className={styles.send}>
         <p aria-live="polite">{message || "手機會開啟 LINE 並帶入內容；電腦會整理訊息，請複製後貼到 LINE 傳送。"}</p>
-        <button type="submit">整理需求，前往 LINE <span aria-hidden>↗</span></button>
+        <button type="submit">送出</button>
         <small>開啟 LINE 後，請確認內容並按下傳送。</small>
       </div>
       {desktopMessage && <div className={styles.preview}>
