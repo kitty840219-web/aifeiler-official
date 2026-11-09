@@ -6,6 +6,7 @@ import GameShell from "./GameShell";
 import GameInstructions from "./GameInstructions";
 import styles from "./Games.module.css";
 import GameMascot from "./GameMascot";
+import {gameNotice,gameResult} from "@/lib/games/feedback";
 
 const moods = [ { name: "開心", icon: "☀", note: "把今天的快樂，收進花瓣裡。" }, { name: "平靜", icon: "☾", note: "慢慢來，安靜也是一種力量。" }, { name: "疲憊", icon: "☁", note: "你不必一直很厲害，今天也可以休息。" }, { name: "低落", icon: "☂", note: "花不會每天盛開，你也不需要。" }, { name: "期待", icon: "✦", note: "還沒發生的美好，正在慢慢靠近。" } ];
 const seeds = [{ kind: "daisy", name: "溫柔雛菊", icon: "🌼", cost: 0 }, { kind: "tulip", name: "勇氣鬱金香", icon: "🌷", cost: 5 }, { kind: "sunflower", name: "希望向日葵", icon: "🌻", cost: 8 }];
@@ -25,9 +26,10 @@ export default function GardenGame() {
     if (!ready) return;
     const chosen = seeds.find(s => s.kind === seed)!;
     updateProgress(p => {
-      if (p.lastGardenDay === day) { setMessage("今天的心情已經種下了，明天再一起種花。 "); return p; }
-      if (p.stars < chosen.cost) { setMessage("星光還不夠，先選免費雛菊，或到其他遊戲收集星光。 "); return p; }
+      if (p.lastGardenDay === day) { setMessage("今天的心情已經種下了，明天再一起種花。 ");gameNotice("garden","info","今天已種下一朵花，明天再來！"); return p; }
+      if (p.stars < chosen.cost) { setMessage("星光還不夠，先選免費雛菊，或到其他遊戲收集星光。 ");gameNotice("garden","error","星光不足，先選免費雛菊也很美！"); return p; }
       setMessage(`${chosen.name}已種下，送你 3 點星光。${moodInfo.note}`);
+      gameResult("garden",{outcome:"complete",message:"今天的心情，開花了！",canRestart:false,stats:[{label:"本次獎勵",value:"＋3 星光"},{label:"種下的花",value:chosen.name},{label:"今天心情",value:mood},{label:"已收藏心情",value:`${Math.min(24,p.flowers.length+1)} 朵`}]});
       return { ...p, stars: p.stars - chosen.cost + 3, lastGardenDay: day, flowers: [...p.flowers, { id: `${day}-${Date.now()}`, kind: seed, mood, day }].slice(-24) };
     });
   }

@@ -1,6 +1,8 @@
 "use client";
 
 import GameMascot from "./GameMascot";
+import {gameNotice,gameResult} from "@/lib/games/feedback";
+import {useGameRestart} from "./useGameRestart";
 import { useEffect, useRef, useState } from "react";
 import { updateProgress, useProgress } from "@/lib/games/progress";
 import GameShell from "./GameShell";
@@ -29,11 +31,13 @@ export default function StarGame() {
     const score = state.current.score;
     const stars = Math.floor(score / 2); setReward(stars);
     updateProgress(p => ({ ...p, stars: p.stars + stars, catchBest: Math.max(p.catchBest, score) }));
+    gameResult("stars",{outcome:"complete",message:"本次挑戰完成了！",score,best:Math.max(progress.catchBest,score),reward:stars});
   }
   function start() {
     state.current = { ...initial, drops: [] }; tickCount.current = 0; nextId.current = 0; keys.current.clear();
     setFrame({ ...state.current }); setReward(0); changeMode("playing");
   }
+  useGameRestart("stars",start);
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => {
       if (!["ArrowLeft", "ArrowRight"].includes(e.key) || modeRef.current !== "playing") return;
@@ -66,9 +70,10 @@ export default function StarGame() {
       s.drops = s.drops.filter(drop => {
         const previous = drop.y; drop.y += drop.speed * dt;
         if (previous < 81 && drop.y >= 81 && Math.abs(drop.x - s.x) < 14) {
-          if (drop.cloud) s.hearts = Math.max(0, s.hearts - 1); else s.score++;
+          if (drop.cloud){s.hearts = Math.max(0, s.hearts - 1);gameNotice("stars","error",`碰到烏雲了，剩 ${s.hearts} 顆心`);} else{s.score++;gameNotice("stars","success","接到星星了！",1);}
           return false;
         }
+        if(drop.y>=104&&!drop.cloud)gameNotice("stars","miss","漏接一顆星，不扣分，再接下一顆！");
         return drop.y < 104;
       });
       setFrame({ ...s, drops: [...s.drops] });
@@ -76,6 +81,7 @@ export default function StarGame() {
         modeRef.current = "over"; setMode("over");
         const stars = Math.floor(s.score / 2); setReward(stars);
         updateProgress(p => ({ ...p, stars: p.stars + stars, catchBest: Math.max(p.catchBest, s.score) }));
+        gameResult("stars",{outcome:s.hearts<=0?"over":"complete",message:s.hearts<=0?"愛心用完了，下次再接更多星！":"時間到了，看看你接住多少星！",score:s.score,best:Math.max(progress.catchBest,s.score),reward:stars});
       }
     }, 40);
     return () => clearInterval(timer);

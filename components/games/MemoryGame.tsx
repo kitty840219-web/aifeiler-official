@@ -1,6 +1,8 @@
 "use client";
 
 import GameMascot from "./GameMascot";
+import {gameNotice,gameResult} from "@/lib/games/feedback";
+import {useGameRestart} from "./useGameRestart";
 import { useEffect, useRef, useState } from "react";
 import { updateProgress, useProgress } from "@/lib/games/progress";
 import GameShell from "./GameShell";
@@ -40,18 +42,21 @@ export default function MemoryGame() {
     clearTimeout(timeout.current); lock.current = false;
     setDeck(deckOf(pairs)); setOpen([]); setMatched([]); setMoves(0); setSeconds(0); setReward(0); setRunning(true);
   }
+  useGameRestart("memory",start);
   function flip(id: number) {
     if (!running || lock.current || open.includes(id) || matched.includes(id)) return;
     if (!open.length) { setOpen([id]); return; }
     const first = open[0];
     const attempt = moves + 1; setMoves(attempt); setOpen([first, id]);
     if (deck.find(c => c.id === first)?.face === deck.find(c => c.id === id)?.face) {
-      const next = [...matched, first, id]; setMatched(next); setOpen([]);
+      const next = [...matched, first, id]; setMatched(next); setOpen([]);if(next.length<deck.length)gameNotice("memory","success","配對成功，找到相同人物了！");
       if (next.length === deck.length) {
         setRunning(false); const stars = pairs === 6 ? 12 : 8; setReward(stars);
         updateProgress(p => ({ ...p, stars: p.stars + stars, memoryBest: pairs === 6 ? (!p.memoryBest || attempt < p.memoryBest ? attempt : p.memoryBest) : p.memoryBest }));
+        gameResult("memory",{outcome:"win",message:"全部配對成功，太棒了！",reward:stars,stats:[{label:"獲得星光",value:`＋${stars}`},{label:"完成配對",value:`${pairs}/${pairs} 對`},{label:"翻牌次數",value:`${attempt} 次`},{label:"遊玩時間",value:`${seconds} 秒`},{label:"模式",value:`${pairs} 對挑戰`}]});
       }
     } else {
+      gameNotice("memory","error","這兩張不一樣，再找找看！");
       lock.current = true;
       timeout.current = setTimeout(() => { setOpen([]); lock.current = false; }, 850);
     }

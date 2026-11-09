@@ -36,7 +36,7 @@ export default function GameInstructions({ game }: { game: keyof typeof guides }
   return <details open className={styles.instructions}>
     <summary>遊戲說明 <span>操作・規則・星光獎勵</span></summary>
     <div className={styles.instructionsBody}>
-      <p className={styles.instructionsIntro}>{guide.intro}</p>
+      <p className={styles.instructionsIntro}>{guide.intro}</p><p className={styles.instructionsIntro}>手機直接觸碰畫面或按鈕操作。綠勾表示成功，紅叉表示失誤；音效可在上方開關，完成後會顯示大型成績視窗。</p>
       <ol>{guide.steps.map(([title, text], index) => <li key={title}>
         <span className={styles.stepNumber} aria-hidden="true">{String(index + 1).padStart(2, "0")}</span>
         <div><h2>{title}</h2><p>{text}</p></div>
