@@ -62,3 +62,9 @@ html[data-view-mode="desktop"] .letterHeading,html[data-view-mode="desktop"] .fo
 .mapActions a{display:block;border:1px solid rgb(var(--color-gold)/.35);border-radius:9px;padding:12px;text-align:center;font-size:13px;font-weight:700;line-height:1.6}
 .mapActions a:first-child{background:#416252;color:#fff;border-color:#416252}
 .mapActions a:hover{opacity:.8}
+
+.lineQr{display:block;width:180px;max-width:100%;margin:20px auto 12px;padding:8px;border:1px solid rgb(var(--color-gold)/.25);border-radius:14px;background:#fff;box-shadow:0 4px 16px rgb(0 0 0/.04)}
+.lineQr img{display:block;width:100%;height:auto;border-radius:6px}
+.letterHeading .qrCaption{text-align:center;font-size:12px;line-height:1.8;margin:0 0 22px;opacity:1}
+.qrCaption span{opacity:.6;font-size:11px}
+.lineQr:focus-visible{outline:2px solid #416252;outline-offset:4px}

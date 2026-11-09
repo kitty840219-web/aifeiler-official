@@ -25,7 +25,10 @@ export default function ContactPage() {
       <section className={styles.letter} aria-labelledby="inquiry-title">
         <div className={styles.letterHeading}>
           <span className={styles.eyebrow}>LET’S CREATE TOGETHER</span>
-          <span className={styles.stamp} aria-hidden>✦<br />AIFEILER</span>
+          <a className={styles.lineQr} href={LINKS.lineOA} target="_blank" rel="noopener noreferrer" aria-label="掃描 QR code 或點擊加入艾飛樂官方 LINE">
+            <Image src={asset("/images/line-official-qrcode.jpg")} alt="艾飛樂官方 LINE QR code" width={540} height={540} sizes="180px" />
+          </a>
+          <p className={styles.qrCaption}>掃描或點擊加入官方 LINE<br /><span>@153yhemn</span></p>
           <h2 id="inquiry-title">寫下你的需求</h2>
           <p>不必準備得很完整，從你的想法開始就好。<br />填好後，記得在 LINE 按下傳送。</p>
         </div>
