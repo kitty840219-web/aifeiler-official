@@ -24,7 +24,7 @@ export function useRecord(game: string) {
 export default function ArcadeFrame({ title, description, rules, children }: { title: string; description: string; rules: string[]; children: ReactNode }) {
   return <GameShell title={title} eyebrow="AIFEILER · PLAY IN A LITTLE DIMENSION" description={description}>
     <div className={styles.arcade}>
-      <details className={styles.guide}><summary>遊戲說明</summary><ol>{rules.map(rule => <li key={rule}>{rule}</li>)}</ol></details>
+      <details className={styles.guide}><summary>遊戲說明・觸碰操作</summary><p className={styles.touchHint}>手機直接點遊戲畫面或按鈕即可操作；各款的點擊、滑動與計分方式如下。</p><ol>{rules.map(rule => <li key={rule}>{rule}</li>)}</ol></details>
       {children}
       <p className={styles.note}>艾飛樂立體風格版 · 手機與電腦都能玩<br />結算每 5 分可獲 1 星光，每局最多 15 星光。</p>
     </div>

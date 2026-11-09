@@ -8,6 +8,8 @@ import GameMascot from "../GameMascot";
 import { GAME_ART } from "@/lib/games/art";
 import { asset } from "@/lib/basePath";
 import { BACKGROUND_ART } from "@/lib/games/backgrounds";
+import {gameNotice,gameResult} from "@/lib/games/feedback";
+import {useGameRestart} from "../useGameRestart";
 
 type Mode="ready"|"playing"|"paused"|"over"|"editing";
 type Hud={score:number;health:number;time:number;message:string;count:number;roundDone:boolean;cooldown:number;won:boolean;medals:number;coins:number};
@@ -19,6 +21,7 @@ export default function ActionGame({game}:{game:ActionKind}){
  const custom=useRef<number[][]|null>(null);const{best,save}=useRecord(game);const saveRef=useRef(save);useEffect(()=>{saveRef.current=save;},[save]);
  function change(next:Mode){phase.current=next;setMode(next);}
  function start(){const model=new ActionEngine(game,{dual,custom:custom.current||undefined});model.art=artImage.current;model.background=backgroundImage.current;model.reduceMotion=window.matchMedia("(prefers-reduced-motion: reduce)").matches;model.aim=aim;model.power=power;model.angle=angle;engine.current=model;setHud(empty);change("playing");}
+ useGameRestart(game,start);
  function action(){engine.current?.act();}
  useEffect(()=>{
   const ctx=canvas.current?.getContext("2d");if(!ctx)return;
@@ -27,7 +30,7 @@ export default function ActionGame({game}:{game:ActionKind}){
   const image=new window.Image(); let active=true; image.onload=()=>{if(!active)return;artImage.current=image;if(engine.current)engine.current.art=image;};image.src=asset(GAME_ART[game].src);
   const background=new window.Image();background.onload=()=>{if(!active)return;backgroundImage.current=background;if(engine.current)engine.current.background=background;};background.src=asset(BACKGROUND_ART[game].src);
   let frame=0,last=performance.now(),lastHud=0;
-  const loop=(now:number)=>{const dt=Math.min((now-last)/1000,.04);last=now;const model=engine.current;if(model){if(phase.current==="playing"){model.step(dt);if(model.finished){phase.current="over";setMode("over");saveRef.current(model.score);}}if(phase.current!=="paused"&&phase.current!=="editing")model.advanceEffects(dt);model.draw(ctx);if(now-lastHud>120){lastHud=now;setHud({score:model.score,health:model.health,time:model.time,message:model.message,count:model.count,roundDone:model.roundDone,cooldown:model.cooldown,won:model.won,medals:model.medals.filter(Boolean).length,coins:model.coins});}}frame=requestAnimationFrame(loop);};frame=requestAnimationFrame(loop);
+  const loop=(now:number)=>{const dt=Math.min((now-last)/1000,.04);last=now;const model=engine.current;if(model){if(phase.current==="playing"){model.step(dt);const notices=model.notices.splice(0);if(!model.finished)for(const notice of notices)gameNotice(game,notice.kind,notice.message,notice.points);if(model.finished){phase.current="over";setMode("over");saveRef.current(model.score);gameResult(game,{score:model.score,outcome:model.won?"win":model.health<=0?"over":"complete",message:model.won?"完成挑戰，太棒了！":model.health<=0?model.feedbackReason||"機會用完了，再挑戰一次！":["pony","popcorn","halloween"].includes(game)?"時間到了，看看這次成績！":"本局完成，看看你的成績！"});}}if(phase.current!=="paused"&&phase.current!=="editing")model.advanceEffects(dt);model.draw(ctx);if(now-lastHud>120){lastHud=now;setHud({score:model.score,health:model.health,time:model.time,message:model.message,count:model.count,roundDone:model.roundDone,cooldown:model.cooldown,won:model.won,medals:model.medals.filter(Boolean).length,coins:model.coins});}}frame=requestAnimationFrame(loop);};frame=requestAnimationFrame(loop);
   const key=(e:KeyboardEvent)=>{if(phase.current!=="playing"||!(["ArrowLeft","ArrowRight","ArrowUp","ArrowDown"," ","a","d"].includes(e.key)))return;e.preventDefault();if(!e.repeat||["ArrowLeft","ArrowRight","a","d"].includes(e.key))engine.current?.command(e.key,true);};
   const up=(e:KeyboardEvent)=>engine.current?.command(e.key,false);
   const pause=()=>{engine.current?.keys.clear();if(phase.current==="playing"){phase.current="paused";setMode("paused");}};
