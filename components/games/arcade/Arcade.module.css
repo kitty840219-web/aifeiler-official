@@ -49,3 +49,11 @@
 .ticGrid button:not(:empty),.playingCard{animation:tileArrive .22s ease-out}
 @keyframes tileArrive{from{opacity:.6;transform:translateY(-5px) scale(.92)}to{opacity:1;transform:translateY(0) scale(1)}}
 @media(prefers-reduced-motion:reduce){.ticGrid button:not(:empty),.playingCard{animation:none}}
+
+.arcade{width:100%;max-width:680px;margin-inline:auto;text-align:center}
+.guide ol{list-style-position:inside;padding:0 18px 16px;text-align:center}
+.scores{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));justify-content:center;text-align:center;gap:12px}
+.primary{display:block;max-width:420px;margin-inline:auto}
+.row .primary{display:inline-block}
+.sliders label{justify-items:center;text-align:center}
+.canvasStage,.board3d,.cardTable,.mineGrid,.tileGrid,.ticGrid,.moonGrid,.oceanGrid{width:100%;margin-inline:auto}
