@@ -72,3 +72,5 @@ html[data-view-mode="desktop"] .letterHeading,html[data-view-mode="desktop"] .fo
 .titleLine{display:block;font:inherit;line-height:1.5}
 .titleLine + .titleLine{margin-top:6px}
 .letterHeading{text-align:center}
+
+.lineContact{width:100%;margin:0 auto 28px;text-align:center}

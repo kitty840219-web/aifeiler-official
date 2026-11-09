@@ -19,8 +19,7 @@ export default function ContactPage() {
         <div className={styles.art}><Image src={asset("/images/contact-collaboration-cutout.webp")} alt="小艾帶著筆記本，聆聽你的想法" fill priority sizes="120px" className="object-contain" /></div>
         <h1><span className={styles.titleLine}>與我聯絡</span><span className={styles.titleLine}>讓想法，慢慢成形。</span></h1>
         <p className={styles.intro}>一份設計、一段故事，或一個還在發芽的點子。<br />歡迎寫給艾飛樂，我們一起聊聊。</p>
-        <a className={styles.lineButton} href={LINKS.lineOA} target="_blank" rel="noopener noreferrer">直接用 LINE 聊聊 <span aria-hidden>↗</span></a>
-        <p className={styles.handle}>官方帳號 @153yhemn</p>
+
       </header>
 
       <section className={styles.letter} aria-labelledby="inquiry-title">
@@ -30,6 +29,10 @@ export default function ContactPage() {
             <Image src={asset("/images/line-official-qrcode.jpg")} alt="艾飛樂官方 LINE QR code" width={540} height={540} sizes="180px" />
           </a>
           <p className={styles.qrCaption}>掃描或點擊加入官方 LINE<br /><span>@153yhemn</span></p>
+          <div className={styles.lineContact}>
+            <a className={styles.lineButton} href={LINKS.lineOA} target="_blank" rel="noopener noreferrer">直接用 LINE 聊聊 <span aria-hidden>↗</span></a>
+            <p className={styles.handle}>官方帳號 @153yhemn</p>
+          </div>
           <h2 id="inquiry-title">寫下你的需求</h2>
           <p>不必準備得很完整，從你的想法開始就好。<br />填好後，記得在 LINE 按下傳送。</p>
         </div>
