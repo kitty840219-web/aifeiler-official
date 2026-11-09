@@ -1,7 +1,12 @@
 import {asset} from "@/lib/basePath";
 import type {Quote} from "./samples";
 export type CardFormat="card"|"phone"|"desktop";
-function image(src:string):Promise<HTMLImageElement>{return new Promise((resolve,reject)=>{const img=new Image();img.onload=()=>resolve(img);img.onerror=()=>reject(new Error("背景圖片暫時無法載入，請稍後重試。"));img.src=asset(src);});}
+const images=new Map<string,Promise<HTMLImageElement>>();
+function image(src:string):Promise<HTMLImageElement>{
+ const cached=images.get(src);if(cached)return cached;
+ const pending=new Promise<HTMLImageElement>((resolve,reject)=>{const img=new Image();img.decoding="async";img.onload=()=>resolve(img);img.onerror=()=>{images.delete(src);reject(new Error("背景圖片暫時無法載入，請稍後重試。"));};img.src=asset(src);});
+ images.set(src,pending);return pending;
+}
 function lines(ctx:CanvasRenderingContext2D,text:string,width:number,english=false){
  const words=english?text.split(" "):Array.from(text);const result:string[]=[];let line="";
  for(const word of words){const next=line+(english&&line?" ":"")+word;if(ctx.measureText(next).width>width&&line&&!(!english&&/[，。！？、；：）」』】]/.test(word))){result.push(line);line=word;}else line=next;}
@@ -9,7 +14,7 @@ function lines(ctx:CanvasRenderingContext2D,text:string,width:number,english=fal
 }
 export function dateLabel(date:string){return new Intl.DateTimeFormat("zh-TW",{year:"numeric",month:"long",day:"numeric",weekday:"long"}).format(new Date(date+"T12:00:00"));}
 export async function renderCard(canvas:HTMLCanvasElement,q:Quote,date:string,format:CardFormat,font:string){
- const [img]=await Promise.all([image(q.art<0?"/images/quotes/november-garden.png":"/images/quotes/monthly-atlas.png"),document.fonts.ready]);
+ const [img]=await Promise.all([image(q.art<0?"/images/quotes/november-garden.webp":"/images/quotes/monthly-atlas.webp"),document.fonts.ready]);
  const phone=format==="phone",desktop=format==="desktop";canvas.width=phone?1080:desktop?1920:1200;canvas.height=phone?1920:desktop?1080:800;
  const ctx=canvas.getContext("2d");if(!ctx)throw new Error("目前瀏覽器無法製作圖片。");
  ctx.fillStyle="#fbf0dc";ctx.fillRect(0,0,canvas.width,canvas.height);

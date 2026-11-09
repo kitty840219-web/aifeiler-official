@@ -16,3 +16,7 @@
 .galleryViewport .galleryNav button:first-child{left:0}
 .galleryViewport .galleryNav button:last-child{right:0}
 @media(min-width:768px){.galleryViewport .galleryNav button{top:calc(12.667cqw + 6px)}}
+
+.gallery>button{display:flex;flex-direction:column;justify-content:flex-start;align-items:stretch}
+.gallery .thumb{flex:0 0 auto;width:100%;aspect-ratio:3/2}
+.status:empty{display:none}
