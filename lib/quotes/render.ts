@@ -18,13 +18,24 @@ export async function renderCard(canvas:HTMLCanvasElement,q:Quote,date:string,fo
  if(phone){ctx.drawImage(img,sx,sy,sw,sh,0,1060,1080,720);const grad=ctx.createLinearGradient(0,1050,0,1220);grad.addColorStop(0,"#fbf0dc");grad.addColorStop(1,"#fbf0dc00");ctx.fillStyle=grad;ctx.fillRect(0,1050,1080,180);}
  else ctx.drawImage(img,sx,sy,sw,sh,0,0,canvas.width,canvas.height);
  const scale=desktop?1.35:1;
- if(!phone){ctx.fillStyle="#fff8e8dd";ctx.beginPath();ctx.roundRect(canvas.width/2-490*scale,205*scale,980*scale,385*scale,26*scale);ctx.fill();}const center=canvas.width/2;const width=phone?850:desktop?1250:900;
+ if(!phone){ctx.fillStyle="#fff8e852";ctx.beginPath();ctx.roundRect(canvas.width/2-490*scale,205*scale,980*scale,385*scale,26*scale);ctx.fill();}const center=canvas.width/2;const width=phone?850:desktop?1250:900;
  ctx.textAlign="center";ctx.textBaseline="middle";
  ctx.fillStyle="#92744b";ctx.font=`600 ${phone?28:24*scale}px sans-serif`;ctx.fillText("AIFEILER · A LITTLE LIGHT FOR TODAY",center,phone?450:108*scale);
  ctx.font=`400 ${phone?28:25*scale}px ${font}`;ctx.fillText(dateLabel(date),center,phone?520:165*scale);
- ctx.fillStyle="#3e3553";ctx.font=`600 ${phone?62:60*scale}px ${font}`;
- const zh=lines(ctx,q.zh,width);const top=phone?700:280*scale;zh.forEach((line,i)=>ctx.fillText(line,center,top+i*(phone?96:86*scale)));
- const englishTop=top+zh.length*(phone?96:86*scale)+34*scale;
- ctx.fillStyle="#695a73";ctx.font=`400 ${phone?43:40*scale}px Georgia,serif`;const en=lines(ctx,q.en,width,true);en.forEach((line,i)=>ctx.fillText(line,center,englishTop+i*(phone?66:58*scale)));
+ const zhSize=phone?62:60*scale,enSize=phone?43:40*scale,zhGap=phone?90:82*scale,enGap=phone?64:56*scale,between=phone?44:36*scale;
+ ctx.font=`600 ${zhSize}px ${font}`;
+ const comma=q.zh.indexOf("，");
+ const phrases=comma>=0?[q.zh.slice(0,comma+1),q.zh.slice(comma+1)]:[q.zh];
+ const zh=phrases.flatMap(phrase=>lines(ctx,phrase,width));
+ ctx.font=`400 ${enSize}px Georgia,serif`;const en=lines(ctx,q.en,width,true);
+ const zhHeight=zhSize+(zh.length-1)*zhGap,enHeight=enSize+(en.length-1)*enGap;
+ const groupHeight=zhHeight+between+enHeight,midpoint=phone?820:397.5*scale;
+ const top=midpoint-groupHeight/2;
+ ctx.shadowColor="#fffaf0";ctx.shadowBlur=phone?6:5*scale;
+ ctx.fillStyle="#342943";ctx.font=`600 ${zhSize}px ${font}`;
+ zh.forEach((line,i)=>ctx.fillText(line,center,top+zhSize/2+i*zhGap));
+ ctx.fillStyle="#51415e";ctx.font=`400 ${enSize}px Georgia,serif`;
+ en.forEach((line,i)=>ctx.fillText(line,center,top+zhHeight+between+enSize/2+i*enGap));
+ ctx.shadowBlur=0;
  ctx.fillStyle="#806b4e";ctx.font=`400 ${phone?28:23*scale}px ${font}`;ctx.fillText("艾飛樂 · "+(q.category==="work"?"職場與成長":"感情與療癒"),center,phone?1840:730*scale);
 }
