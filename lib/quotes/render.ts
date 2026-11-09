@@ -13,7 +13,8 @@ export async function renderCard(canvas:HTMLCanvasElement,q:Quote,date:string,fo
  const phone=format==="phone",desktop=format==="desktop";canvas.width=phone?1080:desktop?1920:1200;canvas.height=phone?1920:desktop?1080:800;
  const ctx=canvas.getContext("2d");if(!ctx)throw new Error("目前瀏覽器無法製作圖片。");
  ctx.fillStyle="#fbf0dc";ctx.fillRect(0,0,canvas.width,canvas.height);
- const sx=q.art<0?0:(q.art%3)*img.width/3,sy=q.art<0?0:Math.floor(q.art/3)*img.height/3,sw=q.art<0?img.width:img.width/3,sh=q.art<0?img.height:img.height/3;
+ const row=Math.floor(q.art/3),cuts=[0,341/1024,668/1024,1];
+ const sx=q.art<0?0:(q.art%3)*img.width/3,sy=q.art<0?0:cuts[row]*img.height,sw=q.art<0?img.width:img.width/3,sh=q.art<0?img.height:(cuts[row+1]-cuts[row])*img.height;
  if(phone){ctx.drawImage(img,sx,sy,sw,sh,0,1060,1080,720);const grad=ctx.createLinearGradient(0,1050,0,1220);grad.addColorStop(0,"#fbf0dc");grad.addColorStop(1,"#fbf0dc00");ctx.fillStyle=grad;ctx.fillRect(0,1050,1080,180);}
  else ctx.drawImage(img,sx,sy,sw,sh,0,0,canvas.width,canvas.height);
  const scale=desktop?1.35:1;
