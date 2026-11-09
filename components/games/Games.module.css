@@ -128,3 +128,5 @@
 .instructions li p{font-size:12px;line-height:1.9;color:var(--muted);margin:0;overflow-wrap:anywhere}
 .instructionsSave{font-size:10px;line-height:1.9;color:#9b90a0;border-top:1px solid var(--line);padding-top:14px;margin:18px 0 0}
 @media(min-width:768px){html[data-view-mode="desktop"] .instructions{max-width:460px}}
+
+.memoryCard{display:grid;place-items:center}.catcher{width:96px!important;height:96px!important}.catcher [data-mascot]{border-radius:0;max-width:none}

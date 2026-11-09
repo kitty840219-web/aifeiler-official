@@ -1,17 +1,16 @@
 "use client";
 
-import Image from "next/image";
+import GameMascot from "./GameMascot";
 import { useEffect, useRef, useState } from "react";
-import { asset } from "@/lib/basePath";
 import { updateProgress, useProgress } from "@/lib/games/progress";
 import GameShell from "./GameShell";
 import GameInstructions from "./GameInstructions";
 import styles from "./Games.module.css";
 
 const faces = [
-  { name: "草帽小艾", src: "nav-about" }, { name: "故事小艾", src: "nav-story" },
-  { name: "書寫小艾", src: "nav-works" }, { name: "星座小艾", src: "nav-horoscope" },
-  { name: "塔羅小艾", src: "nav-tarot" }, { name: "商店小艾", src: "nav-shop" },
+  { name: "翻牌小艾", src: "memory" }, { name: "接星小艾", src: "stars" },
+  { name: "花園女孩", src: "garden" }, { name: "探險男孩", src: "mines" },
+  { name: "圈叉男孩", src: "tic-tac-toe" }, { name: "積木小艾", src: "tiles" },
 ];
 function deckOf(pairs: number) {
   const deck = Array.from({ length: pairs * 2 }, (_, i) => ({ id: i, face: i % pairs }));
@@ -61,7 +60,7 @@ export default function MemoryGame() {
     <GameInstructions game="memory" />
     <div className={styles.metrics}><div><b>{moves}</b><span>翻牌次數</span></div><div><b>{matched.length / 2} / {pairs}</b><span>已配對</span></div><div><b>{seconds}s</b><span>遊玩時間</span></div></div>
     {deck.length === 0 ? <div className={`${styles.panel} ${styles.startPanel}`}>
-      <span className={styles.largeSymbol} aria-hidden="true">✿</span><h2>今天，和小艾見個面。</h2><p>每次翻開兩張卡片，找到相同的小艾。<br />全部配對，就能收集星光。</p>
+      <GameMascot game="memory" size={140} /><h2>今天，和小艾見個面。</h2><p>每次翻開兩張卡片，找到相同的小艾。<br />全部配對，就能收集星光。</p>
       <div className={styles.choices} aria-label="選擇難度">{[4, 6].map(n => <button key={n} className={pairs === n ? styles.chosen : ""} onClick={() => setPairs(n)} aria-pressed={pairs === n}>{n === 4 ? "輕鬆 · 4 對" : "挑戰 · 6 對"}</button>)}</div>
       <button className={styles.primary} onClick={start}>開始翻牌 ✦</button>
     </div> : <>
@@ -69,7 +68,7 @@ export default function MemoryGame() {
         const visible = open.includes(card.id) || matched.includes(card.id);
         const face = faces[card.face]; const done = matched.includes(card.id);
         return <button key={card.id} onClick={() => flip(card.id)} disabled={done || !running} className={`${styles.memoryCard} ${visible ? styles.flipped : ""} ${done ? styles.matched : ""}`} aria-label={visible ? `${face.name}${done ? "，已配對" : ""}` : `翻開第 ${index + 1} 張卡片`}>
-          {visible ? <Image src={asset(`/images/nav/${face.src}.webp`)} alt={face.name} fill sizes="100px" /> : <><span>✦</span><small>AIFEILER</small></>}
+          {visible ? <GameMascot game={face.src} alt={face.name} style={{width:"90%",height:"90%"}} /> : <GameMascot game="snake" style={{width:"78%",height:"78%",opacity:.5}} />}
         </button>;
       })}</div>
       <p className={styles.status} aria-live="polite">{won ? "全部配對成功！" : matched.length ? "又找回一點溫柔，繼續吧。" : "翻開任意兩張，找出相同的小艾。"}</p>

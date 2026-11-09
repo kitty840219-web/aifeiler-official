@@ -1,8 +1,7 @@
 "use client";
 
-import Image from "next/image";
+import GameMascot from "./GameMascot";
 import { useEffect, useRef, useState } from "react";
-import { asset } from "@/lib/basePath";
 import { updateProgress, useProgress } from "@/lib/games/progress";
 import GameShell from "./GameShell";
 import GameInstructions from "./GameInstructions";
@@ -94,7 +93,7 @@ export default function StarGame() {
       onPointerMove={e => { if (e.pointerType === "mouse" || e.buttons) move(e.clientX); }}>
       <span className={styles.moon} aria-hidden="true">☾</span><div className={styles.nightWords} aria-hidden="true">天空越黑<br />星星越亮</div>
       {frame.drops.map(drop => <span key={drop.id} className={`${styles.drop} ${drop.cloud ? styles.cloud : ""}`} style={{ left: `${drop.x}%`, top: `${drop.y}%` }} aria-hidden="true">{drop.cloud ? "☁" : "✦"}</span>)}
-      <div className={styles.catcher} style={{ left: `${frame.x}%` }}><Image src={asset("/images/nav/nav-about.webp")} width={64} height={64} alt="接星星的小艾" /><span>︶</span></div>
+      <div className={styles.catcher} style={{ left: `${frame.x}%` }}><GameMascot game="stars" size={96} alt="接星星的小艾" /></div>
       {mode !== "playing" && <div className={styles.fieldOverlay}>
         {mode === "ready" ? <><span>✦</span><h2>準備好接住星光了嗎？</h2><p>拖曳小艾或使用左右方向鍵。<br />星星 +1，烏雲扣一顆愛心。<br />挑戰 30 秒，每 2 顆星換 1 點星光。</p><button className={styles.primary} onClick={start}>開始挑戰</button></> : mode === "paused" ? <><h2>休息一下也很好。</h2><p>時間已暫停，準備好再繼續。</p><button className={styles.primary} onClick={() => changeMode("playing")}>繼續接星星</button></> : <><span>✦ +{reward}</span><h2>你接住了 {frame.score} 顆星。</h2><p>每一點微光，都值得被珍惜。</p><button className={styles.primary} onClick={start}>再挑戰一次</button></>}
       </div>}
