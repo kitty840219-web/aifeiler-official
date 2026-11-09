@@ -17,6 +17,7 @@ const paths = [
   "/games/memory",
   "/games/stars",
   "/games/garden",
+  "/games/snake",
 ];
 
 export default function sitemap(): MetadataRoute.Sitemap {

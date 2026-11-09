@@ -4,6 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { asset } from "@/lib/basePath";
 import GameShell from "./GameShell";
+import ArcadeCatalog from "./arcade/ArcadeCatalog";
 import { useProgress } from "@/lib/games/progress";
 import styles from "./Games.module.css";
 
@@ -26,5 +27,6 @@ export default function GameHub() {
       <div className={styles.cardArt}><span aria-hidden="true">{g.art}</span><Image src={asset(g.image)} alt="" width={96} height={96} /></div>
       <div className={styles.cardText}><p className={styles.eyebrow}>{g.label}</p><h2>{g.title}</h2><p>{g.desc}</p><div className={styles.cardBottom}><span>{g.badge}</span><b>開始玩 ↗</b></div></div>
     </Link>)}</div>
+    <ArcadeCatalog />
   </GameShell>;
 }
