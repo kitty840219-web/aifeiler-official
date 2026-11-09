@@ -35,7 +35,7 @@ export default function StoryReader({
   return (
     <div>
       {/* level map */}
-      <div className="pb-2">
+      <div className="pb-2 pr-16 sm:pr-20">
         <div className="relative mx-auto grid w-full grid-cols-6 justify-items-center gap-x-1 gap-y-5 px-2 sm:gap-x-2 sm:px-4">
           {chapters.map((c, i) => {
             const active = i === index;
@@ -47,7 +47,7 @@ export default function StoryReader({
                 className="group relative flex min-w-0 flex-col items-center gap-2"
               >
                 <span
-                  className={`relative z-10 flex h-10 w-10 items-center justify-center rounded-full border-2 font-serif text-xs font-bold shadow-card transition sm:h-12 sm:w-12 sm:text-sm ${
+                  className={`relative z-10 flex h-9 w-9 items-center justify-center rounded-full border-2 font-serif text-xs font-bold shadow-card transition sm:h-12 sm:w-12 sm:text-sm ${
                     active
                       ? "border-gold bg-gold text-night-dark"
                       : "border-gold/70 bg-night-dark text-gold-light group-hover:border-gold group-hover:bg-night"
