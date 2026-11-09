@@ -169,3 +169,6 @@
 .welcomeCopy{width:100%;max-width:680px;margin:26px auto 30px;padding:0 8px;text-align:center}
 .welcomeCopy p{font-family:var(--font-noto-serif-tc),serif;font-size:21px;font-weight:600;line-height:1.7;color:var(--ink);margin:0 0 10px}
 .welcomeCopy>span{display:block;font-size:13px;line-height:1.9;color:var(--muted)}
+
+/* Center the larger lobby character within the existing artwork frame. */
+.welcomePicture{display:flex;align-items:center;justify-content:center}
