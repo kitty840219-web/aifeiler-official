@@ -14,6 +14,22 @@ export type Article = {
 
 export const ARTICLES: Article[] = [
 {
+  "id": "short-others-cant-you-can",
+  "title": "別人不行，你可以…",
+  "date": "2026-11-09",
+  "tag": "最新短片",
+  "youtubeId": "yIAq3R-DeJw",
+  "excerpt": "別人不行，你可以… 好久沒更新短片，今天更一下新劇😂",
+  "body": [
+    "別人不行，你可以…\n.\n.\n.\n.\n好久沒更新短片 今天更一下新劇😂",
+    "#職場故事 #真實改編"
+  ],
+  "link": {
+    "href": "https://youtube.com/shorts/yIAq3R-DeJw?si=hmz1mFI6qYHq0hW7",
+    "label": "前往 YouTube 觀看短片 →"
+  }
+},
+{
   "id": "mv-old-home-new-life",
   "title": "舊屋換新的靈感",
   "date": "2026-03-10",
