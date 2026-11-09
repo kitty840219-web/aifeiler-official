@@ -20,8 +20,8 @@ export async function renderCard(canvas:HTMLCanvasElement,q:Quote,date:string,fo
  const scale=desktop?1.35:1;
  if(!phone){ctx.fillStyle="#fff8e852";ctx.beginPath();ctx.roundRect(canvas.width/2-490*scale,205*scale,980*scale,385*scale,26*scale);ctx.fill();}const center=canvas.width/2;const width=phone?850:desktop?1250:900;
  ctx.textAlign="center";ctx.textBaseline="middle";
- ctx.fillStyle="#92744b";ctx.font=`600 ${phone?28:24*scale}px sans-serif`;ctx.fillText("AIFEILER · A LITTLE LIGHT FOR TODAY",center,phone?450:108*scale);
- ctx.font=`400 ${phone?28:25*scale}px ${font}`;ctx.fillText(dateLabel(date),center,phone?520:165*scale);
+ ctx.fillStyle="#57425f";ctx.font=`600 ${phone?42:42*scale}px ${font}`;ctx.fillText("每日一句·艾飛樂語錄",center,phone?420:92*scale);
+ ctx.fillStyle="#4b3656";ctx.font=`600 ${phone?46:46*scale}px ${font}`;ctx.shadowColor="#fffaf0";ctx.shadowBlur=5;ctx.fillText(dateLabel(date),center,phone?510:165*scale);ctx.shadowBlur=0;
  const zhSize=phone?62:60*scale,enSize=phone?43:40*scale,zhGap=phone?90:82*scale,enGap=phone?64:56*scale,between=phone?44:36*scale;
  ctx.font=`600 ${zhSize}px ${font}`;
  const comma=q.zh.indexOf("，");
