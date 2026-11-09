@@ -17,7 +17,7 @@ export function randomDailyDraw(date:string,quotes:Quote[],saved:unknown,random=
  const monthly=quotes.filter(q=>q.month===month);
  const pool=quotes.length>=365&&monthly.length?monthly:quotes;
  if(!pool.length)throw new Error("語錄尚未準備完成。");
- const scope=pool===quotes?"preview":"month-"+month;
+ const scope=pool===quotes?"preview-"+quotes.length:"month-"+month;
  const ids=pool.map(q=>q.id),valid=new Set(ids);
  const record=saved&&typeof saved==="object"?saved as Partial<DailyDraw>:null;
  const remaining=Array.isArray(record?.remaining)?[...new Set(record.remaining.filter(id=>typeof id==="string"&&valid.has(id)))]:[];

@@ -14,12 +14,13 @@ function lines(ctx:CanvasRenderingContext2D,text:string,width:number,english=fal
 }
 export function dateLabel(date:string){return new Intl.DateTimeFormat("zh-TW",{year:"numeric",month:"long",day:"numeric",weekday:"long"}).format(new Date(date+"T12:00:00"));}
 export async function renderCard(canvas:HTMLCanvasElement,q:Quote,date:string,format:CardFormat,font:string){
- const [img]=await Promise.all([image(q.art<0?"/images/quotes/november-garden.webp":"/images/quotes/monthly-atlas.webp"),document.fonts.ready]);
+ const [img]=await Promise.all([image(q.background?.src||(q.art<0?"/images/quotes/november-garden.webp":"/images/quotes/monthly-atlas.webp")),document.fonts.ready]);
  const phone=format==="phone",desktop=format==="desktop";canvas.width=phone?1080:desktop?1920:1200;canvas.height=phone?1920:desktop?1080:800;
  const ctx=canvas.getContext("2d");if(!ctx)throw new Error("目前瀏覽器無法製作圖片。");
  ctx.fillStyle="#fbf0dc";ctx.fillRect(0,0,canvas.width,canvas.height);
  const row=Math.floor(q.art/3),cuts=[0,341/1024,668/1024,1];
- const sx=q.art<0?0:(q.art%3)*img.width/3,sy=q.art<0?0:cuts[row]*img.height,sw=q.art<0?img.width:img.width/3,sh=q.art<0?img.height:(cuts[row+1]-cuts[row])*img.height;
+ const crop=q.background?.frame;
+ const sx=crop?crop[0]*img.width:q.art<0?0:(q.art%3)*img.width/3,sy=crop?crop[1]*img.height:q.art<0?0:cuts[row]*img.height,sw=crop?crop[2]*img.width:q.art<0?img.width:img.width/3,sh=crop?crop[3]*img.height:q.art<0?img.height:(cuts[row+1]-cuts[row])*img.height;
  if(phone){ctx.drawImage(img,sx,sy,sw,sh,0,1060,1080,720);const grad=ctx.createLinearGradient(0,1050,0,1220);grad.addColorStop(0,"#fbf0dc");grad.addColorStop(1,"#fbf0dc00");ctx.fillStyle=grad;ctx.fillRect(0,1050,1080,180);}
  else ctx.drawImage(img,sx,sy,sw,sh,0,0,canvas.width,canvas.height);
  const scale=desktop?1.35:1;
