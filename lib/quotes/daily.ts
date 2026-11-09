@@ -10,3 +10,22 @@ export function dailyQuote(date:string,quotes:Quote[],previousId?:string):Quote{
  const chosen=order[index];
  return chosen.id===previousId&&order.length>1?order[(index+1)%order.length]:chosen;
 }
+
+export type DailyDraw={date:string;id:string;remaining:string[];scope:string};
+export function randomDailyDraw(date:string,quotes:Quote[],saved:unknown,random= Math.random):DailyDraw{
+ const month=Number(date.slice(5,7));
+ const monthly=quotes.filter(q=>q.month===month);
+ const pool=quotes.length>=365&&monthly.length?monthly:quotes;
+ if(!pool.length)throw new Error("語錄尚未準備完成。");
+ const scope=pool===quotes?"preview":"month-"+month;
+ const ids=pool.map(q=>q.id),valid=new Set(ids);
+ const record=saved&&typeof saved==="object"?saved as Partial<DailyDraw>:null;
+ const remaining=Array.isArray(record?.remaining)?[...new Set(record.remaining.filter(id=>typeof id==="string"&&valid.has(id)))]:[];
+ if(record?.date===date&&typeof record.id==="string"&&quotes.some(q=>q.id===record.id))return {date,id:record.id,remaining:record.remaining?remaining:ids.filter(id=>id!==record.id),scope};
+ const bag=record?.scope===scope&&remaining.length?remaining:ids;
+ const eligible=bag.length>1?bag.filter(id=>id!==record?.id):bag;
+ const choices=eligible.length?eligible:bag;
+ const index=Math.max(0,Math.min(choices.length-1,Math.floor(random()*choices.length)));
+ const id=choices[index];
+ return {date,id,remaining:bag.filter(item=>item!==id),scope};
+}
