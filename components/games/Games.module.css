@@ -164,3 +164,8 @@
 /* Interactive boards have their own layer; the social rail stays in its original position. */
 .world{isolation:auto}.world .memoryBoard,.world .starField,.world .gardenScene{position:relative;z-index:65}
 .world button{scroll-margin-block:120px}
+
+.welcomePicture{min-height:312px}
+.welcomeCopy{width:100%;max-width:680px;margin:26px auto 30px;padding:0 8px;text-align:center}
+.welcomeCopy p{font-family:var(--font-noto-serif-tc),serif;font-size:21px;font-weight:600;line-height:1.7;color:var(--ink);margin:0 0 10px}
+.welcomeCopy>span{display:block;font-size:13px;line-height:1.9;color:var(--muted)}
