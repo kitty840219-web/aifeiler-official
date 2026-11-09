@@ -59,3 +59,9 @@
 .canvasStage,.board3d,.cardTable,.mineGrid,.tileGrid,.ticGrid,.moonGrid,.oceanGrid{width:100%;margin-inline:auto}
 
 .canvasStage,.board3d,.mineGrid,.tileGrid,.ticGrid,.moonGrid,.oceanGrid,.cardTable,.tray,.hand{position:relative;z-index:65}.arcade button{scroll-margin-block:120px}
+
+.categoryFilters{position:relative;z-index:65;display:flex;flex-wrap:wrap;justify-content:center;gap:10px;margin:24px auto 14px;max-width:680px}
+.categoryFilters button{min-height:44px;padding:10px 16px;border:1px solid #bfb0c8;border-radius:999px;background:#fffaf2;color:#423354;font-family:inherit;font-size:15px;font-weight:600;line-height:1.5;text-align:center;touch-action:manipulation;cursor:pointer}
+.categoryFilters button[aria-pressed=true]{background:#342b52;color:#fffaf2;border-color:#342b52}
+.categoryFilters button:focus-visible{outline:3px solid #bb9160;outline-offset:3px}
+.catalogSection>.filterCount{margin:0 0 24px;font-size:13px;line-height:1.8;color:#8d7a96;text-align:center}
