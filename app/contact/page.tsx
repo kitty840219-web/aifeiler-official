@@ -17,7 +17,7 @@ export default function ContactPage() {
       <header className={styles.hero}>
         <p className={styles.eyebrow}>A NOTE TO AIFEILER</p>
         <div className={styles.art}><Image src={asset("/images/contact-collaboration-cutout.webp")} alt="小艾帶著筆記本，聆聽你的想法" fill priority sizes="120px" className="object-contain" /></div>
-        <h1>讓想法，慢慢成形。</h1>
+        <h1><span className={styles.titleLine}>與我聯絡</span><span className={styles.titleLine}>讓想法，慢慢成形。</span></h1>
         <p className={styles.intro}>一份設計、一段故事，或一個還在發芽的點子。<br />歡迎寫給艾飛樂，我們一起聊聊。</p>
         <a className={styles.lineButton} href={LINKS.lineOA} target="_blank" rel="noopener noreferrer">直接用 LINE 聊聊 <span aria-hidden>↗</span></a>
         <p className={styles.handle}>官方帳號 @153yhemn</p>
