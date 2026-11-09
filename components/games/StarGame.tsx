@@ -56,8 +56,8 @@ export default function StarGame() {
       const now = performance.now(); const dt = Math.min((now - last) / 1000, .15); last = now;
       const s = state.current;
       s.remaining = Math.max(0, s.remaining - dt);
-      if (keys.current.has("ArrowLeft")) s.x = Math.max(10, s.x - 85 * dt);
-      if (keys.current.has("ArrowRight")) s.x = Math.min(90, s.x + 85 * dt);
+      if (keys.current.has("ArrowLeft")) s.x = Math.max(18, s.x - 85 * dt);
+      if (keys.current.has("ArrowRight")) s.x = Math.min(82, s.x + 85 * dt);
       tickCount.current += dt;
       if (tickCount.current >= .6) {
         tickCount.current = 0;
@@ -83,7 +83,7 @@ export default function StarGame() {
   function move(clientX: number) {
     if (modeRef.current !== "playing" || !field.current) return;
     const r = field.current.getBoundingClientRect();
-    state.current.x = Math.max(10, Math.min(90, (clientX - r.left) / r.width * 100));
+    state.current.x = Math.max(18, Math.min(82, (clientX - r.left) / r.width * 100));
   }
   return <GameShell title="星光接接樂" eyebrow="CATCH A LITTLE LIGHT" description="接住星光，躲開烏雲。黑夜裡，你也可以發光。">
     <GameInstructions game="stars" />
