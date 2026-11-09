@@ -41,7 +41,7 @@ export const NAV = [
   { href: "/works", label: "最新文章" },
   { href: "/horoscope", label: "星座運勢" },
   { href: "/tarot", label: "塔羅占卜" },
-  { href: "/learn", label: "互動遊戲" },
+  { href: "/learn", label: "星光遊樂園" },
   { href: "/videos", label: "影音創作" },
   { href: "/shop", label: "周邊商店" },
   { href: "/phone-cases", label: "手機殼系列" },
