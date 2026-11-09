@@ -130,3 +130,15 @@
 @media(min-width:768px){html[data-view-mode="desktop"] .instructions{max-width:460px}}
 
 .memoryCard{display:grid;place-items:center}.catcher{width:96px!important;height:96px!important}.catcher [data-mascot]{border-radius:0;max-width:none}
+
+.starField,.gardenScene,.memoryBoard{background-image:var(--game-bg);background-size:var(--game-bg-size);background-position:var(--game-bg-position)}
+.memoryBoard{padding:8px;border-radius:18px}.gardenScene{border-radius:22px}.gardenSky>span{background:#fff9e9b3;border-radius:12px;padding:5px 12px;justify-self:center;color:#617755}
+.world button{touch-action:manipulation;transition:transform .12s,filter .12s}.world button:active{filter:brightness(1.08)}
+@media(prefers-reduced-motion:reduce){.world button{transition:none}}
+
+.drop:not(.cloud){animation:starPulse 1.5s ease-in-out infinite}.catcher [data-mascot]{animation:catcherSway .8s ease-in-out infinite;transform-origin:50% 90%}
+.flipped [data-mascot],.flowerPlot>span{animation:littleBloom .3s ease-out}.result{animation:littleBloom .35s ease-out}
+@keyframes starPulse{50%{filter:brightness(1.4) drop-shadow(0 0 5px #ffe8a6)}}
+@keyframes catcherSway{0%,100%{transform:rotate(-2deg) translateY(0)}50%{transform:rotate(2deg) translateY(-3px)}}
+@keyframes littleBloom{from{opacity:.3;transform:scale(.8)}to{opacity:1;transform:scale(1)}}
+@media(prefers-reduced-motion:reduce){.drop:not(.cloud),.catcher [data-mascot],.flipped [data-mascot],.flowerPlot>span,.result{animation:none}}

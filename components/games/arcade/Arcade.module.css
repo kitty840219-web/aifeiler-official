@@ -37,3 +37,15 @@
 .snakeMascot{display:block;width:92px;height:92px;min-height:92px;object-fit:contain;flex-shrink:0}
 .catalogMascot{display:block;width:112px;height:112px;object-fit:contain}
 .board3d .overlay{padding:10px;gap:0}.board3d .overlay h2{font-size:18px;margin:4px 0}.board3d .overlay p{font-size:11px;margin-bottom:8px}.board3d .overlay .row{margin:4px 0 10px}.board3d .overlay .row button{padding:7px 10px}.board3d .overlay .primary{padding:10px 20px}
+
+.touchHint{text-align:center;color:#8f7895;font-size:12px;line-height:1.8;padding:8px 12px;border:1px dashed #d8c5af;border-radius:12px;background:#fff9ef;margin:8px 0 18px}
+.mineGrid,.tileGrid,.ticGrid,.moonGrid,.oceanGrid,.cardTable{background-image:linear-gradient(#fff8eb33,#fff8eb33),var(--game-bg);background-size:100% 100%,var(--game-bg-size);background-position:center,var(--game-bg-position)}
+.moonGrid,.cardTable{background-image:linear-gradient(#291b4933,#291b4933),var(--game-bg)}
+.arcade button{touch-action:manipulation;transition:transform .12s,box-shadow .12s,filter .12s}.arcade button:active{filter:brightness(1.12);transform:translateY(2px) scale(.97)}
+.catalog>a{transition:transform .2s,box-shadow .2s}.catalog>a:hover,.catalog>a:focus-visible{transform:translateY(-4px);box-shadow:0 12px 24px #71546d20}
+@media(max-width:360px){.snakeMascot{width:68px;height:68px;min-height:68px}.board3d .overlay p{font-size:10px}.board3d .overlay .row button{padding:5px 8px}}
+@media(prefers-reduced-motion:reduce){.arcade button,.catalog>a{transition:none}.catalog>a:hover,.catalog>a:focus-visible{transform:none}}
+
+.ticGrid button:not(:empty),.playingCard{animation:tileArrive .22s ease-out}
+@keyframes tileArrive{from{opacity:.6;transform:translateY(-5px) scale(.92)}to{opacity:1;transform:translateY(0) scale(1)}}
+@media(prefers-reduced-motion:reduce){.ticGrid button:not(:empty),.playingCard{animation:none}}

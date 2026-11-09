@@ -1,0 +1,10 @@
+.scene.scene{display:grid;place-items:center;isolation:isolate;background-image:var(--game-bg);background-size:var(--game-bg-size);background-position:var(--game-bg-position);background-repeat:no-repeat;overflow:hidden;position:relative}
+.hero{height:200px;border:1px solid #dfd2bc;border-radius:22px;margin:12px 0 24px;box-shadow:0 7px 0 #d6c5af,0 15px 25px #6d52651a}
+.hero:after{content:"✦";position:absolute;top:16px;right:20px;color:#ffed9d;font-size:24px;animation:twinkle 2.4s ease-in-out infinite}
+.mascot{animation:bob 2.8s ease-in-out infinite;transform-origin:50% 85%;filter:drop-shadow(0 5px 3px #60474d25)}
+.tapBurst{position:fixed;z-index:90;width:1px;height:1px;pointer-events:none}
+.tapBurst i{position:absolute;left:0;top:0;color:#e6b94f;font-style:normal;font-size:16px;text-shadow:0 1px 2px #fff;animation:spark .65s ease-out forwards}
+@keyframes bob{0%,100%{transform:translateY(0) rotate(-1deg)}50%{transform:translateY(-5px) rotate(1deg)}}
+@keyframes twinkle{0%,100%{opacity:.4;transform:scale(.8) rotate(0)}50%{opacity:1;transform:scale(1.15) rotate(18deg)}}
+@keyframes spark{0%{opacity:1;transform:translate(-50%,-50%) scale(.4)}100%{opacity:0;transform:translate(calc(-50% + var(--spark-x)),calc(-50% + var(--spark-y))) scale(1.1)}}
+@media(prefers-reduced-motion:reduce){.mascot,.hero:after,.tapBurst i{animation:none}.tapBurst{display:none}}

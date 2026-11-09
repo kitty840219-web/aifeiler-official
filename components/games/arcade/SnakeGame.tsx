@@ -4,6 +4,7 @@ import { useEffect, useRef, useState } from "react";
 import ArcadeFrame, { useRecord } from "./ArcadeFrame";
 import styles from "./Arcade.module.css";
 import Image from "next/image";
+import { directionTo } from "@/lib/games/touch";
 import { asset } from "@/lib/basePath";
 const XIAOAI = "/images/games/xiaoai-apple-v2.png";
 
@@ -61,13 +62,13 @@ export default function SnakeGame() {
     }, speed);
     return () => clearInterval(timer);
   }, [phase, speed]);
-  return <ArcadeFrame title="小艾貪食蛇" description="陪著小艾收集蘋果，讓身後的綠色小徑一點點長大。" rules={["按開始後，以方向鍵、下方按鈕或在棋盤滑動改變方向。", "每吃一顆蘋果加 5 分，身體會變長；不能直接往反方向轉彎。", "碰到邊界或自己的身體就結束。可以暫停；離開視窗也會自動暫停。", "挑戰高分並收集星光，選擇慢速可以更輕鬆地練習。"]}>
+  return <ArcadeFrame title="小艾貪食蛇" description="陪著小艾收集蘋果，讓身後的綠色小徑一點點長大。" rules={["開始後，點棋盤上想前進的方向即可轉彎，也能滑動、按方向按鈕或鍵盤。", "每吃一顆蘋果加 5 分，身體會變長；不能直接往反方向轉彎。", "碰到邊界或自己的身體就結束。可以暫停；離開視窗也會自動暫停。", "挑戰高分並收集星光，選擇慢速可以更輕鬆地練習。"]}>
     <div className={styles.scores}><span>本局 <b>{state.score}</b></span><span>最佳 <b>{best}</b></span></div>
-    <div className={styles.board3d} onPointerDown={e => { if(phaseRef.current!=="playing")return; pointer.current = { x: e.clientX, y: e.clientY }; e.currentTarget.setPointerCapture(e.pointerId); }} onPointerUp={e => { if (!pointer.current) return; const dx = e.clientX - pointer.current.x, dy = e.clientY - pointer.current.y; pointer.current = null; if (Math.max(Math.abs(dx), Math.abs(dy)) > 12) turn(Math.abs(dx) > Math.abs(dy) ? dx > 0 ? "ArrowRight" : "ArrowLeft" : dy > 0 ? "ArrowDown" : "ArrowUp"); }}>
+    <div className={styles.board3d} onPointerDown={e => { if(phaseRef.current!=="playing")return; pointer.current = { x: e.clientX, y: e.clientY }; e.currentTarget.setPointerCapture(e.pointerId); }} onPointerUp={e => { if (!pointer.current) return; const dx = e.clientX - pointer.current.x, dy = e.clientY - pointer.current.y; pointer.current = null; if (Math.max(Math.abs(dx), Math.abs(dy)) > 12) turn(Math.abs(dx) > Math.abs(dy) ? dx > 0 ? "ArrowRight" : "ArrowLeft" : dy > 0 ? "ArrowDown" : "ArrowUp"); else { const rect=e.currentTarget.querySelector("svg")!.getBoundingClientRect(); const key=directionTo(live.current.body[0],{x:(e.clientX-rect.left)/rect.width*N-.5,y:(e.clientY-rect.top)/rect.height*N-.5}); if(key)turn(key); } }}>
       <svg className={styles.snakeSvg} viewBox="0 0 320 320" role="img" aria-label={`貪食蛇棋盤，目前 ${state.score} 分`}>
         <defs><radialGradient id="snakeBody" cx="30%" cy="20%"><stop stopColor="#d5f0a6"/><stop offset="1" stopColor="#599b6f"/></radialGradient><radialGradient id="snakeApple" cx="30%" cy="20%"><stop stopColor="#ffbd9d"/><stop offset="1" stopColor="#d55b61"/></radialGradient></defs>
-        <rect width="320" height="320" rx="12" fill="#ecedcf"/>
-        {Array.from({ length: N * N }, (_, i) => <rect key={i} x={i % N * 20} y={Math.floor(i / N) * 20} width="20" height="20" fill={(i % N + Math.floor(i / N)) % 2 ? "#e2e6c1" : "#edf0d2"} />)}
+        <image href={asset("/images/games/backgrounds-a.png")} x={0} y={-320} width={960} height={1280} preserveAspectRatio="none" /><rect width="320" height="320" rx="12" fill="#ecedcf" opacity=".18"/>
+        {Array.from({ length: N * N }, (_, i) => <rect key={i} x={i % N * 20} y={Math.floor(i / N) * 20} width="20" height="20" opacity=".3" fill={(i % N + Math.floor(i / N)) % 2 ? "#e2e6c1" : "#edf0d2"} />)}
         <ellipse cx={state.food.x * 20 + 11} cy={state.food.y * 20 + 17} rx="8" ry="3" fill="#9a834855"/><circle cx={state.food.x * 20 + 10} cy={state.food.y * 20 + 9} r="8" fill="url(#snakeApple)"/><path d={`M${state.food.x * 20 + 10} ${state.food.y * 20 + 3}q0 -5 4 -5`} stroke="#678349" strokeWidth="2" fill="none"/>
         {[...state.body].reverse().map((p, i) => <g key={i}><ellipse cx={p.x * 20 + 10} cy={p.y * 20 + 18} rx="9" ry="3" fill="#526b4555"/><rect x={p.x * 20 + 1} y={p.y * 20 + 1} width="18" height="18" rx="7" fill="url(#snakeBody)" stroke="#4f8863" strokeWidth=".5"/></g>)}
         <image href={asset(XIAOAI)} x={Math.max(0, Math.min(248, state.body[0].x * 20 - 26))} y={Math.max(0, Math.min(240, state.body[0].y * 20 - 48))} width="72" height="80" preserveAspectRatio="xMidYMid meet" />
