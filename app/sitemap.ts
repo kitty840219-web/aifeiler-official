@@ -13,6 +13,10 @@ const paths = [
   "/contact",
   "/videos",
   "/phone-cases",
+  "/games",
+  "/games/memory",
+  "/games/stars",
+  "/games/garden",
 ];
 
 export default function sitemap(): MetadataRoute.Sitemap {
