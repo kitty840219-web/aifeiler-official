@@ -29,7 +29,7 @@ export const GAME_CATEGORIES = [
   },
   {
     "id": "language",
-    "label": "語言學習"
+    "label": "語言學習館"
   }
 ] as const;
 export type GameCategory = typeof GAME_CATEGORIES[number]["id"];
