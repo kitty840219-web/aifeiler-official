@@ -33,4 +33,4 @@
 
 .sectionDivider{border:0;border-top:1px solid #dfd0bd;width:100%;margin:32px auto 24px}
 
-.backLink{margin-left:auto;border:0;background:transparent;color:inherit;font:inherit;min-height:44px;padding:8px 0 8px 12px}
+.backLink{margin-right:auto;border:0;background:transparent;color:inherit;font:inherit;min-height:44px;padding:8px 12px 8px 0}
