@@ -4,7 +4,7 @@ export type CardFormat="card"|"phone"|"desktop";
 function image(src:string):Promise<HTMLImageElement>{return new Promise((resolve,reject)=>{const img=new Image();img.onload=()=>resolve(img);img.onerror=()=>reject(new Error("背景圖片暫時無法載入，請稍後重試。"));img.src=asset(src);});}
 function lines(ctx:CanvasRenderingContext2D,text:string,width:number,english=false){
  const words=english?text.split(" "):Array.from(text);const result:string[]=[];let line="";
- for(const word of words){const next=line+(english&&line?" ":"")+word;if(ctx.measureText(next).width>width&&line){result.push(line);line=word;}else line=next;}
+ for(const word of words){const next=line+(english&&line?" ":"")+word;if(ctx.measureText(next).width>width&&line&&!(!english&&/[，。！？、；：）」』】]/.test(word))){result.push(line);line=word;}else line=next;}
  if(line)result.push(line);return result;
 }
 export function dateLabel(date:string){return new Intl.DateTimeFormat("zh-TW",{year:"numeric",month:"long",day:"numeric",weekday:"long"}).format(new Date(date+"T12:00:00"));}
