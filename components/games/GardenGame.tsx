@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { today, updateProgress, useProgress } from "@/lib/games/progress";
 import GameShell from "./GameShell";
+import GameInstructions from "./GameInstructions";
 import styles from "./Games.module.css";
 
 const moods = [ { name: "開心", icon: "☀", note: "把今天的快樂，收進花瓣裡。" }, { name: "平靜", icon: "☾", note: "慢慢來，安靜也是一種力量。" }, { name: "疲憊", icon: "☁", note: "你不必一直很厲害，今天也可以休息。" }, { name: "低落", icon: "☂", note: "花不會每天盛開，你也不需要。" }, { name: "期待", icon: "✦", note: "還沒發生的美好，正在慢慢靠近。" } ];
@@ -30,6 +31,7 @@ export default function GardenGame() {
     });
   }
   return <GameShell title="小艾的心情花園" eyebrow="LET YOUR FEELINGS BLOOM" description="不必急著變好，先讓今天的心情，有個可以停留的地方。">
+    <GameInstructions game="garden" />
     <div className={styles.gardenScene}>
       <div className={styles.gardenSky}><span>MY LITTLE GARDEN</span><b aria-label={decoration.name}>{decoration.icon}</b></div>
       <div className={styles.flowerBeds} aria-label="我的心情花園">{Array.from({ length: 12 }, (_, i) => {

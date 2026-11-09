@@ -5,6 +5,7 @@ import { useEffect, useRef, useState } from "react";
 import { asset } from "@/lib/basePath";
 import { updateProgress, useProgress } from "@/lib/games/progress";
 import GameShell from "./GameShell";
+import GameInstructions from "./GameInstructions";
 import styles from "./Games.module.css";
 
 type Drop = { id: number; x: number; y: number; cloud: boolean; speed: number };
@@ -86,6 +87,7 @@ export default function StarGame() {
     state.current.x = Math.max(10, Math.min(90, (clientX - r.left) / r.width * 100));
   }
   return <GameShell title="星光接接樂" eyebrow="CATCH A LITTLE LIGHT" description="接住星光，躲開烏雲。黑夜裡，你也可以發光。">
+    <GameInstructions game="stars" />
     <div className={styles.metrics}><div><b>{frame.score}</b><span>接到的星星</span></div><div><b>{Math.ceil(frame.remaining)}s</b><span>剩餘時間</span></div><div><b aria-label={`${frame.hearts} 顆愛心`}>{"♥".repeat(frame.hearts)}{"♡".repeat(3 - frame.hearts)}</b><span>溫柔能量</span></div></div>
     <div className={styles.starField} ref={field} aria-label="接星星遊戲區，拖曳或用左右方向鍵移動小艾"
       onPointerDown={e => { if (modeRef.current === "playing") { e.currentTarget.setPointerCapture(e.pointerId); move(e.clientX); } }}

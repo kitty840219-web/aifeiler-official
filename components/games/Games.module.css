@@ -111,3 +111,20 @@
 .hubWorld .cardText>p:not(.eyebrow){font-size:14px}
 .hubWorld .cardBottom{justify-content:center;gap:20px;font-size:12px}
 @media(min-width:768px){html[data-view-mode="desktop"] .world.hubWorld{padding-inline:28px}}
+
+.instructions{width:100%;margin:0 auto 22px;border:1px solid var(--line);border-radius:16px;background:#fffdf8;overflow:hidden}
+.instructions summary{position:relative;list-style:none;padding:17px 30px 17px 16px;text-align:center;font-family:var(--font-noto-serif-tc),serif;font-size:18px;font-weight:600;cursor:pointer}
+.instructions summary::-webkit-details-marker{display:none}
+.instructions summary:after{content:"+";position:absolute;right:15px;top:19px;color:var(--gold);font-family:sans-serif;font-size:16px}
+.instructions[open] summary:after{content:"−"}
+.instructions summary>span{display:block;font-family:inherit;font-size:10px;font-weight:400;line-height:1.8;letter-spacing:.04em;color:var(--muted);margin-top:4px}
+.instructions summary:focus-visible{outline:3px solid #bb9160;outline-offset:-4px}
+.instructionsBody{border-top:1px dashed var(--line);padding:16px}
+.instructionsIntro{font-size:13px;line-height:1.8;text-align:center;color:#8d759d;margin:0 0 18px}
+.instructions ol{list-style:none;margin:0;padding:0;display:grid;gap:17px}
+.instructions li{display:flex;align-items:flex-start;gap:10px}
+.stepNumber{flex:0 0 22px;font-family:Georgia,serif;font-size:13px;line-height:1.8;color:var(--gold)}
+.instructions h2{font-size:13px;font-weight:700;line-height:1.8;margin:0 0 3px;color:var(--ink)}
+.instructions li p{font-size:12px;line-height:1.9;color:var(--muted);margin:0;overflow-wrap:anywhere}
+.instructionsSave{font-size:10px;line-height:1.9;color:#9b90a0;border-top:1px solid var(--line);padding-top:14px;margin:18px 0 0}
+@media(min-width:768px){html[data-view-mode="desktop"] .instructions{max-width:460px}}

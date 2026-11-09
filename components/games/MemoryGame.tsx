@@ -5,6 +5,7 @@ import { useEffect, useRef, useState } from "react";
 import { asset } from "@/lib/basePath";
 import { updateProgress, useProgress } from "@/lib/games/progress";
 import GameShell from "./GameShell";
+import GameInstructions from "./GameInstructions";
 import styles from "./Games.module.css";
 
 const faces = [
@@ -57,6 +58,7 @@ export default function MemoryGame() {
     }
   }
   return <GameShell title="小艾翻翻樂" eyebrow="FIND YOUR LITTLE MATCH" description="把散落的溫柔，一張一張配成對。">
+    <GameInstructions game="memory" />
     <div className={styles.metrics}><div><b>{moves}</b><span>翻牌次數</span></div><div><b>{matched.length / 2} / {pairs}</b><span>已配對</span></div><div><b>{seconds}s</b><span>遊玩時間</span></div></div>
     {deck.length === 0 ? <div className={`${styles.panel} ${styles.startPanel}`}>
       <span className={styles.largeSymbol} aria-hidden="true">✿</span><h2>今天，和小艾見個面。</h2><p>每次翻開兩張卡片，找到相同的小艾。<br />全部配對，就能收集星光。</p>
