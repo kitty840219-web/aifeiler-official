@@ -7,3 +7,12 @@
 .galleryNav{position:relative;z-index:65;display:flex;justify-content:flex-end;gap:10px;margin:10px 6px}
 .galleryNav button{width:44px;height:44px;border:1px solid #bba6c5;border-radius:50%;background:#fffaf2;color:#735e80;font-size:22px}
 @media(min-width:768px){.gallery>button{flex-basis:38%}}
+
+/* Put navigation on the picture edges instead of above the gallery. */
+.galleryViewport{position:relative;container-type:inline-size;z-index:65}
+.galleryViewport .gallery{z-index:1}
+.galleryViewport .galleryNav{position:absolute;inset:0;z-index:2;margin:0;pointer-events:none;display:block}
+.galleryViewport .galleryNav button{position:absolute;top:calc(26cqw + 6px);transform:translateY(-50%);width:44px;height:52px;display:grid;place-items:center;padding:0;border:0;border-radius:0;background:transparent;box-shadow:none;color:#59436b;font-size:48px;line-height:1;text-shadow:0 0 3px #fff,0 1px 5px #fff;pointer-events:auto}
+.galleryViewport .galleryNav button:first-child{left:0}
+.galleryViewport .galleryNav button:last-child{right:0}
+@media(min-width:768px){.galleryViewport .galleryNav button{top:calc(12.667cqw + 6px)}}
