@@ -12,6 +12,7 @@ const TABS = [
   { href: "/works", label: "最新文章", avatar: "/images/nav/nav-works.webp", badge: "bg-rose-300/20" },
   { href: "/horoscope", label: "星座運勢", avatar: "/images/nav/nav-horoscope.webp", badge: "bg-sky-300/20" },
   { href: "/tarot", label: "塔羅占卜", avatar: "/images/nav/nav-tarot.webp", badge: "bg-violet-300/20" },
+  { href: "/games", label: "互動遊戲", avatar: "/images/nav/nav-about.webp", badge: "bg-gold/20" },
   { href: "/shop", label: "商店", avatar: "/images/nav/nav-shop.webp", badge: "bg-emerald-300/20" },
   { href: "/contact", label: "聯絡我們", avatar: "/images/nav/nav-contact.webp", badge: "bg-amber-300/20" },
 ];
