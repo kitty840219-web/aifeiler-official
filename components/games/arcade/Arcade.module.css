@@ -34,5 +34,6 @@
 .catalogImage{display:block;width:88px;height:88px;object-fit:cover;border-radius:50%;border:4px solid #fff9;box-shadow:4px 9px 0 #9e83a32c}
 .catalog>a{display:flex;flex-direction:column;align-items:stretch}.catalog h3{padding-inline:4px;min-height:48px;display:grid;place-items:center}.catalog b{margin-top:auto}
 
-.snakeMascot{width:72px;height:72px;object-fit:contain;flex-shrink:0;filter:drop-shadow(0 5px 4px #775b4630)}
-.catalogMascot{display:block;width:112px;height:112px;object-fit:contain;filter:drop-shadow(0 6px 4px #775b4626)}
+.snakeMascot{display:block;width:92px;height:92px;min-height:92px;object-fit:contain;flex-shrink:0}
+.catalogMascot{display:block;width:112px;height:112px;object-fit:contain}
+.board3d .overlay{padding:10px;gap:0}.board3d .overlay h2{font-size:18px;margin:4px 0}.board3d .overlay p{font-size:11px;margin-bottom:8px}.board3d .overlay .row{margin:4px 0 10px}.board3d .overlay .row button{padding:7px 10px}.board3d .overlay .primary{padding:10px 20px}
