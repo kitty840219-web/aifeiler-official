@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useSyncExternalStore } from "react";
 
 export type Flower = { id: string; kind: string; mood: string; day: string };
 export type Progress = { stars: number; memoryBest: number; catchBest: number; flowers: Flower[]; lastGardenDay: string; decoration: string };
@@ -26,19 +26,26 @@ export function updateProgress(change: (p: Progress) => Progress) {
   window.dispatchEvent(new Event(EVENT));
 }
 
+type Snapshot = { progress: Progress; ready: boolean; persistent: boolean };
+const serverSnapshot: Snapshot = { progress: empty, ready: false, persistent: true };
+let snapshot = serverSnapshot;
+
+function refreshSnapshot() {
+  let persistent = true;
+  try { localStorage.setItem(KEY + "-probe", "1"); localStorage.removeItem(KEY + "-probe"); } catch { persistent = false; }
+  snapshot = { progress: read(), ready: true, persistent };
+}
+
+function subscribe(notify: () => void) {
+  const refresh = () => { refreshSnapshot(); notify(); };
+  if (!snapshot.ready) refreshSnapshot();
+  window.addEventListener(EVENT, refresh);
+  window.addEventListener("storage", refresh);
+  return () => { window.removeEventListener(EVENT, refresh); window.removeEventListener("storage", refresh); };
+}
+
 export function useProgress() {
-  const [progress, setProgress] = useState<Progress>(empty);
-  const [ready, setReady] = useState(false);
-  const [persistent, setPersistent] = useState(true);
-  useEffect(() => {
-    const refresh = () => { setProgress(read()); setReady(true); };
-    refresh();
-    try { localStorage.setItem(KEY + "-probe", "1"); localStorage.removeItem(KEY + "-probe"); } catch { setPersistent(false); }
-    window.addEventListener(EVENT, refresh);
-    window.addEventListener("storage", refresh);
-    return () => { window.removeEventListener(EVENT, refresh); window.removeEventListener("storage", refresh); };
-  }, []);
-  return { progress, ready, persistent };
+  return useSyncExternalStore(subscribe, () => snapshot, () => serverSnapshot);
 }
 
 export function today() {
