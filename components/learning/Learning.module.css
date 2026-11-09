@@ -32,3 +32,5 @@
 @media(prefers-reduced-motion:reduce){.hero [data-learning-mascot],.wrongPanel,.correctPanel,.reviewPanel{animation:none}}
 
 .sectionDivider{border:0;border-top:1px solid #dfd0bd;width:100%;margin:32px auto 24px}
+
+.backLink{margin-left:auto;border:0;background:transparent;color:inherit;font:inherit;min-height:44px;padding:8px 0 8px 12px}
