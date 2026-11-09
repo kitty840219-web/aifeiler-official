@@ -33,3 +33,6 @@
 .editor{border:1px dashed #b59cbf;border-radius:14px;padding:14px;margin-top:18px}.editor p{font-size:12px;line-height:1.8;color:#987ca6;text-align:center}
 .catalogImage{display:block;width:88px;height:88px;object-fit:cover;border-radius:50%;border:4px solid #fff9;box-shadow:4px 9px 0 #9e83a32c}
 .catalog>a{display:flex;flex-direction:column;align-items:stretch}.catalog h3{padding-inline:4px;min-height:48px;display:grid;place-items:center}.catalog b{margin-top:auto}
+
+.snakeMascot{width:72px;height:72px;object-fit:contain;flex-shrink:0;filter:drop-shadow(0 5px 4px #775b4630)}
+.catalogMascot{display:block;width:112px;height:112px;object-fit:contain;filter:drop-shadow(0 6px 4px #775b4626)}

@@ -3,6 +3,9 @@
 import { useEffect, useRef, useState } from "react";
 import ArcadeFrame, { useRecord } from "./ArcadeFrame";
 import styles from "./Arcade.module.css";
+import Image from "next/image";
+import { asset } from "@/lib/basePath";
+const XIAOAI = "/images/games/xiaoai-apple.png";
 
 const N = 16;
 type Point = { x: number; y: number };
@@ -58,7 +61,7 @@ export default function SnakeGame() {
     }, speed);
     return () => clearInterval(timer);
   }, [phase, speed]);
-  return <ArcadeFrame title="小艾貪食蛇" description="在奶油色的小島上，吃下蘋果，一點點長大。" rules={["按開始後，以方向鍵、下方按鈕或在棋盤滑動改變方向。", "每吃一顆蘋果加 5 分，身體會變長；不能直接往反方向轉彎。", "碰到邊界或自己的身體就結束。可以暫停；離開視窗也會自動暫停。", "挑戰高分並收集星光，選擇慢速可以更輕鬆地練習。"]}>
+  return <ArcadeFrame title="小艾貪食蛇" description="陪著小艾收集蘋果，讓身後的綠色小徑一點點長大。" rules={["按開始後，以方向鍵、下方按鈕或在棋盤滑動改變方向。", "每吃一顆蘋果加 5 分，身體會變長；不能直接往反方向轉彎。", "碰到邊界或自己的身體就結束。可以暫停；離開視窗也會自動暫停。", "挑戰高分並收集星光，選擇慢速可以更輕鬆地練習。"]}>
     <div className={styles.scores}><span>本局 <b>{state.score}</b></span><span>最佳 <b>{best}</b></span></div>
     <div className={styles.board3d} onPointerDown={e => { if(phaseRef.current!=="playing")return; pointer.current = { x: e.clientX, y: e.clientY }; e.currentTarget.setPointerCapture(e.pointerId); }} onPointerUp={e => { if (!pointer.current) return; const dx = e.clientX - pointer.current.x, dy = e.clientY - pointer.current.y; pointer.current = null; if (Math.max(Math.abs(dx), Math.abs(dy)) > 12) turn(Math.abs(dx) > Math.abs(dy) ? dx > 0 ? "ArrowRight" : "ArrowLeft" : dy > 0 ? "ArrowDown" : "ArrowUp"); }}>
       <svg className={styles.snakeSvg} viewBox="0 0 320 320" role="img" aria-label={`貪食蛇棋盤，目前 ${state.score} 分`}>
@@ -67,9 +70,9 @@ export default function SnakeGame() {
         {Array.from({ length: N * N }, (_, i) => <rect key={i} x={i % N * 20} y={Math.floor(i / N) * 20} width="20" height="20" fill={(i % N + Math.floor(i / N)) % 2 ? "#e2e6c1" : "#edf0d2"} />)}
         <ellipse cx={state.food.x * 20 + 11} cy={state.food.y * 20 + 17} rx="8" ry="3" fill="#9a834855"/><circle cx={state.food.x * 20 + 10} cy={state.food.y * 20 + 9} r="8" fill="url(#snakeApple)"/><path d={`M${state.food.x * 20 + 10} ${state.food.y * 20 + 3}q0 -5 4 -5`} stroke="#678349" strokeWidth="2" fill="none"/>
         {[...state.body].reverse().map((p, i) => <g key={i}><ellipse cx={p.x * 20 + 10} cy={p.y * 20 + 18} rx="9" ry="3" fill="#526b4555"/><rect x={p.x * 20 + 1} y={p.y * 20 + 1} width="18" height="18" rx="7" fill="url(#snakeBody)" stroke="#4f8863" strokeWidth=".5"/></g>)}
-        <g fill="#34314b"><circle cx={state.body[0].x * 20 + 6} cy={state.body[0].y * 20 + 6} r="2"/><circle cx={state.body[0].x * 20 + 14} cy={state.body[0].y * 20 + 6} r="2"/></g>
+        <image href={asset(XIAOAI)} x={state.body[0].x * 20 - 6} y={state.body[0].y * 20 - 12} width="32" height="36" preserveAspectRatio="xMidYMid meet" />
       </svg>
-      {phase !== "playing" && <div className={styles.overlay}><span className={styles.heroIcon}>🍎</span><h2>{phase === "ready" ? "吃一顆，好心情。" : phase === "paused" ? "先休息一下。" : phase === "won" ? "小島都被你填滿了！" : "每一步，都讓你長大。"}</h2><p>{phase === "over" || phase === "won" ? `這次獲得 ${state.score} 分` : "準備好，開始一場立體小冒險。"}</p>{phase === "ready" && <div className={styles.row}><button onClick={() => setSpeed(230)} aria-pressed={speed === 230}>慢速</button><button onClick={() => setSpeed(170)} aria-pressed={speed === 170}>一般</button><button onClick={() => setSpeed(110)} aria-pressed={speed === 110}>快速</button></div>}<button className={styles.primary} onClick={() => phase === "paused" ? mode("playing") : start()}>{phase === "ready" ? "開始遊戲" : phase === "paused" ? "繼續遊戲" : "再玩一次"}</button></div>}
+      {phase !== "playing" && <div className={styles.overlay}><Image src={asset(XIAOAI)} alt="抱著蘋果開心跑步的小艾" width={72} height={72} className={styles.snakeMascot} priority /><h2>{phase === "ready" ? "吃一顆，好心情。" : phase === "paused" ? "先休息一下。" : phase === "won" ? "小島都被你填滿了！" : "每一步，都讓你長大。"}</h2><p>{phase === "over" || phase === "won" ? `這次獲得 ${state.score} 分` : "準備好，開始一場立體小冒險。"}</p>{phase === "ready" && <div className={styles.row}><button onClick={() => setSpeed(230)} aria-pressed={speed === 230}>慢速</button><button onClick={() => setSpeed(170)} aria-pressed={speed === 170}>一般</button><button onClick={() => setSpeed(110)} aria-pressed={speed === 110}>快速</button></div>}<button className={styles.primary} onClick={() => phase === "paused" ? mode("playing") : start()}>{phase === "ready" ? "開始遊戲" : phase === "paused" ? "繼續遊戲" : "再玩一次"}</button></div>}
     </div>
     <div className={styles.dpad} aria-label="移動方向"><button onClick={() => turn("ArrowUp")} aria-label="往上">↑</button><div><button onClick={() => turn("ArrowLeft")} aria-label="往左">←</button><button onClick={() => turn("ArrowDown")} aria-label="往下">↓</button><button onClick={() => turn("ArrowRight")} aria-label="往右">→</button></div></div>
     {phase === "playing" && <button className={styles.secondary} onClick={() => mode("paused")}>暫停</button>}
