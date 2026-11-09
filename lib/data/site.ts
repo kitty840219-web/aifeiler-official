@@ -43,7 +43,7 @@ export const NAV = [
   { href: "/tarot", label: "塔羅占卜" },
   { href: "/learn", label: "星光遊樂園" },
   { href: "/videos", label: "影音創作" },
-  { href: "/shop", label: "周邊商店" },
+  { href: "/shop", label: "每日一句" },
   { href: "/phone-cases", label: "手機殼系列" },
   { href: "/pricing", label: "服務報價" },
   { href: "/line-guide", label: "如何使用LINE" },

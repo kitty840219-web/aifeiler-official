@@ -6,17 +6,21 @@ import SectionHeading from "@/components/SectionHeading";
 import { LINKS, SITE } from "@/lib/data/site";
 import { asset } from "@/lib/basePath";
 import VisualLayoutEditor from "@/components/VisualLayoutEditor";
+import DailyQuote from "@/components/quotes/DailyQuote";
 
 export const metadata: Metadata = {
-  title: `周邊商店 ｜ ${SITE.brand}`,
-  description: "艾飛樂周邊商品：客製化商品、LINE 貼圖與更多小物。",
+  title: `每日一句與周邊商店 ｜ ${SITE.brand}`,
+  description: "抽一張中英文療癒語錄字卡，收藏、朗讀與下載桌布；往下探索艾飛樂周邊商品與LINE貼圖。",
 };
 
 export default function ShopPage() {
   return (
+    <>
+    <DailyQuote />
+    <div className="mx-auto max-w-3xl px-4 sm:px-6"><hr className="border-0 border-t border-gold/50" /></div>
     <VisualLayoutEditor>
-    <div>
-      <section className="relative overflow-hidden bg-night-dark pb-10 pt-20">
+    <div id="peripheral-shop">
+      <section className="relative overflow-hidden bg-night-dark pb-10 pt-8">
         <div className="bg-stars pointer-events-none absolute inset-0 opacity-50" />
         <div className="relative mx-auto max-w-3xl px-4 sm:px-6">
           <div className="grid grid-cols-[minmax(0,1fr)_130px] items-center gap-4 rounded-[2rem] bg-night-light/15 px-6 py-7">
@@ -25,7 +29,7 @@ export default function ShopPage() {
                 <Star className="h-3 w-3 text-gold-light" />
                 <p className="text-xs font-semibold tracking-[0.35em] text-gold-light sm:text-sm">SHOP</p>
               </div>
-              <h1 className="font-serif text-3xl font-bold text-paper sm:text-4xl">周邊商店</h1>
+              <h2 className="font-serif text-3xl font-bold text-paper sm:text-4xl">周邊商店</h2>
               <p className="mt-3 text-sm leading-6 text-paper/70 sm:text-base sm:leading-7">把語錄裡的溫柔，變成隨身攜帶的小物件</p>
             </div>
             <div className="animate-float-slow relative h-44 w-full">
@@ -116,5 +120,6 @@ export default function ShopPage() {
       </section>
     </div>
     </VisualLayoutEditor>
+    </>
   );
 }

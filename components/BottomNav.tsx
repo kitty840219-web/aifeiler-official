@@ -13,7 +13,7 @@ const TABS = [
   { href: "/horoscope", label: "星座運勢", avatar: "/images/nav/nav-horoscope.webp", badge: "bg-sky-300/20" },
   { href: "/tarot", label: "塔羅占卜", avatar: "/images/nav/nav-tarot.webp", badge: "bg-violet-300/20" },
   { href: "/learn", label: "星光遊樂園", avatar: "/images/nav/nav-about.webp", badge: "bg-gold/20" },
-  { href: "/shop", label: "商店", avatar: "/images/nav/nav-shop.webp", badge: "bg-emerald-300/20" },
+  { href: "/shop", label: "每日一句", avatar: "/images/nav/nav-shop.webp", badge: "bg-emerald-300/20" },
   { href: "/contact", label: "聯絡我們", avatar: "/images/nav/nav-contact.webp", badge: "bg-amber-300/20" },
 ];
 
@@ -43,7 +43,7 @@ function BottomNavInner() {
     >
       <div className="mx-auto flex max-w-md items-stretch justify-between px-2">
         {TABS.map((tab) => {
-          const active = tab.href === "/story" ? pathname === "/" || pathname.startsWith("/story") || pathname.startsWith("/about") : tab.href === "/learn" ? pathname.startsWith("/learn") || pathname.startsWith("/games") : pathname.startsWith(tab.href);
+          const active = tab.href === "/story" ? pathname === "/" || pathname.startsWith("/story") || pathname.startsWith("/about") : tab.href === "/learn" ? pathname.startsWith("/learn") || pathname.startsWith("/games") : tab.href === "/shop" ? pathname.startsWith("/shop") || pathname.startsWith("/daily-quote") : pathname.startsWith(tab.href);
           const tapped = justTapped === tab.href;
           return (
             <Link
