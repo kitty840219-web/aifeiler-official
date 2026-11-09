@@ -1,0 +1,29 @@
+import {asset} from "@/lib/basePath";
+import type {Quote} from "./samples";
+export type CardFormat="card"|"phone"|"desktop";
+function image(src:string):Promise<HTMLImageElement>{return new Promise((resolve,reject)=>{const img=new Image();img.onload=()=>resolve(img);img.onerror=()=>reject(new Error("背景圖片暫時無法載入，請稍後重試。"));img.src=asset(src);});}
+function lines(ctx:CanvasRenderingContext2D,text:string,width:number,english=false){
+ const words=english?text.split(" "):Array.from(text);const result:string[]=[];let line="";
+ for(const word of words){const next=line+(english&&line?" ":"")+word;if(ctx.measureText(next).width>width&&line){result.push(line);line=word;}else line=next;}
+ if(line)result.push(line);return result;
+}
+export function dateLabel(date:string){return new Intl.DateTimeFormat("zh-TW",{year:"numeric",month:"long",day:"numeric",weekday:"long"}).format(new Date(date+"T12:00:00"));}
+export async function renderCard(canvas:HTMLCanvasElement,q:Quote,date:string,format:CardFormat,font:string){
+ const [img]=await Promise.all([image(q.art<0?"/images/quotes/november-garden.png":"/images/quotes/monthly-atlas.png"),document.fonts.ready]);
+ const phone=format==="phone",desktop=format==="desktop";canvas.width=phone?1080:desktop?1920:1200;canvas.height=phone?1920:desktop?1080:800;
+ const ctx=canvas.getContext("2d");if(!ctx)throw new Error("目前瀏覽器無法製作圖片。");
+ ctx.fillStyle="#fbf0dc";ctx.fillRect(0,0,canvas.width,canvas.height);
+ const sx=q.art<0?0:(q.art%3)*img.width/3,sy=q.art<0?0:Math.floor(q.art/3)*img.height/3,sw=q.art<0?img.width:img.width/3,sh=q.art<0?img.height:img.height/3;
+ if(phone){ctx.drawImage(img,sx,sy,sw,sh,0,1060,1080,720);const grad=ctx.createLinearGradient(0,1050,0,1220);grad.addColorStop(0,"#fbf0dc");grad.addColorStop(1,"#fbf0dc00");ctx.fillStyle=grad;ctx.fillRect(0,1050,1080,180);}
+ else ctx.drawImage(img,sx,sy,sw,sh,0,0,canvas.width,canvas.height);
+ const scale=desktop?1.35:1;
+ if(!phone){ctx.fillStyle="#fff8e8dd";ctx.beginPath();ctx.roundRect(canvas.width/2-490*scale,205*scale,980*scale,385*scale,26*scale);ctx.fill();}const center=canvas.width/2;const width=phone?850:desktop?1250:900;
+ ctx.textAlign="center";ctx.textBaseline="middle";
+ ctx.fillStyle="#92744b";ctx.font=`600 ${phone?28:24*scale}px sans-serif`;ctx.fillText("AIFEILER · A LITTLE LIGHT FOR TODAY",center,phone?450:108*scale);
+ ctx.font=`400 ${phone?28:25*scale}px ${font}`;ctx.fillText(dateLabel(date),center,phone?520:165*scale);
+ ctx.fillStyle="#3e3553";ctx.font=`600 ${phone?62:60*scale}px ${font}`;
+ const zh=lines(ctx,q.zh,width);const top=phone?700:280*scale;zh.forEach((line,i)=>ctx.fillText(line,center,top+i*(phone?96:86*scale)));
+ const englishTop=top+zh.length*(phone?96:86*scale)+34*scale;
+ ctx.fillStyle="#695a73";ctx.font=`400 ${phone?43:40*scale}px Georgia,serif`;const en=lines(ctx,q.en,width,true);en.forEach((line,i)=>ctx.fillText(line,center,englishTop+i*(phone?66:58*scale)));
+ ctx.fillStyle="#806b4e";ctx.font=`400 ${phone?28:23*scale}px ${font}`;ctx.fillText("艾飛樂 · "+(q.category==="work"?"職場與成長":"感情與療癒"),center,phone?1840:730*scale);
+}
