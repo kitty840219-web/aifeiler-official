@@ -20,7 +20,7 @@ export default function GameShell({ title, eyebrow, description, children, spaci
   const index = ARCADE_GAMES.findIndex(game => pathname.endsWith(`/games/${game.slug}`));
   const previous = index >= 0 ? ARCADE_GAMES[(index + ARCADE_GAMES.length - 1) % ARCADE_GAMES.length] : null;
   const next = index >= 0 ? ARCADE_GAMES[(index + 1) % ARCADE_GAMES.length] : null;
-  return <div className={`${styles.world} ${spacious ? styles.hubWorld : ""}`} style={sceneVariables(index>=0?ARCADE_GAMES[index].slug:"hub")} onPointerDownCapture={sparkle}>
+  return <div data-game-page="" className={`${styles.world} ${spacious ? styles.hubWorld : ""}`} style={sceneVariables(index>=0?ARCADE_GAMES[index].slug:"hub")} onPointerDownCapture={sparkle}>
     <div className={styles.topline}><Link href="/games">← 星光遊樂園</Link><span className={styles.wallet} aria-label={`已收集 ${progress.stars} 顆星光`}>✦ {ready ? progress.stars : "—"}</span></div>
     <header className={styles.header}><p className={styles.eyebrow}>{eyebrow}</p><h1>{title}</h1><p>{description}</p></header>
     {index >= 0 && <GameScenery game={ARCADE_GAMES[index].slug} className={scenery.hero}><GameMascot game={ARCADE_GAMES[index].slug} size={160} className={scenery.mascot} alt={`${title}的艾飛樂角色`} /></GameScenery>}

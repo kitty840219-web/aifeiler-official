@@ -57,3 +57,5 @@
 .row .primary{display:inline-block}
 .sliders label{justify-items:center;text-align:center}
 .canvasStage,.board3d,.cardTable,.mineGrid,.tileGrid,.ticGrid,.moonGrid,.oceanGrid{width:100%;margin-inline:auto}
+
+.canvasStage,.board3d,.mineGrid,.tileGrid,.ticGrid,.moonGrid,.oceanGrid,.cardTable,.tray,.hand{position:relative;z-index:65}.arcade button{scroll-margin-block:120px}

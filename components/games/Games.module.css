@@ -160,3 +160,7 @@
 
 /* Explicit card bounds prevent percentage-width sprites collapsing in grid tracks. */
 .memoryCard>[data-mascot]{position:absolute;inset:6px;display:block;width:calc(100% - 12px)!important;height:calc(100% - 12px)!important}
+
+/* Interactive boards have their own layer; the social rail stays in its original position. */
+.world{isolation:auto}.world .memoryBoard,.world .starField,.world .gardenScene{position:relative;z-index:65}
+.world button{scroll-margin-block:120px}

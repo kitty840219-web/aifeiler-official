@@ -414,3 +414,6 @@ main { font-weight: 500; }
     animation: none;
   }
 }
+
+/* Keep site navigation usable above the independent game interaction layer. */
+body:has([data-game-page]) > header,body:has([data-game-page]) > nav[aria-label="主要導覽"]{z-index:90}
