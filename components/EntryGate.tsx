@@ -88,13 +88,13 @@ export default function EntryGate() {
           瞭解更多
         </Link>
 
-        <nav aria-label="艾飛樂社群連結" className="mt-7 flex items-center gap-3 sm:gap-4">
+        <nav aria-label="艾飛樂社群連結" className="mt-7 flex w-full items-center justify-center gap-2 sm:gap-3">
           <a
             href="https://www.facebook.com/profile.php?id=100093979488257"
             target="_blank"
             rel="noreferrer"
             aria-label="前往艾飛樂 Facebook"
-            className="grid h-12 w-12 place-items-center rounded-full bg-white/85 font-sans text-[1.75rem] font-black leading-none text-[#655c57] shadow-[0_4px_14px_rgba(12,9,27,0.25)] transition hover:-translate-y-1 hover:bg-white"
+            className="grid h-11 w-11 shrink-0 place-items-center rounded-full bg-white/85 font-sans text-[1.75rem] font-black leading-none text-[#655c57] shadow-[0_4px_14px_rgba(12,9,27,0.25)] transition hover:-translate-y-1 hover:bg-white"
           >
             f
           </a>
@@ -103,7 +103,7 @@ export default function EntryGate() {
             target="_blank"
             rel="noreferrer"
             aria-label="加入艾飛樂官方 LINE"
-            className="grid h-12 w-12 place-items-center rounded-full bg-white/85 font-sans text-[0.62rem] font-black tracking-tight text-[#655c57] shadow-[0_4px_14px_rgba(12,9,27,0.25)] transition hover:-translate-y-1 hover:bg-white"
+            className="grid h-11 w-11 shrink-0 place-items-center rounded-full bg-white/85 font-sans text-[0.62rem] font-black tracking-tight text-[#655c57] shadow-[0_4px_14px_rgba(12,9,27,0.25)] transition hover:-translate-y-1 hover:bg-white"
           >
             LINE
           </a>
@@ -112,7 +112,7 @@ export default function EntryGate() {
             target="_blank"
             rel="noreferrer"
             aria-label="前往艾飛樂 Instagram"
-            className="grid h-12 w-12 place-items-center rounded-full bg-white/85 text-[#655c57] shadow-[0_4px_14px_rgba(12,9,27,0.25)] transition hover:-translate-y-1 hover:bg-white"
+            className="grid h-11 w-11 shrink-0 place-items-center rounded-full bg-white/85 text-[#655c57] shadow-[0_4px_14px_rgba(12,9,27,0.25)] transition hover:-translate-y-1 hover:bg-white"
           >
             <InstagramIcon />
           </a>
@@ -121,9 +121,18 @@ export default function EntryGate() {
             target="_blank"
             rel="noopener noreferrer"
             aria-label="前往艾飛樂 YouTube"
-            className="grid h-12 w-12 shrink-0 place-items-center rounded-full bg-white/85 text-[#655c57] shadow-[0_4px_14px_rgba(12,9,27,0.25)] transition hover:-translate-y-1 hover:bg-white"
+            className="grid h-11 w-11 shrink-0 shrink-0 place-items-center rounded-full bg-white/85 text-[#655c57] shadow-[0_4px_14px_rgba(12,9,27,0.25)] transition hover:-translate-y-1 hover:bg-white"
           >
             <SocialIcon type="youtube" className="h-7 w-7" />
+          </a>
+          <a
+            href={LINKS.dcard}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="前往艾飛樂 Dcard"
+            className="grid h-11 w-11 shrink-0 place-items-center rounded-full bg-white/85 font-sans text-2xl font-bold text-[#655c57] shadow-[0_4px_14px_rgba(12,9,27,0.25)] transition hover:-translate-y-1 hover:bg-white"
+          >
+            <span aria-hidden="true">D</span>
           </a>
         </nav>
 

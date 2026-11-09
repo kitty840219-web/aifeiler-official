@@ -18,6 +18,7 @@ const GOOGLE_BUSINESS_FTID = "0x46a13d161d9f83f7:0x9db7610e1364a7ca";
 const GOOGLE_BUSINESS_NAME = encodeURIComponent(SITE.businessName);
 
 export const LINKS = {
+  dcard: "https://www.dcard.tw/@aibi_0219?cid=caba35ea-8ccb-4e17-ac63-86077c42d6ea",
   instagramQuotes: "https://www.instagram.com/aibi_0219/",
   instagramIllustration: "https://www.instagram.com/dreamstar_illustration/",
   instagramAbby: "https://www.instagram.com/imabby_0219/",
