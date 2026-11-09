@@ -34,3 +34,14 @@
 .sectionDivider{border:0;border-top:1px solid #dfd0bd;width:100%;margin:32px auto 24px}
 
 .backLink{margin-right:auto;border:0;background:transparent;color:inherit;font:inherit;min-height:44px;padding:8px 12px 8px 0}
+
+
+/* Stronger outlines for learning panels and touch controls. */
+.panel,.playBoard,.instructions{border-color:#b3a084}
+.levels button,.subjects button,.modes button,.help button{border-color:#a28bac}
+.answerArea{border-color:#8e719f;background:#f5eef8}
+.answerArea button{border-color:#9679a6}
+.tiles button{border-color:#ac8b52}
+.choices button{border-color:#ad9275}
+.choices .correctChoice{border-color:#668c50}
+.choices .wrongChoice{border-color:#b55b70}

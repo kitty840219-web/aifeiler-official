@@ -65,3 +65,17 @@
 .categoryFilters button[aria-pressed=true]{background:#342b52;color:#fffaf2;border-color:#342b52}
 .categoryFilters button:focus-visible{outline:3px solid #bb9160;outline-offset:3px}
 .catalogSection>.filterCount{margin:0 0 24px;font-size:13px;line-height:1.8;color:#8d7a96;text-align:center}
+
+
+/* Distinct rims and slots without fading the game pieces or scenery. */
+.board3d,.canvasStage{outline:2px solid #a38c70;outline-offset:-1px}
+.mineGrid,.tileGrid,.ticGrid,.oceanGrid{border:2px solid #998266}
+.moonGrid{border:2px solid #aa94ba}
+.mineGrid button,.tileGrid button,.ticGrid button{border-color:#a38b6a}
+.mineGrid .revealed{border-color:#889574}
+.moonGrid button{border:2px solid #b9a5cb}
+.oceanGrid button{border-color:#477d8b}
+.cardTable{outline:2px solid #8c7659;outline-offset:-1px}
+.cardSlot,.pileTarget{border:2px dashed #e9d8af;background:#173c2ee6;color:#fff3d6}
+.tray{border:2px solid #a18b6b}.tray span{border:1px solid #aa9473}
+.guide,.result,.sliders,.touchHint{border-color:#b39b7c}
