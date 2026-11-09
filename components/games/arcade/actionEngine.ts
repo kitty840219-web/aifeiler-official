@@ -33,7 +33,7 @@ export default class ActionEngine {
   if(kind==="pony")this.y=220;
   if(kind==="gnomes"){this.x=35;this.y=345;}
   if(kind==="platform")this.makeLevel();
-  if(kind==="island"){this.x=180;this.y=340;}
+  if(kind==="island"){this.x=180;this.y=340;this.target={x:180,y:340};}
  }
  end(win=false){if(this.finished)return;this.finished=true;this.won=win;}
  makeMaze(){this.grid=Array.from({length:15},()=>Array(15).fill(1));const stack=[[1,1]];this.grid[1][1]=0;while(stack.length){const[x,y]=stack.at(-1)!;const options=[[2,0],[-2,0],[0,2],[0,-2]].filter(([dx,dy])=>x+dx>0&&x+dx<14&&y+dy>0&&y+dy<14&&this.grid[y+dy][x+dx]);if(!options.length){stack.pop();continue;}const[dx,dy]=options[Math.floor(Math.random()*options.length)];this.grid[y+dy/2][x+dx/2]=0;this.grid[y+dy][x+dx]=0;stack.push([x+dx,y+dy]);}for(let i=0;i<20;i++){const x=1+Math.floor(Math.random()*13),y=1+Math.floor(Math.random()*13);if([[1,0],[-1,0],[0,1],[0,-1]].some(([dx,dy])=>this.grid[y+dy]?.[x+dx]===0))this.grid[y][x]=0;}this.x=1;this.y=1;this.ghosts=[{x:13,y:13},{x:1,y:13}];this.grid.forEach((row,y)=>row.forEach((v,x)=>{if(!v&&!(x===1&&y===1))this.dots.add(`${x},${y}`);}));this.dir={x:0,y:0};}
