@@ -5,9 +5,9 @@ import type { ReactNode } from "react";
 import { useProgress } from "@/lib/games/progress";
 import styles from "./Games.module.css";
 
-export default function GameShell({ title, eyebrow, description, children }: { title: string; eyebrow: string; description: string; children: ReactNode }) {
+export default function GameShell({ title, eyebrow, description, children, spacious = false }: { title: string; eyebrow: string; description: string; children: ReactNode; spacious?: boolean }) {
   const { progress, ready, persistent } = useProgress();
-  return <div className={styles.world}>
+  return <div className={`${styles.world} ${spacious ? styles.hubWorld : ""}`}>
     <div className={styles.topline}><Link href="/games">← 星光遊樂園</Link><span className={styles.wallet} aria-label={`已收集 ${progress.stars} 顆星光`}>✦ {ready ? progress.stars : "—"}</span></div>
     <header className={styles.header}><p className={styles.eyebrow}>{eyebrow}</p><h1>{title}</h1><p>{description}</p></header>
     {children}

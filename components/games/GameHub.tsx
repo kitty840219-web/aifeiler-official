@@ -15,7 +15,7 @@ const games = [
 
 export default function GameHub() {
   const { progress } = useProgress();
-  return <GameShell title="艾飛樂星光遊樂園" eyebrow="A LITTLE PLAY, A LITTLE LIGHT" description="天空越黑，星星越亮。留一點時間，陪自己玩一下。">
+  return <GameShell spacious title="艾飛樂星光遊樂園" eyebrow="A LITTLE PLAY, A LITTLE LIGHT" description="天空越黑，星星越亮。留一點時間，陪自己玩一下。">
     <section className={styles.welcome}>
       <span aria-hidden="true" className={styles.orbit}>✦</span>
       <Image src={asset("/images/latest-articles-cutout.webp")} width={180} height={180} alt="小艾陪你一起收集星光" priority />
