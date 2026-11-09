@@ -60,6 +60,9 @@ export default class ActionEngine {
   if(this.kind==="island"&&this.challenge>=0)this.act();
  }
  act(){if(this.finished||this.edit)return;this.actionPulse=.35;const k=this.kind;
+  if(["gnomes","petanque","breakout"].includes(k)&&this.inFlight){this.notify("info",k==="gnomes"?"正在飛行中，落地後再發射。":k==="petanque"?"等球停下來，再拋下一球。":"小球還在飛行，移動擋板接球吧！");return;}
+  if(k==="popcorn"&&this.cooldown>0){this.notify("info",`護盾冷卻中，還要 ${Math.ceil(this.cooldown)} 秒。`);return;}
+  if(k==="platform"&&!this.grounded){this.notify("info","落地後才能再次跳躍。");return;}
   if(k==="baseball"||k==="cricket"){if(this.t<0){this.notify("info","球還沒靠近，等一下再出手。");return;}const error=Math.abs(this.t-1);const hit=error<.23;if(hit){const points=k==="cricket"?error<.07?6:error<.13?4:1:error<.06?4:error<.13?2:1;this.score+=points;this.notify("success",points>=4?"漂亮的遠打！":"擊中了！",points);this.message=points>=4?"漂亮的遠打！":"好球，成功擊出！";}else{this.health--;this.message="揮空了，再抓一次節奏。";this.notify("error",`${this.t<1?"太早":"太晚"}揮棒了！剩 ${this.health} 次機會`);}this.count++;this.t=-.65;if(this.health<=0||this.count>=(k==="baseball"?12:18))this.end();}
   if(k==="breakout"&&!this.inFlight){this.inFlight=true;this.objects=[{x:this.x,y:387,vx:100,vy:-185,r:7,type:"ball"}];}
   if(k==="gnomes"&&!this.inFlight){if(this.count>=3){this.end();return;}this.inFlight=true;this.x=35;this.y=345;const strength=160+Math.abs(Math.sin(this.time*2))*240;const rad=this.angle*Math.PI/180;this.vx=Math.cos(rad)*strength;this.vy=-Math.sin(rad)*strength;this.counter=0;this.count++;this.message="讓小地精飛得更遠！";}

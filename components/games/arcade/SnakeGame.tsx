@@ -30,13 +30,14 @@ export default function SnakeGame() {
   function mode(next: typeof phase) { phaseRef.current = next; setPhase(next); }
   function turn(key: string) {
     const d = directions[key]; const current = live.current.direction;
-    if (phaseRef.current !== "playing" || !d || queued.current || (d.x === -current.x && d.y === -current.y)) return;
+    if (phaseRef.current !== "playing" || !d || queued.current) return;
+    if(d.x===-current.x&&d.y===-current.y){gameNotice("snake","error","不能直接反方向，先往側邊轉彎！");return;}
     queued.current = d;
   }
   function start() { const next = { ...initial, body: initial.body.map(p => ({ ...p })) }; live.current = next; queued.current = null; setState(next); mode("playing"); }
   useGameRestart("snake",start);
   useEffect(() => {
-    const key = (e: KeyboardEvent) => { if (directions[e.key] && phaseRef.current === "playing") { e.preventDefault(); const d = directions[e.key]; const current = live.current.direction; if (!queued.current && !(d.x === -current.x && d.y === -current.y)) queued.current = d; } };
+    const key = (e: KeyboardEvent) => { if (directions[e.key] && phaseRef.current === "playing") { e.preventDefault(); const d = directions[e.key]; const current = live.current.direction; if (!queued.current){if(d.x===-current.x&&d.y===-current.y)gameNotice("snake","error","不能直接反方向，先往側邊轉彎！");else queued.current=d;} } };
     const blur = () => { if (phaseRef.current === "playing") { phaseRef.current = "paused"; setPhase("paused"); } };
     const visibility = () => { if (document.hidden) blur(); };
     window.addEventListener("keydown", key); window.addEventListener("blur", blur); document.addEventListener("visibilitychange", visibility);
