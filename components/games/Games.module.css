@@ -157,3 +157,6 @@
 .world .topline{max-width:680px;margin-inline:auto}
 .world .starField{width:100%;max-width:680px;margin-inline:auto;max-height:none}
 @media(min-width:768px){html[data-view-mode="desktop"] .world{max-width:1050px;padding-inline:28px}html[data-view-mode="desktop"] .world .panel,html[data-view-mode="desktop"] .world .memoryBoard,html[data-view-mode="desktop"] .world .metrics,html[data-view-mode="desktop"] .world .result,html[data-view-mode="desktop"] .world .gardenScene,html[data-view-mode="desktop"] .world .flowerNote,html[data-view-mode="desktop"] .world .instructions,html[data-view-mode="desktop"] .world .starField{max-width:680px}}
+
+/* Explicit card bounds prevent percentage-width sprites collapsing in grid tracks. */
+.memoryCard>[data-mascot]{position:absolute;inset:6px;display:block;width:calc(100% - 12px)!important;height:calc(100% - 12px)!important}
