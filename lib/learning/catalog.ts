@@ -9,9 +9,9 @@ export const LEVELS:{id:LevelId;label:string;age:string;focus:string}[]=[
 ];
 export const LEARNING_GAMES:{id:LearningKind;title:string;tag:string;description:string;subjects:Subject[];art:number;scene:string;ready:boolean}[]=[
  {id:"spelling",title:"單字拼拼樂",tag:"聽音・字母拼字",description:"聽一聽、點字母，把單字一塊塊拼出來。",subjects:["en"],art:0,scene:"memory",ready:true},
- {id:"characters",title:"小艾文字王",tag:"組字・字形辨識",description:"從部件組字到用字辨析，找回漢字的線索。",subjects:["zh"],art:1,scene:"tiles",ready:false},
- {id:"idioms",title:"成語故事屋",tag:"情境・成語應用",description:"走進小艾的故事，選出最貼切的成語。",subjects:["zh"],art:2,scene:"garden",ready:false},
- {id:"sentences",title:"句子排排站",tag:"英文・詞塊排序",description:"點選詞塊，讓每一句話找到自己的位置。",subjects:["en"],art:3,scene:"solitaire",ready:false},
- {id:"dialogue",title:"情境對話闖關",tag:"英文・生活對話",description:"從打招呼到校園簡報，練習合適的回應。",subjects:["en"],art:4,scene:"island",ready:false},
- {id:"reading",title:"雙語閱讀尋寶",tag:"國文英文・閱讀理解",description:"從短文裡找線索，讀懂文字沒有直接說的事。",subjects:["zh","en"],art:5,scene:"half-moon",ready:false},
+ {id:"characters",title:"小艾文字王",tag:"組字・字形辨識",description:"從部件組字到用字辨析，找回漢字的線索。",subjects:["zh"],art:1,scene:"tiles",ready:true},
+ {id:"idioms",title:"成語故事屋",tag:"情境・成語應用",description:"走進小艾的故事，選出最貼切的成語。",subjects:["zh"],art:2,scene:"garden",ready:true},
+ {id:"sentences",title:"句子排排站",tag:"英文・詞塊排序",description:"點選詞塊，讓每一句話找到自己的位置。",subjects:["en"],art:3,scene:"solitaire",ready:true},
+ {id:"dialogue",title:"情境對話闖關",tag:"英文・生活對話",description:"從打招呼到校園簡報，練習合適的回應。",subjects:["en"],art:4,scene:"island",ready:true},
+ {id:"reading",title:"雙語閱讀尋寶",tag:"國文英文・閱讀理解",description:"從短文裡找線索，讀懂文字沒有直接說的事。",subjects:["zh","en"],art:5,scene:"half-moon",ready:true},
 ];
