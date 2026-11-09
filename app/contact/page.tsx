@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import ContactInquiryForm from "@/components/ContactInquiryForm";
+import GoogleReviews from "@/components/GoogleReviews";
 import { LINKS, SITE } from "@/lib/data/site";
 import { asset } from "@/lib/basePath";
 import styles from "./contact.module.css";
@@ -63,6 +64,7 @@ export default function ContactPage() {
             <a href={LINKS.googleReviews} target="_blank" rel="noopener noreferrer">查看 Google 評價 ↗</a>
           </div>
         </div>
+        <GoogleReviews />
       </section>
     </div>
   );

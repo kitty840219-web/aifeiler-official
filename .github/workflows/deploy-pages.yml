@@ -30,6 +30,8 @@ jobs:
       - run: npm run build
         env:
           GITHUB_PAGES: "true"
+          NEXT_PUBLIC_GOOGLE_MAPS_BROWSER_KEY: ${{ secrets.GOOGLE_MAPS_BROWSER_KEY }}
+          NEXT_PUBLIC_GOOGLE_MAPS_PLACE_ID: ${{ vars.GOOGLE_MAPS_PLACE_ID }}
       - name: Publish out/ to gh-pages branch
         if: github.event_name != 'pull_request' && github.ref == 'refs/heads/claude/esim-phone-network-idg4ui'
         run: |
