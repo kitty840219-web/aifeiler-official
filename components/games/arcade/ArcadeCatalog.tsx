@@ -2,16 +2,13 @@
 import {useState} from "react";
 import {useRouter} from "next/navigation";
 import Link from "next/link";
-import {ARCADE_GAMES,GAME_CATEGORIES,type GameCategory} from "@/lib/games/catalog";
-import {LEARNING_GAMES} from "@/lib/learning/catalog";
+import {GAME_CATEGORIES,type GameCategory} from "@/lib/games/catalog";
+import {NUMBERED_GAMES} from "@/lib/games/displayCatalog";
 import LearningMascot from "@/components/learning/LearningMascot";
 import styles from "./Arcade.module.css";
 import GameMascot from "../GameMascot";
 import GameScenery from "../GameScenery";
-const allGames=[
- ...ARCADE_GAMES.map(g=>({id:g.slug,title:g.title,info:g.category,group:g.group,href:"/games/"+g.slug,scene:g.slug,learning:false as const})),
- ...LEARNING_GAMES.filter(g=>g.ready).map(g=>({id:"learn-"+g.id,title:g.title,info:g.tag,group:"language" as const,href:"/learn/"+g.id,scene:g.scene,kind:g.id,learning:true as const})),
-];
+const allGames=NUMBERED_GAMES;
 export default function ArcadeCatalog(){
  const router=useRouter();
  const[selected,setSelected]=useState<GameCategory>("all");
@@ -23,7 +20,7 @@ export default function ArcadeCatalog(){
   <p className={styles.filterCount} role="status" aria-live="polite">{label} · 共 {games.length} 款遊戲</p>
   <div id="game-catalog-results" className={styles.catalog}>{games.map(g=><Link href={g.href} key={g.id}>
    <GameScenery game={g.scene} className={styles.miniStage}>{g.learning?<LearningMascot kind={g.kind} size={112}/>:<GameMascot game={g.scene} size={112}/>}</GameScenery>
-   <h3>{g.title}</h3><p>{g.info}</p><b>開始玩 ↗</b>
+   <h3><span aria-label={"遊戲編號 "+g.number}>{String(g.number).padStart(2,"0")} · </span>{g.title}</h3><p>{g.info}</p><b>開始玩 ↗</b>
   </Link>)}</div>
  </section>;
 }

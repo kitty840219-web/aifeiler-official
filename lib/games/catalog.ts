@@ -4,6 +4,10 @@ export const GAME_CATEGORIES = [
     "label": "全部遊戲"
   },
   {
+    "id": "language",
+    "label": "語言學習館"
+  },
+  {
     "id": "puzzle",
     "label": "益智解謎"
   },
@@ -26,10 +30,6 @@ export const GAME_CATEGORIES = [
   {
     "id": "garden",
     "label": "療癒養成"
-  },
-  {
-    "id": "language",
-    "label": "語言學習館"
   }
 ] as const;
 export type GameCategory = typeof GAME_CATEGORIES[number]["id"];
