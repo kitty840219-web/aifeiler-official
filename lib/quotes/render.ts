@@ -13,6 +13,11 @@ function lines(ctx:CanvasRenderingContext2D,text:string,width:number,english=fal
  if(line)result.push(line);return result;
 }
 export function dateLabel(date:string){return new Intl.DateTimeFormat("zh-TW",{year:"numeric",month:"long",day:"numeric",weekday:"long"}).format(new Date(date+"T12:00:00"));}
+function outlinedText(ctx:CanvasRenderingContext2D,text:string,x:number,y:number,outline:number){
+ ctx.save();ctx.strokeStyle="#fffdf8";ctx.lineWidth=outline;ctx.lineJoin="round";ctx.miterLimit=2;
+ ctx.shadowColor="rgba(255,253,248,.9)";ctx.shadowBlur=outline;ctx.strokeText(text,x,y);
+ ctx.shadowBlur=0;ctx.fillText(text,x,y);ctx.restore();
+}
 export async function renderCard(canvas:HTMLCanvasElement,q:Quote,date:string,format:CardFormat,font:string){
  const [img]=await Promise.all([image(q.background?.src||(q.art<0?"/images/quotes/november-garden.webp":"/images/quotes/monthly-atlas.webp")),document.fonts.ready]);
  const phone=format==="phone",desktop=format==="desktop";canvas.width=phone?1080:desktop?1920:1200;canvas.height=phone?1920:desktop?1080:800;
@@ -26,8 +31,8 @@ export async function renderCard(canvas:HTMLCanvasElement,q:Quote,date:string,fo
  const scale=desktop?1.35:1;
  if(!phone){ctx.fillStyle="#fff8e852";ctx.beginPath();ctx.roundRect(canvas.width/2-490*scale,205*scale,980*scale,385*scale,26*scale);ctx.fill();}const center=canvas.width/2;const width=phone?850:desktop?1250:900;
  ctx.textAlign="center";ctx.textBaseline="middle";
- ctx.fillStyle="#57425f";ctx.font=`600 ${phone?42:42*scale}px ${font}`;ctx.fillText("每日一句·艾飛樂語錄",center,phone?420:92*scale);
- ctx.fillStyle="#4b3656";ctx.font=`600 ${phone?46:46*scale}px ${font}`;ctx.shadowColor="#fffaf0";ctx.shadowBlur=5;ctx.fillText(dateLabel(date),center,phone?510:165*scale);ctx.shadowBlur=0;
+ ctx.fillStyle="#57425f";ctx.font=`600 ${phone?42:42*scale}px ${font}`;outlinedText(ctx,"每日一句·艾飛樂語錄",center,phone?420:92*scale,4*scale);
+ ctx.fillStyle="#4b3656";ctx.font=`600 ${phone?46:46*scale}px ${font}`;outlinedText(ctx,dateLabel(date),center,phone?510:165*scale,5*scale);
  const zhSize=phone?62:60*scale,enSize=phone?43:40*scale,zhGap=phone?90:82*scale,enGap=phone?64:56*scale,between=phone?44:36*scale;
  ctx.font=`600 ${zhSize}px ${font}`;
  const comma=q.zh.indexOf("，");
@@ -37,11 +42,9 @@ export async function renderCard(canvas:HTMLCanvasElement,q:Quote,date:string,fo
  const zhHeight=zhSize+(zh.length-1)*zhGap,enHeight=enSize+(en.length-1)*enGap;
  const groupHeight=zhHeight+between+enHeight,midpoint=phone?820:397.5*scale;
  const top=midpoint-groupHeight/2;
- ctx.shadowColor="#fffaf0";ctx.shadowBlur=phone?6:5*scale;
  ctx.fillStyle="#342943";ctx.font=`600 ${zhSize}px ${font}`;
- zh.forEach((line,i)=>ctx.fillText(line,center,top+zhSize/2+i*zhGap));
+ zh.forEach((line,i)=>outlinedText(ctx,line,center,top+zhSize/2+i*zhGap,6*scale));
  ctx.fillStyle="#51415e";ctx.font=`400 ${enSize}px Georgia,serif`;
- en.forEach((line,i)=>ctx.fillText(line,center,top+zhHeight+between+enSize/2+i*enGap));
- ctx.shadowBlur=0;
- ctx.fillStyle="#67506b";ctx.font=`600 ${phone?32:32*scale}px ${font}`;ctx.shadowColor="#fffaf0";ctx.shadowBlur=5;ctx.fillText(q.category==="work"?"工作篇｜職場與成長":"愛情篇｜感情與療癒",center,phone?1840:730*scale);ctx.shadowBlur=0;
+ en.forEach((line,i)=>outlinedText(ctx,line,center,top+zhHeight+between+enSize/2+i*enGap,4*scale));
+ ctx.fillStyle="#67506b";ctx.font=`600 ${phone?32:32*scale}px ${font}`;outlinedText(ctx,q.category==="work"?"工作篇｜職場與成長":"愛情篇｜感情與療癒",center,phone?1840:730*scale,4*scale);
 }
