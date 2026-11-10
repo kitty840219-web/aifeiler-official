@@ -57,11 +57,10 @@ export default function ArticleList({ articles }: { articles: Article[] }) {
             key={a.id}
             type="button"
             onClick={() => setSelected(a)}
-            className="maintenance-title-row flex w-full items-start gap-4 px-2 py-5 text-left text-[#2b2a5c] transition hover:bg-white/50 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#514368] sm:items-center sm:px-4"
+            className="maintenance-title-row block w-full px-2 py-4 text-left text-[#2b2a5c] transition hover:bg-white/50 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#514368] sm:px-4"
             style={{ gridColumn: "1 / -1" }}
           >
-            <time dateTime={a.date} className="shrink-0 pt-0.5 text-sm tabular-nums text-[#6d617c]">{a.date}</time>
-            <h3 className="font-serif text-base font-bold leading-relaxed sm:text-lg">{a.title.replace(/^\d{4}-\d{2}-\d{2}｜/, "")}</h3>
+            <h3 className="font-serif font-semibold leading-relaxed" style={{ fontSize: "15px" }}>{a.title.replace(/^\d{4}-\d{2}-\d{2}｜/, "")}</h3>
           </button>
         ) : (
           <button
@@ -129,7 +128,7 @@ export default function ArticleList({ articles }: { articles: Article[] }) {
                 <TagChip tone="gold">{selected.tag}</TagChip>
                 <span className="text-xs text-[#514d70]">{selected.date}</span>
               </div>
-              <h2 className="font-serif text-xl font-bold text-[#2b2a5c]">{selected.title}</h2>
+              <h2 className="font-serif text-xl font-bold text-[#2b2a5c]">{selected.tag === "系統維護" ? selected.title.replace(/^\d{4}-\d{2}-\d{2}｜/, "") : selected.title}</h2>
               {selected.youtubeId && (
                 <div className="relative mx-auto mt-4 aspect-[9/16] w-full max-w-[320px] shrink-0 overflow-hidden rounded-2xl bg-black">
                   <iframe
