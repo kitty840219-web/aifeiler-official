@@ -52,3 +52,11 @@ test('migrates old out-of-season cards and handles incomplete seasonal libraries
   assert.notEqual(manual.id, first.id);
   assert.equal(randomDailyDraw('2026-06-10', partial, manual).id, manual.id);
 });
+
+test('the real leap-day bonus appears only on February 29', () => {
+  const leap = QUOTES.find(q => q.month === 2 && q.day === 29);
+  assert.ok(leap);
+  assert.equal(dailyQuote('2028-02-29', QUOTES).id, leap.id);
+  assert.equal(dailyQuote('2024-02-29', QUOTES).id, leap.id);
+  for (const date of ['2026-02-28', '2028-02-28', '2028-03-01']) assert.ok(calendarPool(date, QUOTES, true).allowed.every(q => q.id !== leap.id));
+});
