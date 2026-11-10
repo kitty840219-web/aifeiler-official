@@ -20,7 +20,9 @@ export default function ArticleList({ articles }: { articles: Article[] }) {
     ...articleTags.filter((tag) => !preferredCategories.includes(tag)),
   ];
   const newestFirst = [...articles].sort((a, b) => b.date.localeCompare(a.date));
-  const displayedArticles = category === "全部文章" ? newestFirst : newestFirst.filter((article) => article.tag === category);
+  const displayedArticles = category === "全部文章"
+    ? newestFirst.filter((article) => article.tag !== "系統維護")
+    : newestFirst.filter((article) => article.tag === category);
 
   useEffect(() => {
     if (!selected) return;
