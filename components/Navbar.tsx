@@ -21,7 +21,7 @@ function NavbarInner() {
   return (
     <header className="sticky top-0 z-30 border-b border-paper/10 bg-night-dark">
       <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-3 sm:px-6">
-        <Link href="/" className="flex items-center gap-2.5" onClick={() => setOpen(false)}>
+        <Link href="/" aria-label="回到首頁" className="flex items-center gap-2.5" onClick={() => setOpen(false)}>
           <span className="relative h-10 w-10 shrink-0 overflow-hidden rounded-full border-2 border-gold-light bg-night-light shadow-card">
             <Image
               src={asset("/images/nav/nav-about.webp")}
