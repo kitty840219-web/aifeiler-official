@@ -3,6 +3,8 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
+    "prebuild": "node scripts/generate-maintenance-articles.mjs",
+    "test:maintenance": "node --test scripts/generate-maintenance-articles.test.mjs",
     "dev": "next dev",
     "build": "next build --webpack",
     "start": "next start",

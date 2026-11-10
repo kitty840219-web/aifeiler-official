@@ -3,6 +3,7 @@ import Image from "next/image";
 import ArticleList from "@/components/ArticleList";
 import Star from "@/components/Star";
 import { ARTICLES } from "@/lib/data/articles";
+import maintenanceArticles from "@/lib/data/systemMaintenance.json";
 import { SITE } from "@/lib/data/site";
 import { asset } from "@/lib/basePath";
 
@@ -25,7 +26,7 @@ export default function WorksPage() {
     <section className="relative overflow-hidden bg-night-dark pb-16 pt-4">
       <div className="bg-stars pointer-events-none absolute inset-0 opacity-50" />
       <div className="relative">
-        <ArticleList articles={ARTICLES} />
+        <ArticleList articles={[...ARTICLES, ...maintenanceArticles]} />
       </div>
     </section>
   </div>;

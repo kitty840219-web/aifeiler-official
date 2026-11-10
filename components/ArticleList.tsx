@@ -12,7 +12,7 @@ import { ARTICLE_THUMBNAILS } from "@/lib/data/imageThumbnails";
 export default function ArticleList({ articles }: { articles: Article[] }) {
   const [selected, setSelected] = useState<Article | null>(null);
   const [category, setCategory] = useState("最新語錄");
-  const preferredCategories = ["最新語錄", "最新短片", "最新MV", "工具小幫手", "服務資訊"];
+  const preferredCategories = ["最新語錄", "最新短片", "最新MV", "工具小幫手", "服務資訊", "系統維護"];
   const articleTags = Array.from(new Set(articles.map((article) => article.tag)));
   const categories = [
     "全部文章",
@@ -80,8 +80,8 @@ export default function ArticleList({ articles }: { articles: Article[] }) {
             </div>
             <div className="article-case-info relative z-10 mx-5 -mt-10 px-6 pb-8 pt-6">
               <div className="article-case-meta flex items-center justify-between gap-3 text-xs text-[#514d70]">
-                <span className="article-case-author">艾飛樂創作分享</span>
-                <time>{a.date}</time>
+                <span className="article-case-author">{a.tag === "系統維護" ? "艾飛樂系統更新" : "艾飛樂創作分享"}</span>
+                <time dateTime={a.date}>{a.date}</time>
               </div>
               <h3 className="article-case-title mt-3 font-serif text-xl font-bold leading-snug text-[#2b2a5c]">{a.title}</h3>
               <p className="article-case-excerpt mt-3 line-clamp-3 text-sm leading-relaxed text-[#403d61]">{a.excerpt}</p>

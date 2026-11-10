@@ -5,6 +5,7 @@
 - [正式網站](https://kitty840219-web.github.io/aifeiler-official/)
 - [最新文章、短片與 MV](https://kitty840219-web.github.io/aifeiler-official/works/)
 - [內容更新指南](docs/CONTENT_UPDATES.md)
+- [系統維護文章自動更新](docs/SYSTEM_MAINTENANCE.md)
 - [專案結構與整理紀錄](docs/REPOSITORY.md)
 
 ## 使用哪個分支？
