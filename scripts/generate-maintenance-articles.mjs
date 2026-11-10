@@ -75,7 +75,7 @@ export function buildArticles(events, notes, today) {
       title: note?.title || `${date}｜網站功能更新與系統維護`,
       excerpt: sections.slice(0, 2).join(' '),
       body: [`${date} 更新紀錄（依台灣時間整理）`, ...new Set(sections)],
-      link: { href: note?.href || '/works/', label: note?.label || '查看網站最新內容 →' },
+      ...(note?.href ? { link: { href: note.href, label: note.label || '前往查看 →' } } : {}),
     };
   });
 }
