@@ -25,7 +25,8 @@
 | `components/` | 表單、閱讀器、輪播及導覽元件 |
 | `lib/data/` | 文章、品牌資訊、報價、作品資料 |
 | `lib/tarot/`、`lib/horoscope/`、`lib/accounting/` | 各工具的資料、計算與 API 呼叫 |
-| `public/images/` | 網頁圖片與電子書原始頁面 |
+| `public/images/` | 按功能分類的網頁 WebP 圖、文章預覽及電子書頁面 |
+| `assets/source-images/` | 保留的 PNG/JPG 製作原圖，不對外部署 |
 | `public/downloads/` | 可下載的作品集 |
 | `cloudflare-worker/` | Gemini 代理 API，需另外部署 |
 | `scripts/` | 作品集等素材製作腳本 |

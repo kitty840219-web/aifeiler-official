@@ -7,6 +7,7 @@ import type { Article } from "@/lib/data/articles";
 import Star from "@/components/Star";
 import TagChip from "@/components/TagChip";
 import { asset } from "@/lib/basePath";
+import { ARTICLE_THUMBNAILS } from "@/lib/data/imageThumbnails";
 
 export default function ArticleList({ articles }: { articles: Article[] }) {
   const [selected, setSelected] = useState<Article | null>(null);
@@ -67,7 +68,7 @@ export default function ArticleList({ articles }: { articles: Article[] }) {
                 </>
               ) : (a.heroImage || a.image) ? (
                 <Image
-                  src={asset(a.heroImage || a.image || "")}
+                  src={asset(ARTICLE_THUMBNAILS[a.heroImage || a.image || ""] || a.heroImage || a.image || "")}
                   alt={`${a.title}主題插畫`}
                   fill
                   className="object-contain transition duration-500"

@@ -9,13 +9,13 @@ import { LINKS, SITE } from "@/lib/data/site";
 import { asset } from "@/lib/basePath";
 
 const slides = [
-  { src: "/images/home-slide-01.webp", alt: "小艾在雨後車站迎接晨光" },
-  { src: "/images/home-slide-02.webp", alt: "小艾沿著海岸公路欣賞夕陽" },
-  { src: "/images/home-slide-03.webp", alt: "小艾漫步在抽象紙藝花園" },
-  { src: "/images/home-slide-04.webp", alt: "小艾探索童話棋盤花園" },
-  { src: "/images/home-slide-05.webp", alt: "小艾走過手作拼貼的山間小徑" },
-  { src: "/images/home-slide-06.webp", alt: "小艾在暖陽圖書館閱讀" },
-  { src: "/images/home-slide-07.webp", alt: "小艾在海岸花田眺望遠方" },
+  { src: "/images/home/home-slide-01.webp", alt: "小艾在雨後車站迎接晨光" },
+  { src: "/images/home/home-slide-02.webp", alt: "小艾沿著海岸公路欣賞夕陽" },
+  { src: "/images/home/home-slide-03.webp", alt: "小艾漫步在抽象紙藝花園" },
+  { src: "/images/home/home-slide-04.webp", alt: "小艾探索童話棋盤花園" },
+  { src: "/images/home/home-slide-05.webp", alt: "小艾走過手作拼貼的山間小徑" },
+  { src: "/images/home/home-slide-06.webp", alt: "小艾在暖陽圖書館閱讀" },
+  { src: "/images/home/home-slide-07.webp", alt: "小艾在海岸花田眺望遠方" },
 ];
 
 function InstagramIcon() {
@@ -46,7 +46,7 @@ export default function EntryGate() {
   return (
     <section
       className="fixed inset-0 z-50 overflow-hidden bg-[#5d554e] text-white"
-      style={{ backgroundImage: `url(${asset("/images/home-slide-01-placeholder.webp")})`, backgroundPosition: "center", backgroundSize: "cover" }}
+      style={{ backgroundImage: `url(${asset("/images/home/home-slide-01-placeholder.webp")})`, backgroundPosition: "center", backgroundSize: "cover" }}
     >
       {slides.map((slide, index) => {
         // Only keep the current and next background in memory. Loading every

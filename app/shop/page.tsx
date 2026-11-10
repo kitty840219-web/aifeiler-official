@@ -33,7 +33,7 @@ export default function ShopPage() {
               <p className="mt-3 text-sm leading-6 text-paper/70 sm:text-base sm:leading-7">把語錄裡的溫柔，變成隨身攜帶的小物件</p>
             </div>
             <div className="animate-float-slow relative h-44 w-full">
-              <Image data-layout-id="shop-hero" data-layout-name="頁首小艾人物" src={asset("/images/shop-hero-cutout.webp")} alt="小艾提著周邊商品禮物籃" fill className="object-contain drop-shadow-[0_0_18px_rgba(244,216,146,0.3)]" sizes="130px" />
+              <Image data-layout-id="shop-hero" data-layout-name="頁首小艾人物" src={asset("/images/shop/shop-hero-cutout.webp")} alt="小艾提著周邊商品禮物籃" fill className="object-contain drop-shadow-[0_0_18px_rgba(244,216,146,0.3)]" sizes="130px" />
             </div>
           </div>
         </div>
@@ -99,10 +99,10 @@ export default function ShopPage() {
           <SectionHeading eyebrow="CONTACT" title="洽談合作" desc="插畫委託、品牌合作與客製周邊，歡迎與我聯繫" center />
           <div className="mt-10 grid gap-4 sm:grid-cols-2">
             {[
-              ["專業品質", "插畫、剪輯、設計皆手工把關，提升品牌形象", "/images/contact-quality-cutout.webp"],
-              ["快速交件", "一般件 5–10 個工作天", "/images/contact-fast-delivery-cutout.webp"],
-              ["溝通到位", "確認用途、風格與細節後再開始製作", "/images/contact-communication-cutout.webp"],
-              ["價格透明", "依需求提供清楚報價，安心規劃預算", "/images/contact-transparent-price-cutout.webp"],
+              ["專業品質", "插畫、剪輯、設計皆手工把關，提升品牌形象", "/images/contact/contact-quality-cutout.webp"],
+              ["快速交件", "一般件 5–10 個工作天", "/images/contact/contact-fast-delivery-cutout.webp"],
+              ["溝通到位", "確認用途、風格與細節後再開始製作", "/images/contact/contact-communication-cutout.webp"],
+              ["價格透明", "依需求提供清楚報價，安心規劃預算", "/images/contact/contact-transparent-price-cutout.webp"],
             ].map(([title, desc, art]) => (
               <div key={title} className="rounded-[1.75rem] bg-night-light/25 p-6 text-center shadow-card sm:p-8">
                 <div className="relative mx-auto h-20 w-20 sm:h-24 sm:w-24">

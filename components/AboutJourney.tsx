@@ -32,7 +32,7 @@ export default function AboutJourney() {
         <div className="relative flex h-full flex-col overflow-hidden rounded-[2rem] bg-paper text-night-dark shadow-soft">
           <div className="relative min-h-0 flex-1 overflow-hidden bg-paper">
             <Image
-              src={asset("/images/about-brand-poster.webp")}
+              src={asset("/images/brand/about-brand-poster.webp")}
               alt="艾飛樂語錄品牌宣傳圖：天空越黑，星星越亮，寫出我們的共鳴"
               fill
               priority

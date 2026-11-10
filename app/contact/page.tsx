@@ -16,7 +16,7 @@ export default function ContactPage() {
     <div className={styles.page}>
       <header className={styles.hero}>
         <p className={styles.eyebrow}>A NOTE TO AIFEILER</p>
-        <div className={styles.art}><Image src={asset("/images/contact-collaboration-cutout.webp")} alt="小艾帶著筆記本，聆聽你的想法" fill priority sizes="120px" className="object-contain" /></div>
+        <div className={styles.art}><Image src={asset("/images/contact/contact-collaboration-cutout.webp")} alt="小艾帶著筆記本，聆聽你的想法" fill priority sizes="120px" className="object-contain" /></div>
         <h1><span className={styles.titleLine}>與我聯絡</span><span className={styles.titleLine}>讓想法，慢慢成形。</span></h1>
         <p className={styles.intro}>一份設計、一段故事，或一個還在發芽的點子。<br />歡迎寫給艾飛樂，我們一起聊聊。</p>
 
@@ -26,7 +26,7 @@ export default function ContactPage() {
         <div className={styles.letterHeading}>
           <span className={styles.eyebrow}>LET’S CREATE TOGETHER</span>
           <a className={styles.lineQr} href={LINKS.lineOA} target="_blank" rel="noopener noreferrer" aria-label="掃描 QR code 或點擊加入艾飛樂官方 LINE">
-            <Image src={asset("/images/line-official-qrcode.jpg")} alt="艾飛樂官方 LINE QR code" width={540} height={540} sizes="180px" />
+            <Image src={asset("/images/contact/line-official-qrcode.webp")} alt="艾飛樂官方 LINE QR code" width={540} height={540} sizes="180px" />
           </a>
           <p className={styles.qrCaption}>掃描或點擊加入官方 LINE<br /><span>@153yhemn</span></p>
           <div className={styles.lineContact}>

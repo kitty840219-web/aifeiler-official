@@ -50,7 +50,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: SITE.brandFull,
     description: SITE.description,
-    images: [asset("/images/hero-cover.webp")],
+    images: [asset("/images/brand/hero-cover.webp")],
   },
 };
 
@@ -72,8 +72,8 @@ export default function RootLayout({
             name: SITE.businessName,
             alternateName: [SITE.brand, SITE.brandEn],
             url: SITE.url,
-            logo: `${SITE.url}images/hero-cover.webp`,
-            image: `${SITE.url}images/hero-cover.webp`,
+            logo: `${SITE.url}images/brand/hero-cover.webp`,
+            image: `${SITE.url}images/brand/hero-cover.webp`,
             description: "插畫語錄、LINE 貼圖、社群視覺、品牌合作與客製周邊設計。",
             telephone: SITE.telephone,
             email: LINKS.email,

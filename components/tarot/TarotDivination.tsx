@@ -593,7 +593,7 @@ export default function TarotDivination() {
           <p className="mt-2 text-xs leading-5 text-gold-light/70">{SPREAD_MODES.find((m) => m.id === spreadSize)?.hint}</p>
         </div>
         <div className="animate-float-slow relative h-36 w-full">
-          <Image src={asset("/images/tarot-reader-cutout.webp")} alt="小艾進行塔羅占卜" fill className="object-contain" sizes="118px" />
+          <Image src={asset("/images/tarot/tarot-reader-cutout.webp")} alt="小艾進行塔羅占卜" fill className="object-contain" sizes="118px" />
         </div>
       </div>
 

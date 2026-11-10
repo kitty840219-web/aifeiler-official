@@ -22,3 +22,15 @@
 `gh-pages` 是產物，不是原始碼。不要在該分支手動維護內容。
 Worker 獨立部署，不能以 Pages 發布成功推論 Worker 已同步更新。
 既有分支保留原名；如日後重新命名預設分支，必須同步修改 workflow 的分支限制與這些文件。
+
+## 2026-11-10 圖片與資料夾整理
+
+- `assets/source-images/`：可重新輸出的 PNG/JPG 原始圖，依原分類保存，不部署到網站。
+- `public/images/`：瀏覽器實際使用的 WebP 圖，按 `home`、`brand`、`contact`、`horoscope`、`services`、`articles`、`games`、`learning`、`quotes` 等功能分組。
+- `public/images/articles/thumbnails/`：文章列表的 640px 預覽；文章詳情保留完整尺寸。
+- `public/images/nav/`：128px 導覽圖示，適合目前 32–48px 的顯示尺寸。
+- `docs/image-optimization-manifest.json`：來源圖、轉換大小與舊新路徑對照。
+- `scripts/optimize-images.py`：重新產生 WebP 與文章預覽（Python + Pillow）。
+
+引用路徑已同步更新；書籍頁碼、下載檔案及動態產生的電子書／作品集路徑保留。
+GitHub Pages 是靜態匯出，`next/image` 的 `sizes` 不會自行產生縮圖；請先輸出適合尺寸的圖片再引用。

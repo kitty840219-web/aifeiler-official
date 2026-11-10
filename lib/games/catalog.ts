@@ -64,7 +64,7 @@ export const ARCADE_GAMES = [
     "title": "小艾貪食蛇",
     "icon": "🍎",
     "category": "經典・方向挑戰",
-    "image": "/images/games/xiaoai-apple-v2.png",
+    "image": "/images/games/xiaoai-apple-v2.webp",
     "group": "action"
   },
   {

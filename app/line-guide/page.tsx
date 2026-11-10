@@ -32,7 +32,7 @@ export default function LineGuidePage() {
         <div className="relative mx-auto max-w-3xl px-4 sm:px-6">
           <div className="relative rounded-[2rem] bg-night-light/15 px-6 py-7">
             <div className="animate-float-slow absolute right-4 top-4 h-24 w-24 sm:right-8 sm:h-32 sm:w-32">
-              <Image src={asset("/images/contact-line-friend-cutout.webp")} alt="小艾拿著手機開心使用 LINE" fill className="object-contain drop-shadow-[0_0_18px_rgba(244,216,146,0.3)]" sizes="128px" />
+              <Image src={asset("/images/contact/contact-line-friend-cutout.webp")} alt="小艾拿著手機開心使用 LINE" fill className="object-contain drop-shadow-[0_0_18px_rgba(244,216,146,0.3)]" sizes="128px" />
             </div>
             <div className="mb-4 flex items-center gap-2">
               <Star className="h-3 w-3 text-gold-light" />

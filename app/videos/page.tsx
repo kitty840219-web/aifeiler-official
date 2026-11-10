@@ -34,7 +34,7 @@ export default function VideosPage() {
               <p className="mt-3 text-sm leading-6 text-paper/70 sm:text-base sm:leading-7">用影像記錄插畫誕生的每個瞬間</p>
             </div>
             <div className="relative h-44 w-full overflow-hidden rounded-2xl shadow-soft">
-              <Image src={asset("/images/journey-camera.webp")} alt="小艾拿著攝影機拍攝" fill className="object-cover" sizes="130px" />
+              <Image src={asset("/images/articles/journey-camera.webp")} alt="小艾拿著攝影機拍攝" fill className="object-cover" sizes="130px" />
             </div>
           </div>
         </div>

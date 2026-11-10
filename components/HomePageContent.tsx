@@ -15,7 +15,7 @@ export default function HomePageContent() {
       <section className="relative overflow-hidden bg-night-dark">
         <div className="bg-stars relative px-5 py-10 text-center">
           <div className="relative mx-auto mb-4 h-20 w-20">
-            <Image src={asset("/images/about-story-xiaoai-cutout.webp")} alt="小艾揮手打招呼" fill className="object-contain drop-shadow-[0_0_18px_rgba(244,216,146,0.3)]" sizes="80px" />
+            <Image src={asset("/images/brand/about-story-xiaoai-cutout.webp")} alt="小艾揮手打招呼" fill className="object-contain drop-shadow-[0_0_18px_rgba(244,216,146,0.3)]" sizes="80px" />
           </div>
           <div className="mb-3 flex items-center justify-center gap-2">
             <Star className="h-3 w-3 text-gold-light" />
@@ -60,14 +60,14 @@ export default function HomePageContent() {
                     <p className="text-[10px] font-semibold tracking-[0.2em] text-gold-light">EXHIBITION</p>
                     <h4 className="mt-1 font-serif text-sm font-bold text-paper">手帳品牌聯名參展</h4>
                     <div className="relative mt-3 aspect-video overflow-hidden rounded-xl">
-                      <Image src={asset("/images/about-timeline-2023-fair.webp")} alt="艾飛樂手帳展攤位陳列" fill className="object-cover" sizes="(min-width: 640px) 512px, 100vw" />
+                      <Image src={asset("/images/brand/about-timeline-2023-fair.webp")} alt="艾飛樂手帳展攤位陳列" fill className="object-cover" sizes="(min-width: 640px) 512px, 100vw" />
                     </div>
                   </div>
                 )}
                 {i === 2 && (
                   <div className="relative mt-14 rounded-2xl border border-gold/20 bg-night-light/25 p-4 pt-10 text-center">
                     <div className="absolute -top-10 left-1/2 h-20 w-20 -translate-x-1/2 overflow-hidden rounded-xl shadow-soft">
-                      <Image src={asset("/images/about-creator-cutout.webp")} alt="小艾站在畫架旁創作" fill className="object-cover" sizes="80px" />
+                      <Image src={asset("/images/brand/about-creator-cutout.webp")} alt="小艾站在畫架旁創作" fill className="object-cover" sizes="80px" />
                     </div>
                     <p className="text-[10px] font-semibold tracking-[0.2em] text-gold-light">BRAND CHARACTER</p>
                     <h4 className="mt-1 font-serif text-sm font-bold text-paper">品牌第一個 IP 角色「小艾」</h4>

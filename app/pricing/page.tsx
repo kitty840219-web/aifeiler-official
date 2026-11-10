@@ -79,7 +79,7 @@ export default function PricingPage() {
               </h1>
             </div>
             <div className={styles.heroArt}>
-              <Image src={asset("/images/pricing-guide-cutout.webp")} alt="小艾介紹服務規劃" fill sizes="160px" />
+              <Image src={asset("/images/services/pricing-guide-cutout.webp")} alt="小艾介紹服務規劃" fill sizes="160px" />
             </div>
           </div>
           <p className={styles.heroSub}>

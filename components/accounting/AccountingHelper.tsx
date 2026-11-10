@@ -917,7 +917,7 @@ export default function AccountingHelper() {
               <p className="mt-3 text-sm leading-6 text-paper/70">簡單．快速．專業．安心 ❤️</p>
             </div>
             <div className="animate-float-slow relative h-40 w-full">
-              <Image src={asset("/images/pricing-guide-cutout.webp")} alt="小艾拿著清單，準備幫你試算" fill className="object-contain" sizes="130px" />
+              <Image src={asset("/images/services/pricing-guide-cutout.webp")} alt="小艾拿著清單，準備幫你試算" fill className="object-contain" sizes="130px" />
             </div>
           </div>
 

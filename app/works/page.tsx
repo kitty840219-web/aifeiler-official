@@ -16,7 +16,7 @@ export default function WorksPage() {
         <div className="mb-3 flex items-center justify-center gap-2"><Star className="h-3 w-3 text-gold-light" /><p className="text-xs font-semibold tracking-[0.35em] text-gold-light sm:text-sm">LATEST</p><Star className="h-3 w-3 text-gold-light" delay="1s" /></div>
         <h1 className="font-serif text-3xl font-bold text-paper sm:text-4xl">最新文章</h1>
       </div>
-      <div className="animate-glow-pulse relative mx-auto mt-4 h-40 w-40"><Image src={asset("/images/latest-articles-cutout.webp")} alt="小艾坐著書寫最新文章" fill className="object-contain" sizes="160px" /></div>
+      <div className="animate-glow-pulse relative mx-auto mt-4 h-40 w-40"><Image src={asset("/images/articles/latest-articles-cutout.webp")} alt="小艾坐著書寫最新文章" fill className="object-contain" sizes="160px" /></div>
       <div className="relative mt-4 overflow-hidden"><div className="animate-marquee flex w-max whitespace-nowrap">
         <span className="pr-16 font-serif text-lg text-paper sm:text-xl">「{SITE.tagline}，{SITE.taglineSub}。」</span>
         <span aria-hidden className="pr-16 font-serif text-lg text-paper sm:text-xl">「{SITE.tagline}，{SITE.taglineSub}。」</span>

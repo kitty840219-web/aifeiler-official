@@ -278,7 +278,7 @@ export default function ZodiacFortune() {
             <SectionHeading title="星座運勢" desc="選擇你的星座，看今日運勢、個性特質，還有星座配對。" />
           </div>
           <div className="animate-float-slow relative h-40 w-full">
-            <Image src={asset("/images/horoscope-guide-cutout.webp")} alt="小艾觀察十二星座" fill className="object-contain" sizes="120px" />
+            <Image src={asset("/images/horoscope/horoscope-guide-cutout.webp")} alt="小艾觀察十二星座" fill className="object-contain" sizes="120px" />
           </div>
         </div>
 

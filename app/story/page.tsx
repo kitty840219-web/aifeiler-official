@@ -33,7 +33,7 @@ export default function StoryPage() {
         <div className="bg-stars pointer-events-none absolute inset-0 opacity-30" />
         <div className="relative mx-auto flex max-w-3xl flex-col items-center">
           <div className="relative mb-5 h-40 w-40 shrink-0 overflow-hidden rounded-full border-4 border-gold/40 bg-paper shadow-soft sm:h-48 sm:w-48">
-            <Image src={asset("/images/profile.webp")} alt="艾飛樂創作者 Ivy" fill className="object-cover" sizes="192px" priority />
+            <Image src={asset("/images/brand/profile.webp")} alt="艾飛樂創作者 Ivy" fill className="object-cover" sizes="192px" priority />
           </div>
         </div>
       </section>
