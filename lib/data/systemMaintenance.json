@@ -10,9 +10,10 @@
       "恢復直接開啟首頁；首頁隱藏側邊社群，移除導覽的「首頁」項目，並將「每日一句」移到星座運勢前面。",
       "每日一句素材擴充至 138 張，補充季節背景並調整圖片快取；365 張完整素材仍在製作中。",
       "整理圖片資料夾並保留製作原圖，轉換 WebP、縮小導覽圖示，文章列表改讀取小型預覽。",
-      "本次量測：語言學習館首次圖片載入約 9.28 → 1.29 MB，遊戲總覽約 14.76 → 2.59 MB，最新文章約 1.65 → 0.52 MB。"
+      "本次量測：語言學習館首次圖片載入約 9.28 → 1.29 MB，遊戲總覽約 14.76 → 2.59 MB，最新文章約 1.65 → 0.52 MB。",
+      "最新文章瀏覽：更新功能與操作介面。",
+      "網站系統與發布流程：更新功能與操作介面。"
     ],
-    "image": "/images/articles/latest-articles-cutout.webp",
     "link": {
       "href": "/works/",
       "label": "前往查看 →"
@@ -32,7 +33,6 @@
       "新增「我的收藏」，支援查看、下載及取消收藏；當日字卡與收藏保存在使用者目前的瀏覽器。",
       "調整聯絡表單、社群連結與官網發布設定。"
     ],
-    "image": "/images/articles/latest-articles-cutout.webp",
     "link": {
       "href": "/learn/",
       "label": "前往查看 →"
@@ -49,7 +49,6 @@
       "新增聯絡詢問表單，調整手機與桌面開啟 LINE 的送出方式及說明。",
       "恢復桌面文章網格，整理工具分類與服務資訊的閱讀呈現。"
     ],
-    "image": "/images/articles/latest-articles-cutout.webp",
     "link": {
       "href": "/contact/",
       "label": "前往查看 →"
@@ -67,7 +66,6 @@
       "優化手機首頁輪播載入，調整文章分類、卡片、圖片及文字對比。",
       "調整閱讀器翻頁聲音與背景音樂音量。"
     ],
-    "image": "/images/articles/latest-articles-cutout.webp",
     "link": {
       "href": "/works/",
       "label": "前往查看 →"
@@ -83,7 +81,6 @@
       "2026-10-23 更新紀錄（依台灣時間整理）",
       "配合網站儲存庫更名，更新 GitHub Pages 的網址前綴與資源路徑設定。"
     ],
-    "image": "/images/articles/latest-articles-cutout.webp",
     "link": {
       "href": "/",
       "label": "前往查看 →"
@@ -100,7 +97,6 @@
       "更新會計工具、報價與塔羅相關文章的插畫素材。",
       "調整品牌故事、服務報價與聯絡頁的插畫位置及桌面版尺寸。"
     ],
-    "image": "/images/articles/latest-articles-cutout.webp",
     "link": {
       "href": "/works/",
       "label": "前往查看 →"
@@ -118,7 +114,6 @@
       "整理品牌時間軸、聯絡流程、服務介紹與插畫素材，修正圖文重疊及圖片邊緣。",
       "改善全站文字大小、明暗模式對比、背景效果與手機圖片載入。"
     ],
-    "image": "/images/articles/latest-articles-cutout.webp",
     "link": {
       "href": "/story/",
       "label": "前往查看 →"
@@ -136,7 +131,6 @@
       "新增桌面／手機檢視切換，預設依目前裝置呈現。",
       "加入明暗主題切換，修正淺色模式對比與導覽可見性，更新音樂選曲及音量控制。"
     ],
-    "image": "/images/articles/latest-articles-cutout.webp",
     "link": {
       "href": "/portfolio/",
       "label": "前往查看 →"
@@ -154,7 +148,6 @@
       "新增 JPG 與 Excel 匯出，補充買賣雙方及房東資料欄位，修正雇主健保平均眷口數計算。",
       "新增 LINE 使用指南、手機殼商品瀏覽及塔羅服務與回饋內容。"
     ],
-    "image": "/images/articles/latest-articles-cutout.webp",
     "link": {
       "href": "/accounting/",
       "label": "前往查看 →"
@@ -172,7 +165,6 @@
       "整理聯絡卡片、合作流程及商店預覽，改善不同螢幕的顯示。",
       "擴充塔羅與每日星座運勢的使用說明。"
     ],
-    "image": "/images/articles/latest-articles-cutout.webp",
     "link": {
       "href": "/works/",
       "label": "前往查看 →"
@@ -190,7 +182,6 @@
       "補齊塔羅牌義指南，調整報告段落、牌圖顯示與分析完整性檢查。",
       "調整導覽名稱及網站星空背景。"
     ],
-    "image": "/images/articles/latest-articles-cutout.webp",
     "link": {
       "href": "/tarot/",
       "label": "前往查看 →"
@@ -208,7 +199,6 @@
       "完成 78 張塔羅牌圖與牌背，調整抽牌、追問和解讀流程。",
       "串接 AI 塔羅解讀，提供選填出生資訊，並壓縮塔羅與星座圖片。"
     ],
-    "image": "/images/articles/latest-articles-cutout.webp",
     "link": {
       "href": "/tarot/",
       "label": "前往查看 →"
@@ -225,7 +215,6 @@
       "擴充品牌故事章節，調整創作時間軸的呈現方式。",
       "調整首頁文字出場與最新文章標題、插畫和跑馬燈的位置。"
     ],
-    "image": "/images/articles/latest-articles-cutout.webp",
     "link": {
       "href": "/story/",
       "label": "前往查看 →"
@@ -243,7 +232,6 @@
       "調整聯絡頁服務輪播、報價預覽視窗與品牌介紹的瀏覽方式。",
       "優化圖片檔案與卡片版面，改善載入及手機瀏覽體驗。"
     ],
-    "image": "/images/articles/latest-articles-cutout.webp",
     "link": {
       "href": "/pricing/",
       "label": "前往查看 →"
@@ -260,7 +248,6 @@
       "調整故事閱讀器，支援點擊繼續閱讀。",
       "修正封面間距、分隔線與插畫尺寸，讓頁面閱讀更清楚。"
     ],
-    "image": "/images/articles/latest-articles-cutout.webp",
     "link": {
       "href": "/story/",
       "label": "前往查看 →"
@@ -278,7 +265,6 @@
       "新增首頁互動導覽與塔羅占卜頁面，調整手機版閱讀和操作方式。",
       "修正 GitHub Pages 的圖片路徑與網站發布設定。"
     ],
-    "image": "/images/articles/latest-articles-cutout.webp",
     "link": {
       "href": "/",
       "label": "前往查看 →"
