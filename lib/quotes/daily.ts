@@ -21,7 +21,7 @@ export function randomDailyDraw(date:string,quotes:Quote[],saved:unknown,random=
  const ids=pool.map(q=>q.id),valid=new Set(ids);
  const record=saved&&typeof saved==="object"?saved as Partial<DailyDraw>:null;
  const remaining=Array.isArray(record?.remaining)?[...new Set(record.remaining.filter(id=>typeof id==="string"&&valid.has(id)))]:[];
- if(record?.date===date&&typeof record.id==="string"&&quotes.some(q=>q.id===record.id))return {date,id:record.id,remaining:record.remaining?remaining:ids.filter(id=>id!==record.id),scope};
+ if(record?.date===date&&typeof record.id==="string"&&quotes.some(q=>q.id===record.id))return {date,id:record.id,remaining:record.scope===scope&&Array.isArray(record.remaining)?remaining:ids.filter(id=>id!==record.id),scope};
  const bag=record?.scope===scope&&remaining.length?remaining:ids;
  const eligible=bag.length>1?bag.filter(id=>id!==record?.id):bag;
  const choices=eligible.length?eligible:bag;
