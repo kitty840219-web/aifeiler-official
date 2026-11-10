@@ -5,6 +5,7 @@
   "scripts": {
     "prebuild": "node scripts/generate-maintenance-articles.mjs",
     "test:maintenance": "node --test scripts/generate-maintenance-articles.test.mjs",
+    "test:quotes": "node --test scripts/test-quote-calendar.mjs",
     "dev": "next dev",
     "build": "next build --webpack",
     "start": "next start",
