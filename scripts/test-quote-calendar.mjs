@@ -44,9 +44,9 @@ test('manual draws change cards, retain current-month scenes and persist', () =>
 test('migrates old out-of-season cards and handles incomplete seasonal libraries', () => {
   const draw = randomDailyDraw('2026-11-10', QUOTES, { date: '2026-11-10', id: QUOTES.find(q => q.month === 6).id, scope: 'preview-138', remaining: [] }, () => .3);
   assert.equal(QUOTES.find(q => q.id === draw.id).month, 11);
-  const summer = calendarPool('2026-07-10', QUOTES);
+  const partial = [QUOTES.find(q => q.month === 6), QUOTES.find(q => q.month === 8)];
+  const summer = calendarPool('2026-07-10', partial);
   assert.ok(summer.allowed.every(q => [6, 8].includes(q.month)));
-  const partial = QUOTES.filter(q => q.month === 6 || q.month === 8);
   const first = randomDailyDraw('2026-06-10', partial, null, () => .1);
   const manual = randomDailyDraw('2026-06-10', partial, { ...first, date: '' }, () => .8, true);
   assert.notEqual(manual.id, first.id);
@@ -59,4 +59,40 @@ test('the real leap-day bonus appears only on February 29', () => {
   assert.equal(dailyQuote('2028-02-29', QUOTES).id, leap.id);
   assert.equal(dailyQuote('2024-02-29', QUOTES).id, leap.id);
   for (const date of ['2026-02-28', '2028-02-28', '2028-03-01']) assert.ok(calendarPool(date, QUOTES, true).allowed.every(q => q.id !== leap.id));
+});
+
+test('the finished library covers 365 dates plus one leap day with balanced categories', () => {
+  const regular = QUOTES.filter(q => !(q.month === 2 && q.day === 29));
+  assert.equal(regular.length, 365); assert.equal(QUOTES.length, 366);
+  assert.equal(regular.filter(q => q.category === 'work').length, 183);
+  assert.equal(regular.filter(q => q.category === 'love').length, 182);
+  for (const field of ['id', 'number', 'zh', 'en']) assert.equal(new Set(QUOTES.map(q => q[field])).size, 366, `duplicate ${field}`);
+  for (let month = 1; month <= 12; month++) {
+    const expected = new Date(2026, month, 0).getDate();
+    assert.equal(regular.filter(q => q.month === month).length, expected);
+    for (let day = 1; day <= expected; day++) assert.equal(regular.filter(q => q.month === month && q.day === day).length, 1);
+  }
+});
+test('real cards cover ordinary and leap years without repeating daily draws', () => {
+  for (const year of [2026, 2028]) {
+    let saved = null; const seen = new Set();
+    for (let month = 1; month <= 12; month++) for (let day = 1; day <= new Date(year, month, 0).getDate(); day++) {
+      const date = `${year}-${String(month).padStart(2, '0')}-${String(day).padStart(2, '0')}`;
+      saved = randomDailyDraw(date, QUOTES, saved, () => .37);
+      const quote = QUOTES.find(q => q.id === saved.id);
+      assert.equal(quote.month, month); assert.ok(!seen.has(quote.id), `${date} repeated ${quote.id}`); seen.add(quote.id);
+    }
+    assert.equal(seen.size, year === 2028 ? 366 : 365);
+  }
+});
+
+test('all illustrated card backgrounds exist and their crop frames stay inside the image', () => {
+  for (const q of QUOTES) {
+    const src = q.background?.src || (q.art < 0 ? '/images/quotes/november-garden.webp' : '/images/quotes/monthly-atlas.webp');
+    assert.ok(fs.existsSync(new URL('../public' + src, import.meta.url)), `${q.id}: missing ${src}`);
+    if (q.background) {
+      const [x, y, width, height] = q.background.frame;
+      assert.ok(x >= 0 && y >= 0 && width > 0 && height > 0 && x + width <= 1 && y + height <= 1, `${q.id}: invalid crop`);
+    }
+  }
 });
