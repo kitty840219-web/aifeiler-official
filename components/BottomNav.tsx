@@ -8,7 +8,6 @@ import { asset } from "@/lib/basePath";
 import { playTwinkleSound } from "@/lib/sound";
 
 const TABS = [
-  { href: "/", label: "首頁", avatar: "/images/nav/nav-about.webp", badge: "bg-gold/20" },
   { href: "/story", label: "品牌故事", avatar: "/images/nav/nav-story.webp", badge: "bg-lavender/20" },
   { href: "/works", label: "最新文章", avatar: "/images/nav/nav-works.webp", badge: "bg-rose-300/20" },
   { href: "/horoscope", label: "星座運勢", avatar: "/images/nav/nav-horoscope.webp", badge: "bg-sky-300/20" },
@@ -44,7 +43,7 @@ function BottomNavInner() {
     >
       <div className="mx-auto flex max-w-md items-stretch justify-between px-2">
         {TABS.map((tab) => {
-          const active = tab.href === "/" ? pathname === "/" : tab.href === "/story" ? pathname.startsWith("/story") || pathname.startsWith("/about") : tab.href === "/learn" ? pathname.startsWith("/learn") || pathname.startsWith("/games") : tab.href === "/shop" ? pathname.startsWith("/shop") || pathname.startsWith("/daily-quote") : pathname.startsWith(tab.href);
+          const active = tab.href === "/story" ? pathname.startsWith("/story") || pathname.startsWith("/about") : tab.href === "/learn" ? pathname.startsWith("/learn") || pathname.startsWith("/games") : tab.href === "/shop" ? pathname.startsWith("/shop") || pathname.startsWith("/daily-quote") : pathname.startsWith(tab.href);
           const tapped = justTapped === tab.href;
           return (
             <Link

@@ -36,7 +36,6 @@ export const LINKS = {
 };
 
 export const NAV = [
-  { href: "/", label: "首頁" },
   { href: "/story", label: "品牌故事與作者" },
   { href: "/portfolio", label: "數位作品集" },
   { href: "/works", label: "最新文章" },

@@ -1,3 +1,6 @@
+"use client";
+
+import { usePathname } from "next/navigation";
 import SocialIcon from "@/components/SocialIcon";
 import { LINKS } from "@/lib/data/site";
 
@@ -10,6 +13,8 @@ const socials = [
 ] as const;
 
 export default function FloatingSocialLinks() {
+  const pathname = usePathname();
+  if (pathname === "/") return null;
   return (
     <nav
       aria-label="浮動社群連結"
