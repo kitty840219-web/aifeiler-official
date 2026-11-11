@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import Image from "next/image";
-import { DM_Mono, DM_Serif_Display } from "next/font/google";
 import styles from "./pricing.module.css";
 import QuoteCalculator from "@/components/pricing/QuoteCalculator";
 import SocialIcon from "@/components/SocialIcon";
@@ -17,20 +16,6 @@ import {
   VIDEO_CARDS,
   VIDEO_PLANS,
 } from "@/lib/data/pricing";
-
-const dmSerif = DM_Serif_Display({
-  subsets: ["latin"],
-  weight: "400",
-  variable: "--font-dm-serif",
-  display: "swap",
-});
-
-const dmMono = DM_Mono({
-  subsets: ["latin"],
-  weight: ["400", "500"],
-  variable: "--font-dm-mono",
-  display: "swap",
-});
 
 export const metadata: Metadata = {
   title: `服務報價 ｜ ${SITE.brand}`,
@@ -64,7 +49,7 @@ function Row({
 
 export default function PricingPage() {
   return (
-    <div className={`${styles.page} ${dmSerif.variable} ${dmMono.variable}`}>
+    <div className={styles.page}>
       <div className={styles.leader}>
         <div className={`${styles.wrap} ${styles.hero}`}>
           <div className={styles.heroTop}>
