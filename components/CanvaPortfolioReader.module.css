@@ -1,13 +1,19 @@
-.dialog{position:relative;width:100%;max-width:none;max-height:none;margin:0;padding:0;border:0;overflow:hidden;background:#f3eadc;color:inherit}
+.reader{padding:10px 10px 0;overflow:hidden;border:1px solid #d9c6a5;border-radius:22px;background:#fffaf2;box-shadow:0 5px 0 #e9decb,0 14px 32px #715a3417}
+.dialog{position:relative;width:100%;max-width:none;max-height:none;margin:0;padding:0;border:0;border-radius:13px;overflow:hidden;background:#f7f0e5;color:#5b4567}
 .viewport{position:relative;width:100%;aspect-ratio:16/9}
 .frame{position:absolute;inset:0;width:100%;height:100%;border:0}
-.expanded{position:fixed;inset:0;width:100dvw;height:100dvh;background:#0d0b2d}
-.expanded::backdrop{background:#0d0b2d}
+.expanded{position:fixed;inset:0;width:100dvw;height:100dvh;border-radius:0;background:#fbf6ec}
+.expanded::backdrop{background:#fbf6ec}
 .expanded .viewport{position:absolute;inset:0;width:100%;height:100%;aspect-ratio:auto}
 .expanded .frame{top:48px;height:calc(100% - 48px)}
-.toolbar{position:absolute;inset:0 0 auto;height:48px;display:grid;place-items:center;background:#0d0b2d;color:#f4d892;font-size:15px;font-weight:600;line-height:1.4;text-align:center}
+.toolbar{position:absolute;inset:0 0 auto;height:48px;display:grid;place-items:center;border-bottom:1px solid #e0d0b6;background:#fffaf2;color:#5b4567;font-size:15px;font-weight:600;line-height:1.4;text-align:center}
 .toolbar p{margin:0}
-.toolbar button{position:absolute;top:4px;right:8px;display:grid;place-items:center;width:40px;height:40px;border:1px solid #f4d89280;border-radius:50%;background:#262047;color:#fff8e8;font-size:26px;line-height:1;cursor:pointer}
+.toolbar button{position:absolute;top:4px;right:8px;display:grid;place-items:center;width:40px;height:40px;border:1px solid #c9b18a;border-radius:50%;background:#fffdf8;color:#5b4567;font-size:26px;line-height:1;cursor:pointer}
+.actions{display:flex;flex-wrap:wrap;justify-content:center;align-items:center;gap:10px;padding:14px 6px 16px;text-align:center}
+.readButton,.externalLink{display:inline-flex;min-height:44px;align-items:center;justify-content:center;padding:9px 18px;border:1px solid #c9b18a;border-radius:999px;color:#5b4567;font-size:14px;font-weight:600;line-height:1.5;cursor:pointer;transition:background-color .2s}
+.readButton{background:#f1e6d2}
+.externalLink{background:#fffdf8;text-decoration:none}
+.readButton:hover,.externalLink:hover{background:#eadbbf}
 @media(orientation:portrait){
  .expanded .viewport{inset:auto;left:50%;top:50%;width:100dvh;height:100dvw;transform:translate(-50%,-50%) rotate(90deg)}
 }
