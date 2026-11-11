@@ -6,6 +6,9 @@ export type PortfolioSection = {
   pages: number[];
 };
 
+export const PORTFOLIO_VIEW_URL = "https://www.canva.com/design/DAGuYcOTao0/sZzE6Zw97IOtctZjyR4n0w/view";
+export const PORTFOLIO_EMBED_URL = `${PORTFOLIO_VIEW_URL}?embed`;
+
 export const PORTFOLIO_SECTIONS: PortfolioSection[] = [
   {
     id: "profile",
