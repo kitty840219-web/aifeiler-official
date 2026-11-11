@@ -2,7 +2,7 @@
 .stage{position:relative;min-height:510px;height:60svh;max-height:680px;overflow:hidden;background:radial-gradient(ellipse at center,#f4ead5b3,transparent 72%);text-align:center}
 .frame,.ending{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:28px 12px;text-align:center}
 .frame{transition:opacity .1s linear;pointer-events:none}
-.tag{margin:0 0 12px;color:#94601d;font-size:12px;font-weight:600;letter-spacing:.2em;text-align:center}
+.tag{margin:0 0 16px;color:#94601d;font-size:20px;font-weight:700;letter-spacing:.2em;text-align:center}
 .frame h3,.ending h3,.transcript h3{margin:0 0 24px;font-family:var(--font-noto-serif-tc),serif;font-size:24px;line-height:1.7;font-weight:700;color:#3b326c;text-align:center}
 .text{margin:0;max-width:560px;font-size:17px;line-height:2.25;text-align:center;text-wrap:pretty}
 .quote .text{font-family:var(--font-noto-serif-tc),serif;font-size:23px;color:#94601d}
