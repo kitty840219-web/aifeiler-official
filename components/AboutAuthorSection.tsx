@@ -1,35 +1,17 @@
 import Image from "next/image";
-import SectionHeading from "@/components/SectionHeading";
-import Star from "@/components/Star";
 import ShortsCarousel from "@/components/ShortsCarousel";
-import PortfolioMiniReader from "@/components/PortfolioMiniReader";
 import AifeilerBookMiniReader from "@/components/AifeilerBookMiniReader";
-import { SITE, TIMELINE } from "@/lib/data/site";
+import { TIMELINE } from "@/lib/data/site";
 import { asset } from "@/lib/basePath";
 
 export default function AboutAuthorSection() {
   return (
-    <section id="about-author" aria-labelledby="about-author-title" className="scroll-mt-28">
+    <section id="about-author" aria-label="創作年表" className="scroll-mt-28">
       <div className="mx-auto max-w-4xl px-5 sm:px-8"><hr className="border-0 border-t border-gold/30" /></div>
 
       <section className="relative overflow-hidden bg-night-dark">
-        <div className="bg-stars relative px-5 py-10 text-center">
-          <div className="relative mx-auto mb-4 h-20 w-20">
-            <Image src={asset("/images/brand/about-story-xiaoai-cutout.webp")} alt="小艾揮手打招呼" fill className="object-contain drop-shadow-[0_0_18px_rgba(244,216,146,0.3)]" sizes="80px" />
-          </div>
-          <div className="mb-3 flex items-center justify-center gap-2">
-            <Star className="h-3 w-3 text-gold-light" />
-            <p className="text-xs font-semibold tracking-[0.35em] text-gold-light sm:text-sm">ABOUT</p>
-            <Star className="h-3 w-3 text-gold-light" delay="1s" />
-          </div>
-          <h2 id="about-author-title" className="font-serif text-3xl font-bold text-paper sm:text-4xl">關於作者</h2>
-          <p className="mt-2 text-sm text-paper/80 sm:text-base">{SITE.brandFull}</p>
-        </div>
-
         {/* Timeline */}
         <div className="relative mx-auto max-w-4xl px-5 pb-12 sm:px-8">
-          <SectionHeading eyebrow="TIMELINE" title="創作歷程" center />
-          <PortfolioMiniReader />
           <div className="relative mt-12 space-y-10 border-l-2 border-dashed border-lavender/40 pl-8 text-left">
             {TIMELINE.map((t, i) => (
               <div key={t.title}>

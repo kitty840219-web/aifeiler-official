@@ -3,6 +3,8 @@ import Image from "next/image";
 import Star from "@/components/Star";
 import StoryReader from "@/components/StoryReader";
 import AboutAuthorSection from "@/components/AboutAuthorSection";
+import SectionHeading from "@/components/SectionHeading";
+import PortfolioMiniReader from "@/components/PortfolioMiniReader";
 import { SITE } from "@/lib/data/site";
 import { CHAPTERS } from "@/lib/data/story";
 import { asset } from "@/lib/basePath";
@@ -35,6 +37,13 @@ export default function StoryPage() {
           <div className="relative mb-5 h-40 w-40 shrink-0 overflow-hidden rounded-full border-4 border-gold/40 bg-paper shadow-soft sm:h-48 sm:w-48">
             <Image src={asset("/images/brand/profile.webp")} alt="艾飛樂創作者 Ivy" fill className="object-cover" sizes="192px" priority />
           </div>
+        </div>
+      </section>
+
+      <section id="story-portfolio" aria-label="創作歷程與作品集" className="relative bg-night-dark px-5 pb-8 pt-2 sm:px-8">
+        <div className="mx-auto max-w-4xl">
+          <SectionHeading eyebrow="TIMELINE" title="創作歷程" center />
+          <PortfolioMiniReader />
         </div>
       </section>
 
