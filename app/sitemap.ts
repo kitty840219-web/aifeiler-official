@@ -6,7 +6,6 @@ const baseUrl = "https://kitty840219-web.github.io/aifeiler-official";
 const paths = [
   "",
   "/story",
-  "/portfolio",
   "/works",
   "/shop",
   "/pricing",

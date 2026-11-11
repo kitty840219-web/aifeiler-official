@@ -40,7 +40,7 @@ export default function StoryPage() {
         </div>
       </section>
 
-      <section id="story-portfolio" aria-label="創作歷程與作品集" className="relative bg-night-dark px-5 pb-8 pt-2 sm:px-8">
+      <section id="story-portfolio" aria-label="創作歷程與作品集" className="relative scroll-mt-28 bg-night-dark px-5 pb-8 pt-2 sm:px-8">
         <div className="mx-auto max-w-4xl">
           <SectionHeading eyebrow="TIMELINE" title="創作歷程" center />
           <PortfolioMiniReader />

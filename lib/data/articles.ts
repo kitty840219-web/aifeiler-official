@@ -1032,7 +1032,7 @@ export const ARTICLES: Article[] = [
       "另外也整理了 AR／VR 線上策展、互動闖關與 3D 角色建模成果，呈現我如何運用不同工具，把一個想法從企劃、素材製作一路完成到可以實際觀看與操作的成品。",
       "這份作品集採用電子書方式呈現，不需要下載檔案就能直接翻頁，也可以依照章節快速瀏覽或放大觀看，希望讓每位面試主管都能更清楚地看見我的能力與工作方式。",
     ],
-    link: { href: "/portfolio", label: "翻閱完整電子作品集 →" },
+    link: { href: "/story#story-portfolio", label: "翻閱完整電子作品集 →" },
   },
   {
     id: "accounting-helper-launch",
