@@ -1,147 +1,55 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import Link from "next/link";
-import { useRouter } from "next/navigation";
 import type { Chapter } from "@/lib/data/story";
+import styles from "./StoryReader.module.css";
 
-export default function StoryReader({
-  chapters,
-  finish,
-  finishHref,
-}: {
-  chapters: Chapter[];
-  finish?: { label: string; onClick: () => void };
-  finishHref?: string;
-}) {
-  const router = useRouter();
+export default function StoryReader({ chapters, finish, finishHref }: { chapters: Chapter[]; finish?: { label: string; onClick: () => void }; finishHref?: string }) {
+  const frames = useMemo(() => chapters.flatMap(chapter => [
+    ...chapter.body.map(text => ({ tag: chapter.tag, title: chapter.title, text, quote: false })),
+    ...(chapter.quote ? [{ tag: chapter.tag, title: chapter.title, text: `「${chapter.quote}」`, quote: true }] : []),
+  ]), [chapters]);
   const [index, setIndex] = useState(0);
-  const total = chapters.length;
-  const chapter = chapters[index];
-  const num = String(index + 1).padStart(2, "0");
-  const isLast = index === total - 1;
-  const finishLabel = finish?.label ?? (finishHref ? "故事讀完了，認識作者 ↓" : "故事讀完了，看看最新文章 →");
+  const [running, setRunning] = useState(true);
+  const [visible, setVisible] = useState(false);
+  const [tabVisible, setTabVisible] = useState(true);
+  const [reduced, setReduced] = useState(false);
+  const [replay, setReplay] = useState(0);
+  const stage = useRef<HTMLDivElement>(null);
+  const finished = index >= frames.length;
+  const frame = frames[Math.min(index, frames.length - 1)];
 
-  const advance = () => {
-    if (!isLast) {
-      setIndex((i) => Math.min(total - 1, i + 1));
-    } else if (finish) {
-      finish.onClick();
-    } else {
-      router.push(finishHref ?? "/works");
-    }
-  };
+  useEffect(() => {
+    const observer = new IntersectionObserver(([entry]) => setVisible(entry.isIntersecting), { threshold: 0.25 });
+    if (stage.current) observer.observe(stage.current);
+    const media = window.matchMedia("(prefers-reduced-motion: reduce)");
+    const syncMotion = () => setReduced(media.matches);
+    const syncTab = () => setTabVisible(!document.hidden);
+    syncMotion(); syncTab();
+    media.addEventListener("change", syncMotion);
+    document.addEventListener("visibilitychange", syncTab);
+    return () => { observer.disconnect(); media.removeEventListener("change", syncMotion); document.removeEventListener("visibilitychange", syncTab); };
+  }, []);
+
+  function restart() { setIndex(0); setReplay(n => n + 1); setRunning(true); }
 
   return (
-    <div>
-      {/* level map */}
-      <div className="pb-2 pr-16 sm:pr-20">
-        <div className="relative mx-auto grid w-full grid-cols-6 justify-items-center gap-x-1 gap-y-5 px-2 sm:gap-x-2 sm:px-4">
-          {chapters.map((c, i) => {
-            const active = i === index;
-            return (
-              <button
-                key={c.tag}
-                type="button"
-                onClick={() => setIndex(i)}
-                className="group relative flex min-w-0 flex-col items-center gap-2"
-              >
-                <span
-                  className={`relative z-10 flex h-9 w-9 items-center justify-center rounded-full border-2 font-serif text-xs font-bold shadow-card transition sm:h-12 sm:w-12 sm:text-sm ${
-                    active
-                      ? "border-gold bg-gold text-night-dark"
-                      : "border-gold/70 bg-night-dark text-gold-light group-hover:border-gold group-hover:bg-night"
-                  }`}
-                >
-                  {String(i + 1).padStart(2, "0")}
-                </span>
-                <span
-                  className={`text-center text-[10px] font-medium leading-tight transition sm:text-xs ${
-                    active ? "text-gold-light" : "text-paper/70 group-hover:text-gold-light"
-                  }`}
-                >
-                  {c.tag}
-                </span>
-              </button>
-            );
-          })}
-        </div>
+    <div className={styles.reader}>
+      <div ref={stage} className={styles.stage} aria-label="艾飛樂的故事・六章連續播放">
+        {finished ? <div className={styles.ending} role="status"><p>艾飛樂的故事</p><h3>謝謝你，讀到這裡。</h3><p>願每一段故事，都能留下溫柔的共鳴。</p></div> : reduced ?
+          <div className={styles.transcript}>{chapters.map(chapter => <section key={chapter.tag}><p className={styles.tag}>{chapter.tag}</p><h3>{chapter.title}</h3>{chapter.body.map((text, i) => <p key={i}>{text}</p>)}{chapter.quote && <blockquote>「{chapter.quote}」</blockquote>}</section>)}</div> :
+          <div key={`${replay}-${index}`} className={`${styles.frame} ${frame.quote ? styles.quote : ""}`} style={{ animationDuration: `${Math.max(10, frame.text.length / 7 + 5)}s`, animationPlayState: running && visible && tabVisible ? "running" : "paused" }} onAnimationEnd={() => setIndex(n => n + 1)}>
+            <p className={styles.tag}>{frame.tag}</p>
+            <h3>{frame.title}</h3>
+            <p className={styles.text}>{frame.text}</p>
+          </div>}
       </div>
-      <p className="mt-4 text-center text-[11px] tracking-widest text-paper/55">
-        第 {num} / {String(total).padStart(2, "0")} 章・點選節點跳至該章
-      </p>
-
-      {/* reading panel */}
-      <div className="mx-auto mt-10 max-w-2xl px-4 sm:px-6">
-        <div
-          role="button"
-          tabIndex={0}
-          onClick={advance}
-          onKeyDown={(e) => {
-            if (e.key === "Enter" || e.key === " ") {
-              e.preventDefault();
-              advance();
-            }
-          }}
-          aria-label={isLast ? finishLabel : "點擊查看下一章"}
-          className="bg-grain group relative cursor-pointer overflow-hidden rounded-[1.75rem] border border-[#d9c79f]/35 bg-[#f5ecd8] p-6 shadow-soft transition sm:p-9"
-        >
-          <div className="pointer-events-none absolute inset-0 bg-gradient-to-br from-[#efe3c8]/70 via-transparent to-white/40" />
-          <div className="relative">
-            <p className="text-[11px] font-semibold tracking-[0.2em] text-[#94601d]">
-              艾飛樂的故事 ・ {chapter.tag.toUpperCase()} ・ 第 {num} / {String(total).padStart(2, "0")} 章
-            </p>
-            <h3 className="mt-2 font-serif text-xl font-bold text-[#3b326c] sm:text-2xl">{chapter.title}</h3>
-
-            <div className="mt-5 space-y-4 text-justify text-sm leading-loose text-[#514a78] sm:text-base">
-              {chapter.body.map((p, i) => (
-                <p key={i}>{p}</p>
-              ))}
-            </div>
-
-            {chapter.embed && (
-              <div className="mt-5" onClick={(e) => e.stopPropagation()}>
-                <div className="relative aspect-[9/16] overflow-hidden rounded-[1.25rem] bg-black">
-                  <iframe
-                    title={`${chapter.title} 影音`}
-                    src={`https://www.youtube.com/embed/${chapter.embed.videoId}?rel=0`}
-                    className="absolute inset-0 h-full w-full"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                    allowFullScreen
-                  />
-                </div>
-                <a
-                  href={chapter.embed.channelHref}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="mt-3 inline-block text-xs font-semibold text-[#94601d]"
-                >
-                  前往頻道 →
-                </a>
-              </div>
-            )}
-
-            {chapter.quote && (
-              <blockquote className="mt-6 border-l-4 border-[#bf8428] py-1 pl-4 font-serif text-base italic text-[#94601d] sm:text-lg">
-                「{chapter.quote}」
-              </blockquote>
-            )}
-
-            {chapter.link && (
-              <Link
-                href={chapter.link.href}
-                onClick={(e) => e.stopPropagation()}
-                className="mt-5 inline-block text-xs font-semibold text-[#94601d]"
-              >
-                {chapter.link.label}
-              </Link>
-            )}
-
-            <p className="mt-6 text-right text-xs font-semibold text-[#94601d] transition group-hover:text-[#6f4512]">
-              {isLast ? finishLabel : "點擊繼續下一章 →"}
-            </p>
-          </div>
-        </div>
+      <div className={styles.controls}>
+        {!finished && !reduced && <button type="button" onClick={() => setRunning(v => !v)}>{running ? "暫停" : "繼續播放"}</button>}
+        <button type="button" onClick={restart}>↻ 重播</button>
+        {finished && finish && <button type="button" onClick={finish.onClick}>{finish.label}</button>}
+        {finished && !finish && finishHref && <Link href={finishHref}>繼續認識作者 ↓</Link>}
       </div>
     </div>
   );

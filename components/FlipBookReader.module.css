@@ -1,0 +1,27 @@
+.reader{margin:24px -16px 0;color:#5b4567;text-align:center}
+.dialog{position:relative;display:block;width:100%;max-width:none;max-height:none;margin:0;padding:0;border:0;background:transparent;color:inherit;overflow:visible}
+.layout{width:100%}
+.sheet{position:relative;width:100%;cursor:pointer;touch-action:pan-y;overflow:hidden;background:#fffaf2;box-shadow:0 8px 22px #715a341a;outline-offset:4px}
+.image{display:block;width:100%;height:auto;user-select:none}
+.loading{position:absolute;inset:0;display:grid;place-items:center;background:#fffaf2;color:#76664f;font-size:14px}
+.pageNav{display:flex;align-items:center;justify-content:center;gap:24px;margin-top:12px;font-size:13px;font-variant-numeric:tabular-nums}
+.pageNav button{width:44px;height:40px;border:1px solid #d5c2a0;border-radius:999px;background:#fffaf2;color:#5b4567;font-size:22px;cursor:pointer}
+.pageNav button:disabled{opacity:.3;cursor:default}
+.details{padding:12px 6px 0;text-align:center}
+.title{margin:0 0 5px;font-size:15px;font-weight:600}
+.hint{margin:0;color:#8c7b91;font-size:11px;line-height:1.8}
+.actions{display:flex;justify-content:center;gap:10px;flex-wrap:wrap;margin-top:12px}
+.actions button,.actions a{min-height:42px;padding:9px 16px;border:1px solid #c9b18a;border-radius:999px;background:#fffaf2;color:#5b4567;font-size:13px;text-decoration:none;cursor:pointer}
+.expanded{position:fixed;inset:0;width:100dvw;height:100dvh;background:#fbf6ec;overflow:auto}
+.expanded::backdrop{background:#fbf6ec}
+.expanded .layout{min-height:100%;display:flex;flex-direction:column;justify-content:center;padding:48px 12px 12px}
+.expanded .sheet{width:auto;max-width:100%;margin:auto;box-shadow:none;touch-action:none}
+.expanded .image{width:auto;height:auto;max-width:100%;max-height:calc(100dvh - 115px);object-fit:contain}
+.expanded .pageNav{flex-shrink:0;margin:12px 0 0}
+.close{position:absolute;z-index:2;right:8px;top:6px;width:40px;height:40px;border:1px solid #c9b18a;border-radius:50%;background:#fffaf2;color:#5b4567;font-size:26px;cursor:pointer}
+@media(orientation:portrait){.expanded.landscape .layout{position:absolute;left:50%;top:50%;width:100dvh;height:100dvw;min-height:0;transform:translate(-50%,-50%) rotate(90deg)}.expanded.landscape .image{max-height:calc(100dvw - 115px)}}
+@media(min-width:640px){.reader{margin-left:0;margin-right:0}}
+.expanded.landscape .layout{padding:8px 44px}
+.expanded.landscape .pageNav{display:none}
+.expanded.landscape .image{max-height:calc(100dvh - 16px)}
+@media(orientation:portrait){.expanded.landscape .image{max-height:calc(100dvw - 16px)}}
