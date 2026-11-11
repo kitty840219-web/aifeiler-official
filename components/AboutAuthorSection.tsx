@@ -56,7 +56,12 @@ export default function AboutAuthorSection() {
                     <p className="mt-1 text-xs leading-relaxed text-paper/60">2024 年誕生，戴著草帽、綁著雙辮，靜靜微笑、雙手合十——小艾是艾飛樂的品牌代言角色。</p>
                   </div>
                 )}
-                {i === 3 && <div className="-ml-8"><AifeilerBookMiniReader /></div>}
+                {i === 3 && (
+                  <>
+                    <hr className="mt-6 border-0 border-t border-[#d5c2a0]" />
+                    <div className="-ml-8"><AifeilerBookMiniReader /></div>
+                  </>
+                )}
                 {i === 4 && (
                   <div className="relative mt-6 overflow-hidden rounded-2xl border border-gold/20 bg-night-light/25 p-4">
                     <p className="text-[10px] font-semibold tracking-[0.2em] text-gold-light">SHORTS</p>
