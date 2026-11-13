@@ -1,0 +1,4 @@
+:HL["/aifeiler-official/_next/static/css/b6f6254ddb94c170.css","style"]
+:HL["/aifeiler-official/_next/static/css/dbcb3a0102679b32.css","style"]
+:HL["/aifeiler-official/_next/static/css/e0cb27ffd5906dcc.css","style"]
+0:{"tree":{"name":"","param":null,"prefetchHints":4112,"slots":{"children":{"name":"games","param":null,"prefetchHints":4160,"slots":{"children":{"name":"maze","param":null,"prefetchHints":4192,"slots":{"children":{"name":"__PAGE__","param":null,"prefetchHints":4256,"slots":null}}}}}}},"staleTime":300,"buildId":"Lns7wrOPF9vFQLeIYXFWt"}
