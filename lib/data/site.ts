@@ -3,7 +3,7 @@ export const SITE = {
   brandFull: "艾飛樂語錄｜艾飛樂數位文創個人工作室",
   businessName: "艾飛樂數位文創個人工作室",
   brandEn: "Aifeiler",
-  url: "https://kitty840219-web.github.io/aifeiler-official/",
+  url: "https://www.aifeiler-design.com/",
   telephone: "+886-9-5806-0596",
   founder: "Ivy",
   tagline: "天空越黑，星星越亮",
