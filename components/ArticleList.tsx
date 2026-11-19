@@ -62,7 +62,7 @@ export default function ArticleList({ articles }: { articles: Article[] }) {
             className="maintenance-title-row block w-full px-2 py-4 text-center text-[#2b2a5c] transition hover:bg-white/50 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#514368] sm:px-4"
             style={{ gridColumn: "1 / -1" }}
           >
-            <h3 className="font-serif font-semibold leading-relaxed" style={{ fontSize: "15px" }}>{a.title.replace(/^\d{4}-\d{2}-\d{2}｜/, "")}</h3>
+            <h3 className="font-serif font-semibold leading-relaxed" style={{ fontSize: "15px" }}><time dateTime={a.date} className="whitespace-nowrap">{a.date}</time>{" ｜ "}{a.title.replace(/^\d{4}-\d{2}-\d{2}｜/, "")}</h3>
           </button>
         ) : (
           <button
