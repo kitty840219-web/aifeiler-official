@@ -10,9 +10,70 @@ export type Article = {
   youtubeId?: string;
   galleryImages?: Array<{ src: string; alt: string; aspect?: "portrait" | "landscape" | "square" }>;
   link?: { href: string; label: string };
+  links?: Array<{ href: string; label: string }>;
 };
 
 export const ARTICLES: Article[] = [
+{
+  "id": "services-six-aifeiler",
+  "title": "艾飛樂 Aifeiler｜6 大服務項目",
+  "date": "2026-11-16",
+  "tag": "服務資訊",
+  "image": "/images/articles/services-six-1.webp",
+  "heroImage": "/images/articles/services-six-1.webp",
+  "excerpt": "廣告投放、Google 商家建置、影片剪輯、社群圖文・平面設計、AI 商業影片製作、網站架設・UI／UX 設計。",
+  "body": [
+    "• 廣告投放\n• Google 商家建置\n• 影片剪輯\n• 社群圖文・平面設計\n• AI 商業影片製作\n• 網站架設・UI／UX 設計",
+    "服務洽詢｜官方 LINE：@153yhemn"
+  ],
+  "galleryImages": [
+    {
+      "src": "/images/articles/services-six-2.webp",
+      "alt": "艾飛樂六大服務項目與起價",
+      "aspect": "square"
+    },
+    {
+      "src": "/images/articles/services-six-3.webp",
+      "alt": "廣告投放服務介紹",
+      "aspect": "square"
+    },
+    {
+      "src": "/images/articles/services-six-4.webp",
+      "alt": "Google 商家建置服務介紹",
+      "aspect": "square"
+    },
+    {
+      "src": "/images/articles/services-six-5.webp",
+      "alt": "影片剪輯服務介紹",
+      "aspect": "square"
+    },
+    {
+      "src": "/images/articles/services-six-6.webp",
+      "alt": "社群圖文・平面設計服務介紹",
+      "aspect": "square"
+    },
+    {
+      "src": "/images/articles/services-six-7.webp",
+      "alt": "AI 商業影片製作服務介紹",
+      "aspect": "square"
+    },
+    {
+      "src": "/images/articles/services-six-8.webp",
+      "alt": "網站架設・UI／UX 設計服務介紹",
+      "aspect": "square"
+    }
+  ],
+  "link": {
+    "href": "https://lin.ee/9Caz37P",
+    "label": "服務洽詢｜官方 LINE：@153yhemn"
+  },
+  "links": [
+    {
+      "href": "https://aifeiler0219.my.canva.site",
+      "label": "更多作品集專案介紹 ↗"
+    }
+  ]
+},
 {
   "id": "quote-meaningful-encounters",
   "title": "每一次相遇，都有它的意義。",

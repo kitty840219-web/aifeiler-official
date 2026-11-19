@@ -162,14 +162,15 @@ export default function ArticleList({ articles }: { articles: Article[] }) {
                   <p key={i}>{p}</p>
                 ))}
               </div>
-              {selected.link && (
+              {[...(selected.link ? [selected.link] : []), ...(selected.links ?? [])].map((link) => (
                 <Link
-                  href={selected.link.href}
+                  key={link.href}
+                  href={link.href}
                   className="mt-6 block rounded-full bg-gold px-4 py-3 text-center text-sm font-semibold text-night-dark transition hover:bg-gold-light"
                 >
-                  {selected.link.label}
+                  {link.label}
                 </Link>
-              )}
+              ))}
             </div>
           </div>
         </div>
