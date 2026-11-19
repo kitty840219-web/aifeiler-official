@@ -15,6 +15,52 @@ export type Article = {
 
 export const ARTICLES: Article[] = [
 {
+  "id": "interactive-website-launch",
+  "title": "艾飛樂互動式網站全新上線～",
+  "date": "2026-10-25",
+  "tag": "工具小幫手",
+  "image": "/images/articles/interactive-website-launch-1.webp",
+  "heroImage": "/images/articles/interactive-website-launch-1.webp",
+  "excerpt": "多款不同體驗的新功能，還有艾飛樂設計的78張塔羅牌與12星座，趕快來體驗☺️",
+  "body": [
+    "艾飛樂互動式網站全新上線～",
+    "多款不同體驗的新功能",
+    "連78張塔羅牌和12星座都是設計艾飛樂的喲 趕快來體驗☺️",
+    "#艾飛樂 #互動網站"
+  ],
+  "galleryImages": [
+    {
+      "src": "/images/articles/interactive-website-launch-2.webp",
+      "alt": "艾飛樂塔羅占卜牌陣與解牌畫面",
+      "aspect": "portrait"
+    },
+    {
+      "src": "/images/articles/interactive-website-launch-3.webp",
+      "alt": "艾飛樂十二星座運勢選擇畫面",
+      "aspect": "portrait"
+    },
+    {
+      "src": "/images/articles/interactive-website-launch-4.webp",
+      "alt": "雙魚座今日運勢與個性配對功能",
+      "aspect": "portrait"
+    },
+    {
+      "src": "/images/articles/interactive-website-launch-5.webp",
+      "alt": "艾飛樂網站夜間模式與最新文章",
+      "aspect": "portrait"
+    },
+    {
+      "src": "/images/articles/interactive-website-launch-6.webp",
+      "alt": "艾飛樂音樂播放清單與MV功能",
+      "aspect": "portrait"
+    }
+  ],
+  "link": {
+    "href": "https://www.facebook.com/share/p/18TYensUyt/?mibextid=wwXIfr",
+    "label": "前往 Facebook 原貼文 →"
+  }
+},
+{
   "id": "games-learning-daily-quote-launch",
   "title": "網站新功能遊戲已上線｜玩遊戲學英文・每日一句小卡",
   "date": "2026-11-10",
