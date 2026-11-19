@@ -15,6 +15,31 @@ export type Article = {
 
 export const ARTICLES: Article[] = [
 {
+  "id": "outsourcing-design-video-pricing-update",
+  "title": "外包合作｜平面設計・剪輯影片報價調整",
+  "date": "2026-11-15",
+  "tag": "服務資訊",
+  "excerpt": "外包合作，平面設計與剪輯影片報價調整，歡迎透過官方 LINE 預約洽詢。",
+  "body": [
+    "外包合作",
+    "平面設計｜剪輯影片 報價調整",
+    "立即預約："
+  ],
+  "image": "/images/articles/outsourcing-pricing-1.webp",
+  "heroImage": "/images/articles/outsourcing-pricing-1.webp",
+  "galleryImages": [
+    {
+      "src": "/images/articles/outsourcing-pricing-2.webp",
+      "alt": "品牌設計與 AI 影音報價：社群貼文、商品圖、平面設計、插畫、IP 角色與 AI 短影音",
+      "aspect": "square"
+    }
+  ],
+  "link": {
+    "href": "https://lin.ee/UML0Koc",
+    "label": "立即預約｜官方 LINE →"
+  }
+},
+{
   "id": "november-tarot-birthday-returning-event",
   "title": "11月限時活動｜壽星專屬禮・舊客大回饋",
   "date": "2026-11-14",
