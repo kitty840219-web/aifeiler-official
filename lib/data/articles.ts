@@ -15,6 +15,66 @@ export type Article = {
 
 export const ARTICLES: Article[] = [
 {
+  "id": "november-tarot-birthday-returning-event",
+  "title": "11月限時活動｜壽星專屬禮・舊客大回饋",
+  "date": "2026-11-14",
+  "tag": "最新活動",
+  "image": "/images/articles/november-tarot-event-1.webp",
+  "heroImage": "/images/articles/november-tarot-event-1.webp",
+  "excerpt": "11月限時活動，壽星專屬禮、舊客大回饋，現在立即預約～",
+  "body": [
+    "11月限時活動",
+    "壽星專屬禮｜舊客大回饋",
+    "現在立即預約～"
+  ],
+  "galleryImages": [
+    {
+      "src": "/images/articles/november-tarot-event-2.webp",
+      "alt": "舊客大回饋：11月14日預約限定",
+      "aspect": "square"
+    },
+    {
+      "src": "/images/articles/november-tarot-event-3.webp",
+      "alt": "限時優惠活動：感情占卜超值組",
+      "aspect": "square"
+    },
+    {
+      "src": "/images/articles/november-tarot-event-4.webp",
+      "alt": "交往套餐介紹",
+      "aspect": "square"
+    },
+    {
+      "src": "/images/articles/november-tarot-event-5.webp",
+      "alt": "家庭關係套餐介紹",
+      "aspect": "square"
+    },
+    {
+      "src": "/images/articles/november-tarot-event-6.webp",
+      "alt": "脫單套餐介紹",
+      "aspect": "square"
+    },
+    {
+      "src": "/images/articles/november-tarot-event-7.webp",
+      "alt": "曖昧套餐介紹",
+      "aspect": "square"
+    },
+    {
+      "src": "/images/articles/november-tarot-event-8.webp",
+      "alt": "工作套餐介紹",
+      "aspect": "square"
+    },
+    {
+      "src": "/images/articles/november-tarot-event-9.webp",
+      "alt": "自我成長套餐介紹",
+      "aspect": "square"
+    }
+  ],
+  "link": {
+    "href": "https://lin.ee/UML0Koc",
+    "label": "官方 LINE｜立即預約 →"
+  }
+},
+{
   "id": "interactive-website-launch",
   "title": "艾飛樂互動式網站全新上線～",
   "date": "2026-10-25",

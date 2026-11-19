@@ -12,7 +12,7 @@ import { ARTICLE_THUMBNAILS } from "@/lib/data/imageThumbnails";
 export default function ArticleList({ articles }: { articles: Article[] }) {
   const [selected, setSelected] = useState<Article | null>(null);
   const [category, setCategory] = useState("最新語錄");
-  const preferredCategories = ["最新語錄", "最新短片", "最新MV", "工具小幫手", "服務資訊", "系統維護"];
+  const preferredCategories = ["最新活動", "最新語錄", "最新短片", "最新MV", "工具小幫手", "服務資訊", "系統維護"];
   const articleTags = Array.from(new Set(articles.map((article) => article.tag)));
   const categories = [
     "全部文章",
