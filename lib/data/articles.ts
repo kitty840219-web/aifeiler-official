@@ -14,6 +14,24 @@ export type Article = {
 
 export const ARTICLES: Article[] = [
 {
+  "id": "quote-meaningful-encounters",
+  "title": "每一次相遇，都有它的意義。",
+  "date": "2026-11-15",
+  "tag": "最新語錄",
+  "image": "/images/articles/quote-meaningful-encounters.webp",
+  "heroImage": "/images/articles/quote-meaningful-encounters.webp",
+  "excerpt": "成長，就是一個不斷被時間打磨的過程。它悄悄改變了我們的思維，也圓融了我們的處事方式。",
+  "body": [
+    "成長，就是一個不斷被時間打磨的過程。它悄悄改變了我們的思維，也圓融了我們的處事方式。",
+    "人生的每個階段，背後幾乎都曾藏著一兩個讓人感到無力、甚至心碎的過渡期。那些曾無數次在夜裡難過、低潮的夜晚，都只是蛻變前的過渡期。等熬過去、走遠了再回頭看，你會發現，當年以為過不去的坎，如今不過是雲淡風輕的小事。",
+    "我們人與人之間，每一次相遇都有它的意義，從來都不是沒有原因的。有些人陪你走一程，有些人給你上一課；他們出現在生命裡，只為教會你成為更好的自己。"
+  ],
+  "link": {
+    "href": "https://www.facebook.com/share/p/19uSKUQ9ZV/?mibextid=wwXIfr",
+    "label": "前往 Facebook 原貼文 →"
+  }
+},
+{
   "id": "short-others-cant-you-can",
   "title": "別人不行，你可以…",
   "date": "2026-11-09",
