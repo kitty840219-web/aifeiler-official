@@ -45,17 +45,16 @@ function relevant(event) {
     && !/^(lib\/data\/(?:articles|imageThumbnails|systemMaintenance)\.|lib\/data\/maintenanceNotes\.json|app\/icon\.png)/.test(p));
 }
 function summarize(events) {
-  const summaries = [];
-  for (const [, match, label] of domains) {
-    const affected = events.filter(e => e.files.some(p => match.test(p)));
-    if (!affected.length) continue;
-    const subjects = affected.map(e => e.subject).join('\n');
-    const action = /optimi[sz]|compress|speed|load|cache|performance/i.test(subjects) ? '優化載入、顯示與使用體驗' : /fix|repair|restore|correct|regression/i.test(subjects) ? '修正操作或顯示問題，調整使用體驗' : '更新功能與操作介面';
-    summaries.push(`${label}：${action}。`);
-  }
-  if (!summaries.length && events.length) summaries.push('網站功能：更新頁面與操作功能，改善使用體驗。');
-  return summaries;
+  // Keep each distinct change instead of collapsing a whole feature into one vague line.
+  return [...new Set(events.map(event => {
+    const domain = domains.find(([, match]) => event.files.some(file => match.test(file)));
+    const label = domain?.[2] || '網站功能';
+    const subject = event.subject.trim().replace(/[。.!]+$/, '');
+    if (/^fix\s+/i.test(subject)) return `${label}：修正「${subject.replace(/^fix\s+/i, '')}」。`;
+    return `${label}：${subject}。`;
+  }))];
 }
+
 export function buildArticles(events, notes, today) {
   const cutoff = oneYearBefore(today);
   const days = new Map();

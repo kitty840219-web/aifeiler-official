@@ -30,3 +30,13 @@ test('unknown new tools are included and irrelevant documentation is excluded', 
   assert.equal(articles.length, 1);
   assert.ok(articles[0].body.some(x => x.startsWith('網站功能：')));
 });
+test('distinct updates to the same feature remain separate and specific', () => {
+  const articles = buildArticles([
+    event('one', '2026-11-19', ['components/ArticleList.tsx'], 'Add event category before quotes'),
+    event('two', '2026-11-19', ['components/ArticleList.tsx'], 'Left align maintenance dates and titles'),
+  ], {}, '2026-11-19');
+  assert.equal(articles[0].body.length, 3);
+  assert.ok(articles[0].body.some(line => line.includes('Add event category before quotes')));
+  assert.ok(articles[0].body.some(line => line.includes('Left align maintenance dates and titles')));
+  assert.ok(articles[0].body.every(line => !line.includes('更新功能與操作介面')));
+});

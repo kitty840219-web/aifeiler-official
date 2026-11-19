@@ -158,7 +158,14 @@ export default function ArticleList({ articles }: { articles: Article[] }) {
                 </div>
               ))}
               <div className="mt-4 space-y-4 whitespace-pre-line break-words text-sm leading-7 text-[#403d61]">
-                {selected.body.map((p, i) => (
+                {selected.tag === "系統維護" ? (
+                  <>
+                    <p className="text-left">{selected.body[0]}</p>
+                    <ol className="list-decimal space-y-4 pl-6 text-left">
+                      {selected.body.slice(1).map((item, i) => <li key={i} className="pl-1">{item}</li>)}
+                    </ol>
+                  </>
+                ) : selected.body.map((p, i) => (
                   <p key={i}>{p}</p>
                 ))}
               </div>
