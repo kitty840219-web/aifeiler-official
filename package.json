@@ -9,7 +9,9 @@
     "dev": "next dev",
     "build": "next build --webpack",
     "start": "next start",
-    "lint": "eslint ."
+    "lint": "eslint .",
+    "sync:portfolio": "node scripts/import-portfolio-pages.cjs",
+    "test:portfolio": "node --test scripts/import-portfolio-pages.test.cjs"
   },
   "dependencies": {
     "html2canvas": "^1.4.1",
@@ -24,6 +26,7 @@
     "autoprefixer": "^10.4.20",
     "eslint": "^9.15.0",
     "eslint-config-next": "^16.3.3",
+    "playwright": "^1.56.1",
     "postcss": "^8.4.47",
     "tailwindcss": "^3.4.10",
     "typescript": "^5.5.4"

@@ -34,6 +34,7 @@ jobs:
       - run: npm run lint
       - run: npm run test:maintenance
       - run: npm run test:quotes
+      - run: npm run test:portfolio
       - run: npm run build
         env:
           GITHUB_PAGES: "true"
