@@ -951,7 +951,7 @@ export const ARTICLES: Article[] = [
     id: "ai-web-design-service-launch",
     title: "AI 浪潮來襲！艾飛樂網站設計服務正式上線",
     date: "2026-07-31",
-    tag: "服務資訊",
+    tag: "工具小幫手",
     image: "/images/articles/web-design-service-1.webp",
     heroImage: "/images/articles/web-design-service-1.webp",
     galleryImages: [
