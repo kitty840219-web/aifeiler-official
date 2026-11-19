@@ -19,6 +19,8 @@ export const ARTICLES: Article[] = [
   "title": "11月限時活動｜壽星專屬禮・舊客大回饋",
   "date": "2026-11-14",
   "tag": "最新活動",
+  "excerpt": "11月限時活動，壽星專屬禮、舊客大回饋，現在立即預約～",
+  "body": ["11月限時活動", "壽星專屬禮｜舊客大回饋", "現在立即預約～"],
   "image": "/images/articles/november-tarot-event-1.webp",
   "heroImage": "/images/articles/november-tarot-event-1.webp",
   "excerpt": "11月限時活動，壽星專屬禮、舊客大回饋，現在立即預約～",
