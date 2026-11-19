@@ -22,9 +22,9 @@ jobs:
           node-version: 20
           cache: npm
       - run: npm ci
-      - run: npx playwright install --with-deps chromium
       - run: npm run test:portfolio
-      - run: npm run sync:portfolio
+      - name: Read public Canva version
+        run: CHROMIUM_PATH="$(command -v google-chrome)" npm run sync:portfolio
       - name: Commit complete portfolio update
         id: update
         run: |
