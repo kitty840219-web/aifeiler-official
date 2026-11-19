@@ -36,7 +36,7 @@ export default function ArticleList({ articles }: { articles: Article[] }) {
   return (
     <>
       <div className="mx-auto max-w-[92rem] px-4">
-        <div className="mb-9 flex flex-wrap justify-center gap-3">
+        <div className="site-article-filters mb-9 flex flex-wrap justify-center gap-3">
           {categories.map((item) => (
             <button
               key={item}
@@ -96,7 +96,7 @@ export default function ArticleList({ articles }: { articles: Article[] }) {
                 <time dateTime={a.date}>{a.date}</time>
               </div>
               <h3 className="article-case-title mt-3 font-serif text-xl font-bold leading-snug text-[#2b2a5c]">{a.title}</h3>
-              <p className="article-case-excerpt mt-3 line-clamp-3 text-sm leading-relaxed text-[#403d61]">{a.excerpt}</p>
+              <p className="article-case-excerpt mt-3 line-clamp-2 text-sm leading-relaxed text-[#403d61]">{a.excerpt}</p>
               <p className="article-case-read-more mt-5 text-sm font-bold text-gold-dark">{a.youtubeId ? (a.tag === "最新MV" ? "觀看 MV →" : "觀看短片 →") : "閱讀全文 →"}</p>
             </div>
           </button>
@@ -157,7 +157,7 @@ export default function ArticleList({ articles }: { articles: Article[] }) {
                   <Image src={asset(image.src)} alt={image.alt} fill className="object-contain" sizes="398px" />
                 </div>
               ))}
-              <div className="mt-4 space-y-4 whitespace-pre-line break-words text-sm leading-7 text-[#403d61]">
+              <div className="site-prose mt-4 space-y-4 whitespace-pre-line break-words text-sm leading-7 text-[#403d61]">
                 {selected.tag === "系統維護" ? (
                   <>
                     <p className="text-left">{selected.body[0]}</p>

@@ -60,7 +60,7 @@ function FortunePanel({ report }: { report: FortuneReport }) {
           </div>
           <ScoreStars score={report.overallScore} />
         </div>
-        <p className="mt-3 whitespace-pre-line text-sm leading-relaxed text-paper/85">{report.overallOpener}</p>
+        <p className="mt-3 whitespace-pre-line text-sm leading-[var(--site-leading-body)] text-paper/85">{report.overallOpener}</p>
       </div>
 
       {report.categories.map((c) => (
@@ -69,7 +69,7 @@ function FortunePanel({ report }: { report: FortuneReport }) {
             <p className="text-sm font-semibold text-paper">{c.label}</p>
             <ScoreStars score={c.score} />
           </div>
-          <p className="mt-2 text-xs leading-relaxed text-paper/70">{c.text}</p>
+          <p className="mt-2 text-xs leading-[var(--site-leading-body)] text-paper/70">{c.text}</p>
         </div>
       ))}
 
@@ -88,7 +88,7 @@ function FortunePanel({ report }: { report: FortuneReport }) {
         </div>
       </div>
       {report.luckySign && <div className="rounded-2xl border border-gold/15 bg-night-light/20 p-4 text-center"><p className="text-[10px] tracking-[0.2em] text-gold-light">今日速配星座</p><p className="mt-1 text-sm font-semibold text-paper">{report.luckySign}</p></div>}
-      {report.advice && <div className="rounded-2xl border border-gold/25 bg-gold/5 p-4"><p className="text-sm font-semibold text-gold-light">今日提醒</p><p className="mt-2 text-xs leading-relaxed text-paper/75">{report.advice}</p></div>}
+      {report.advice && <div className="rounded-2xl border border-gold/25 bg-gold/5 p-4"><p className="text-sm font-semibold text-gold-light">今日提醒</p><p className="mt-2 text-xs leading-[var(--site-leading-body)] text-paper/75">{report.advice}</p></div>}
     </div>
   );
 }
@@ -100,16 +100,16 @@ function PersonalityPanel({ sign }: { sign: ZodiacSign }) {
       <div className="grid grid-cols-2 gap-2">
         {[['掌管宮位', sign.house], ['守護星', sign.ruler], ['代表色', sign.luckyColor], ['幸運數字', String(sign.luckyNumber)]].map(([label, value]) => <div key={label} className="rounded-xl border border-gold/15 bg-night-light/20 p-3 text-center"><p className="text-[10px] text-gold-light">{label}</p><p className="mt-1 text-xs font-semibold text-paper">{value}</p></div>)}
       </div>
-      <div className="rounded-2xl border border-gold/15 bg-night-light/20 p-4"><p className="text-sm font-semibold text-paper">星座特徵</p><p className="mt-2 text-xs leading-relaxed text-paper/70">{sign.feature}</p></div>
+      <div className="rounded-2xl border border-gold/15 bg-night-light/20 p-4"><p className="text-sm font-semibold text-paper">星座特徵</p><p className="mt-2 text-xs leading-[var(--site-leading-body)] text-paper/70">{sign.feature}</p></div>
       <div className="rounded-2xl border border-gold/15 bg-night-light/20 p-5">
         <p className="text-xs font-semibold tracking-[0.25em] text-gold-light">OVERVIEW</p>
-        <p className="mt-3 text-sm leading-relaxed text-paper/85">{p.overview}</p>
+        <p className="mt-3 text-sm leading-[var(--site-leading-body)] text-paper/85">{p.overview}</p>
       </div>
       <div className="rounded-2xl border border-gold/15 bg-night-light/20 p-4">
         <p className="text-sm font-semibold text-paper">優點特質</p>
         <ul className="mt-2 space-y-1.5">
           {p.strengths.map((s) => (
-            <li key={s} className="flex items-start gap-1.5 text-xs leading-relaxed text-paper/70">
+            <li key={s} className="flex items-start gap-1.5 text-xs leading-[var(--site-leading-body)] text-paper/70">
               <span className="mt-0.5 text-gold-light">✦</span>
               {s}
             </li>
@@ -120,7 +120,7 @@ function PersonalityPanel({ sign }: { sign: ZodiacSign }) {
         <p className="text-sm font-semibold text-paper">待調整的地方</p>
         <ul className="mt-2 space-y-1.5">
           {p.challenges.map((s) => (
-            <li key={s} className="flex items-start gap-1.5 text-xs leading-relaxed text-paper/70">
+            <li key={s} className="flex items-start gap-1.5 text-xs leading-[var(--site-leading-body)] text-paper/70">
               <span className="mt-0.5 text-gold-light">✦</span>
               {s}
             </li>
@@ -204,14 +204,14 @@ function MatchPanel({ sign, partner, onPickPartner, onReset }: { sign: ZodiacSig
           <ScoreStars score={result.score} />
         </div>
         <p className="mt-2 font-serif text-lg font-bold text-paper">{result.verdict}</p>
-        <p className="mt-3 text-left text-sm leading-relaxed text-paper/80">{result.desc}</p>
+        <p className="mt-3 text-left text-sm leading-[var(--site-leading-body)] text-paper/80">{result.desc}</p>
         {loading && <p className="mt-3 animate-pulse text-xs text-gold-light">Gemini 正在整理兩人的相處重點⋯</p>}
       </div>
 
       {aiResult && <div className="space-y-3">
-        <div className="rounded-2xl border border-gold/15 bg-night-light/20 p-4"><p className="text-sm font-semibold text-paper">彼此吸引力</p><p className="mt-2 text-xs leading-relaxed text-paper/70">{aiResult.attraction}</p></div>
-        <div className="rounded-2xl border border-gold/15 bg-night-light/20 p-4"><p className="text-sm font-semibold text-paper">需要磨合</p><p className="mt-2 text-xs leading-relaxed text-paper/70">{aiResult.challenge}</p></div>
-        <div className="rounded-2xl border border-gold/25 bg-gold/5 p-4"><p className="text-sm font-semibold text-gold-light">相處建議</p><p className="mt-2 text-xs leading-relaxed text-paper/75">{aiResult.advice}</p></div>
+        <div className="rounded-2xl border border-gold/15 bg-night-light/20 p-4"><p className="text-sm font-semibold text-paper">彼此吸引力</p><p className="mt-2 text-xs leading-[var(--site-leading-body)] text-paper/70">{aiResult.attraction}</p></div>
+        <div className="rounded-2xl border border-gold/15 bg-night-light/20 p-4"><p className="text-sm font-semibold text-paper">需要磨合</p><p className="mt-2 text-xs leading-[var(--site-leading-body)] text-paper/70">{aiResult.challenge}</p></div>
+        <div className="rounded-2xl border border-gold/25 bg-gold/5 p-4"><p className="text-sm font-semibold text-gold-light">相處建議</p><p className="mt-2 text-xs leading-[var(--site-leading-body)] text-paper/75">{aiResult.advice}</p></div>
       </div>}
 
       <button
@@ -266,10 +266,10 @@ export default function ZodiacFortune() {
   }, [selected]);
 
   return (
-    <div className="relative overflow-hidden bg-night-dark pb-16 pt-24 text-paper">
+    <div className="site-inset-page relative overflow-hidden bg-night-dark pb-16 pt-24 text-paper">
       <div className="bg-stars pointer-events-none absolute inset-0 opacity-30" />
       <div className="relative mx-auto max-w-3xl px-4 sm:px-6">
-        <div className="grid grid-cols-[minmax(0,1fr)_120px] items-center gap-3 rounded-[2rem] bg-night-light/15 px-5 py-6">
+        <div className="site-hero-card grid grid-cols-[minmax(0,1fr)_120px] items-center gap-3 rounded-[2rem] bg-night-light/15 px-5 py-6">
           <div>
             <div className="mb-3 flex items-center gap-2">
               <Star className="h-3 w-3 text-gold-light" />
@@ -282,7 +282,7 @@ export default function ZodiacFortune() {
           </div>
         </div>
 
-        <div className="mt-8 grid grid-cols-3 gap-3 sm:grid-cols-4">
+        <div className="mt-6 grid grid-cols-3 gap-3 sm:grid-cols-4">
           {ZODIAC_SIGNS.map((sign) => (
             <button
               key={sign.id}

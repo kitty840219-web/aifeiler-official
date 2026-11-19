@@ -29,3 +29,7 @@
 .favoriteDialog{width:min(92vw,760px);max-height:88dvh;overflow:auto;border:1px solid #bca68a;border-radius:20px;padding:18px;background:#fbf7ef;color:#3e3553;text-align:center}
 .favoriteDialog::backdrop{background:#2e253e99}.favoriteDialogHeader{display:flex;align-items:center;justify-content:space-between;gap:12px}.favoriteDialogHeader h2{font-family:var(--font-noto-serif-tc),serif;font-size:21px}.favoriteDialogHeader button{min-width:44px;min-height:44px;border:1px solid #bba6c5;background:#fffaf2;border-radius:50%;color:#735e80}
 .favoriteCanvas{width:100%;height:auto;display:block;border:1px solid #bca68a;border-radius:14px;font-family:var(--font-noto-serif-tc),serif}
+.world .feature{margin:var(--site-gap-section) auto}
+.world .actions,.world .downloads{margin:var(--site-gap-content) 0;gap:var(--site-gap-title)}
+.world .gallerySection,.world .saved{margin-top:var(--site-gap-section)}
+.world .readable{line-height:var(--site-leading-body)}

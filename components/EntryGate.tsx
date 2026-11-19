@@ -70,7 +70,7 @@ export default function EntryGate() {
       <div className="absolute inset-0 bg-[#17142e]/25" aria-hidden />
       <div className="absolute inset-y-0 left-1/2 w-[min(81vw,24rem)] -translate-x-1/2 border-x border-white/25 bg-[#27213b]/45 shadow-[0_0_48px_rgba(12,9,27,0.28)] backdrop-blur-[2px]" aria-hidden />
 
-      <div className="relative mx-auto flex min-h-[100svh] w-[min(81vw,24rem)] flex-col items-center justify-center px-6 text-center sm:px-9">
+      <div className="site-entry-hero relative mx-auto flex min-h-[100svh] w-[min(81vw,24rem)] flex-col items-center justify-center px-6 text-center sm:px-9">
         <p className="text-xs font-bold tracking-[0.42em] text-[#f2d49f]">{SITE.brandEn.toUpperCase()}</p>
         <h1 className="mt-4 font-serif text-4xl font-black tracking-[0.16em] text-[#fffaf0] drop-shadow-[0_3px_14px_rgba(21,16,36,0.75)] sm:text-5xl">艾飛樂</h1>
         <p className="mt-3 text-sm font-medium tracking-[0.24em] text-white/85">數位文創個人工作室</p>
@@ -83,12 +83,12 @@ export default function EntryGate() {
 
         <Link
           href="/story"
-          className="mt-9 inline-flex min-w-52 items-center justify-center rounded-full bg-[#5d554e]/95 px-7 py-4 text-base font-bold tracking-[0.2em] text-white shadow-[0_8px_20px_rgba(12,9,27,0.32)] transition hover:-translate-y-0.5 hover:bg-[#756a60]"
+          className="mt-6 inline-flex min-w-52 items-center justify-center rounded-full bg-[#5d554e]/95 px-7 py-4 text-base font-bold tracking-[0.2em] text-white shadow-[0_8px_20px_rgba(12,9,27,0.32)] transition hover:-translate-y-0.5 hover:bg-[#756a60]"
         >
           瞭解更多
         </Link>
 
-        <nav aria-label="艾飛樂社群連結" className="mt-7 flex w-full items-center justify-center gap-2 sm:gap-3">
+        <nav aria-label="艾飛樂社群連結" className="mt-6 flex w-full items-center justify-center gap-2 sm:gap-3">
           <a
             href="https://www.facebook.com/profile.php?id=100093979488257"
             target="_blank"

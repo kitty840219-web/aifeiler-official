@@ -9,10 +9,10 @@ export default function AboutAuthorSection() {
     <section id="about-author" aria-label="創作年表" className="scroll-mt-28">
       <div className="mx-auto max-w-4xl px-5 sm:px-8"><hr className="border-0 border-t border-gold/30" /></div>
 
-      <section className="relative overflow-hidden bg-night-dark">
+      <section className="site-section relative overflow-hidden bg-night-dark">
         {/* Timeline */}
         <div className="relative mx-auto max-w-4xl px-5 pb-12 sm:px-8">
-          <div className="relative mt-12 space-y-10 border-l-2 border-dashed border-lavender/40 pl-8 text-left">
+          <div className="relative mt-6 space-y-12 border-l-2 border-dashed border-lavender/40 pl-8 text-left">
             {TIMELINE.map((t, i) => (
               <div key={t.title}>
                 <div className="relative">
@@ -53,12 +53,12 @@ export default function AboutAuthorSection() {
                     </div>
                     <p className="text-[10px] font-semibold tracking-[0.2em] text-gold-light">BRAND CHARACTER</p>
                     <h4 className="mt-1 font-serif text-sm font-bold text-paper">品牌第一個 IP 角色「小艾」</h4>
-                    <p className="mt-1 text-xs leading-relaxed text-paper/60">2024 年誕生，戴著草帽、綁著雙辮，靜靜微笑、雙手合十——小艾是艾飛樂的品牌代言角色。</p>
+                    <p className="mt-1 text-xs leading-[var(--site-leading-body)] text-paper/60">2024 年誕生，戴著草帽、綁著雙辮，靜靜微笑、雙手合十——小艾是艾飛樂的品牌代言角色。</p>
                   </div>
                 )}
                 {i === 3 && (
                   <>
-                    <hr className="mt-6 border-0 border-t border-[#d5c2a0]" />
+                    <hr className="site-divider" />
                     <div className="-ml-8"><AifeilerBookMiniReader /></div>
                   </>
                 )}

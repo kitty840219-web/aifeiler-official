@@ -11,7 +11,7 @@ export const metadata: Metadata = { title: `最新文章 ｜ ${SITE.brand}`, des
 
 export default function WorksPage() {
   return <div className="min-h-screen bg-night-dark">
-    <section className="relative overflow-hidden bg-night-dark pb-6 pt-8 text-center">
+    <section className="site-page-heading relative overflow-hidden bg-night-dark pb-6 pt-8 text-center">
       <div className="bg-stars pointer-events-none absolute inset-0 opacity-30" />
       <div className="relative mx-auto max-w-3xl px-4 sm:px-6">
         <div className="mb-3 flex items-center justify-center gap-2"><Star className="h-3 w-3 text-gold-light" /><p className="text-xs font-semibold tracking-[0.35em] text-gold-light sm:text-sm">LATEST</p><Star className="h-3 w-3 text-gold-light" delay="1s" /></div>
@@ -23,7 +23,7 @@ export default function WorksPage() {
         <span aria-hidden className="pr-16 font-serif text-lg text-paper sm:text-xl">「{SITE.tagline}，{SITE.taglineSub}。」</span>
       </div></div>
     </section>
-    <section className="relative overflow-hidden bg-night-dark pb-16 pt-4">
+    <section className="site-section relative overflow-hidden bg-night-dark pb-16 pt-4">
       <div className="bg-stars pointer-events-none absolute inset-0 opacity-50" />
       <div className="relative">
         <ArticleList articles={[...ARTICLES, ...maintenanceArticles]} />

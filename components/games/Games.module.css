@@ -189,3 +189,6 @@
 .memoryBoard{border:2px solid #a18aa8;background-color:#f4ecdf}
 .flipped{border:2px solid #9c8563}.matched{border:2px solid #708452}
 .starField{border:2px solid #8f7ba0}
+.world .panel{margin-block:var(--site-gap-content);padding:var(--site-card-padding)}
+.world .header>p:last-child,.world .panel>p:not(.eyebrow){line-height:var(--site-leading-body)}
+.world .gameNav{margin-top:var(--site-gap-section);gap:var(--site-gap-title)}

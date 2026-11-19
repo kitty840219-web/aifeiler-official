@@ -26,13 +26,13 @@ export default function TarotServiceMenu() {
       <div className="rounded-[2rem] bg-paper/[0.04] px-5 py-6 text-left">
         <p className="text-[10px] font-semibold tracking-[0.3em] text-gold-light/70">TAROT SERVICES</p>
         <h2 className="mt-2 text-2xl font-bold tracking-wide">付費真人占卜服務</h2>
-        <p className="mt-2 text-xs leading-6 text-gold-light/70">
+        <p className="mt-2 text-xs leading-[var(--site-leading-body)] text-gold-light/70">
           一次占卜．5 個問題．指引方向．看見答案．療癒內在
         </p>
       </div>
 
       {/* Service overview (single service / VIP plans / notes / payment) */}
-      <section className="mt-6">
+      <section className="site-prose mt-6">
         <h3 className="mb-3 text-xs font-semibold tracking-[0.2em] text-gold-light/70">單次服務．VIP 包月方案</h3>
         <button
           type="button"
@@ -69,7 +69,7 @@ export default function TarotServiceMenu() {
         <h3 className="mb-3 text-xs font-semibold tracking-[0.2em] text-gold-light/70">服務說明</h3>
         <ul className="space-y-1.5">
           {SERVICE_NOTES.map((n) => (
-            <li key={n} className="flex items-start gap-2 text-xs leading-5 text-paper/80">
+            <li key={n} className="flex items-start gap-2 text-xs leading-[var(--site-leading-body)] text-paper/80">
               <span className="mt-0.5 text-gold">・</span>
               <span>{n}</span>
             </li>
@@ -80,8 +80,8 @@ export default function TarotServiceMenu() {
       {/* Payment */}
       <section className="mt-6 rounded-xl border border-gold-light/20 bg-paper/[0.03] p-4">
         <h3 className="mb-2 text-xs font-semibold tracking-[0.2em] text-gold-light/70">付款方式</h3>
-        <p className="text-xs leading-6 text-paper/80">國內支付：{PAYMENT_METHODS.domestic}</p>
-        <p className="text-xs leading-6 text-paper/80">海外支付：{PAYMENT_METHODS.overseas}</p>
+        <p className="text-xs leading-[var(--site-leading-body)] text-paper/80">國內支付：{PAYMENT_METHODS.domestic}</p>
+        <p className="text-xs leading-[var(--site-leading-body)] text-paper/80">海外支付：{PAYMENT_METHODS.overseas}</p>
       </section>
 
       {/* Booking CTA */}
@@ -93,7 +93,7 @@ export default function TarotServiceMenu() {
       >
         加官方 LINE 預約占卜 →
       </a>
-      <p className="mt-4 text-center text-xs leading-6 text-gold-light/60">
+      <p className="mt-4 text-center text-xs leading-[var(--site-leading-body)] text-gold-light/60">
         希望每一次占卜，都能成為照亮你心中的光。
         <br />
         每一次抽牌，都是宇宙給你的訊息，讓塔羅陪你一起前行。
@@ -118,7 +118,7 @@ export default function TarotServiceMenu() {
               <p className="mt-1 text-sm font-bold text-gold-light">$1000 ／ 5 個問題</p>
               <ol className="mt-4 space-y-2.5">
                 {selected.questions.map((q, i) => (
-                  <li key={q} className="flex items-start gap-2.5 text-sm leading-6 text-paper/90">
+                  <li key={q} className="flex items-start gap-2.5 text-sm leading-[var(--site-leading-body)] text-paper/90">
                     <span className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-gold-light/15 text-[11px] font-semibold text-gold-light">
                       {i + 1}
                     </span>

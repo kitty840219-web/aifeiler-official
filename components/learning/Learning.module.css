@@ -45,3 +45,10 @@
 .choices button{border-color:#ad9275}
 .choices .correctChoice{border-color:#668c50}
 .choices .wrongChoice{border-color:#b55b70}
+.world .panel{margin-block:var(--site-gap-content);padding:var(--site-card-padding)}
+.world .header>p:last-child,.world .passage{line-height:var(--site-leading-body)}
+.world .sectionDivider{margin-block:var(--site-gap-section)}
+.world .cards{gap:var(--site-gap-paragraph)}
+.world .cardBody{gap:var(--site-gap-title);padding:var(--site-gap-paragraph) 12px}
+.world .cardBody h3{line-height:var(--site-leading-heading);min-height:3em}
+.world .cardBody p{line-height:var(--site-leading-body);min-height:3.7em}

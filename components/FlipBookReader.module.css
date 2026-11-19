@@ -25,3 +25,8 @@
 .expanded.landscape .pageNav{display:none}
 .expanded.landscape .image{max-height:calc(100dvh - 16px)}
 @media(orientation:portrait){.expanded.landscape .image{max-height:calc(100dvw - 16px)}}
+.reader{margin-top:var(--site-gap-content)}
+.details{padding-top:var(--site-gap-paragraph)}
+.title{margin-bottom:var(--site-gap-title);line-height:var(--site-leading-heading)}
+.hint{line-height:var(--site-leading-body)}
+.actions{margin-top:var(--site-gap-content);gap:var(--site-gap-title)}

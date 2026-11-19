@@ -27,7 +27,7 @@ const KEYWORD_STEPS = [
 export default function LineGuidePage() {
   return (
     <div>
-      <section className="relative overflow-hidden bg-night-dark pb-10 pt-20">
+      <section className="site-page-heading relative overflow-hidden bg-night-dark pb-10 pt-20">
         <div className="bg-stars pointer-events-none absolute inset-0 opacity-50" />
         <div className="relative mx-auto max-w-3xl px-4 sm:px-6">
           <div className="relative rounded-[2rem] bg-night-light/15 px-6 py-7">
@@ -54,7 +54,7 @@ export default function LineGuidePage() {
         </div>
       </section>
 
-      <section className="relative overflow-hidden bg-night-dark px-4 pb-10 pt-6 sm:px-6">
+      <section className="site-section relative overflow-hidden bg-night-dark px-4 pb-10 pt-6 sm:px-6">
         <div className="bg-stars pointer-events-none absolute inset-0 opacity-30" />
         <div className="relative mx-auto max-w-3xl">
           <p className="mb-4 text-xs font-semibold tracking-[0.25em] text-gold-light">新選單功能教學．左右滑動瀏覽</p>
@@ -62,7 +62,7 @@ export default function LineGuidePage() {
         </div>
       </section>
 
-      <section className="relative overflow-hidden bg-night-dark px-4 pb-20 pt-4 sm:px-6">
+      <section className="site-section relative overflow-hidden bg-night-dark px-4 pb-20 pt-4 sm:px-6">
         <div className="bg-stars pointer-events-none absolute inset-0 opacity-30" />
         <div className="relative mx-auto max-w-3xl">
           <p className="mb-4 text-xs font-semibold tracking-[0.25em] text-gold-light">大眾占卜／心理測驗 關鍵字領取教學．左右滑動瀏覽</p>

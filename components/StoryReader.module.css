@@ -28,3 +28,13 @@
 .transport .play{background:#efe3ce;font-size:17px}
 .time{font-size:11px;font-variant-numeric:tabular-nums;white-space:nowrap;margin:0 3px;color:#796c82}
 .hint{margin:9px 0 0;font-size:11px;color:#8c7b91;text-align:center}
+/* Shared reading rhythm, with enough room for the longest animated paragraph. */
+.reader{margin-top:var(--site-gap-content)}
+.frame,.ending{padding:var(--site-card-padding) 12px}
+.text,.ending p,.transcript p{line-height:var(--site-leading-body)}
+.tag{margin-bottom:var(--site-gap-paragraph)}
+.frame h3,.ending h3,.transcript h3{margin-bottom:var(--site-gap-content);line-height:var(--site-leading-heading)}
+.transcript section{margin-bottom:var(--site-gap-section)}
+.transcript p{margin-bottom:var(--site-gap-paragraph)}
+.reader{margin-top:0}
+.frame{justify-content:flex-start}

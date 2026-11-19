@@ -79,3 +79,9 @@
 .cardSlot,.pileTarget{border:2px dashed #e9d8af;background:#173c2ee6;color:#fff3d6}
 .tray{border:2px solid #a18b6b}.tray span{border:1px solid #aa9473}
 .guide,.result,.sliders,.touchHint{border-color:#b39b7c}
+.catalogSection{margin-top:var(--site-gap-section);padding-top:var(--site-gap-content)}
+.catalogSection>h2{line-height:var(--site-leading-heading);margin-bottom:var(--site-gap-title)}
+.catalogSection>p:not(.catalogLabel){line-height:var(--site-leading-body);margin-bottom:var(--site-gap-content)}
+.catalog{gap:var(--site-gap-paragraph)}
+.catalog h3{min-height:3em;line-height:var(--site-leading-heading);margin-block:var(--site-gap-paragraph) var(--site-gap-title)}
+.catalog p{line-height:var(--site-leading-body)}

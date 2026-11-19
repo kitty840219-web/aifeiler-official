@@ -20,10 +20,10 @@ export default function ShopPage() {
     <div className="mx-auto max-w-3xl px-4 sm:px-6"><hr className="border-0 border-t border-gold/50" /></div>
     <VisualLayoutEditor>
     <div id="peripheral-shop">
-      <section className="relative overflow-hidden bg-night-dark pb-10 pt-8">
+      <section className="site-section relative overflow-hidden bg-night-dark pb-10 pt-8">
         <div className="bg-stars pointer-events-none absolute inset-0 opacity-50" />
         <div className="relative mx-auto max-w-3xl px-4 sm:px-6">
-          <div className="grid grid-cols-[minmax(0,1fr)_130px] items-center gap-4 rounded-[2rem] bg-night-light/15 px-6 py-7">
+          <div className="site-hero-card grid grid-cols-[minmax(0,1fr)_130px] items-center gap-4 rounded-[2rem] bg-night-light/15 px-6 py-7">
             <div>
               <div className="mb-4 flex items-center gap-2">
                 <Star className="h-3 w-3 text-gold-light" />
@@ -40,7 +40,7 @@ export default function ShopPage() {
       </section>
 
       {/* Phone cases promo */}
-      <section className="relative overflow-hidden bg-night-dark px-4 pb-6 pt-6 sm:px-6">
+      <section className="site-section relative overflow-hidden bg-night-dark px-4 pb-6 pt-6 sm:px-6">
         <div className="relative mx-auto max-w-3xl">
           <Link
             href="/phone-cases"
@@ -66,7 +66,7 @@ export default function ShopPage() {
       </section>
 
       {/* LINE sticker promo */}
-      <section className="relative overflow-hidden bg-night-dark px-4 pb-20 pt-6 sm:px-6">
+      <section className="site-section relative overflow-hidden bg-night-dark px-4 pb-20 pt-6 sm:px-6">
         <div className="relative mx-auto max-w-3xl">
           <a
             href={LINKS.lineSticker}
@@ -93,7 +93,7 @@ export default function ShopPage() {
         </div>
       </section>
 
-      <section id="collaboration" className="relative overflow-hidden bg-night-dark px-4 py-16 sm:px-6 sm:py-20">
+      <section id="collaboration" className="site-section relative overflow-hidden bg-night-dark px-4 py-16 sm:px-6 sm:py-20">
         <div className="bg-stars pointer-events-none absolute inset-0 opacity-40" />
         <div className="relative mx-auto max-w-5xl">
           <SectionHeading eyebrow="CONTACT" title="洽談合作" desc="插畫委託、品牌合作與客製周邊，歡迎與我聯繫" center />

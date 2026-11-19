@@ -68,9 +68,9 @@ export default function StoryReader({ chapters, finish, finishHref }: { chapters
     <div className={styles.reader}>
       <div ref={stage} className={styles.stage} role={reduced ? undefined : "button"} tabIndex={reduced ? undefined : 0} aria-label="艾飛樂的故事・點一下跳到下一頁" onClick={advance} onKeyDown={event => { if (event.key === "Enter" || event.key === " " || event.key === "ArrowRight") { event.preventDefault(); advance(); } else if (event.key === "ArrowLeft") { event.preventDefault(); previous(); } }}>
         {finished ? <div className={styles.ending} role="status"><p>艾飛樂的故事</p><h3>謝謝你，讀到這裡。</h3><p>願每一段故事，都能留下溫柔的共鳴。</p></div> : reduced ?
-          <div className={styles.transcript}>{chapters.map(chapter => <section key={chapter.tag}><p className={styles.tag}>{chapter.tag}</p><h3>{chapter.title}</h3>{chapter.body.map((text, i) => <p key={i}>{text}</p>)}{chapter.quote && <blockquote>「{chapter.quote}」</blockquote>}</section>)}</div> :
+          <div className={styles.transcript}>{chapters.map(chapter => <section key={chapter.tag}><p className={`${styles.tag} site-kicker`}>{chapter.tag}</p><h3>{chapter.title}</h3>{chapter.body.map((text, i) => <p key={i}>{text}</p>)}{chapter.quote && <blockquote>「{chapter.quote}」</blockquote>}</section>)}</div> :
           <div className={`${styles.frame} ${frame.quote ? styles.quote : ""}`} style={{ opacity }}>
-            <p className={styles.tag}>{frame.tag}</p>
+            <p className={`${styles.tag} site-kicker`}>{frame.tag}</p>
             <h3>{frame.title}</h3>
             <p className={styles.text}>{frame.text}</p>
           </div>}

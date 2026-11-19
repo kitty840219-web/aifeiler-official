@@ -21,10 +21,10 @@ const VIDEO_TOPICS = [
 export default function VideosPage() {
   return (
     <div>
-      <section className="relative overflow-hidden bg-night-dark pb-12 pt-20">
+      <section className="site-page-heading relative overflow-hidden bg-night-dark pb-12 pt-20">
         <div className="bg-stars pointer-events-none absolute inset-0 opacity-50" />
         <div className="relative mx-auto max-w-3xl px-4 sm:px-6">
-          <div className="grid grid-cols-[minmax(0,1fr)_130px] items-center gap-4 rounded-[2rem] bg-night-light/15 px-6 py-7">
+          <div className="site-hero-card grid grid-cols-[minmax(0,1fr)_130px] items-center gap-4 rounded-[2rem] bg-night-light/15 px-6 py-7">
             <div>
               <div className="mb-4 flex items-center gap-2">
                 <Star className="h-3 w-3 text-gold-light" />
@@ -40,7 +40,7 @@ export default function VideosPage() {
         </div>
       </section>
 
-      <section className="mx-auto max-w-5xl px-4 py-20 sm:px-6">
+      <section className="site-section mx-auto max-w-5xl px-4 py-20 sm:px-6">
         <div className="overflow-hidden rounded-[2rem] border border-gold/20 bg-gradient-to-br from-night-light to-night shadow-soft">
           <div className="grid items-center gap-8 p-10 sm:grid-cols-[auto_1fr] sm:p-14">
             <div className="mx-auto flex h-20 w-20 items-center justify-center rounded-full bg-paper/10 text-paper sm:h-24 sm:w-24">
@@ -64,7 +64,7 @@ export default function VideosPage() {
         </div>
       </section>
 
-      <section className="bg-night-dark py-20">
+      <section className="site-section bg-night-dark py-20">
         <div className="mx-auto max-w-6xl px-4 sm:px-6">
           <SectionHeading eyebrow="TOPICS" title="影片主題方向" center />
           <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">

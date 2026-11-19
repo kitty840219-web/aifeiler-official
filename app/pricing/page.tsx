@@ -51,7 +51,7 @@ export default function PricingPage() {
   return (
     <div className={styles.page}>
       <div className={styles.leader}>
-        <div className={`${styles.wrap} ${styles.hero}`}>
+        <div className={`${styles.wrap} ${styles.hero} site-page-heading`}>
           <div className={styles.heroTop}>
             <div>
               <div className={styles.eyebrow} style={{ marginBottom: 14 }}>

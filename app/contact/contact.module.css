@@ -76,3 +76,6 @@ html[data-view-mode="desktop"] .letterHeading,html[data-view-mode="desktop"] .fo
 .lineContact{width:100%;margin:0 auto 28px;text-align:center}
 
 .send button{justify-content:center;text-align:center}
+.details,.review{margin-top:var(--site-gap-section);padding-top:var(--site-gap-content)}
+.letterHeading{padding:var(--site-card-padding)}
+.intro,.details dd{line-height:var(--site-leading-body)}

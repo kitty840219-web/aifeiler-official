@@ -83,7 +83,7 @@ export default function FlipBookReader({ title, pages, landscape = false, origin
         </div>
       </dialog>
       <div className={styles.details}>
-        <p className={styles.title}>{title}</p>
+        <p className={`${styles.title} site-kicker`}>{title}</p>
         <p className={styles.hint}>點右側下一頁・點左側上一頁・左右滑動翻頁</p>
         <div className={styles.actions}>
           <button ref={opener} type="button" onClick={open}>{landscape ? "橫向放大閱讀 ↻" : "放大閱讀 ↗"}</button>

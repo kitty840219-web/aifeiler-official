@@ -17,7 +17,7 @@ export const metadata: Metadata = {
 export default function StoryPage() {
   return (
     <div>
-      <section className="relative overflow-hidden bg-night-dark pb-2 pt-16 text-center">
+      <section className="site-page-heading relative overflow-hidden bg-night-dark pb-2 pt-16 text-center">
         <div className="bg-stars pointer-events-none absolute inset-0 opacity-30" />
         <div className="relative mx-auto max-w-3xl px-4 sm:px-6">
           <div className="mb-3 flex items-center justify-center gap-2">
@@ -31,7 +31,7 @@ export default function StoryPage() {
       </section>
 
       {/* character card */}
-      <section className="relative overflow-hidden bg-night-dark px-4 pb-2 pt-6 text-center sm:px-6">
+      <section className="site-section relative overflow-hidden bg-night-dark px-4 pb-2 pt-6 text-center sm:px-6">
         <div className="bg-stars pointer-events-none absolute inset-0 opacity-30" />
         <div className="relative mx-auto flex max-w-3xl flex-col items-center">
           <div className="relative h-40 w-40 shrink-0 overflow-hidden rounded-full border-4 border-gold/40 bg-paper shadow-soft sm:h-48 sm:w-48">
@@ -40,17 +40,17 @@ export default function StoryPage() {
         </div>
       </section>
 
-      <section id="story-portfolio" aria-label="個人作品集專題介紹" className="relative scroll-mt-28 bg-night-dark px-5 pb-8 pt-5 sm:px-8">
+      <section id="story-portfolio" aria-label="個人作品集專題介紹" className="site-section story-portfolio-section relative scroll-mt-28 bg-night-dark px-5 pb-8 pt-5 sm:px-8">
         <div className="mx-auto max-w-4xl">
-          <hr className="mb-8 border-0 border-t border-[#d5c2a0]" />
+          <hr className="site-divider" />
           <SectionHeading eyebrow="PORTFOLIO" title="個人作品集專題介紹" center />
           <PortfolioMiniReader />
-          <hr aria-label="作品集與品牌故事分隔線" className="mx-auto mt-24 w-4/5 border-0 border-t border-[#b89b6e]" />
+          <hr aria-label="作品集與品牌故事分隔線" className="site-divider" />
         </div>
       </section>
 
       {/* paginated dialogue reader */}
-      <section className="relative overflow-hidden bg-night-dark pb-16 pt-2">
+      <section className="site-section story-playback-section relative overflow-hidden bg-night-dark pb-16 pt-2">
         <div className="bg-stars pointer-events-none absolute inset-0 opacity-30" />
         <div className="relative">
           <StoryReader chapters={CHAPTERS} finishHref="/story#about-author" />

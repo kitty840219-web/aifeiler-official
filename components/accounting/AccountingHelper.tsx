@@ -462,7 +462,7 @@ function InvoiceTool({ onDone }: { onDone: (r: Omit<AccountingRecord, "id" | "da
         <ResultRow label="營業稅額（5%）" value={fmt(result.tax)} />
         <ResultRow label="含稅總額" value={fmt(result.taxIncluded)} strong />
       </div>
-      <p className="text-[11px] leading-5 text-paper/50">＊{isTriplicate ? "三聯式發票" : "二聯式發票"}：{isTriplicate ? "開立給公司行號、機關團體等營業人，買受人統編為必填。" : "開立給一般消費者，買受人姓名為選填。"}</p>
+      <p className="text-[11px] leading-[var(--site-leading-body)] text-paper/50">＊{isTriplicate ? "三聯式發票" : "二聯式發票"}：{isTriplicate ? "開立給公司行號、機關團體等營業人，買受人統編為必填。" : "開立給一般消費者，買受人姓名為選填。"}</p>
       <ExportButtons
         nodeRef={resultRef}
         slug="invoice-calc"
@@ -627,7 +627,7 @@ function LaborInsuranceTool({ onDone }: { onDone: (r: Omit<AccountingRecord, "id
           { label: "公司負擔合計", value: fmt(result.employerTotal) },
         ]}
       />
-      <p className="text-[11px] leading-5 text-paper/50">
+      <p className="text-[11px] leading-[var(--site-leading-body)] text-paper/50">
         ＊員工健保費依本人實際眷屬數（最多計收至本人＋3 位眷屬）計算；雇主負擔則依全國平均眷屬數 1.56 人計算，與員工實際眷屬數無關。簡化參考費率，實際請以勞保局／健保署最新公告費率與級距為準。
       </p>
       <button
@@ -719,7 +719,7 @@ function RentalTool({ onDone }: { onDone: (r: Omit<AccountingRecord, "id" | "dat
               <div className="my-2 h-px bg-gold/15" />
             </>
           )}
-          <p className="text-sm leading-6 text-paper/80">房東是公司或行號時免辦理租金扣繳，請直接請對方開立統一發票。</p>
+          <p className="text-sm leading-[var(--site-leading-body)] text-paper/80">房東是公司或行號時免辦理租金扣繳，請直接請對方開立統一發票。</p>
         </div>
       )}
       <ExportButtons
@@ -740,7 +740,7 @@ function RentalTool({ onDone }: { onDone: (r: Omit<AccountingRecord, "id" | "dat
             : [{ label: "備註", value: "房東是公司或行號時免辦理租金扣繳" }]),
         ]}
       />
-      <p className="text-[11px] leading-5 text-paper/50">
+      <p className="text-[11px] leading-[var(--site-leading-body)] text-paper/50">
         ＊房東為個人時，公司／行號支付租金需按 10% 扣繳所得稅；單次給付達 20,010 元（113 年起）需另扣 2.11% 二代健保補充保費。實際規定請以國稅局最新公告為準。
       </p>
       <button
@@ -809,7 +809,7 @@ function QaAccordion({ items }: { items: { q: string; a: string }[] }) {
               <span className="flex-1 text-sm font-semibold leading-5 text-paper">{item.q}</span>
               <span className={`mt-0.5 shrink-0 text-gold-light transition-transform ${open ? "rotate-90" : ""}`}>›</span>
             </button>
-            {open && <p className="px-3.5 pb-3.5 pl-[3.25rem] text-xs leading-5 text-paper/70">{item.a}</p>}
+            {open && <p className="px-3.5 pb-3.5 pl-[3.25rem] text-xs leading-[var(--site-leading-body)] text-paper/70">{item.a}</p>}
           </div>
         );
       })}
@@ -823,14 +823,14 @@ function CompanyGuide() {
   return (
     <div className="space-y-5">
       <div ref={contentRef}>
-        <p className="text-xs leading-5 text-paper/60">7 個步驟，帶你了解成立公司的大致流程（實際文件與規定請以最新公告為準）。</p>
+        <p className="text-xs leading-[var(--site-leading-body)] text-paper/60">7 個步驟，帶你了解成立公司的大致流程（實際文件與規定請以最新公告為準）。</p>
         <ol className="mt-3 space-y-3">
           {COMPANY_STEPS.map((s, i) => (
             <li key={s.title} className="flex gap-3">
               <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-gold/15 text-xs font-bold text-gold-light">{i + 1}</span>
               <div>
                 <p className="text-sm font-semibold text-paper">{s.title}</p>
-                <p className="mt-0.5 text-xs leading-5 text-paper/60">{s.desc}</p>
+                <p className="mt-0.5 text-xs leading-[var(--site-leading-body)] text-paper/60">{s.desc}</p>
               </div>
             </li>
           ))}
@@ -904,17 +904,17 @@ export default function AccountingHelper() {
   return (
     <div>
       {/* Hero */}
-      <section className="relative overflow-hidden bg-night-dark pb-8 pt-20">
+      <section className="site-page-heading relative overflow-hidden bg-night-dark pb-8 pt-20">
         <div className="bg-stars pointer-events-none absolute inset-0 opacity-50" />
         <div className="relative mx-auto max-w-3xl px-4 sm:px-6">
-          <div className="grid grid-cols-[minmax(0,1fr)_130px] items-center gap-4 rounded-[2rem] bg-night-light/15 px-6 py-7">
+          <div className="site-hero-card grid grid-cols-[minmax(0,1fr)_130px] items-center gap-4 rounded-[2rem] bg-night-light/15 px-6 py-7">
             <div>
               <div className="mb-4 flex items-center gap-2">
                 <Star className="h-3 w-3 text-gold-light" />
                 <p className="text-xs font-semibold tracking-[0.35em] text-gold-light">ACCOUNTING</p>
               </div>
               <h1 className="font-serif text-2xl font-bold text-paper">會計小幫手</h1>
-              <p className="mt-3 text-sm leading-6 text-paper/70">簡單．快速．專業．安心 ❤️</p>
+              <p className="mt-3 text-sm leading-[var(--site-leading-body)] text-paper/70">簡單．快速．專業．安心 ❤️</p>
             </div>
             <div className="animate-float-slow relative h-40 w-full">
               <Image src={asset("/images/services/pricing-guide-cutout.webp")} alt="小艾拿著清單，準備幫你試算" fill className="object-contain" sizes="130px" />
@@ -930,7 +930,7 @@ export default function AccountingHelper() {
         </div>
       </section>
 
-      <section className="relative overflow-hidden bg-night-dark px-4 pb-20 pt-4 sm:px-6">
+      <section className="site-section relative overflow-hidden bg-night-dark px-4 pb-20 pt-4 sm:px-6">
         <div className="bg-stars pointer-events-none absolute inset-0 opacity-30" />
         <div className="relative mx-auto max-w-3xl">
           <div className="flex gap-2 rounded-full border border-gold/15 bg-night-light/10 p-1">
@@ -998,7 +998,7 @@ export default function AccountingHelper() {
                 {askError && <p className="mt-4 text-xs text-blush">{askError}</p>}
                 {answer && (
                   <div className="mt-4 rounded-2xl border border-gold/15 bg-night-light/20 p-4">
-                    <p className="text-sm leading-6 text-paper/90">{answer.text}</p>
+                    <p className="text-sm leading-[var(--site-leading-body)] text-paper/90">{answer.text}</p>
                     <div className="mt-3 flex flex-wrap gap-2">
                       {answer.suggested && (
                         <button
@@ -1109,7 +1109,7 @@ export default function AccountingHelper() {
                     <span className="flex h-7 w-7 items-center justify-center rounded-full bg-gold/15 text-xs font-bold text-gold-light">{s.n}</span>
                     <p className="text-sm font-bold text-paper">{s.title}</p>
                   </div>
-                  <p className="mt-2 text-xs leading-5 text-paper/60">{s.desc}</p>
+                  <p className="mt-2 text-xs leading-[var(--site-leading-body)] text-paper/60">{s.desc}</p>
                 </div>
               ))}
               <div className="rounded-2xl border border-gold/15 bg-night-light/10 p-4 text-xs leading-6 text-paper/60">

@@ -20,8 +20,8 @@ function NavbarInner() {
 
   return (
     <header className="sticky top-0 z-30 border-b border-paper/10 bg-night-dark">
-      <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-3 sm:px-6">
-        <Link href="/" aria-label="回到首頁" className="flex items-center gap-2.5" onClick={() => setOpen(false)}>
+      <div className="site-navbar-row mx-auto flex max-w-6xl items-center justify-between px-4 py-3 sm:px-6">
+        <Link href="/" aria-label="回到首頁" className="site-navbar-brand flex items-center gap-2.5" onClick={() => setOpen(false)}>
           <span className="relative h-10 w-10 shrink-0 overflow-hidden rounded-full border-2 border-gold-light bg-night-light shadow-card">
             <Image
               src={asset("/images/nav/nav-about.webp")}
@@ -37,8 +37,8 @@ function NavbarInner() {
           </span>
         </Link>
 
-        <div className="flex items-center gap-2">
-          <div className="relative flex items-center rounded-full border border-gold/30 bg-night text-gold-light shadow-soft">
+        <div className="site-navbar-controls flex items-center gap-2">
+          <div className="site-navbar-tools relative flex items-center rounded-full border border-gold/30 bg-night text-gold-light shadow-soft">
             <ViewModeToggle />
             <span className="h-5 w-px bg-gold/20" aria-hidden />
             <ThemeToggle />
@@ -48,7 +48,7 @@ function NavbarInner() {
           <button
             aria-label="開啟選單"
             onClick={() => setOpen((v) => !v)}
-            className="flex h-9 w-9 items-center justify-center rounded-full text-paper"
+            className="site-navbar-menu flex h-9 w-9 items-center justify-center rounded-full text-paper"
           >
             <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
               {open ? (

@@ -13,8 +13,8 @@ export const metadata: Metadata = {
 
 export default function ContactPage() {
   return (
-    <div className={styles.page}>
-      <header className={styles.hero}>
+    <div className={`${styles.page} site-inset-page`}>
+      <header className={`${styles.hero} site-page-heading`}>
         <p className={styles.eyebrow}>A NOTE TO AIFEILER</p>
         <div className={styles.art}><Image src={asset("/images/contact/contact-collaboration-cutout.webp")} alt="小艾帶著筆記本，聆聽你的想法" fill priority sizes="120px" className="object-contain" /></div>
         <h1><span className={styles.titleLine}>與我聯絡</span><span className={styles.titleLine}>讓想法，慢慢成形。</span></h1>
