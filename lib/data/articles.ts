@@ -15,6 +15,45 @@ export type Article = {
 
 export const ARTICLES: Article[] = [
 {
+  "id": "games-learning-daily-quote-launch",
+  "title": "網站新功能遊戲已上線｜玩遊戲學英文・每日一句小卡",
+  "date": "2026-11-10",
+  "tag": "工具小幫手",
+  "image": "/images/articles/games-learning-launch-1.webp",
+  "excerpt": "玩遊戲學習英文，還有艾飛樂的每日一句小卡，可以自由切換、儲存收藏，療癒每一天。",
+  "body": [
+    "網站新功能遊戲已上線😝",
+    "可以玩遊戲學習英文 這次參考教育部專程設計各個年齡成 從6歲到60歲都可以學的英文句子玩遊戲",
+    "還有新增艾飛樂的每日一句小卡自由切換 可以儲存卡片收藏療癒～～～🥰"
+  ],
+  "galleryImages": [
+    {
+      "src": "/images/articles/games-learning-launch-1.webp",
+      "alt": "艾飛樂每日一句小卡與英文朗讀功能",
+      "aspect": "portrait"
+    },
+    {
+      "src": "/images/articles/games-learning-launch-2.webp",
+      "alt": "單字拼拼樂英文學習遊戲畫面",
+      "aspect": "portrait"
+    },
+    {
+      "src": "/images/articles/games-learning-launch-3.webp",
+      "alt": "星光遊樂園語言學習館與互動遊戲",
+      "aspect": "portrait"
+    },
+    {
+      "src": "/images/articles/games-learning-launch-4.webp",
+      "alt": "星光遊樂園接龍紙牌遊戲畫面",
+      "aspect": "portrait"
+    }
+  ],
+  "link": {
+    "href": "https://www.facebook.com/share/p/1EaDBqujQU/?mibextid=wwXIfr",
+    "label": "前往 Facebook 原貼文 →"
+  }
+},
+{
   "id": "services-six-aifeiler",
   "title": "艾飛樂 Aifeiler｜6 大服務項目",
   "date": "2026-11-16",
