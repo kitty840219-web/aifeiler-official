@@ -45,7 +45,7 @@ export default function StoryPage() {
           <hr className="mb-8 border-0 border-t border-[#d5c2a0]" />
           <SectionHeading eyebrow="PORTFOLIO" title="個人作品集專題介紹" center />
           <PortfolioMiniReader />
-          <hr className="relative top-16 mt-10 border-0 border-t border-[#d5c2a0]" />
+          <hr aria-label="作品集與品牌故事分隔線" className="mx-auto mt-24 w-4/5 border-0 border-t border-[#b89b6e]" />
         </div>
       </section>
 
